@@ -10,6 +10,7 @@ import sys
 import json
 import rule_engine
 import uuid
+import hashlib
 
 class packetprocessengine:
     def __init__(self):
@@ -77,62 +78,75 @@ class packetprocessengine:
 class rulesengine:
     def __init__(self):
         self.rengine = {}
-        self.validaterules()
         self.ruleset = []
 
     def validaterules(self):
-        for fn in os.listdir():
-            if ".ark" not in fn: continue
-            self.rengine = json.loads(open(fn).read())
+        
         return True
 
     def rundomainrules(self, content):
-        for r in self.rengine:
-            context = rule_engine.Context(type_resolver=rule_engine.type_resolver_from_dict({
-                'domain': rule_engine.DataType.STRING,
-                'address': rule_engine.DataType.ARRAY(rule_engine.DataType.STRING)
-            }))
-            rule = rule_engine.Rule(r["rule"])
-            for x in content:
-                js = {"domain" : x}
-                for y in content[x]:
-                    js[y] = content[x][y]
-                try:
-                    if rule.matches(js) == True:
-                        print("Matched", js)
-                        rs = r
-                        del(rs['rule'])
-                        del(rs['scope'])
-                        self.ruleset.append(rs)
-                except rule_engine.errors.SymbolResolutionError as ex:
-                    #print("Unavailable param", ex)
-                    pass
+        for fn in os.listdir():
+            if ".ark" not in fn: continue
+            print("Processing rules from", fn)
+            self.rengine = json.loads(open(fn).read())
+            for r in self.rengine:
+                context = rule_engine.Context(type_resolver=rule_engine.type_resolver_from_dict({
+                    'domain': rule_engine.DataType.STRING,
+                    'address': rule_engine.DataType.ARRAY(rule_engine.DataType.STRING)
+                }))
+                rule = rule_engine.Rule(r["rule"])
+                for x in content:
+                    js = {"domain" : x}
+                    for y in content[x]:
+                        js[y] = content[x][y]
+                    try:
+                        if rule.matches(js) == True:
+                            print("Matched", js)
+                            rs = r
+                            if "rule" in rs: del(rs['rule'])
+                            if "scope" in rs: del(rs['scope'])
+                            self.ruleset.append(rs)
+                    except rule_engine.errors.SymbolResolutionError as ex:
+                        #print("Unavailable param", ex)
+                        pass
 
     def get_detected_rules(self):
         return self.ruleset
 
 def main():
-    fname = '2023-03-16-Emotet-E5-infection-with-spambot-traffic.pcap'
+    if len(sys.argv) != 2:
+        print("Usage: <pscap.py <pcap filename>")
+
+    fname = sys.argv[1]
+
+    #fname = '2023-03-08-IcedID-with-BackConnect-and-VNC-traffic.pcap'
+
+    sha256 = hashlib.sha256()
+    sha256.update(open(fname, "rb").read())
+    s256 = sha256.hexdigest()
 
     if False:
         ppe = packetprocessengine()
         ppe.loadpcap(fname)
         ppe.process_packet()
-        with open("dnsproto.txt", "w") as f:
+        with open("%s_dnsproto.json"%(s256), "w") as f:
              f.write(json.dumps(ppe.get_processed_dns_packet(), indent=4))
+
+        return
     
     ren = rulesengine()
     if False: 
         ren.rundomainrules(ppe.get_processed_dns_packet())
     else:
-        fd = json.load(open("dnsproto.txt"))    
+        fd = json.load(open("%s_dnsproto.json"%(s256)))
+        ren.rundomainrules(fd)
 
     res = ren.get_detected_rules()
     if res == []:
         print("No Detection seen")
         return
     
-    with open("%s.res"%(str(uuid.uuid4())), "w") as f:
+    with open("%s.json"%(s256), "w") as f:
         f.write(json.dumps(res, indent=4))
 
 if __name__ == "__main__":
