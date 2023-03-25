@@ -114,6 +114,7 @@ class rulesengine:
         return self.ruleset
 
 def main():
+    DEBUG_MODE = True
     if len(sys.argv) != 2:
         print("Usage: <pscap.py <pcap filename>")
 
@@ -125,7 +126,7 @@ def main():
     sha256.update(open(fname, "rb").read())
     s256 = sha256.hexdigest()
 
-    if False:
+    if not DEBUG_MODE:
         ppe = packetprocessengine()
         ppe.loadpcap(fname)
         ppe.process_packet()
@@ -135,7 +136,7 @@ def main():
         return
     
     ren = rulesengine()
-    if False: 
+    if not DEBUG_MODE: 
         ren.rundomainrules(ppe.get_processed_dns_packet())
     else:
         fd = json.load(open("%s_dnsproto.json"%(s256)))
