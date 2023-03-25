@@ -27,12 +27,10 @@ jobs:
     - name: Build
       run: |
         cd Arkthor/Front/Source/ArkThor.UI
-        dotnet build --no-restore
+        dotnet build --configuration Release --no-restore
+        dotnet publish -c Release -o ../ArkThor.UI -r linux-x64 --self-contained true /p:UseAppHost=true
     - name: Test
       run: |
         cd Arkthor/Front/Source/ArkThor.UI
         dotnet test --no-build --verbosity normal
-    - name: Publish
-      run: |
-        cd Arkthor/Front/Source/ArkThor.UI
-        dotnet publish ArkThor.UI.csproj --configuration 'Release' --output $(Build.ArtifactStagingDirectory)
+ 
