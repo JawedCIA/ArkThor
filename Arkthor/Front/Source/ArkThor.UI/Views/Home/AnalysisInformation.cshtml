@@ -1,0 +1,379 @@
+﻿@{
+    ViewData["Title"] = "Analysis Information";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    <!-- Add Bootstrap 5 -->
+    <link rel="stylesheet" href="~/theme/Extra/css/tabler-flags.min.css">
+}
+
+@section scripts {
+
+    <!-- FLOT CHARTS -->
+    <script src="~/theme/plugins/flot/jquery.flot.js"></script>
+    <!-- FLOT RESIZE PLUGIN - allows the chart to redraw when the window is resized -->
+    <script src="~/theme/plugins/flot-old/jquery.flot.resize.min.js"></script>
+    <!-- FLOT PIE PLUGIN - also used to draw donut charts -->
+    <script src="~/theme/plugins/flot-old/jquery.flot.pie.min.js"></script>
+    <!--BootStarp 5-->
+   <!--<script src="~/theme/Extra/bootstrap-5.0.2-dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/theme/Extra/bootstrap-5.0.2-dist/js/bootstrap.min.js"></script>-->
+    <script src="~/theme/Extra/flowjs/src/flow.js"></script>
+    <script src="~/theme/Extra/flowjs/src/flowitem.js"></script>
+    <script src="~/theme/Extra/flowjs/src/flowconnector.js"></script>
+    <script src="~/theme/Extra/flowjs/src/flow.min.js"></script>
+    <script src="~/theme/Extra/flowjs/lib/createjs-2015.05.21.min.js"></script>
+    <script src="~/theme/Extra/js/js-country-code.min.js"></script>
+    <script type="text/javascript">
+        'use strict';
+       window.onload = GetFileRecordDetails();
+       // window.onload = c2CommunicationFlowGraph();
+
+    </script>
+}
+
+<!-- Content Wrapper-->
+<div class="content-wrapper" id="divAnalysisInformationMain">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1>Analysis Information</h1>
+                </div>
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="~/">Dashboard</a></li>                       
+                        <li class="breadcrumb-item active">Analysis Information</li>
+                    </ol>
+                </div>
+            </div>
+        </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+
+        <!-- Default box -->
+        <div class="card">
+            <div class="card-header" id="divCardHeader">
+                <h3 class="card-title" id="title"></h3>
+
+                <div class="card-tools" id="divCardTools">
+                   
+                    <button type="button" class="btn btn-sm btn-tool" onclick="generatePDF('divAnalysisInformationMain','AnalysiInformation');">
+                        <i class="fas fa-download"></i>
+                    </button>
+                    <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
+                        <i class="fas fa-minus"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="card-body" id="divCardBody">
+                <div class="row">
+                    <div class="col-12 col-md-12 col-lg-8 order-1 order-md-1">
+                        <div class="row" id="divRowTop">
+                            <!--STATUS-->
+                            <div class="col-12 col-sm-3">
+                                <div class="info-box">
+                                    <span class="info-box-icon bg-success elevation-1" id="divInfoboxStatus"><i class="fa fa-cog fa-2x fa-fw" id="iStatus"></i></span>
+                                    <!--<i class="fa fa-spinner fa-spin"></i>-->
+
+                                    <div class="info-box-content">
+                                        <span class="info-box-text">STATUS</span>
+                                        <span class="info-box-number" id="spanStatus">
+                                                                                        
+                                        </span>
+                                    </div>
+                                    <!-- /.info-box-content -->
+                                </div>
+                                <!-- /.info-box -->
+                            </div>
+                            <!-- /.col -->
+                            <!--TYPE fa-optin-monster fa_custom-->
+                            <div class="col-12 col-sm-3">
+                                <div class="info-box">
+                                    <span class="info-box-icon bg-danger elevation-1" id="divInfoboxType"><i class="fa fa-bug fa-2x"></i></span>
+
+                                    <div class="info-box-content">
+                                        <span class="info-box-text">Threat Type</span>
+                                        <span class="info-box-number" id="spanType">
+                                                                                   
+                                        </span>
+                                    </div>
+                                    <!-- /.info-box-content -->
+                                </div>
+                                <!-- /.info-box -->
+                            </div>
+                            <!-- /.col -->
+                            <!--Current Stage-->
+                            <div class="col-12 col-sm-3">
+                                <div class="info-box">
+                                    <span class="info-box-icon bg-info elevation-1" id="divInfoboxStage"><i class="fa fa-cogs"></i></span>
+
+                                    <div class="info-box-content">
+                                        <span class="info-box-text">Current Stage</span>
+                                        <span class="info-box-number" id="spanStage">
+
+                                        </span>
+                                    </div>
+                                    <!-- /.info-box-content -->
+                                </div>
+                                <!-- /.info-box -->
+                            </div>
+                            <!-- /.col -->
+                            <!--SEVERITY-->
+                            <div class="col-12 col-sm-3">
+                                <div class="info-box">
+                                    <span class="info-box-icon bg-warning elevation-1" id="divInfoboxSeverity"><i class="fa fa-wrench"></i></span>
+
+                                    <div class="info-box-content">
+                                        <span class="info-box-text">Threat Severity</span>
+                                        <span class="info-box-number" id="spanSeverity">
+                                          
+                                        </span>
+                                    </div>
+                                    <!-- /.info-box-content -->
+                                </div>
+                                <!-- /.info-box -->
+                            </div>
+                            <!-- /.col -->
+                           
+                        </div>
+
+                        <!--C2 WorkFlows Included-->
+                        <div class="card card-danger">
+                            <div class="card-header">
+                                <h3 class="card-title">
+                                   @* <i class="fas fa-bullhorn"></i>*@
+                                    
+                                    <i class="fab fa-optin-monster fa-2x"></i>
+                                   @* <i class="nav-icon fas fa-rocket"></i>*@
+                                    C2 Communication Flow
+                                </h3>
+                                <div class="card-tools">
+                                    <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
+                                        <i class="fas fa-minus"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <!-- /.card-header -->
+                            <div class="card-body clearfix">
+
+                                <canvas id="canvas_C2CommunicationFlow" width="700" height="200"></canvas>
+                                      
+                               
+                            </div>
+                            <!-- /.card-body -->
+                        </div>  <!-- /. Card Changes -->
+                        <div class="row">
+                            <div class="col-12">
+
+                                <!--Countries Details-->
+                                <div class="card card-danger" id="divInfCountries">
+                                    <div class="card-header">
+                                        <h3 class="card-title">
+                                            
+                                            <i class="icon fab fa-connectdevelop"></i>
+                                            Affected(Infected) Countries
+                                        </h3>
+                                        <div class="card-tools">
+                                            <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
+                                                <i class="fas fa-minus"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <!-- /.card-header -->
+                                    <div class="card-body clearfix">
+                                        <table class="table table-striped table-bordered table-sm" style="table-layout:fixed" id="tblCountrieFlag">
+                                          
+                                            <tbody id="tblTbodyInfCountriesFlag">
+                                                <tr id="tblTrInfCountriesFlag">
+                                              <!--Dynamicaly Generated-->
+                                                </tr>
+
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <!-- /.card-body -->
+                                </div>
+                      
+
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-12">
+
+                                <!--Countries Details-->
+                                <div class="card card-warning" id="divCountriesC2">
+                                    <div class="card-header">
+                                        <h3 class="card-title">
+
+                                            <i class="icon fab fa-connectdevelop"></i>
+
+                                            Countries - C2 Communication
+                                        </h3>
+                                        <div class="card-tools">
+                                            <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
+                                                <i class="fas fa-minus"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <!-- /.card-header -->
+                                    <div class="card-body clearfix">
+                                        <table class="table table-striped table-bordered table-sm" style="table-layout:fixed" id="tblCountrieFlag">
+
+                                            <tbody id="tblTbodyCountriesFlag">
+                                                <tr id="tblTrCountriesFlag">
+                                                   
+                                                </tr>
+
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <!-- /.card-body -->
+                                </div>
+
+
+                            </div>
+                        </div>
+
+
+                        <div class="row">
+                            <div class="col-12">
+
+                                <!--Rule Extractor-->
+                                <div class="card" id="divRuleExtractor">
+                                    <div class="card-header">
+                                        <h3 class="card-title">
+
+                                            <i class="fas fa-magic"></i>
+
+                                            Summary - Rule Extractor
+                                        </h3>
+                                        <div class="card-tools">
+                                            <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
+                                                <i class="fas fa-minus"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <!-- /.card-header -->
+                                    <div class="card-body clearfix">
+                                        <span id="pRuleExtractor">
+                                        ~ Sample Text ~
+                                            The rules extraction from the Decision Tree can help with better understanding how samples propagate through the tree during the prediction.
+                                        </span>
+                                    </div>
+                                    <!-- /.card-body -->
+                                </div>
+                              <!-- Rule validator-->
+                                <div class="row">
+                                    <div class="col-12">
+
+                                        <!--Rule validator-->
+                                        <div class="card" id="divRuleValidator">
+                                            <div class="card-header">
+                                                <h3 class="card-title">
+
+                                                    <i class="fas fa-check-square"></i>
+
+                                                    Summary - Rule Validator
+                                                </h3>
+                                                <div class="card-tools">
+                                                    <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
+                                                        <i class="fas fa-minus"></i>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                            <!-- /.card-header -->
+                                            <div class="card-body clearfix">
+                                                <span id="pRuleValidator">
+                                                    ~ Sample Text ~
+                                                    The rules extraction from the Decision Tree can help with better understanding how samples propagate through the tree during the prediction.
+                                                </span>
+                                            </div>
+                                            <!-- /.card-body -->
+                                        </div>
+                                     
+                                    </div>
+                                </div>
+                              <!--Rule Parser -->
+                                <div class="row">
+                                    <div class="col-12">
+                                        <div class="card" id="divRuleParser">
+                                            <div class="card-header">
+                                                <h3 class="card-title">
+
+                                                    <i class="fa fa-user-secret"></i>
+
+                                                    Summary - Rule Parser
+                                                </h3>
+                                                <div class="card-tools">
+                                                    <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
+                                                        <i class="fas fa-minus"></i>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                            <!-- /.card-header -->
+                                            <div class="card-body clearfix">
+                                                <span id="pRuleParser">
+                                                    ~ Sample Text ~
+                                                    The rules extraction from the Decision Tree can help with better understanding how samples propagate through the tree during the prediction.
+                                                </span>
+                                            </div>
+                                            <!-- /.card-body -->
+                                        </div>
+                                      
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-md-12 col-lg-4 order-2 order-md-2" id="divRightInfo">
+                        <div class="col-sm-12 border-left">
+                            <dl>
+                                <dt><i class="fas fa-key"></i> SHA-256</dt>
+                                <dd id="ddSHA256"></dd>
+                                <dt><i class="far fa-user"></i> Submitted By</dt>
+                                <dd id="ddUploader"></dd>
+                                <dt><i class="far fa-calendar-alt"></i> Uploaded Date</dt>
+                                <dd id="ddUploadTime"></dd>
+                                <dt><i class="far fa-calendar-alt"></i> Analysis Date</dt>
+                                <dd id="ddAnalysisDateTime"> </dd>
+                                <dt> <i class="fas fa-cloud-download-alt"></i> File</dt>
+                                <dd><h6 class="description-header"> <a href="" id="hrefUploadedFile"> </a></h6></dd>
+                                <dt><i class="fas fa-cloud-download-alt"></i> Json File</dt>
+                                <dd><h6 class="description-header"> <a href="" id="hrefJsonFile"></a></h6></dd>
+
+                               @* <dt><i class="fas fa-cloud-download-alt"></i> Show Similar threat traces</dt>*@
+                                <dd><h6><i class="fas fa-object-group"></i> Show Similar<a href="" id="hrefsimilar"> threat traces</a></h6></dd>
+                            </dl>
+                            <ul class="list-unstyled">
+                                <li>
+                                    <h6><i class="fas fa-cogs"></i> MITRE ATT&CK techniques - <a href="https://attack.mitre.org/tactics/TA0011/" id="hrefMITREATTaCK" target="_blank">C2 Detection</a></h6>
+                                    <ul id="ulMitreDisplay">
+                                       <!-- <li>T1071</li>
+                                        <li>T1568</li>
+                                        <li>T1008</li>
+                                        <li>T1090</li>
+                                        <li>T1219</li>-->
+                                    </ul>
+                                </li>
+                            </ul>
+                         
+                        </div>
+                     
+
+                    </div>
+                </div>
+
+            </div>
+            <!-- /.card -->
+        </div>
+    </section>
+    <!-- /.content -->
+
+
+</div><!-- /.content-wrapper -->

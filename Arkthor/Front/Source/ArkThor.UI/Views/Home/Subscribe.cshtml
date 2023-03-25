@@ -1,0 +1,101 @@
+﻿@{
+    ViewData["Title"] = "Subscribe";
+
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    <link rel="stylesheet" href="~/theme/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" href="~/theme/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
+    <!-- daterange picker -->
+    <link rel="stylesheet" href="~/theme/plugins/daterangepicker/daterangepicker.css">
+    <!-- Tempusdominus Bbootstrap 4 -->
+    <link rel="stylesheet" href="~/theme/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
+}
+
+@section scripts {
+    <!-- SGDOP -->
+    @*<script src="~/theme/MD/js/SGDOP.js"></script>*@
+
+    <!-- jQuery -->
+    <script src="~/theme/plugins/jquery/jquery.min.js"></script>
+    <!-- Bootstrap 4 -->
+    <script src="~/theme/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- DataTables -->
+    <script src="~/theme/plugins/datatables/jquery.dataTables.min.js"></script>
+    <script src="~/theme/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+    <script src="~/theme/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+    <script src="~/theme/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+
+    <!-- InputMask -->
+    <script src="~/theme/plugins/moment/moment.min.js"></script>
+    <script src="~/theme/plugins/inputmask/min/jquery.inputmask.bundle.min.js"></script>
+    <!-- Tempusdominus Bootstrap 4 -->
+    <script src="~/theme/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
+
+
+    <script type="text/javascript">
+        'use strict';       
+        
+       
+
+    </script>
+
+}
+
+<div class="content-wrapper" id="divContentWrapperRequestDetails">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1>SUBSCRIBE</h1>
+                </div>
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="~/Home">Home</a></li>
+                        <li class="breadcrumb-item active">Subscribe</li>
+                    </ol>
+                </div>
+            </div>
+        </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+        @*<div class="card card-info collapsed-card">*@
+        <div class="card card-info">
+            <div class="card-header">
+                <h3 class="card-title" id="h3ThreatTraceTitle">Get the Weekly Threat Categorization Executive Report delivered to your email!</h3>
+                <div class="card-tools">
+
+                    <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
+                        <i class="fas fa-minus"></i>
+                    </button>
+                </div>
+            </div>
+            <!-- <form class="form-horizontal">-->
+            <div class="card-body">
+                <div class="row">
+                    <div class="input-group col-6">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+                        </div>
+                        <input type="email" class="form-control" placeholder="Email">
+                    </div>
+                    <b>
+                    <button type="submit" class="btn btn-primary">SUBSCRIBE</button>
+                </div>
+              
+
+
+            </div>
+         
+
+        </div>
+        <!-- /.card -->
+    </section>
+  
+</div>
+
+
+
+

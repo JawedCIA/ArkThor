@@ -1,0 +1,165 @@
+﻿@{
+    ViewData["Title"] = "Analysis Record";
+
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    <link rel="stylesheet" href="~/theme/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" href="~/theme/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
+    <!-- daterange picker -->
+    <link rel="stylesheet" href="~/theme/plugins/daterangepicker/daterangepicker.css">
+    <!-- Tempusdominus Bbootstrap 4 -->
+    <link rel="stylesheet" href="~/theme/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
+}
+
+@section scripts {
+   
+
+    <!-- jQuery -->
+    <script src="~/theme/plugins/jquery/jquery.min.js"></script>
+    <!-- Bootstrap 4 -->
+    <script src="~/theme/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- DataTables -->
+    <script src="~/theme/plugins/datatables/jquery.dataTables.min.js"></script>
+    <script src="~/theme/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+    <script src="~/theme/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+    <script src="~/theme/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+
+    <!-- InputMask -->
+    <script src="~/theme/plugins/moment/moment.min.js"></script>
+    <script src="~/theme/plugins/inputmask/min/jquery.inputmask.bundle.min.js"></script>
+    <!-- Tempusdominus Bootstrap 4 -->
+    <script src="~/theme/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
+    <!-- Bootstrap 4 -->
+    <script src="~/theme/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <script type="text/javascript">
+        'use strict';
+        
+        
+        window.onload = GetAnalysisRecordsForChoosenDate();
+        $(function () {
+
+            //Date range picker
+            $('#divUploadeDateFrom').datetimepicker({
+                format: 'YYYY-MM-DD'// format: 'L'
+            });
+
+            $('#divUploadedDateTo').datetimepicker({
+                format: 'YYYY-MM-DD'// format: 'L'
+            });
+
+        });
+
+    </script>
+
+}
+
+<div class="content-wrapper" id="divContentWrapperRequestDetails">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1>Analysis Records</h1>
+                </div>
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="~/Home">Home</a></li>
+                        <li class="breadcrumb-item active">Analysis Records</li>
+                    </ol>
+                </div>
+            </div>
+        </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+        @*<div class="card card-info collapsed-card">*@
+        <div class="card card-info">
+            <div class="card-header">
+                <h3 class="card-title">Retrieve Analyses Record (By UploadedDate)</h3>
+                <div class="card-tools">
+
+                    <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
+                        <i class="fas fa-minus"></i>
+                    </button>
+                </div>
+            </div>
+            <!-- <form class="form-horizontal">-->
+            <div class="card-body">
+
+                <div class="form-group row">
+
+                    <div class="col-md-1">
+                        <label>From:</label>
+                    </div>
+                    <div class="col-md-3">
+
+                        <div class="input-group date" id="divUploadeDateFrom" data-target-input="nearest">
+                            <input type="text" class="form-control datetimepicker-input" data-target="#divUploadeDateFrom" id="txtUploadDateFrom" required />
+                            <div class="input-group-append" data-target="#divUploadeDateFrom" data-toggle="datetimepicker">
+                                <div class="input-group-text">
+                                    <i class="fa fa-calendar"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <label class="col-md-1">To:</label>
+                    <div class="col-md-3">
+                        <div class="input-group date" id="divUploadDateTo" data-target-input="nearest">
+                            <input type="text" class="form-control datetimepicker-input" data-target="#divUploadDateTo" id="txtUploadDateTo" required />
+                            <div class="input-group-append" data-target="#divUploadDateTo" data-toggle="datetimepicker">
+                                <div class="input-group-text">
+                                    <i class="fa fa-calendar"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3">
+                        <button type="button" class="btn btn-primary" onclick="fetchRecords()"> Fetch Analysis Records </button>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <table id="tblRecordSummary" class="table table-hover table-striped table-bordered table-sm" style="table-layout:fixed">
+                        <thead>
+                            <tr>
+                                <!--<th style="width:4%">ID</th>-->
+                                <th style="width:25%">SHA-256</th>
+                                <th style="width:15%">FileName</th>
+                                <th style="width:12%">Uploaded Date</th>
+                                <th>Status</th>
+                                <th>Threat Category</th>
+                                <th>Analysis Date </th>
+                                <th>Uploaded By</th>
+                                <th>Current Stage</th>
+                                <th style="text-align:center;width:4%"></th>
+                            </tr>
+                        </thead>
+                        <tbody id="tblTbodyRecordSummary">
+                         <tr>
+                            <td colspan="8" id="trCurrentNoRecordFound"> No Analysis Record Found for Chosen Date Range. </td>
+                          </tr>
+                        </tbody>
+
+                    
+                    </table>
+
+                </div>
+              
+
+
+            </div>
+         
+
+        </div>
+        <!-- /.card -->
+    </section>
+  
+</div>
+
+
+
+

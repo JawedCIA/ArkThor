@@ -1,0 +1,37 @@
+# ASP.NET Core
+# Build and test ASP.NET Core projects targeting .NET Core.
+# Add steps that run tests, create a NuGet package, deploy, and more:
+# https://docs.microsoft.com/azure/devops/pipelines/languages/dotnet-core
+
+trigger:
+- master
+variables:
+  buildConfiguration: 'Release'
+  uiSourceDir: '$(Build.SourcesDirectory)/ArkThor.UI/ArkThor.UI.csproj'
+  apiSourceDir: '$(Build.SourcesDirectory)/ArkThor.API/ArkThor.API.csproj'
+
+stages:
+- stage: Build
+  pool: Build
+  jobs:
+  - job: DOTNETPublishUI
+    continueOnError: true
+    timeoutInMinutes: 5  
+    steps:
+    - script: dotnet publish $(uiSourceDir) --configuration $(buildConfiguration) --output $(Build.ArtifactStagingDirectory)/UI
+      displayName: 'dotnet publish $(buildConfiguration)'
+    - task: PublishBuildArtifacts@1
+      inputs:
+        PathtoPublish: $(Build.ArtifactStagingDirectory)/UI
+        ArtifactName: UI
+
+  - job: DOTNETPublishAPI
+    timeoutInMinutes: 5
+    steps:
+    - script: dotnet publish $(apiSourceDir) --configuration $(buildConfiguration) --output $(Build.ArtifactStagingDirectory)/API
+      displayName: 'dotnet publish $(buildConfiguration)'
+    - task: PublishBuildArtifacts@1
+      inputs:
+        PathtoPublish: $(Build.ArtifactStagingDirectory)/API
+        ArtifactName: API
+

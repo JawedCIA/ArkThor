@@ -1,0 +1,195 @@
+﻿
+@{
+    ViewData["Title"] = "LiveTracking";
+   Layout = "~/Views/Shared/_CollapseLayout.cshtml";
+    <!--Reload the page at regular Interval-->
+    <meta http-equiv="refresh" content="180">
+    <!-- Tell the browser to be responsive to screen width -->
+    @*<meta name="viewport" content="width=device-width, initial-scale=1">*@
+}
+@section scripts {
+
+   
+     
+
+    <script type="text/javascript">
+        'use strict';
+        window.onload = getLiveTrackingInfo();
+      // window.onload = getReleaseTeamForCurrentWeek360();
+        $(document).ready(function(){
+	        $('#PDBHelp').click(function(){
+  		        $('#PDBHelpModal').modal('show')
+	        });
+           
+        });
+     
+    </script>
+
+}
+
+
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+
+  <!-- PDB  content -->
+        <section class="content">
+
+            <!-- Default box -->
+            <div class="card card-primary" >
+                <div class="card-header">
+                    <h4 class="card-title" style="text-align:center;color:white;" id="htitleLivetRacking">
+                        <i class="nav-icon fas fa-rocket"></i>
+                          
+                       ArkThor Board - File Analysis Live Tracking
+                       </h4>
+                     
+
+                    <div class="card-tools">
+                    
+                        <!--<button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
+                            <i class="fas fa-minus"></i>
+                        </button>-->
+                        <button type="button" class="fa fa-info" data-toggle="tooltip"  data-html="true"  id="PDBHelp">
+                      </button>
+                       
+                    </div>
+                </div>
+                <div class="card-body">
+
+                    <div class="row" id="divBoardRow" style="margin-left: 30px;">
+                    <div style="width:70%" id="divNoRequestFound">
+                  
+                        <center>
+                         <img src="~/theme/MD/Images/CartEmpty_1.png" height="350" width="70%">
+                        </center>
+                      
+                    </div>
+                     <!--Dynamic Generated-->
+                 </div>                  
+                    <!-- /.card -->
+
+                </div>
+
+                 <div class="card-footer">
+   
+               <!-- <div class="row">
+                    <div class="col">-->
+
+                        <div class="card card-danger">
+                            <div class="card-header">
+                                <h3 class="card-title">ArkThor Engine Status</h3>
+                                <div class="card-tools">
+                                    <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                                        <i class="fas fa-minus"></i>
+                                    </button>
+
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                <!-- /.col -->
+                            <div class="col">
+                                <div class="card card-success card-outline">
+                                    <div class="card-header">
+                                        <h3 class="card-title">Connector (API)</h3>
+                                    </div>
+                                    <div class="card-body" id="divAPI">
+                                        <i class="fa fa-cogs fa-spin fa-3x fa-fw"></i>
+                                        <p><strong class="text-success">OnLine</strong></p>
+                                    </div>
+                                    <!-- /.card-body -->
+                                </div>
+                                <!-- /.card -->
+                            </div>
+                                <div class="col">
+                                <div class="card card-orange card-outline">
+                                        <div class="card-header">
+                                            <h3 class="card-title">SCAPY</h3>
+                                        </div>
+                                    <div class="card-body" id="divTScapy">
+                                      
+                                        <!--<i class="fa fa-lightbulb fa-3x fa-fw"></i>-->
+                                        <i class="fa fa-cogs fa-spin fa-3x fa-fw"></i>
+                                        <p><strong class="text-success">OnLine</strong></p>
+                                        </div>
+                                        <!-- /.card-body -->
+                                    </div>
+                                    <!-- /.card -->
+                                </div>
+                                <!-- /.col -->
+                                <!-- /.col -->
+                                <div class="col">
+                                <div class="card card-primary card-outline">
+                                        <div class="card-header">
+                                            <h3 class="card-title">Extractor</h3>
+                                        </div>
+                                    <div class="card-body" id="divExtractor">
+                                        <i class="fa fa-cogs fa-spin fa-3x fa-fw"></i>
+                                        <p><strong class="text-success">OnLine</strong></p>
+                                        </div>
+                                        <!-- /.card-body -->
+                                    </div>
+                                    <!-- /.card -->
+                                </div>
+                                <!-- /.col -->
+                                <!-- /.col -->
+                                <div class="col">
+                                <div class="card card-lime card-outline">
+                                        <div class="card-header">
+                                            <h3 class="card-title"> Validator</h3>
+                                        </div>
+                                    <div class="card-body" id="divValidator">
+                                        <i class="fa fa-cogs fa-spin fa-3x fa-fw"></i>
+                                        <p><strong class="text-success">OnLine</strong></p>
+                                        </div>
+                                        <!-- /.card-body -->
+                                    </div>
+                                    <!-- /.card -->
+                                </div>
+                                <!-- /.col -->
+                                <div class="col">
+                                <div class="card card-cyan card-outline">
+                                        <div class="card-header">
+                                            <h3 class="card-title">Parser</h3>
+                                        </div>
+                                    <div class="card-body" id="divParser">
+                                        <i class="fa fa-cogs fa-3x fa-fw"></i>
+                                        <p><strong class="text-danger">OffLine</strong></p>
+                                        </div>
+                                        <!-- /.card-body -->
+                                    </div>
+                                    <!-- /.card -->
+                                </div>
+                                <!-- /.col -->
+                                <!-- /.col -->
+                                <div class="col">
+                                <div class="card card-olive card-outline">
+                                        <div class="card-header">
+                                            <h3 class="card-title">Watcher/Uploader</h3>
+                                        </div>
+                                    <div class="card-body" id="divWatcher">
+                                        <i class="fa fa-cogs fa-spin fa-3x fa-fw"></i>
+                                        <p><strong class="text-success">OnLine</strong></p>
+                                        </div>
+                                        <!-- /.card-body -->
+                                    </div>
+                                    <!-- /.card -->
+                                </div>
+                                <!-- /.col -->
+                                </div>
+                            </div>
+                            <!-- /.card-body -->
+                        </div>
+                <!--  </div>
+                </div>-->
+                <!-- /.row -->
+    
+            <!-- /.card-footer-->
+               
+            </div>
+            <!-- /.card -->
+        </div>
+        </section>
+  
+</div>
+<!-- /.card -->
