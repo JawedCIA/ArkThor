@@ -3,10 +3,10 @@
 	available https://drive.google.com/drive/folders/1qLZ-bk6Rat2mXKKSkBaBoa9nhrpl3LBV?usp=share_link
 	arkthor-api.tar
 	arkthor-ui.tar
-2. To upload Tars file as docker image (cd to local drive where you have downloaded tars file)
+2. To load Tars file as docker image (cd to local drive where you have downloaded tars file)
 	docker load -i arkthor-ui
 	docker load -i arkthor-api
-3. run below docker command to make sure images loaded locally in docker
+3. run below docker command to make sure images are loaded locally,
          docker images
     
 	REPOSITORY    TAG       IMAGE ID       CREATED             SIZE
@@ -27,8 +27,8 @@
 	To Access API:
 		http://localhost:33900
 
-6. Usefull APIs end point to call within core script
-	6.1 To Upload JSON result file at the end of categorization
+6. Usefull APIs end point to consumed within core script
+	6.1 To Upload JSON result file at the end of categorization analysis
 		http://localhost:33900/FileUpload/UploadFileOutPutJson
 		
 		(In case you want to use curl)
@@ -37,19 +37,19 @@
 			  -H 'accept: */*' \
 			  -H 'Content-Type: multipart/form-data' \
 			  -F 'file='
-	6.2 To Update Status to to time
+	6.2 To Update Status whenever needed (atleast uodate once core picked the file for analysis)
 		http://localhost:33900/api/FileRecord/UpdateStatus?hash256=<HashOfFile>&status=InProgress
 		
 		curl -X 'PUT' \
 			  'http://localhost:33900/api/FileRecord/UpdateStatus?hash256=21332&status=InProgress' \
 			  -H 'accept: */*'
-		(I am considering Belos status)
+		(I am considering Below status)
 		InProgress - when core picked the file for analysis
 		Removed - when core removed file for various reason like currupted or something wrong 
 		Cancelled - When core got intruptted or couldnot completed or due to various error scenario
 		Done - once the analysis has been completed succefuly 
 		
-7. all APIs endpoint are accesible and vision using swagger in browser as
+7. all APIs endpoint are accesible through browser as
 	http://localhost:33900/swagger/index.html
 
 8. Below are the threat type(rule_name) result i am considering 
@@ -57,5 +57,6 @@
 	Ambigous 
 	Suspicous
 	No Threat
-
+9. you can also automate to upload pcap file automitacly to UI by accessing API with any scrips of your choice,
+   
 Thank you!
