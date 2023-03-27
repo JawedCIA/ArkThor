@@ -1,0 +1,36 @@
+# This workflow will build a .NET project
+# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-net
+
+name: ArkThor Front Engine
+
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+
+jobs:
+  build:
+    name: Build and Deploy
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v3
+      with:
+        dotnet-version: 7.0.x
+    - name: Restore dependencies
+      run: |
+        cd Arkthor/Front/Source/ArkThor.UI
+        dotnet restore
+    - name: Build
+      run: |
+        cd Arkthor/Front/Source/ArkThor.UI
+        dotnet build --configuration Release --no-restore
+        dotnet publish -c Release -o ../ArkThor.UI -r linux-x64 --self-contained true /p:UseAppHost=true
+    - name: Test
+      run: |
+        cd Arkthor/Front/Source/ArkThor.UI
+        dotnet test --no-build --verbosity normal
+ 
