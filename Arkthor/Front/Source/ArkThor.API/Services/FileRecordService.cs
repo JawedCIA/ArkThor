@@ -26,6 +26,8 @@ public interface IFileRecordService
     Task<IEnumerable<DistributionCount>> GetC2CountriesDistributionBasedOnUploadedDate(DateTime FromDate, DateTime ToDate);
     Task<IEnumerable<DistributionCount>> GetC2InfectedCountriesDistributionBasedOnUploadedDate(DateTime FromDate, DateTime ToDate);
     Task<IEnumerable<FileRecord>> UpdateThreatType(string hash256, string threatType);
+
+    Task<IEnumerable<FileRecord>> UpdateCurrentStage(string hash256, string threatType);
     Task<IEnumerable<FileRecord>> UpdateStatus(string hash256, string status);
     Task<IEnumerable<FileRecord>> UpdateSeverity(string hash256, string severity);
     Task<IEnumerable<FileRecord>> UpdateAnalyzedDate(string hash256, DateTime AnalyzedDate);
@@ -252,7 +254,16 @@ public class FileRecordService : IFileRecordService
         """;
         return await connection.QueryAsync<FileRecord>(sql, new { hash256, threatType });
     }
-
+    public async Task<IEnumerable<FileRecord>> UpdateCurrentStage(string hash256, string stage)
+    {
+        using var connection = _context.CreateConnection();
+        var sql = """
+           UPDATE FilesRecord
+               SET CurrentStage = @stage
+             WHERE HashValue = @hash256           
+        """;
+        return await connection.QueryAsync<FileRecord>(sql, new { hash256, stage });
+    }
     //Update File ThreatType
     public async Task<IEnumerable<FileRecord>> UpdateAnalyzedDate(string hash256, DateTime AnalyzedDate)
     {

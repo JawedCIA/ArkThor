@@ -17,13 +17,13 @@ public class DataContext : DbContext
     protected override void OnConfiguring(DbContextOptionsBuilder options)
     {
         // connect to sqlite database
-        options.UseSqlite(Configuration.GetConnectionString("WebApiDatabase"));
+        options.UseSqlite(Configuration.GetConnectionString("ArkThorDatabase"));
     }
 
 
     public IDbConnection CreateConnection()
     {
-        return new SqliteConnection(Configuration.GetConnectionString("WebApiDatabase"));
+        return new SqliteConnection(Configuration.GetConnectionString("ArkThorDatabase"));
     }
 
     public async Task Init()
@@ -32,6 +32,7 @@ public class DataContext : DbContext
         using var connection = CreateConnection();
         await _initUsers();
         await _initFilesRecord();
+        await _initSupportFile();
         async Task _initUsers()
         {
             var sql = """
@@ -85,10 +86,34 @@ public class DataContext : DbContext
             """;
             await connection.ExecuteAsync(sql);
         }
+        async Task _initSupportFile()
+        {
+            var sql = """
+              CREATE TABLE IF NOT EXISTS 
+             SupportFile (
+                HashValue    TEXT    NOT NULL,
+                FileName     TEXT,
+                UploadedBy   TEXT,
+                UploadedDate NUMERIC,
+                Extension    TEXT,
+                ContentType  TEXT,
+                Size         TEXT,
+                Data         BLOB,
+                Isold        INTEGER,
+                ID           INTEGER PRIMARY KEY
+                                UNIQUE
+                                NOT NULL
+            );
+            
+            """;
+            await connection.ExecuteAsync(sql);
+        }
     }
     public DbSet<User> Users { get; set; }
     public DbSet<FileRecord> FilesRecord { get; set; }
     public DbSet<DashboardCount> DashboardCounts { get; set; }
     public DbSet<DistributionCount> DistributionCounts { get; set; }
+
+    public DbSet<UploadSupportFile> SupportFile { get; set; }
 
 }

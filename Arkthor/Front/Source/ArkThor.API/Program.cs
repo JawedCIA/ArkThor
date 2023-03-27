@@ -31,6 +31,7 @@ builder.Services.AddSwaggerGen();
     // configure DI for application services
     services.AddScoped<IUserService, UserService>();
     services.AddScoped<IFileRecordService, FileRecordService>();
+    services.AddScoped<ISupportFileService, SupportFileService>();
 }
 var app = builder.Build();
 

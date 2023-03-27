@@ -432,6 +432,8 @@ function GetFileRecordDetails() {
                             //console.log(response.result.length);
                             if (response.result.length > 0) {
                                 displayFileRecordInformation(response.result[0]);
+                                console.log("Getting Support Files");
+                                GetSupportFileRecords(apiUrl,hashOfFile);
                             }
                             else {
                                 //   console.log("Status:" + this.status)
@@ -465,7 +467,72 @@ function GetFileRecordDetails() {
     }
 
 };
+//Get Supprt Files
+function GetSupportFileRecords(baseApiUrl, hashOfFile) {
 
+    const ui_supportFiles = document.getElementById("ulSupportFiles");
+    let req = new XMLHttpRequest();
+    let apiUrlToGetSupportFiles = baseApiUrl + "FileUpload/GetSupportFiles?sha256=" + hashOfFile;
+    if (!(hashOfFile == undefined || hashOfFile == null || hashOfFile == "")) {
+        
+        req.open("GET", apiUrlToGetSupportFiles);
+        req.send();
+
+        req.onload = function () {
+            if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
+                // var options = '';
+                let files = JSON.parse(this.response);
+                console.log(files);
+
+                if (!(files == undefined || files == null || files == "")) {
+                                        
+                    for (var file of files)
+                    {
+                       
+                        let li_SupportFile = document.createElement("li");
+                        let a_SupportFile = document.createElement("a");
+                        a_SupportFile.className = "btn-link text-secondary";
+                        a_SupportFile.target = "_blank";
+                        a_SupportFile.href = "data:" + file.contentType + ";base64," + file.data;
+                        a_SupportFile.download = file.fileName;
+                        a_SupportFile.innerHTML = file.fileName;
+                        // setValueinnerHTML("a_RelleaseFile", response.name);
+
+                        let i_SupportFile = document.createElement("i");
+                        // i_RelleaseFile.innerText = response.name;
+                        let i_SupportFile_icon = '<i class="far fa-fw fa-file-word"></i>';
+                        if (file.extension.includes("doc")) {
+                            i_SupportFile_icon = '<i class="far fa-fw fa-file-word"></i>';
+
+                        }
+                        else if (file.extension.includes("pdf")) { i_SupportFile_icon = '<i class="far fa-fw fa-file-pdf"></i>'; }
+                        else if (file.extension.includes("png") || file.extension.includes("jpg")) { i_SupportFile_icon = '<i class="far fa-fw fa-image"></i>'; }
+                        else if (file.extension.includes("msg")) { i_SupportFile_icon = '<i class= "far fa-fw fa-envelope"></i>'; }
+                        else if (file.extension.includes("word")) { i_SupportFile_icon = '<i class= "far fa-fw fa-file-word"></i>'; }
+                        else { i_SupportFile_icon = '<i class="far fa-fw fa-file-code"></i>'; }// fa-file-code-o
+                        //far fa-fw fa-file-word
+                        // a_RelleaseFile.append(i_RelleaseFile);
+
+                        a_SupportFile.innerHTML = i_SupportFile_icon + file.fileName;// response.name;
+
+                        li_SupportFile.append(a_SupportFile);
+                        ui_supportFiles.append(li_SupportFile);
+                    }
+
+                }
+                else {
+                    console.log("0 Applications return from API.." + services);
+                }
+
+            }
+        };
+    }
+    else {
+       
+    }
+
+
+}
 //Display File Record on UI
 function displayFileRecordInformation(resultResponse) {
    // console.log(resultResponse);

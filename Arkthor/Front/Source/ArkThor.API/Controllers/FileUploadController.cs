@@ -19,7 +19,7 @@ using ArkThor.API.Models.Records;
 namespace ArkThor.API.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("api/[controller]")]
     public class FileUploadController : ControllerBase
     {
         private readonly ILogger<FileUploadController> _logger;
@@ -28,7 +28,8 @@ namespace ArkThor.API.Controllers
         private readonly string[] _permittedExtensions;
         private readonly string _checkUploadFileSignatur;
         private IFileRecordService _fileService;
-        public FileUploadController(ILogger<FileUploadController> logger, IFileRecordService fileRecordService, IMapper mapper, IConfiguration config)
+        private ISupportFileService _supportFileService;
+        public FileUploadController(ILogger<FileUploadController> logger, IFileRecordService fileRecordService, IMapper mapper, IConfiguration config, ISupportFileService supportFileService)
         {
             _logger = logger;
             _fileService = fileRecordService;
@@ -36,6 +37,7 @@ namespace ArkThor.API.Controllers
             _fileSizeLimit = config.GetValue<long>("FileSizeLimit");
             _permittedExtensions = config.GetValue<string>("PermittedExtensions").Split(';');
             _checkUploadFileSignatur = config.GetValue<string>("checkUploadFileSignatur");
+            _supportFileService = supportFileService;
         }
 
         [HttpPost]
@@ -101,8 +103,7 @@ namespace ArkThor.API.Controllers
             }
         }
 
-       
-        [HttpPost]        
+        [HttpPost]
         [RequestFormLimits(MultipartBodyLengthLimit = 136314880)]
         [RequestSizeLimit(136314880)]
         [Route("UploadFileForAnalysis")]
@@ -112,52 +113,52 @@ namespace ArkThor.API.Controllers
             long size = file.Length;
             var megabyteSizeLimit = _fileSizeLimit / 1048576;
             long fileSizeInMB = size / 1048576;
-           // HttpClientHandler clientHandler = new HttpClientHandler();
-           // clientHandler.ServerCertificateCustomValidationCallback = (sender, cert, chain, sslPolicyErrors) => { return true; };
-           // using var client = new HttpClient(clientHandler);
+            // HttpClientHandler clientHandler = new HttpClientHandler();
+            // clientHandler.ServerCertificateCustomValidationCallback = (sender, cert, chain, sslPolicyErrors) => { return true; };
+            // using var client = new HttpClient(clientHandler);
 
-           // client.BaseAddress = new Uri("");
+            // client.BaseAddress = new Uri("");
             //Check for file size
             if (size < _fileSizeLimit)
             {
                 // The file is too large ... discontinue processing the file
-                
-                    var fileNameWithExtn = Path.GetFileName(file.FileName);
-                    var extension = Path.GetExtension(file.FileName).ToLowerInvariant();
-                    var uploadedFileFullPath = Path.GetFullPath(file.FileName);
-                    // Don't trust the file name sent by the client. To display
-                    // the file name, HTML-encode the value.
-                    // Don't trust the file name sent by the client. To display
-                    // the file name, HTML-encode the value.
-                    var trustedFileNameForDisplay = WebUtility.HtmlEncode(file.FileName);
-                    // var fileName = Path.GetFileNameWithoutExtension(formFile.FileName);
 
-                    // var extension = Path.GetExtension(formFile.FileName);
+                var fileNameWithExtn = Path.GetFileName(file.FileName);
+                var extension = Path.GetExtension(file.FileName).ToLowerInvariant();
+                var uploadedFileFullPath = Path.GetFullPath(file.FileName);
+                // Don't trust the file name sent by the client. To display
+                // the file name, HTML-encode the value.
+                // Don't trust the file name sent by the client. To display
+                // the file name, HTML-encode the value.
+                var trustedFileNameForDisplay = WebUtility.HtmlEncode(file.FileName);
+                // var fileName = Path.GetFileNameWithoutExtension(formFile.FileName);
 
-                    //check for FileExtension
-                    if (string.IsNullOrEmpty(extension) || !_permittedExtensions.Contains(extension))
-                    {
+                // var extension = Path.GetExtension(formFile.FileName);
+
+                //check for FileExtension
+                if (string.IsNullOrEmpty(extension) || !_permittedExtensions.Contains(extension))
+                {
                     // The extension is invalid ... discontinue processing the file
-                     return StatusCode(StatusCodes.Status500InternalServerError, "File with Extension: " + extension + " is not permitted, Please use only Permitted extension : " + string.Join(" | ", _permittedExtensions));
-                   
+                    return StatusCode(StatusCodes.Status500InternalServerError, "File with Extension: " + extension + " is not permitted, Please use only Permitted extension : " + string.Join(" | ", _permittedExtensions));
+
+                }
+                else
+                {
+                    //Check for File Signature 
+                    bool IsValidateSignature = false;
+                    if (_checkUploadFileSignatur.ToUpper() == "TRUE")
+                    {
+                        IsValidateSignature = Utilities.FileHelpers.IsValidFileSignature(file, extension);
                     }
                     else
                     {
-                        //Check for File Signature 
-                        bool IsValidateSignature = false;
-                        if (_checkUploadFileSignatur.ToUpper() == "TRUE")
-                        {
-                            IsValidateSignature = Utilities.FileHelpers.IsValidFileSignature(file, extension);
-                        }
-                        else
-                        {
-                            IsValidateSignature = true; //ByPass valide Signature
-                        }
+                        IsValidateSignature = true; //ByPass valide Signature
+                    }
 
-                        if (IsValidateSignature)
+                    if (IsValidateSignature)
+                    {
+                        try
                         {
-                            try
-                            {
 
 
 
@@ -193,7 +194,7 @@ namespace ArkThor.API.Controllers
                                 var fileToBeUpload = new CreateFileRecord
                                 {
 
-                                    
+
                                     UploadedDate = DateTime.UtcNow,
                                     UploadedBy = "Admin",
                                     ContentType = file.ContentType,
@@ -223,30 +224,130 @@ namespace ArkThor.API.Controllers
                                 return StatusCode(StatusCodes.Status500InternalServerError, "file length is 0");
                             }
 
-                            }
-                            catch (Exception ex)
-                            {
-                                return StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
-                            }
-
-                       
                         }
-                        else
+                        catch (Exception ex)
                         {
-                        return StatusCode(StatusCodes.Status500InternalServerError, "Chosen file signature does not matched with the extension of file: " + trustedFileNameForDisplay);
+                            return StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
                         }
+
+
                     }
-               
+                    else
+                    {
+                        return StatusCode(StatusCodes.Status500InternalServerError, "Chosen file signature does not matched with the extension of file: " + trustedFileNameForDisplay);
+                    }
+                }
+
             }
             else
             {
 
                 return StatusCode(StatusCodes.Status500InternalServerError, "Chosen file size :" + fileSizeInMB + " MB is above permitted size :" + megabyteSizeLimit + " MB, Kindly choose file size small than permitted size!");
             }
-           
-          
+
+
         }
 
 
+        [HttpPost]
+        [RequestFormLimits(MultipartBodyLengthLimit = 136314880)]
+        [RequestSizeLimit(136314880)]
+        [Route("UploadSupportingFile")]
+        public async Task<IActionResult> UploadSupportingFile(string sha256, IFormFile file)
+        {
+
+            long size = file.Length;
+            var megabyteSizeLimit = _fileSizeLimit / 1048576;
+            long fileSizeInMB = size / 1048576;
+            //Check for file size
+            if (size < _fileSizeLimit)
+            {
+                // The file is too large ... discontinue processing the file
+
+                var fileNameWithExtn = Path.GetFileName(file.FileName);
+                var extension = Path.GetExtension(file.FileName).ToLowerInvariant();
+                var uploadedFileFullPath = Path.GetFullPath(file.FileName);
+                // Don't trust the file name sent by the client. To display
+                // the file name, HTML-encode the value.
+                // Don't trust the file name sent by the client. To display
+                // the file name, HTML-encode the value.
+                var trustedFileNameForDisplay = WebUtility.HtmlEncode(file.FileName);
+                // var fileName = Path.GetFileNameWithoutExtension(formFile.FileName);
+
+                // var extension = Path.GetExtension(formFile.FileName);
+
+                //check for FileExtension
+               // if (string.IsNullOrEmpty(extension) || !_permittedExtensions.Contains(extension))
+                //{
+                    // The extension is invalid ... discontinue processing the file
+                  //  return StatusCode(StatusCodes.Status500InternalServerError, "File with Extension: " + extension + " is not permitted, Please use only Permitted extension : " + string.Join(" | ", _permittedExtensions));
+
+                //}
+                //else
+                //{
+                   
+                        try
+                        {
+                            if (file.Length > 0)
+                            {                             
+
+                                var supportFile = new UploadSupportFile
+                                {
+
+                                    UploadedDate = DateTime.UtcNow,
+                                    UploadedBy = "Admin",
+                                    ContentType = file.ContentType,
+                                    Size = file.Length,
+                                    Extension = extension,
+                                    FileName = trustedFileNameForDisplay,
+                                    HashValue = sha256
+
+                                };
+                                using (var dataStream = new MemoryStream())
+                                {
+                                    await file.CopyToAsync(dataStream);
+                                supportFile.Data = dataStream.ToArray();
+                                }
+
+                                _supportFileService.Create(supportFile);
+                                
+
+                                return Ok(new { message = "File created" });
+
+                                //string fileData = JsonConvert.SerializeObject(fileToBeUpload);
+                            }
+                            else
+                            {
+                                return StatusCode(StatusCodes.Status500InternalServerError, "file length is 0");
+                            }
+
+                        }
+                        catch (Exception ex)
+                        {
+                            return StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
+                        }
+
+
+              //  }
+
+            }
+            else
+            {
+
+                return StatusCode(StatusCodes.Status500InternalServerError, "Chosen file size :" + fileSizeInMB + " MB is above permitted size :" + megabyteSizeLimit + " MB, Kindly choose file size small than permitted size!");
+            }
+
+
+        }
+
+
+        [HttpGet]     
+        [Route("GetSupportFiles")]
+        public async Task<IActionResult> GetSupportFiles(string sha256)
+        {
+            var files = await _supportFileService.GetSupportFiles(sha256);
+            return Ok(files);
+
+        }
     }
 }

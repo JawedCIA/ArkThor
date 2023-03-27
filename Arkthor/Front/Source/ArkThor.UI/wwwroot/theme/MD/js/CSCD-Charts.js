@@ -12,7 +12,7 @@ async function ShowAllMeasurementGraph() {
 
     //fetch base API URL
     const BaseAPIURL =await fetchBaseAPIUrl();
-console.log("Base API:" + BaseAPIURL);
+
 
     
     var todayDateForPast6Month = new Date();//.toISOString().slice(0, 10);
@@ -20,21 +20,21 @@ console.log("Base API:" + BaseAPIURL);
     let dropdownFromDate = getValue("txtStatisticsdateFrom");
     let dropdownToDate = getValue("txtStatisticsdateTo");
 
-    console.log(dropdownFromDate);
-    console.log(dropdownToDate);
+   // console.log(dropdownFromDate);
+    //console.log(dropdownToDate);
     //Call Function to draw chart
     if (dropdownFromDate == undefined || dropdownFromDate == null || dropdownFromDate == "") {
         //Consider Taking past 6 months date
         todayDateForPast6Month.setMonth(todayDateForPast6Month.getMonth() - 6);
         dropdownFromDate = todayDateForPast6Month.toISOString().slice(0, 10);
-         console.log(dropdownFromDate);
+       //  console.log(dropdownFromDate);
         setValueOfElement("txtStatisticsdateFrom", dropdownFromDate);
     }
 
     if (dropdownToDate == undefined || dropdownToDate == null || dropdownToDate == "") {
         //Consider Taking Todays Date
         dropdownToDate = todayDate;
-        console.log(dropdownToDate);
+        //console.log(dropdownToDate);
         setValueOfElement("txtStatisticsdateTo", dropdownToDate);
     }
    // convertToDateWeekPairs(dropdownFromDate, dropdownToDate, BaseAPIURL);
@@ -407,17 +407,20 @@ async function fetchC2ContriesData(FromDate, ToDate, baseAPIURL) {
     const data = await response.json();  
     const backgroundColor = [];// "#46BFBD";//, "#46BFBD", "#F7464A", "#FDB45C"];
     const hoverBackgroundColor = ["#A8B3C5"];//, "#5AD3D1", "#FF5A5E", "#FFC870"];
+    var country = new CountryCode();
+
    // console.log(data.result);
     const combinedArrays = [];
+   
     for (var count of data.result) {
-        // console.log(count);
+        //console.log(count);
         if (!(count.countries == undefined || count.countries == null || count.countries == "")) {
-            console.log(JSON.parse(count.countries));
+
+            // console.log((JSON.parse(count.countries)).length);
             combinedArrays.push(JSON.parse(count.countries));
         }
-       
+
     }
-    //console.log(combinedArrays);
 
     const counts = combinedArrays.reduce((accumulator, currentArray) => {
         currentArray.forEach(item => {
@@ -432,18 +435,23 @@ async function fetchC2ContriesData(FromDate, ToDate, baseAPIURL) {
 
     const uniqueItems = Object.keys(counts);
     const uniqueValue = Object.values(counts);
+
+  
+    const CountriesFullName = [];
   //  console.log(uniqueValue);
-    console.log(counts);
-    console.log(uniqueItems.length);
-    console.log(uniqueValue);
+   // console.log(counts);
+   // console.log(uniqueItems.length);
+    //console.log(uniqueValue);
     for (var index = 0; index < uniqueItems.length; index++) {
 
+        CountriesFullName.push(country.getName(uniqueItems[index].toLowerCase()));
         backgroundColor.push(
             //getColor(index)
             generateRandomColor()
         );
     }
-    drawContriesChart(uniqueItems, uniqueValue, backgroundColor, "canvasCountriesWiseDistributionChart", "horizontalBar", hoverBackgroundColor, uniqueItems.length);
+   // console.log(CountriesFullName);
+    drawContriesChart(CountriesFullName, uniqueValue, backgroundColor, "canvasCountriesWiseDistributionChart", "horizontalBar", hoverBackgroundColor, uniqueItems.length);
 
     return data.result;
 };
@@ -479,18 +487,19 @@ async function fetchC2InfecContriesData(FromDate, ToDate, baseAPIURL) {
 
     const uniqueItems = Object.keys(counts);
     const uniqueValue = Object.values(counts);
-    //  console.log(uniqueValue);
-    console.log(counts);
-    console.log(uniqueItems.length);
-    console.log(uniqueValue);
+   
+    const CountriesFullName = [];
+    var country = new CountryCode();
+
     for (var index = 0; index < uniqueItems.length; index++) {
 
+        CountriesFullName.push(country.getName(uniqueItems[index].toLowerCase()));
         backgroundColor.push(
             //getColor(index)
             generateRandomColor()
         );
     }
-    drawContriesChart(uniqueItems, uniqueValue, backgroundColor, "canvasInfCountriesWiseDistributionChart", "horizontalBar", hoverBackgroundColor, uniqueItems.length);
+    drawContriesChart(CountriesFullName, uniqueValue, backgroundColor, "canvasInfCountriesWiseDistributionChart", "horizontalBar", hoverBackgroundColor, uniqueItems.length);
 
     return data.result;
 };

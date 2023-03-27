@@ -36,6 +36,15 @@ public class FileRecordController : ControllerBase
         return Ok(files);
     }
 
+
+    [HttpPut]
+    [Route("UpdateCurrentStage")]
+    public IActionResult UpdateCurrentStage(string hash256, string stage)
+    {
+        var files = _fileService.UpdateCurrentStage(hash256, stage);
+        return Ok(files);
+    }
+
     [HttpPut]
     [Route("UpdateStatus")]
     public IActionResult UpdateStatus(string hash256, string status)
