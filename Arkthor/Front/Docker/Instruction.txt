@@ -58,5 +58,14 @@
 	Suspicous
 	No Threat
 9. you can also automate to upload pcap file automitacly to UI by accessing API with any scrips of your choice,
-   
+Update: 2023-03-2023
+10. Now we are displaying Country Name in Statistics graph instead of country code
+11. Added API to Update Current Stage
+    http://localhost:33900/api/FileRecord/UpdateCurrentStage?hash256=<hashOfFile>&stage=<CurrentStage>
+ 12. Added rabitMQ publisher method to publish the SHA256 of Uploaded file for core to pick it up for analysis
+ 13. Updated Docker-COmpose file to inlcude rabbitmq with container
+     http://localhost:15672
+      userName: guest
+      Pwd: guest
+      
 Thank you!
