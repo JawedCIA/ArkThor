@@ -22,7 +22,14 @@ services:
         target: /app/ArkThorDatabase
     networks:
       - nwarkthor
-
+  rabbitmq:
+    image: rabbitmq:3.11-management
+    container_name: rabbitmq
+    ports:
+      - "15672:15672"
+    networks:
+      - nwarkthor
+    
 networks:
   nwarkthor:
     name: nwarkthor

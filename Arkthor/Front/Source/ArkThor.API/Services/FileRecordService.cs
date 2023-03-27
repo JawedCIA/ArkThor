@@ -48,9 +48,11 @@ public class FileRecordService : IFileRecordService
     private readonly string _useCurrentPath;
     private readonly string _targetfolderNameToUploadFile;
     private readonly string _addMultipleFileWithSameHashValue;
+    private readonly string _pushMessageToRabitMQ;
+    private IRabbitMQService _rabbitMQService;
     public FileRecordService(
         DataContext context,
-        IMapper mapper, IConfiguration config)
+        IMapper mapper, IConfiguration config,IRabbitMQService rabbitMQService)
     {
         _context = context;
         _mapper = mapper;
@@ -58,6 +60,8 @@ public class FileRecordService : IFileRecordService
         _targetfolderNameToUploadFile = config.GetValue<string>("targetfolderNameToUploadFile");
         _localfilePathToStore = config.GetValue<string>("localfilePathToStore");
         _addMultipleFileWithSameHashValue = config.GetValue<string>("addMultipleFileWithSameHashValue");
+        _pushMessageToRabitMQ = config.GetValue<string>("pushMessageToRabitMQ");
+        _rabbitMQService = rabbitMQService;
     }
 
     public IEnumerable<FileRecord> GetAll()
@@ -385,7 +389,8 @@ public class FileRecordService : IFileRecordService
                 _context.SaveChanges();
             }
        
-       
+
+
     }
 
 
@@ -424,11 +429,33 @@ public class FileRecordService : IFileRecordService
 
             using var stream = File.Create(targetFileFullPath);
             stream.Write(model.Data, 0, model.Data.Length);
+            stream.Flush();
+            //Push Message to RabbitMQ
+            if (!string.IsNullOrEmpty(_pushMessageToRabitMQ))
+            {
+                if (_pushMessageToRabitMQ.ToUpper() == "TRUE")
+                {
+                    SendMessageToQueue(model.HashValue);
+                }
+            }            
+            
         }
         else
         {
             throw new ArgumentNullException("Provided File data byte is Null");
         }
+    }
+
+    //Publish Message to RabbitMQ Queue
+    public void SendMessageToQueue(string hash)
+    {
+        RabbitMQMessage msginfo = new()
+        {
+            Hash = hash
+        };
+
+        _rabbitMQService.SendMessage(msginfo);
+
     }
 
     //Update  File Records with Final Json File

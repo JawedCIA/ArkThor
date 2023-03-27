@@ -32,6 +32,7 @@ builder.Services.AddSwaggerGen();
     services.AddScoped<IUserService, UserService>();
     services.AddScoped<IFileRecordService, FileRecordService>();
     services.AddScoped<ISupportFileService, SupportFileService>();
+    services.AddScoped<IRabbitMQService, RabbitMQProducer>();
 }
 var app = builder.Build();
 

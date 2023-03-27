@@ -29,7 +29,8 @@ namespace ArkThor.API.Controllers
         private readonly string _checkUploadFileSignatur;
         private IFileRecordService _fileService;
         private ISupportFileService _supportFileService;
-        public FileUploadController(ILogger<FileUploadController> logger, IFileRecordService fileRecordService, IMapper mapper, IConfiguration config, ISupportFileService supportFileService)
+        private IRabbitMQService _rabbitMQService;
+        public FileUploadController(ILogger<FileUploadController> logger, IFileRecordService fileRecordService, IMapper mapper, IConfiguration config, ISupportFileService supportFileService,IRabbitMQService rabbitMQService)
         {
             _logger = logger;
             _fileService = fileRecordService;
@@ -38,6 +39,7 @@ namespace ArkThor.API.Controllers
             _permittedExtensions = config.GetValue<string>("PermittedExtensions").Split(';');
             _checkUploadFileSignatur = config.GetValue<string>("checkUploadFileSignatur");
             _supportFileService = supportFileService;
+            _rabbitMQService = rabbitMQService;
         }
 
         [HttpPost]
