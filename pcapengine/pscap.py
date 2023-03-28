@@ -114,7 +114,7 @@ class rulesengine:
         return self.ruleset
 
 def main():
-    DEBUG_MODE = True
+    DEBUG_MODE = False
     if len(sys.argv) != 2:
         print("Usage: <pscap.py <pcap filename>")
 
@@ -146,6 +146,8 @@ def main():
     if res == []:
         print("No Detection seen")
         return
+
+    res['status'] = "done"
     
     with open("%s.json"%(s256), "w") as f:
         f.write(json.dumps(res, indent=4))
