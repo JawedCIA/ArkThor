@@ -256,7 +256,7 @@ function displayFileRecords(response, tblBodyID) {
 
     //For Inrogress Spinner
     let divInProgressStatus = document.createElement('div')
-    divInProgressStatus.className = 'spinner-border text-primary'
+    divInProgressStatus.className = 'fa fa-cog fa-spin fa-2x fa-fw text-primary'//'spinner-border text-primary'
     divInProgressStatus.role ='status'
     let brAfterInProgressStatus = document.createElement('br')
    // divInProgressStatus.appendChild(brAfterInProgressStatus);
