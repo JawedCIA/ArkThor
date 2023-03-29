@@ -32,7 +32,7 @@ public class FileRecordController : ControllerBase
     [Route("UpdateThreatType")]
     public IActionResult UpdateThreatType(string hash256, string threatType)
     {
-        var files = _fileService.UpdateThreatType(hash256,threatType);
+        var files = _fileService.UpdateThreatType(hash256.ToUpper(),threatType);
         return Ok(files);
     }
 
@@ -41,7 +41,7 @@ public class FileRecordController : ControllerBase
     [Route("UpdateCurrentStage")]
     public IActionResult UpdateCurrentStage(string hash256, string stage)
     {
-        var files = _fileService.UpdateCurrentStage(hash256, stage);
+        var files = _fileService.UpdateCurrentStage(hash256.ToUpper(), stage);
         return Ok(files);
     }
 
@@ -49,7 +49,7 @@ public class FileRecordController : ControllerBase
     [Route("UpdateStatus")]
     public IActionResult UpdateStatus(string hash256, string status)
     {
-        var files = _fileService.UpdateStatus(hash256, status);
+        var files = _fileService.UpdateStatus(hash256.ToUpper(), status);
         return Ok(files);
     }
 
@@ -58,7 +58,7 @@ public class FileRecordController : ControllerBase
     [Route("UpdateAnalyzedDate")]
     public IActionResult UpdateAnalyzedDate(string hash256, DateTime AnalyzedDate)
     {
-        var files = _fileService.UpdateAnalyzedDate(hash256, AnalyzedDate);
+        var files = _fileService.UpdateAnalyzedDate(hash256.ToUpper(), AnalyzedDate);
         return Ok(files);
     }
 
@@ -66,7 +66,7 @@ public class FileRecordController : ControllerBase
     [Route("UpdateSeverity")]
     public IActionResult UpdateSeverity(string hash256, string severity)
     {
-        var files = _fileService.UpdateSeverity(hash256, severity);
+        var files = _fileService.UpdateSeverity(hash256.ToUpper(), severity);
         return Ok(files);
     }
 
