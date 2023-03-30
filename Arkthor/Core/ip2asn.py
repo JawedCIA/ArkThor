@@ -23,15 +23,15 @@ def create_ip2asn_data():
 		
 	cur = conn.cursor()
 	#check if table exists
-	tequery = "SELECT name FROM sqlite_schema WHERE type ='table' AND name NOT LIKE 'sqlite_%';"
-	cur.execute(tequery)
+	#tequery = "SELECT name FROM sqlite_schema WHERE type ='table' AND name NOT LIKE 'sqlite_%';"
+	#cur.execute(tequery)
 	
-	row = cur.fetchone()
+	#row = cur.fetchone()
 	
-	if row is not None:
-		if row['cnt'] == 1:
-			print("Table exists already")
-			return
+	#if row is not None:
+	#	if type(row['name']) == list:
+	#		print("Table exists already")
+	#		return
 			
 	#download the tsv
 	r = requests.get(url)
