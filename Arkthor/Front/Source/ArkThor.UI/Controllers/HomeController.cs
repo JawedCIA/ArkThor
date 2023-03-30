@@ -151,7 +151,9 @@ namespace ArkThor.Dashboard.Controllers
 
                                     //Get SHA256 of uploaded file
                                     var hashValue = GenereteHash256.SHA256file(filePath);
-                                   
+                                    //Make sure hash is not emplty or null
+                                    if (!string.IsNullOrEmpty(hashValue))
+                                    {
 
                                     //Uploading File to API for DB Store
                                     var fileModel = new UploadedFileModel
@@ -162,8 +164,8 @@ namespace ArkThor.Dashboard.Controllers
                                         Size = formFile.Length,
                                         Extension = extension,
                                         FileName = trustedFileNameForDisplay,
-                                        HashValue=hashValue,
-                                        Status= "Queued"
+                                        HashValue = hashValue.ToUpper(),
+                                        Status = "Queued"
                                     };
                                     using (var dataStream = new MemoryStream())
                                     {
@@ -189,11 +191,15 @@ namespace ArkThor.Dashboard.Controllers
                                     else //web api sent error response 
                                     {
 
-                                        ViewBag.Message = "File Upload Failed: " + responseTaskUploadReleaseFile.Result.ReasonPhrase+ " : "+ responseTaskUploadReleaseFile.Result.StatusCode;
-                                       
-                                       
-                                    }
+                                        ViewBag.Message = "File Upload Failed: " + responseTaskUploadReleaseFile.Result.ReasonPhrase + " : " + responseTaskUploadReleaseFile.Result.StatusCode;
 
+
+                                    }
+                                }
+                                else
+                                {
+                                        ViewBag.Message = "File Upload Failed: Unable to get Hash-256 of file, Kinldy try again with different file";
+                                    }
                                     
                                    
                                 }

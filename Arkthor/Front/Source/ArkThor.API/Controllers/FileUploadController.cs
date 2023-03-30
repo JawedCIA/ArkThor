@@ -15,6 +15,7 @@ using System.Threading.Tasks;
 using ArkThor.API.Utilities;
 using System.Security.Cryptography;
 using ArkThor.API.Models.Records;
+using System.Diagnostics.Eventing.Reader;
 
 namespace ArkThor.API.Controllers
 {
@@ -70,7 +71,7 @@ namespace ArkThor.API.Controllers
                     //Uploading File to API for DB Store
                     var filerecord = new FileRecord
                     {
-                        HashValue = rules[0].SHA256,
+                        HashValue = rules[0].SHA256.ToUpper(),
                         ThreatType = rules[0].rule_name,
                         Severity = rules[0].severity,
                         Status = rules[0].Status,
@@ -192,33 +193,39 @@ namespace ArkThor.API.Controllers
                                 //            // the hashString variable now contains the SHA256 hash of the file data stream
                                 //        }
                                 //    }
-
-                                var fileToBeUpload = new CreateFileRecord
+                                if (hashValue != null)
                                 {
+                                    var fileToBeUpload = new CreateFileRecord
+                                    {
 
 
-                                    UploadedDate = DateTime.UtcNow,
-                                    UploadedBy = "Admin",
-                                    ContentType = file.ContentType,
-                                    Size = file.Length,
-                                    Extension = extension,
-                                    FileName = trustedFileNameForDisplay,
-                                    HashValue = hashValue,
-                                    Status = "Queued"
+                                        UploadedDate = DateTime.UtcNow,
+                                        UploadedBy = "Admin",
+                                        ContentType = file.ContentType,
+                                        Size = file.Length,
+                                        Extension = extension,
+                                        FileName = trustedFileNameForDisplay,
+                                        HashValue = hashValue.ToUpper(),
+                                        Status = "Queued"
 
-                                };
-                                using (var dataStream = new MemoryStream())
-                                {
-                                    await file.CopyToAsync(dataStream);
-                                    fileToBeUpload.Data = dataStream.ToArray();
+                                    };
+                                    using (var dataStream = new MemoryStream())
+                                    {
+                                        await file.CopyToAsync(dataStream);
+                                        fileToBeUpload.Data = dataStream.ToArray();
+                                    }
+
+                                    _fileService.Create(fileToBeUpload);
+                                    //Save File on disk
+                                    _fileService.SaveFileOnDisk(fileToBeUpload);
+
+                                    return Ok(new { message = "File created" });
+
                                 }
-
-                                _fileService.Create(fileToBeUpload);
-                                //Save File on disk
-                                _fileService.SaveFileOnDisk(fileToBeUpload);
-
-                                return Ok(new { message = "File created" });
-
+                                else
+                                {
+                                    return StatusCode(StatusCodes.Status500InternalServerError, "Unable to get hash of file");
+                                }
                                 //string fileData = JsonConvert.SerializeObject(fileToBeUpload);
                             }
                             else
@@ -302,7 +309,7 @@ namespace ArkThor.API.Controllers
                                     Size = file.Length,
                                     Extension = extension,
                                     FileName = trustedFileNameForDisplay,
-                                    HashValue = sha256
+                                    HashValue = sha256.ToUpper()
 
                                 };
                                 using (var dataStream = new MemoryStream())

@@ -435,7 +435,12 @@ public class FileRecordService : IFileRecordService
             {
                 if (_pushMessageToRabitMQ.ToUpper() == "TRUE")
                 {
-                    SendMessageToQueue(model.HashValue);
+                    try { SendMessageToQueue(model.HashValue); }
+                    catch(Exception ex)
+                    {
+                        //TOD Just Digest the error Message as of now
+                    }
+                   
                 }
             }            
             

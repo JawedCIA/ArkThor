@@ -210,30 +210,30 @@
                                                                 </div>
                                                       
                                                             </div>
-                                                            </br>
-                                                 
-                                                           <div id="divResponse">
-
-                                                            @if (ViewBag.Message != null)
-                                                            {
-                                                                @if (ViewBag.Message.Contains("SUCCESS"))
-                                                                {
-                                                                    <div class="card-success" style="margin-top:20px">
-                                                                        <p class="text-success"> @ViewBag.Message</p>
-                                                                       
-                                                                    </div>
-                                                                }
-                                                                else
-                                                                {
-                                                                    <div class="card-danger" style="margin-top:20px">
-                                                                        <p class="text-danger"> @ViewBag.Message</p>
-                                                                    </div>
-                                                                }
-                                                            }
-                                                           
-                                                           </div>
+                                                            <br/>                                                
+                                                          
                                                     </form>
-                                              </div>                                              
+                                              </div>
+                                                <div id="divResponse">
+
+                                                    @if (ViewBag.Message != null)
+                                                    {
+                                                        @if (ViewBag.Message.Contains("SUCCESS"))
+                                                        {
+                                                            <div class="card-success" style="margin-top:20px">
+                                                                <p class="text-success"> @ViewBag.Message</p>
+
+                                                            </div>
+                                                        }
+                                                        else
+                                                        {
+                                                            <div class="card-danger" style="margin-top:20px">
+                                                                <p class="text-danger"> @ViewBag.Message</p>
+                                                            </div>
+                                                        }
+                                                    }
+
+                                                </div>
                                                 <!-- </div>
                                                 </div>-->                                           
                                                 
@@ -299,13 +299,14 @@
                                         <thead align="center">
                                             <tr>
                                                 <!--<th style="width:4%">ID</th>-->
+                                                <th style="width:5%">ID</th>
                                                 <th style="width:25%">SHA-256</th>
                                                 <th style="width:15%">FileName</th>
-                                                <th style="width:12%">Uploaded Date</th>                                                
+                                                <th style="width:10%">Uploaded Date</th>                                                
                                                 <th>Status</th>
                                                 <th>Threat Category</th>
-                                                <th>Analysis Date </th>
-                                                <th>Uploaded By</th>
+                                               <th>Analysis Date </th>
+                                              <!--  <th>Uploaded By</th>-->
                                                 <th>Current Stage</th>
                                                 <th style="text-align:center;width:4%"></th>
                                             </tr>

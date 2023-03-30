@@ -1,0 +1,71 @@
+
+1. Download tars files at your local drive
+	available https://drive.google.com/drive/folders/1qLZ-bk6Rat2mXKKSkBaBoa9nhrpl3LBV?usp=share_link
+	arkthor-api.tar
+	arkthor-ui.tar
+2. To load Tars file as docker image (cd to local drive where you have downloaded tars file)
+	docker load -i arkthor-ui
+	docker load -i arkthor-api
+3. run below docker command to make sure images are loaded locally,
+         docker images
+    
+	REPOSITORY    TAG       IMAGE ID       CREATED             SIZE
+	arkthor-api   latest    e495a9fa37a9   11 minutes ago      250MB
+	arkthor-ui    latest    8ee16e56086a   45 minutes ago      346MB
+4. To run the container
+	4.1 Go to your desired directory and create 2 folders (to persit data from running container)
+	       4.1.1 create folder "UploadedFiles" - To store Uploaded file thorugh UI or through API
+					Core part should monitor this folder location and as soon as files are availbel should pick it for Analysis- categorization
+			4.1.2 Create Folder "ArkThorDatabase" - To persit Database 
+	4.2 Now run docker-compose to bring containers Up (Make sure you have copied dockerCompose file at this location)
+			docker-compose -f .\DockerCompose.yml up -d
+		To bring down container use below command
+			docker-compose -f .\DockerCompose.yml down
+5. Access running ArkThor application using below url in browser
+     To Access UI:
+		http://localhost:24297
+	To Access API:
+		http://localhost:33900
+
+6. Usefull APIs end point to consumed within core script
+	6.1 To Upload JSON result file at the end of categorization analysis
+		http://localhost:33900/FileUpload/UploadFileOutPutJson
+		
+		(In case you want to use curl)
+		curl -X 'POST' \
+			  'http://localhost:33900/FileUpload/UploadFileOutPutJson' \
+			  -H 'accept: */*' \
+			  -H 'Content-Type: multipart/form-data' \
+			  -F 'file='
+	6.2 To Update Status whenever needed (atleast uodate once core picked the file for analysis)
+		http://localhost:33900/api/FileRecord/UpdateStatus?hash256=<HashOfFile>&status=InProgress
+		
+		curl -X 'PUT' \
+			  'http://localhost:33900/api/FileRecord/UpdateStatus?hash256=21332&status=InProgress' \
+			  -H 'accept: */*'
+		(I am considering Below status)
+		InProgress - when core picked the file for analysis
+		Removed - when core removed file for various reason like currupted or something wrong 
+		Cancelled - When core got intruptted or couldnot completed or due to various error scenario
+		Done - once the analysis has been completed succefuly 
+		
+7. all APIs endpoint are accesible through browser as
+	http://localhost:33900/swagger/index.html
+
+8. Below are the threat type(rule_name) result i am considering 
+	<real_threat_type> like iceid,botbot,rat etc
+	Ambigous 
+	Suspicous
+	No Threat
+9. you can also automate to upload pcap file automitacly to UI by accessing API with any scrips of your choice,
+Update: 2023-03-2023
+10. Now we are displaying Country Name in Statistics graph instead of country code
+11. Added API to Update Current Stage
+    http://localhost:33900/api/FileRecord/UpdateCurrentStage?hash256=<hashOfFile>&stage=<CurrentStage>
+ 12. Added rabitMQ publisher method to publish the SHA256 of Uploaded file for core to pick it up for analysis
+ 13. Updated Docker-COmpose file to inlcude rabbitmq with container
+     http://localhost:15672
+      userName: guest
+      Pwd: guest
+      
+Thank you!

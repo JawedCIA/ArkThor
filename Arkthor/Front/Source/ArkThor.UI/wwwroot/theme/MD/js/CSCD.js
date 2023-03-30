@@ -220,16 +220,16 @@ function getInQAnalysisStatus(response) {
 //Current Week Analysis Report
 function displayFileRecords(response, tblBodyID) {
 
-    console.log(response);
+   // console.log(response);
     const recordboardTableBodyCurrentWeek = document.getElementById(tblBodyID);
 
     let recordboardTableBodyRow = document.createElement('tr') // Create the current table row
 
     //var recordId = response.id;
     //var recordTime = response.recordTime;
-    //Display ID
-    //let tdRecordID = document.createElement('td');
-    //tdRecordID.innerText = recordId;
+   // Display ID
+    let tdRecordID = document.createElement('td');
+    tdRecordID.innerText = response.hashValue.slice(0, 4);
 
 
     let recordDate = document.createElement('td');
@@ -256,7 +256,7 @@ function displayFileRecords(response, tblBodyID) {
 
     //For Inrogress Spinner
     let divInProgressStatus = document.createElement('div')
-    divInProgressStatus.className = 'spinner-border text-primary'
+    divInProgressStatus.className = 'fa fa-cog fa-spin fa-2x fa-fw text-primary'//'spinner-border text-primary'
     divInProgressStatus.role ='status'
     let brAfterInProgressStatus = document.createElement('br')
    // divInProgressStatus.appendChild(brAfterInProgressStatus);
@@ -353,7 +353,8 @@ function displayFileRecords(response, tblBodyID) {
 
     //Append Table
     //recordboardTableBodyRow.append(tdRecordID, recordDate, recordStatus, recordFileName, recordSHA, tdCurrentStage, recordType, dtAnalysisDate, recordUploadedBy, recordAction);
-    recordboardTableBodyRow.append(recordSHA, recordFileName, recordDate, recordStatus, recordType, dtAnalysisDate, recordUploadedBy, tdCurrentStage, recordAction);
+    //recordboardTableBodyRow.append(recordSHA, recordFileName, recordDate, recordStatus, recordType, dtAnalysisDate, recordUploadedBy, tdCurrentStage, recordAction);
+    recordboardTableBodyRow.append(tdRecordID,recordSHA, recordFileName, recordDate, recordStatus, recordType, dtAnalysisDate, tdCurrentStage, recordAction);
    
     recordboardTableBodyCurrentWeek.append(recordboardTableBodyRow);
 
@@ -432,7 +433,7 @@ function GetFileRecordDetails() {
                             //console.log(response.result.length);
                             if (response.result.length > 0) {
                                 displayFileRecordInformation(response.result[0]);
-                                console.log("Getting Support Files");
+                               // console.log("Getting Support Files");
                                 GetSupportFileRecords(apiUrl,hashOfFile);
                             }
                             else {
