@@ -13,6 +13,7 @@ import sqlite3
 import hashlib
 import requests
 import re
+import time
 
 class packetprocessengine:
 	def __init__(self):
@@ -262,7 +263,7 @@ def main():
 			fp = os.path.join(fold, fn)
 			process_pcap(fp)
 		print("Watching folder for file", fold)
-		sleep(10)
+		time.sleep(10)
 
 if __name__ == "__main__":
 	main()
