@@ -312,6 +312,8 @@ def main():
 			print("Folder Does not exist:", fold)
 			exit(1)
 
+		delaytime = int(jsn["watcher"]["watch-delay"])
+
 	except KeyError:
 		print("Error parsing the config file")
 		return
@@ -323,11 +325,10 @@ def main():
 			os.unlink(fp)
 		print("Watching folder for file", fold)
 		try:
-			time.sleep(10)
+			time.sleep(delaytime)
 		except KeyboardInterrupt:
 			break
 
 
 if __name__ == "__main__":
-	#main()
-	get_cn_from_ip("14.54.34.112")
+	main()
