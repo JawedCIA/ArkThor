@@ -15,6 +15,38 @@ import requests
 import re
 import time
 
+class config_loader:
+	def __init__(self):
+		jsn = json.load(open("config.json"))
+
+		try:
+			self.watchfolder = jsn["watcher"]["watch-folder"]
+			self.delaytime = int(jsn["watcher"]["watch-delay"])
+			if jsn['debugmode'] == "false":
+				self.debugmode = False
+			elif jsn['debugmode'] == "true":
+				self.debugmode = True
+			else:
+				raise Exception("Unknown value in debugmode of config file")
+
+			if jsn['arkthor']['uploadsupportfiles'] == "false":
+				self.uploadsupportfiles = False
+			elif jsn['arkthor']['uploadsupportfiles'] == "true":
+				self.uploadsupportfiles = True
+			else:
+				raise Exception("Unknown value in uploadsupportfiles of config file")
+
+			if jsn['deleteprocessed'] == "false":
+				self.deleteprocessed = False
+			elif jsn['deleteprocessed'] == "true":
+				self.deleteprocessed = True
+			else:
+				raise Exception("Unknown value in uploadsupportfiles of config file")
+
+			self.baseurl = jsn['arkthor']["apibaseurl"]
+
+		except KeyError as e:
+			raise Exception("Error parsing the config file" + e)
 
 class packetprocessengine:
 	def __init__(self):
@@ -140,28 +172,65 @@ class rulesengine:
 		return self.ruleset
 
 
-class processing_history():
-	def __int__(self):
+class processing_history:
+	def __init__(self):
 		self.sqlite_fn = "processinglist.sqlite3"
 		if not os.path.exists(self.sqlite_fn):
 			conn = sqlite3.connect(self.sqlite_fn)
 			cur = conn.cursor()
-			cur.execute("CREATE TABLE processed (filehash char(64) not NULL, ts TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
+			cur.execute("CREATE TABLE processed (filehash char(64) not NULL, ts TIMESTAMP DEFAULT CURRENT_TIMESTAMP)")
 			conn.commit()
 			conn.close()
 
+	def exists_in_processing(self, sha256):
+		conn = sqlite3.connect(self.sqlite_fn)
+		cur = conn.cursor()
+		cur.execute("select * from processed where filehash = '%s'"%(sha256.upper()))
+		retval = False
+		for v in cur.fetchall():
+			print(v)
+			retval = True
+		conn.close()
+		return retval
 
-def intimate_status(filehash, status):
-	r = requests.put("http://localhost:33900/api/FileRecord/UpdateStatus",
+	def insert_into_processing(self, sha256):
+		conn = sqlite3.connect(self.sqlite_fn)
+		cur = conn.cursor()
+		cur.execute("insert into processed ( `filehash` ) values ('%s')" % (sha256.upper()))
+		conn.commit()
+		conn.close()
+
+def intimate_status(filehash, status, url_prefix):
+	try:
+		r = requests.put("%s/api/FileRecord/UploadFileOutPutJson"%(url_prefix),
 					 params={"hash256": filehash.upper(), "status": status})
-	print(r.status_code)
+	except requests.exceptions.ConnectionError as e:
+		print("Cannot connect to server to post data")
+	else:
+		print(r.status_code)
 
 
-def intimate_completion(fjson):
-	r = requests.post("http://localhost:33900/api/FileRecord/UploadFileOutPutJson", files={"file": open(fjson)},
+def intimate_completion(fjson, url_prefix):
+	try:
+		r = requests.post("%s/api/FileRecord/UploadFileOutPutJson"%(url_prefix), files={"file": open(fjson)},
 					  headers={"Content-Type": "multipart/form-data"})
-	print(r.status_code)
+	except requests.exceptions.ConnectionError as e:
+		print("Cannot connect to server to post data")
+	else:
+		print(r.status_code)
 
+def submit_artifacts_of_pcaprun(foldername, url_prefix):
+	for fn in os.listdir(foldername):
+		try:
+			r = requests.post("%s/api/FileRecord/UploadFileOutPutJson"%(url_prefix),
+					files={"file": open(os.path.join(foldername, fn))},
+					headers={"Content-Type": "multipart/form-data"})
+		except requests.exceptions.ConnectionError as e:
+			print("Cannot connect to server to post data")
+		else:
+			print("Submitting ", fn, "with return code", r.status_code)
+			if r.status_code == 200:
+				os.unlink(os.path.join(foldername, fn))
 
 def get_cn_from_ip(ipaddr):
 	import struct
@@ -248,12 +317,20 @@ def aggregate_detections(ppe, s256):
 
 
 def process_pcap(fname):
+	cnf = config_loader()
+
+	ph = processing_history()
+
 	sha256 = hashlib.sha256()
 	sha256.update(open(fname, "rb").read())
 	s256 = sha256.hexdigest()
 	s256 = s256.upper()
 
-	intimate_status(s256, "InProgress")
+	if ph.exists_in_processing(s256) == True:
+		print("Already Processed", fname)
+		return
+
+	intimate_status(s256, "InProgress", cnf.baseurl)
 
 	ppe = packetprocessengine()
 	try:
@@ -268,29 +345,25 @@ def process_pcap(fname):
 	with open("%s/dnsproto.json" % (s256), "w") as f:
 		f.write(json.dumps(ppe.get_processed_dns_packet(), indent=4))
 
-	# intimate_completion("%s.json"%(s256))
+	intimate_completion("%s.json"%(s256))
+
 	res = []
 	res.append(aggregate_detections(ppe, s256))
 
 	with open("%s/detected.json" % (s256), "w") as f:
 		f.write(json.dumps(res, indent=4))
 
-	submit_artifacts_of_pcaprun(s256)
+	if cnf.uploadsupportfiles == True:
+		submit_artifacts_of_pcaprun(s256, cnf.baseurl)
 
-def submit_artifacts_of_pcaprun(foldername):
-	for fn in os.listdir(foldername):
-		r = requests.post("http://localhost:33900/api/FileRecord/UploadFileOutPutJson",
-					files={"file": open(os.path.join(foldername, fn))},
-					headers={"Content-Type": "multipart/form-data"})
-		print("Submitting ", fn, "with return code", r.status_code)
-		if r.status_code == 200:
-			os.unlink(os.path.join(foldername, fn))
+	ph.insert_into_processing(s256)
+	return
 
 def main():
 	fold = ""
 	# watch the folder UploadedFiles
 
-	if len(sys.argv) >= 2:
+	if len(sys.argv) > 2:
 		print("Unwanted commandlines passed, Quitting")
 		exit(1)
 	elif len(sys.argv) == 2:
@@ -302,30 +375,24 @@ def main():
 		print("config.json file not found in the folder")
 		exit(1)
 
-	jsn = json.load(open("config.json"))
+	#load the config file
+	cnf = config_loader()
 
-	try:
-		if fold == "":
-			fold = jsn["watcher"]["watch-folder"]
+	if fold == "":
+		fold = cnf.watchfolder
 
-		if not os.path.exists(fold):
-			print("Folder Does not exist:", fold)
-			exit(1)
-
-		delaytime = int(jsn["watcher"]["watch-delay"])
-
-	except KeyError:
-		print("Error parsing the config file")
-		return
+	if not os.path.exists(fold):
+		print("Watcher folder not found", fold)
+		exit(1)
 
 	while True:
 		for fn in os.listdir(fold):
 			fp = os.path.join(fold, fn)
 			process_pcap(fp)
-			os.unlink(fp)
+			if cnf.deleteprocessed == True: os.unlink(fp)
 		print("Watching folder for file", fold)
 		try:
-			time.sleep(delaytime)
+			time.sleep(cnf.delaytime)
 		except KeyboardInterrupt:
 			break
 
