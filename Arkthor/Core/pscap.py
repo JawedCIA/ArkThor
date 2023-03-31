@@ -90,7 +90,9 @@ class packetprocessengine:
 				return
 			dv = dns.qd.qname.decode()
 			if dv not in self.dns_list:
-				raise Exception("DNS answer present, without query")
+				#raise Exception("DNS answer present, without query")
+				print("DNS answer present, without query")
+				return
 			self.dns_list[dv]["response_code"] = dns.rcode
 			# print("DNS Response Code:", dns.rcode)
 			if dns.an is not None:
@@ -209,7 +211,6 @@ def intimate_status(filehash, status, url_prefix):
 	else:
 		print(r.status_code)
 
-
 def intimate_completion(fjson, url_prefix):
 	try:
 		r = requests.post("%s/api/FileRecord/UploadFileOutPutJson"%(url_prefix), files={"file": open(fjson)},
@@ -218,6 +219,7 @@ def intimate_completion(fjson, url_prefix):
 		print("Cannot connect to server to post data")
 	else:
 		print(r.status_code)
+		os.unlink(fjson)
 
 def submit_artifacts_of_pcaprun(foldername, url_prefix):
 	for fn in os.listdir(foldername):
@@ -345,13 +347,14 @@ def process_pcap(fname):
 	with open("%s/dnsproto.json" % (s256), "w") as f:
 		f.write(json.dumps(ppe.get_processed_dns_packet(), indent=4))
 
-	intimate_completion("%s.json"%(s256))
-
-	res = []
-	res.append(aggregate_detections(ppe, s256))
-
-	with open("%s/detected.json" % (s256), "w") as f:
-		f.write(json.dumps(res, indent=4))
+	v = aggregate_detections(ppe, s256)
+	if v is not None:
+		res = []
+		res.append(v)
+		with open("%s/detected.json" % (s256), "w") as f:
+			f.write(json.dumps(res, indent=4))
+		if cnf.uploadsupportfiles == True:
+			intimate_completion("%s/detected.json" % (s256), cnf.baseurl)
 
 	if cnf.uploadsupportfiles == True:
 		submit_artifacts_of_pcaprun(s256, cnf.baseurl)
