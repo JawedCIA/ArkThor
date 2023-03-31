@@ -228,7 +228,7 @@ def process_pcap(fname):
 	s256 = sha256.hexdigest()
 	s256 = s256.upper()
 
-	#intimate_status(s256, "InProgress")
+	intimate_status(s256, "InProgress")
 
 	ppe = packetprocessengine()
 	try:
@@ -244,7 +244,8 @@ def process_pcap(fname):
 		f.write(json.dumps(ppe.get_processed_dns_packet(), indent=4))
 
 	#intimate_completion("%s.json"%(s256))
-	res = aggregate_detections(ppe, s256)
+	res = []
+	res.append(aggregate_detections(ppe, s256))
 	
 	with open("%s/detected.json"%(s256), "w") as f:
 		f.write(json.dumps(res, indent=4))
@@ -262,6 +263,7 @@ def main():
 		for fn in os.listdir(fold):
 			fp = os.path.join(fold, fn)
 			process_pcap(fp)
+			os.unlink(fp)
 		print("Watching folder for file", fold)
 		time.sleep(10)
 
