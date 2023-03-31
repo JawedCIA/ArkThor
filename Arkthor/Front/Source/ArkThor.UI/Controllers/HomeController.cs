@@ -18,7 +18,7 @@ using static System.Net.Mime.MediaTypeNames;
 using Newtonsoft.Json;
 using System.Net.Http;
 using ArkThor.Models;
-
+using ArkThor.UI.Utilities;
 
 namespace ArkThor.Dashboard.Controllers
 {
@@ -154,12 +154,13 @@ namespace ArkThor.Dashboard.Controllers
                                     //Make sure hash is not emplty or null
                                     if (!string.IsNullOrEmpty(hashValue))
                                     {
-
-                                    //Uploading File to API for DB Store
-                                    var fileModel = new UploadedFileModel
-                                    {
-                                        UploadedDate = DateTime.UtcNow,
-                                        UploadedBy = "Admin",
+                                        //Get the random name for Uploader
+                                        var uploaderRandomName = RandomUploaderName.GetRandomName();
+                                        //Uploading File to API for DB Store
+                                        var fileModel = new UploadedFileModel
+                                        {
+                                            UploadedDate = DateTime.UtcNow,
+                                            UploadedBy = uploaderRandomName,//"Admin",
                                         ContentType = formFile.ContentType,
                                         Size = formFile.Length,
                                         Extension = extension,
