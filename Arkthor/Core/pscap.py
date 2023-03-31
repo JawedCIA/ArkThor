@@ -253,13 +253,16 @@ def process_pcap(fname):
 def main():
 	# watch the folder UploadedFiles
 	if len(sys.argv) != 2:
-		print("Usage: <pscap.py> <pcap filename folder>")
+		print("Usage: <pscap.py> <pcap folder to watch>")
 
 	#fname = '2023-03-08-IcedID-with-BackConnect-and-VNC-traffic.pcap'
 	fold = sys.argv[1]
-	for fn in os.listdir(fold):
-		fp = os.path.join(fold, fn)
-		process_pcap(fp)
+	while True:
+		for fn in os.listdir(fold):
+			fp = os.path.join(fold, fn)
+			process_pcap(fp)
+		print("Watching folder for file", fold)
+		sleep(10)
 
 if __name__ == "__main__":
 	main()
