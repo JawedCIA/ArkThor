@@ -139,6 +139,7 @@ class rulesengine:
 	def get_detected_rules(self):
 		return self.ruleset
 
+
 class processing_history():
 	def __int__(self):
 		self.sqlite_fn = "processinglist.sqlite3"
@@ -148,6 +149,7 @@ class processing_history():
 			cur.execute("CREATE TABLE processed (filehash char(64) not NULL, ts TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
 			conn.commit()
 			conn.close()
+
 
 def intimate_status(filehash, status):
 	r = requests.put("http://localhost:33900/api/FileRecord/UpdateStatus",
@@ -172,7 +174,7 @@ def get_cn_from_ip(ipaddr):
 
 	cur = conn.cursor()
 
-	tequery = "SELECT name FROM sqlite_schema WHERE type ='table' "
+	tequery = "SELECT name FROM sqlite_master WHERE type ='table' "
 	cur.execute(tequery)
 
 	res = cur.fetchall()
@@ -273,6 +275,16 @@ def process_pcap(fname):
 	with open("%s/detected.json" % (s256), "w") as f:
 		f.write(json.dumps(res, indent=4))
 
+	submit_artifacts_of_pcaprun(s256)
+
+def submit_artifacts_of_pcaprun(foldername):
+	for fn in os.listdir(foldername):
+		r = requests.post("http://localhost:33900/api/FileRecord/UploadFileOutPutJson",
+					files={"file": open(os.path.join(foldername, fn))},
+					headers={"Content-Type": "multipart/form-data"})
+		print("Submitting ", fn, "with return code", r.status_code)
+		if r.status_code == 200:
+			os.unlink(os.path.join(foldername, fn))
 
 def main():
 	fold = ""
@@ -317,4 +329,5 @@ def main():
 
 
 if __name__ == "__main__":
-	main()
+	#main()
+	get_cn_from_ip("14.54.34.112")
