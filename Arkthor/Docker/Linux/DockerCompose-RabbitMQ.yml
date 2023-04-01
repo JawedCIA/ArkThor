@@ -15,11 +15,22 @@ services:
       - "33900:80"
     volumes:
       - type: bind
-        source: ${PWD}/UploadedFiles
+        source: ./UploadedFiles
         target: /app/UploadedFiles
       - type: bind
-        source: ${PWD}/ArkThorDatabase
+        source: ./ArkThorDatabase
         target: /app/ArkThorDatabase
+    networks:
+      - nwarkthor
+  core:
+    image: arkthor-core
+    container_name: arkthorcore
+    depends_on:
+      - api
+    volumes:
+      - type: bind
+        source: ./UploadedFiles
+        target: /app/UploadedFiles
     networks:
       - nwarkthor
   rabbitmq:
