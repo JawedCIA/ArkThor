@@ -4,7 +4,6 @@
 # License: GPLV2						 					 #
 # Reason: Capstone Project April 2023 - IIT Kanpur	   		 #
 ##############################################################
-import datetime
 
 from scapy.all import *
 import sys
@@ -31,19 +30,19 @@ class config_loader:
 			else:
 				raise Exception("Unknown value in debugmode of config file")
 
-			if jsn['arkthor']['uploadsupportfiles'] == "false":
-				self.uploadsupportfiles = False
-			elif jsn['arkthor']['uploadsupportfiles'] == "true":
-				self.uploadsupportfiles = True
+			if jsn['arkthor']['usearkthorapi'] == "false":
+				self.usearkthorapi = False
+			elif jsn['arkthor']['usearkthorapi'] == "true":
+				self.usearkthorapi = True
 			else:
-				raise Exception("Unknown value in uploadsupportfiles of config file")
+				raise Exception("Unknown value in usearkthorapi of config file")
 
 			if jsn['deleteprocessed'] == "false":
 				self.deleteprocessed = False
 			elif jsn['deleteprocessed'] == "true":
 				self.deleteprocessed = True
 			else:
-				raise Exception("Unknown value in uploadsupportfiles of config file")
+				raise Exception("Unknown value in deleteprocessed of config file")
 
 			self.baseurl = jsn['arkthor']["apibaseurl"]
 
@@ -242,21 +241,24 @@ def intimate_completion(fjson, url_prefix):
 		  
 
 def submit_artifacts_of_pcaprun(filehash,foldername, url_prefix):
-	for fn in os.listdir(foldername):
+	for fn in os.listdir(os.path.join("results", foldername)):
 		#get the mimetype of submiiting file
 		#content_type, encoding = mimetypes.guess_type(os.path.join(foldername, fn))
+		if fn == "detected.json": continue
 		try:
 			r = requests.post("%s/api/FileUpload/UploadSupportingFile"%(url_prefix),
 						params={"sha256": filehash.upper()},
-					files={"file":(fn,open(os.path.join(foldername,fn),'rb'),mimetypes.guess_type(os.path.join(foldername,fn))[0])},
+					files={"file":(fn,open(os.path.join("results", foldername, fn),'rb'), mimetypes.guess_type(os.path.join("results", foldername, fn))[0])},
 					headers={ 'accept': '*/*'})
 		except requests.exceptions.ConnectionError as e:
 			print("Cannot connect to server to post data")
 		else:
 			print("Submitting ", fn, "with return code", r.status_code)
 			if r.status_code == 200:
-				os.unlink(os.path.join(foldername, fn))
-
+				os.unlink(os.path.join("results", foldername, fn))
+				
+	os.rmdir(os.path.join("results", foldername))
+	
 def get_cn_from_ip(ipaddr):
 	import struct
 	import socket
@@ -336,7 +338,8 @@ def aggregate_detections(ppe, s256):
 	union_json["c2_countries"] = cl
 	union_json['Status'] = "Done"
 	union_json['SHA256'] = s256
-	union_json['analyzed_time'] = int(datetime.datetime.utcnow().timestamp)
+	import datetime
+	union_json['analyzed_time'] = int(datetime.datetime.utcnow().timestamp())
 	return union_json
 
 
@@ -355,38 +358,42 @@ def process_pcap(fname):
 	if ph.exists_in_processing(s256, stat.st_mtime) == True:
 		print("Already Processed", fname)
 		return
-	if cnf.uploadsupportfiles == True:
+	if cnf.usearkthorapi == True:
 		intimate_status(s256, "InProgress", cnf.baseurl)
 
 	ppe = packetprocessengine()
 	try:
 		ppe.loadpcap(fname)
 	except:
-		if cnf.uploadsupportfiles == True:
+		if cnf.usearkthorapi == True:
 			intimate_status(s256, "Removed", cnf.baseurl)
 
 		return "Error processing pcap file"
 	ppe.process_packet()
 
-	if not os.path.isdir(s256):
-		os.mkdir(s256)
+	if not os.path.isdir("results"):
+		os.mkdir("results")
 
-	with open("%s/dnsproto.json" % (s256), "w") as f:
+	if not os.path.isdir(os.path.join("results", s256)):
+		os.mkdir(os.path.join("results", s256))
+
+	with open("results/%s/dnsproto.json" % (s256), "w") as f:
 		f.write(json.dumps(ppe.get_processed_dns_packet(), indent=4))
 
 	v = aggregate_detections(ppe, s256)
 	if v is not None:
 		res = []
 		res.append(v)
-		with open("%s/detected.json" % (s256), "w") as f:
+		with open("results/%s/detected.json" % (s256), "w") as f:
 			f.write(json.dumps(res, indent=4))
-		if cnf.uploadsupportfiles == True:
-			intimate_completion("%s/detected.json" % (s256), cnf.baseurl)
+		if cnf.usearkthorapi == True:
+			intimate_completion("results/%s/detected.json" % (s256), cnf.baseurl)
+			os.unlink("results/%s/detected.json" % (s256))
 	else:
-		if cnf.uploadsupportfiles == True:
+		if cnf.usearkthorapi == True:
 			intimate_status(s256, "Done", cnf.baseurl)
 
-	if cnf.uploadsupportfiles == True:
+	if cnf.usearkthorapi == True:
 		submit_artifacts_of_pcaprun(s256,s256, cnf.baseurl)
 
 	ph.insert_into_processing(s256, stat.st_mtime)
