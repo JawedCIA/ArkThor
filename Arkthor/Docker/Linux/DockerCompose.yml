@@ -16,6 +16,17 @@ services:
         target: /app/ArkThorDatabase
     networks:
       - nwarkthor
+  core:
+    image: arkthor-core
+    container_name: arkthorcore
+    depends_on:
+      - api
+    volumes:
+      - type: bind
+        source: ./UploadedFiles
+        target: /app/UploadedFiles
+    networks:
+      - nwarkthor  
   ui:
     image: arkthor-ui
     container_name: arkthorui
