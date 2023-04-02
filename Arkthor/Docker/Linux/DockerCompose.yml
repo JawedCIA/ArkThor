@@ -26,18 +26,6 @@ services:
       - "24297:80"    
     networks:
       - nwarkthor 
-  core:
-    image: arkthor-core
-    container_name: arkthorcore
-    depends_on:
-      - api
-      - rabbitmq
-    volumes:
-      - type: bind
-        source: ./UploadedFiles
-        target: /app/UploadedFiles
-    networks:
-      - nwarkthor
   rabbitmq:
     image: rabbitmq:3.11-management
     container_name: rabbitmq
