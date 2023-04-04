@@ -15,6 +15,7 @@ import requests
 import re
 import time
 import mimetypes
+import datetime
 
 class config_loader:
 	def __init__(self):
@@ -23,23 +24,23 @@ class config_loader:
 		try:
 			self.watchfolder = jsn["watcher"]["watch-folder"]
 			self.delaytime = int(jsn["watcher"]["watch-delay"])
-			if jsn['debugmode'] == "false":
+			if jsn['debugmode'].lower() == "false":
 				self.debugmode = False
-			elif jsn['debugmode'] == "true":
+			elif jsn['debugmode'].lower() == "true":
 				self.debugmode = True
 			else:
 				raise Exception("Unknown value in debugmode of config file")
 
-			if jsn['arkthor']['usearkthorapi'] == "false":
+			if jsn['arkthor']['usearkthorapi'].lower() == "false":
 				self.usearkthorapi = False
-			elif jsn['arkthor']['usearkthorapi'] == "true":
+			elif jsn['arkthor']['usearkthorapi'].lower() == "true":
 				self.usearkthorapi = True
 			else:
 				raise Exception("Unknown value in usearkthorapi of config file")
 
-			if jsn['deleteprocessed'] == "false":
+			if jsn['deleteprocessed'].lower() == "false":
 				self.deleteprocessed = False
-			elif jsn['deleteprocessed'] == "true":
+			elif jsn['deleteprocessed'].lower() == "true":
 				self.deleteprocessed = True
 			else:
 				raise Exception("Unknown value in deleteprocessed of config file")
@@ -303,14 +304,19 @@ def aggregate_detections(ppe, s256):
 		fd = json.load(open("%s_dnsproto.json" % (s256)))
 		ren.rundomainrules(fd)
 
+	union_json = {}
 	res = ren.get_detected_rules()
 	if res == []:
 		print("No Detection seen")
-		return
+		union_json = {}
+		union_json['Status'] = "Done"
+		union_json['SHA256'] = s256
+		union_json["c2_countries"] = []
+		union_json["rule_name"] = "No THREAT"
+		union_json['analyzed_time'] = int(datetime.datetime.utcnow().timestamp())
+		return union_json
 
 	# unify the whole jsons and remove them from list
-
-	union_json = {}
 
 	for val in res:
 		for v in val:
@@ -338,7 +344,6 @@ def aggregate_detections(ppe, s256):
 	union_json["c2_countries"] = cl
 	union_json['Status'] = "Done"
 	union_json['SHA256'] = s256
-	import datetime
 	union_json['analyzed_time'] = int(datetime.datetime.utcnow().timestamp())
 	return union_json
 
@@ -389,9 +394,6 @@ def process_pcap(fname):
 		if cnf.usearkthorapi == True:
 			intimate_completion("results/%s/detected.json" % (s256), cnf.baseurl)
 			os.unlink("results/%s/detected.json" % (s256))
-	else:
-		if cnf.usearkthorapi == True:
-			intimate_status(s256, "Done", cnf.baseurl)
 
 	if cnf.usearkthorapi == True:
 		submit_artifacts_of_pcaprun(s256,s256, cnf.baseurl)
