@@ -74,7 +74,7 @@ namespace ArkThor.Dashboard.Controllers
         [ActionName("Index")]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        [RequestFormLimits(MultipartBodyLengthLimit = 136314880)]
+        [RequestFormLimits(MultipartBodyLengthLimit = 52428800)]
         [RequestSizeLimit(136314880)]
         public async Task<IActionResult> UploadFilesAsync(List<IFormFile> files)
         {

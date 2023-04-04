@@ -9,7 +9,7 @@ public class OutPutJsonFile
 {
     public string SHA256 { get; set; }
     public string? rule_name { get; set; }
-    public long? authored_timestamp { get; set; }
+    public long? analyzed_time { get; set; }
     public int? severity { get; set; }
     public string[]? MITRE { get; set; }
     public string[]? c2_countries { get; set; }

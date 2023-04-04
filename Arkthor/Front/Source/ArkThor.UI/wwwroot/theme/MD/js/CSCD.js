@@ -296,8 +296,8 @@ function displayFileRecords(response, tblBodyID) {
     if (response.threatType) {
         recordTypeSpan.innerText = response.threatType.toUpperCase();    
         if ((response.threatType).toUpperCase() == 'NO THREAT') { recordTypeSpan.className = 'badge bg-success' }
-        else if ((response.threatType).toUpperCase() == 'AMBIGOUS') { recordTypeSpan.className = 'badge badge-secondary ' }
-        else if ((response.threatType).toUpperCase() == 'SUSPICOUS') { recordTypeSpan.className = 'badge badge-warning' }
+        else if ((response.threatType).toUpperCase() == 'AMBIGUOUS') { recordTypeSpan.className = 'badge badge-secondary ' }
+        else if ((response.threatType).toUpperCase() == 'SUSPICIOUS') { recordTypeSpan.className = 'badge badge-warning' }
         else { recordTypeSpan.className = 'badge bg-danger' }
     }
     else {
@@ -1069,7 +1069,7 @@ function displayLiveTrackingOnBoard(response) {
         div_ribbon_wrapper.append(div_ribbon_bg_primary);
     }
 
-    else if ((response.threatType).toUpperCase() == 'AMBIGOUS' || (response.threatType).toUpperCase() == 'SUSPICOUS') {
+    else if ((response.threatType).toUpperCase() == 'AMBIGUOUS' || (response.threatType).toUpperCase() == 'SUSPICIOUS') {
         div_ribbon_bg_primary.className = 'ribbon bg-secondary';
         iConStatus.className = 'icon fas fa-bug';
         displayRibbon = '1';

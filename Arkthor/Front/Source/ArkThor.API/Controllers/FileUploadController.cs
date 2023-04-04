@@ -62,9 +62,9 @@ namespace ArkThor.API.Controllers
                 if (rules != null)
                 {
                     DateTime AnalyzedDateTime= DateTime.Now;
-                    if (rules[0].authored_timestamp != null)
+                    if (rules[0].analyzed_time != null)
                     {
-                        DateTimeOffset dateTimeOffset = DateTimeOffset.FromUnixTimeSeconds((long)rules[0].authored_timestamp);
+                        DateTimeOffset dateTimeOffset = DateTimeOffset.FromUnixTimeSeconds((long)rules[0].analyzed_time);
                         AnalyzedDateTime = dateTimeOffset.LocalDateTime;
                     }
                   //  string C2Communication = JsonSerializer.Serialize(rules[0].c2_countries);

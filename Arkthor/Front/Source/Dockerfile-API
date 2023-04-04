@@ -1,0 +1,26 @@
+FROM mcr.microsoft.com/dotnet/sdk:7.0 AS build
+WORKDIR /source
+
+# copy csproj and restore as distinct layers
+COPY *.sln .
+
+COPY ArkThor.UI/. ./ArkThor.UI
+COPY ArkThor.API/. ./ArkThor.API
+
+RUN dotnet restore
+
+# copy everything else and build app
+WORKDIR ./ArkThor.API
+COPY ArkThor.API/package*.json ./
+COPY ArkThor.API/. .
+RUN dotnet build --configuration Release --no-restore
+
+RUN dotnet publish -c Release -o published -r linux-x64 --self-contained true /p:UseAppHost=true
+
+# final stage/image
+FROM mcr.microsoft.com/dotnet/aspnet:7.0
+WORKDIR /app
+EXPOSE 80
+EXPOSE 443
+COPY --from=build /source/ArkThor.API/published ./
+ENTRYPOINT ["dotnet", "ArkThor.API.dll"]
