@@ -30,7 +30,7 @@ namespace ArkThor.Dashboard
             services.Configure<FormOptions>(options =>
             {
                 // Set the limit to 256 MB
-                options.MultipartBodyLengthLimit = 136314880;//134217728
+                options.MultipartBodyLengthLimit = 52428800;//134217728
             });
             // services.AddDbContext<DatabaseContext>(options =>
             //options.UseSqlServer(Configuration.GetConnectionString("ArkThorDBConnectionStr")));
