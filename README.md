@@ -1,4 +1,4 @@
-[![ArkThor Front Engine](https://github.com/JawedCIA/KCST/actions/workflows/dotnet.yml/badge.svg)](https://github.com/JawedCIA/KCST/actions/workflows/dotnet.yml)  [![Docker Image CI](https://github.com/JawedCIA/ArkThor/actions/workflows/docker-image.yml/badge.svg)](https://github.com/JawedCIA/ArkThor/actions/workflows/docker-image.yml)
+[![ArkThor Front Engine](https://github.com/JawedCIA/KCST/actions/workflows/dotnet.yml/badge.svg)](https://github.com/JawedCIA/KCST/actions/workflows/dotnet.yml)  [![Docker ARkThor UI Image CI](https://github.com/JawedCIA/ArkThor/actions/workflows/docker-image-UI.yml/badge.svg)](https://github.com/JawedCIA/ArkThor/actions/workflows/docker-image-UI.yml)
 
 <h3 align="center">ArkThor</h3>
 
