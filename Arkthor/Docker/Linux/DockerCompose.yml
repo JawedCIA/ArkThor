@@ -3,7 +3,7 @@
 services:
 
   api:
-    image: arkthor-api
+    image: arkthor/arkthor-api:latest
     container_name: arkthorapi
     ports:
       - "33900:80"
@@ -17,7 +17,7 @@ services:
     networks:
       - nwarkthor
   core:
-    image: arkthor-core
+    image: arkthor/arkthor-core:latest
     container_name: arkthorcore
     depends_on:
       - api
@@ -28,7 +28,7 @@ services:
     networks:
       - nwarkthor  
   ui:
-    image: arkthor-ui
+    image: arkthor/arkthor-ui:latest
     container_name: arkthorui
     depends_on:
       - api
