@@ -2,7 +2,7 @@
 
 # ArkThor
 <p align="center">
- <strong> Safetly and Strength to an organization in Cyber Security Cyber Defence  </strong>
+ <strong> Safety and Strength to an organization in Cyber Security Cyber Defence  </strong>
     <br />
  <p/>
 
