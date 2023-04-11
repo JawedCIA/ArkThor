@@ -6,15 +6,22 @@
     <br />
  <p/>
 
-Threat categorization is one of the biggest challenges that the security community faces today. Malwares are hidden using multiple layers of packers, obfuscators thus hiding from revealing its true identity unless unpacked. 
-	Of late, it is also observed that the same codebase / framework is reused by multiple RAT builders and Backdoors. Some of these packers and obfuscators are also reused across multiple malware families.
+The threat landscape facing modern organizations is constantly evolving and becoming increasingly complex. With policies like BYOD and social data of individuals available on the social media, Passwords and 2 FA are not going to stop the cyber attacks. Understanding the threat discovered in a corporate environment will help the infosec team to assess the impact of the attack and take measures accordingly Cyber attacks are becoming more sophisticated and complex, and
+it is becoming increasingly difficult to detect and block /prevent them.
 
-This project aims at looking into the networking concept of these C2 communicating malwares and tries to parse the network packets and classify the threats based on the unique communication pattern used by these malware families. The rules also involve fingerprinting the TLS certificates used in the communication.
+One of the key challenges in effectively defending against cyber threats is the ability to accurately categorize and analyze potential threats.
 
-We initated this as Capstone project during our CSCD (Advanced Certification Program in Cyber Security and Cyber Defense) program 2022-2023 of IIT Kanpur, in association with TalentSprint.
+In particular, understanding the Command and Control (C2) communications used by attackers is critical in identifying and responding to cyber attacks. Command and Control (C2) communication is a common technique used by attackers to control the infected hosts and steal sensitive information. It is crucial to identify C 2 communication and categorize the network threats accurately to prevent and mitigate cyber attacks.
+
+This project aims at looking into the networking concept of these C2 communicating malwares and tries to parse the network packets and classify the threats based on the unique communication pattern used by these malware families. 
+
+The rules also involve fingerprinting the TLS certificates used in the communication.
+
+### During our CSCD (Advanced Certification Program in Cyber Security and Cyber Defense) program for 2022-2023 at IIT Kanpur, in collaboration with TalentSprint, we began this as a Capstone project. 
+### As we continued to develop the project, we discovered that it had evolved into a product, and thus, ArkThor was born..
 
 
-<h3> We ArkThor team are committed to provide holistic view of Analyzed  File for threat categorization with rich details. </h3>
+<h4> The ArkThor team is committed to providing a comprehensive view of analyzed files, including threat categorization and rich details. </h4>
 
 
 <img src="https://user-images.githubusercontent.com/16477789/229313617-2e20dda9-1ab0-47db-b738-33c35791e5bc.png" width="40%" height="40%">
@@ -31,33 +38,60 @@ We initated this as Capstone project during our CSCD (Advanced Certification Pro
 https://arkthor.azurewebsites.net/
 
 ## Project Core Architect Idea
-To keep the architect loosely coupled we have sandwich the ArkThor in 3 different layers as shown in below diagram.
-![image](https://user-images.githubusercontent.com/16477789/230394705-be4fbff6-e70a-48bd-a731-6f732cbe232d.png)
+The entire project is comprised of three distinct layers: a platform-independent layer that is scalable and built using microservices. It is also designed to be easy to deploy and relies entirely on an opensource technology stack,
+As illustrated in the diagram below.
+![image](https://user-images.githubusercontent.com/16477789/231136431-6ea546b1-1cf4-4cb6-ad9d-f97ac0abc5f7.png)
 
-### Core concept of ArkThor project is to make it,
-1. Platform Independent using containerization
-2. Scalable 
-3. Microservice
-4. Plug and Analyzed (for light weight anyone can just run Core layer using python command)
-5. Easy to deploy 
-6. Used open-source tech stack only
-7. On UI Interpret the Analyzed results in such a way that even non-security can understand it. 
 
-Most important we follow the below rule:
-<h4>“Organization Don’t buy products, they buy Solution to their Problems….”</h4>
+
+### The fundamental concept behind the ArkThor project is to ensure that it is:,
+1. Platform independent by leveraging containerization
+2. Scalable
+3. Composed of microservices
+4. Easy to plug in and analyze, with the option to run the Core layer using a simple Python command
+5. Easy to deploy
+6. Built exclusively on open-source technology
+7. Capable of presenting the analyzed results on the UI in a manner that is easily comprehensible even to non-security professionals.. 
+
+#### "The most important principle we follow is that organizations do not buy products, but solutions to their problems. This means that we strive to provide solutions that address the specific needs and challenges of an organization, rather than just providing a generic product."
 
 
 ## ArkThor WorkFlow Architect with various components
-<img src="https://user-images.githubusercontent.com/16477789/230398092-78978ebf-0854-40c0-b1c5-f0fdc8a6012e.png" width="110%" height="110%">
+With common direct workflow path.
+<img src="https://user-images.githubusercontent.com/16477789/231137888-1106539b-efa9-47b3-803e-7b446c6fa9ae.png" width="110%" height="110%">
+### End -to-End Working based on above workflow diagram
+![image](https://user-images.githubusercontent.com/16477789/231138530-d90fa17b-2759-4ff8-a814-7ae4285b556a.png)
+![image](https://user-images.githubusercontent.com/16477789/231138600-db5d41c8-0947-4bff-a98d-ef9239da2113.png)
+![image](https://user-images.githubusercontent.com/16477789/231138668-c87ffdcf-5ce0-40fa-8a57-a21555a05ea9.png)
 
-## Requirements ( Work Under Progress)
+
+## Requirements
 In order to run this project, you'll need to have installed on your machine (Windows, Mac, Linux):
 * Docker Desktop (or Docker on Linux)
-* Run DockerCompose file using command
 
-## Running (Work Under Progress)
-The steps to run are:
-<Work Under Progress>
+## Docker Images Registry
+```
+https://hub.docker.com/r/arkthor/arkthor-ui
+https://hub.docker.com/r/arkthor/arkthor-api
+https://hub.docker.com/r/arkthor/arkthor-core
+```
+## Running ArkThor Public view (preloaded Database, CORE Engine is not included)
+```
+docker run -d -p 24297:80 --name arkthorpublic  arkthor/arkthor-ui:publicview
+```
+## Running ArkThor Engine
+* Download DockerCompose.yml file to your local drive
+* Run dockerCompose.yml using command
+```
+docker-compose -f .\DockerCompose.yml up -d
+```
+![image](https://user-images.githubusercontent.com/16477789/231140066-c3d12562-0647-48f4-80cc-e2c1e3e4cca2.png)
+
+> To Access ArkThor UI, In browser type
+http://localhost:24297
+
+> To Access ArkThor API, In browser type
+http://localhost:33900/swagger/index.html
 
 ## Glimps of ArkThor 
 ### UI Dashboard
@@ -67,13 +101,23 @@ The steps to run are:
 <img src="https://user-images.githubusercontent.com/16477789/230397380-9ae7d208-97c2-4c03-ab2c-b18235f997b4.png" width="80%" height="80%">
 
 ### Analyzed File Information
-![image](https://user-images.githubusercontent.com/16477789/230400969-3d1b3f30-10fc-4e66-ba5c-2256fe66f71c.png)
-
+![image](https://user-images.githubusercontent.com/16477789/231179140-03cc2b13-4915-401d-ba33-fd53a8afd8bf.png)
 
 ### UI Statistics Page
 <img src="https://user-images.githubusercontent.com/16477789/230396638-df067312-9016-4ff6-b396-ca5fe0dc23fe.png" width="80%" height="80%">
 
 
-### Work Under progress..
+![image](https://user-images.githubusercontent.com/16477789/231142834-3c306ec1-53b5-4906-826e-fd8d3384bc5e.png)
 
-
+## Refrences used in ArkThor
+***[AdminLTE] https://github.com/ColorlibHQ/AdminLTE***</br>
+***[Bootstarp] https://getbootstrap.com/***</br>
+***[Flags] https://tabler.io/docs/plugins/flags***</br>
+***[SQLite] https://sqlite.org/index.html***</br>
+***[RabbitMQ] https://www.rabbitmq.com/***</br>
+***[SCAPY] https://github.com/secdev/scapy***</br>
+***[Rule Engine] https://pypi.org/project/rule-engine/***</br>
+***[ThreatFox] https://threatfox.abuse.ch/*** </br>
+***[ASPNet Core] https://learn.microsoft.com/en-us/aspnet/core/introduction-to-aspnet-core?view=aspnetcore-7.0***</br>
+***[Pyhton] https://www.python.org/***</br>
+***[Docker] https://www.docker.com/***</br>
