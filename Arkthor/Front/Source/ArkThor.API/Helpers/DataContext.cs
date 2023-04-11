@@ -30,25 +30,10 @@ public class DataContext : DbContext
     {
         // create database tables if they don't exist
         using var connection = CreateConnection();
-        await _initUsers();
+   
         await _initFilesRecord();
         await _initSupportFile();
-        async Task _initUsers()
-        {
-            var sql = """
-                CREATE TABLE IF NOT EXISTS 
-                Users (
-                    Id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
-                    Title TEXT,
-                    FirstName TEXT,
-                    LastName TEXT,
-                    Email TEXT,
-                    Role INTEGER,
-                    PasswordHash TEXT
-                );
-            """;
-            await connection.ExecuteAsync(sql);
-        }
+
         async Task _initFilesRecord()
         {
             var sql = """
@@ -109,7 +94,7 @@ public class DataContext : DbContext
             await connection.ExecuteAsync(sql);
         }
     }
-    public DbSet<User> Users { get; set; }
+
     public DbSet<FileRecord> FilesRecord { get; set; }
     public DbSet<DashboardCount> DashboardCounts { get; set; }
     public DbSet<DistributionCount> DistributionCounts { get; set; }

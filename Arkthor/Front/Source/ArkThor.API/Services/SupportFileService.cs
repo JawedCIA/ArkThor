@@ -7,7 +7,7 @@ using ArkThor.API.Helpers;
 using Dapper;
 using ArkThor.API.Models.Records;
 using static System.Runtime.InteropServices.JavaScript.JSType;
-using ArkThor.API.Models.Users;
+
 using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
 
