@@ -1,5 +1,4 @@
-﻿
-@section scripts {
+﻿@section scripts {
 
 }
 
@@ -11,18 +10,18 @@
 
     <title>@ViewData["Title"] - ArkThor</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-     <link href="~/theme/MD/Images/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <link href="~/theme/MD/Images/favicon.ico" rel="shortcut icon" type="image/x-icon" />
     <!-- Font Awesome -->
 
     <link href="~/theme/plugins/fontawesome-free/css/all.min.css" rel="stylesheet" />
-   @* <link href="~/theme/plugins/fontawesome-free/css/fontawesome.css" rel="stylesheet" />
+    @* <link href="~/theme/plugins/fontawesome-free/css/fontawesome.css" rel="stylesheet" />
     <link href="~/theme/docs/assets/plugins/fontawesome-free/css/fontawesome.min.css" rel="stylesheet" />*@
     <!-- Ionicons -->
     <link rel="stylesheet" href="~/theme/MD/css/ionicons/2.0.1/css/ionicons.min.css">
     <!-- overlayScrollbars -->
     <link rel="stylesheet" href="~/theme/dist/css/adminlte.min.css">
     <link rel="stylesheet" href="~/theme/lib/bootstrap/dist/css/bootstrap.min.css">
-    
+
 
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
@@ -30,8 +29,8 @@
     <!-- Site wrapper -->
     <div class="wrapper">
         <!-- Preloader -->
-      @*  <div class="preloader flex-column justify-content-center align-items-center">
-            <img class="animation__shake" src="~/theme/MD/Images/Logo.png" alt="ThreatCategorization" height="60" width="60">
+        @*  <div class="preloader flex-column justify-content-center align-items-center">
+        <img class="animation__shake" src="~/theme/MD/Images/Logo.png" alt="ThreatCategorization" height="60" width="60">
         </div>*@
         <!-- Navbar -->
         <nav class="main-header navbar navbar-expand navbar-dark navbar-primary">
@@ -45,7 +44,7 @@
                 </li>
                 <li class="nav-item d-none d-sm-inline-block">
                     <a href="~/Home/Contacts" class="nav-link">Contact</a>
-                </li>               
+                </li>
                 <li class="nav-item d-none d-sm-inline-block">
                     <a href="~/Home/LiveAnalysisTracking" class="nav-link" target="_blank">LiveTracking</a>
                 </li>
@@ -65,7 +64,7 @@
 
 
         </nav>
-        
+
         <!-- /.navbar -->
         <!-- Main Sidebar Container Threat Hunting: C2 Network-->
         <aside class="main-sidebar sidebar-dark-primary elevation-4">
@@ -88,13 +87,13 @@
                         @*<img src="~/theme/MD/ApplicationFiles/Images/MD.jpg" id="imgLoginUser" class="img-circle elevation-2" alt="User Image">*@
                     </div>
                     <div class="info">
-                      
-                                                                        
-                     @*   <a href="#" class="d-block" id="_loginUserName">@loginUser_givenName @loginUser_SurName</a>*@
-                                                                        
+
+
+                        @*   <a href="#" class="d-block" id="_loginUserName">@loginUser_givenName @loginUser_SurName</a>*@
+
                         <a href="#" class="d-block" id="_loginUserName">Admin</a>
-                     @*   <label id="_loginUserEmailID" hidden="hidden">@loginUser_EmailID</label>*@
-                      @*  <span id="_loginUser_ID" hidden="hidden">@loginUser_ID</span>*@
+                        @*   <label id="_loginUserEmailID" hidden="hidden">@loginUser_EmailID</label>*@
+                        @*  <span id="_loginUser_ID" hidden="hidden">@loginUser_ID</span>*@
                         @* <a href="#" class="d-block"> Hello Guest !</a>*@
 
 
@@ -106,29 +105,29 @@
                 <nav class="mt-2">
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                         <!-- Add icons to the links using the .nav-icon class
-    with font-awesome or any other icon font library -->
+                        with font-awesome or any other icon font library -->
                         <li class="nav-item">
                             <a href="~/" class="nav-link">
                                 <i class="nav-icon fas fa-tachometer-alt"></i>
                                 <p>
                                     Dashboard
                                     @*<i class="right fas fa-angle-left"></i>
-                    <i class="fas fa-bullhorn"></i>*@
+                                    <i class="fas fa-bullhorn"></i>*@
                                 </p>
                             </a>
                         </li>
-                       
+
                         <li class="nav-item">
                             <a href="~/Home/AnalysisRecords" class="nav-link">
-                              @*  <i class="fab fa-optin-monster fa-2x"></i>*@
+                                @*  <i class="fab fa-optin-monster fa-2x"></i>*@
                                 <i class="fas fa-user-secret"></i>
                                 <p>
                                     Analysis Records
                                 </p>
                             </a>
-                        </li>                      
+                        </li>
 
-                       
+
                         <!--Charts-->
                         <li class="nav-item">
                             <a href="~/Home/Statistics" class="nav-link" target="_blank" title="Use this link to join Maintenance Window Room Work discussion">
@@ -162,13 +161,13 @@
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="~/DevOps/BriefHistory" class="nav-link">
+                                    <a href="~" class="nav-link">
                                         <i class="far fa-copy"></i>
                                         <p>Upload</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="~/DevOps/DevOpsStage" class="nav-link">
+                                    <a href="~" class="nav-link">
                                         <i class="fas fa-retweet"></i>
                                         <p>View/Edit</p>
                                     </a>
@@ -177,15 +176,15 @@
                             </ul>
 
                         </li>
-                         <li class="nav-item">
-                            <a href="~/KnowledgeBase" class="nav-link">
+                        <li class="nav-item">
+                            <a href="~" class="nav-link">
                                 <i class="nav-icon fas fa-book"></i>
                                 <p>Knowledge Base</p>
                             </a>
                         </li>
 
-                         <li class="nav-item">
-                            <a href="~/Home/AgentPools" class="nav-link">
+                        <li class="nav-item">
+                            <a href="~" class="nav-link">
                                 <i class="nav-icon fas  fa-server"></i>
                                 <p>Agent Pools</p>
                             </a>
@@ -201,14 +200,14 @@
                         </li>
 
                         <li class="nav-item">
-                            <a href="~/FAQ" class="nav-link" title="Frequently Ask Questions">
+                            <a href="~" class="nav-link" title="Frequently Ask Questions">
                                 <i class="far fa-question-circle"></i>
                                 <p>
                                     FAQ
                                 </p>
                             </a>
                         </li>
-                      
+
                         <!-- End Of Test-->
                     </ul>
                 </nav>
@@ -223,10 +222,9 @@
             <div class="float-right d-none d-sm-block">
                 <b>Version</b> v17.06.84
             </div>
-            @* <strong>Copyright &copy; 2023-2025 <a href="https://ArkThor">Threat Categorization Based on Malware’s C2 Communication</a>.</strong> All rights
-            reserved.*@
 
-           <strong>Contact <a href="https://ThreatCategorization">MD (Mohammed Jawed) / SriRam P </a>for any suggestion or comments/feedback.</strong> 
+
+            <strong>Contact <a href="https://github.com/JawedCIA/ArkThor">MD (Mohammed Jawed) / SriRam P </a>for any suggestion or comments/feedback.</strong>
         </footer>
 
         <!-- Control Sidebar -->
@@ -247,7 +245,7 @@
     <!-- AdminLTE App -->
     <script src="~/theme/dist/js/adminlte.min.js"></script>
     <script src="~/theme/lib/bootstrap/dist/js/bootstrap.min.js"></script>
- 
+
     <!-- AdminLTE for demo purposes -->
     <!--<script src="~/theme/dist/js/demo.js"></script>-->
     <!-- ArkThor -->

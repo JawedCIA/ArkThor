@@ -13,6 +13,7 @@
     <UserSecretsId>f74e2057-306c-4008-bf55-db1fd79b5ba9</UserSecretsId>
     <AssemblyName>ArkThor.UI</AssemblyName>
     <OutputType>Exe</OutputType>
+    <ApplicationIcon>favicon.ico</ApplicationIcon>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
@@ -41,11 +42,11 @@
     <TypeScriptCompile Remove="UploadedFiles\**" />
   </ItemGroup>
 
-  
+  <ItemGroup>
+    <Content Include="favicon.ico" />
+  </ItemGroup>
 
-	<ItemGroup>
-	  <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.4" />
-	</ItemGroup>
+  
 
   <ItemGroup>
     <PackageReference Include="Microsoft.TypeScript.MSBuild" Version="4.9.5">

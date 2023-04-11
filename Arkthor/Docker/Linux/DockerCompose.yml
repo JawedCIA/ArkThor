@@ -2,6 +2,16 @@
 
 services:
 
+  ui:
+    image: arkthor/arkthor-ui:latest
+    container_name: arkthorui
+    depends_on:
+      - api
+    ports:
+      - "24297:80"    
+    networks:
+      - nwarkthor
+
   api:
     image: arkthor/arkthor-api:latest
     container_name: arkthorapi
@@ -16,6 +26,7 @@ services:
         target: /app/ArkThorDatabase
     networks:
       - nwarkthor
+
   core:
     image: arkthor/arkthor-core:latest
     container_name: arkthorcore
@@ -27,15 +38,7 @@ services:
         target: /app/UploadedFiles
     networks:
       - nwarkthor  
-  ui:
-    image: arkthor/arkthor-ui:latest
-    container_name: arkthorui
-    depends_on:
-      - api
-    ports:
-      - "24297:80"    
-    networks:
-      - nwarkthor 
+ 
   rabbitmq:
     image: rabbitmq:3.11-management
     container_name: rabbitmq
