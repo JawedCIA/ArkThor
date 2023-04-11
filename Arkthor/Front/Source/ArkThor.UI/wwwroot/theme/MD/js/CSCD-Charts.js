@@ -1,8 +1,9 @@
 //------------------------------------------//
-// JavaScript File for CSCD Chart function
+// JavaScript File for ArkThor function
 //Author: MD Jawed
-
-//Date: 2023-2024
+// Email: Jawed.ace@gmail.com
+// Application: ArkThor , Deployed During CSCD IITK Program
+//Date: 2022-2023
 //------------------------------------------//
 
 var CICDChart;

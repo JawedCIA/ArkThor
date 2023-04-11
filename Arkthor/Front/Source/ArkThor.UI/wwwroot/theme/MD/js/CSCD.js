@@ -1,7 +1,8 @@
 //------------------------------------------//
 // JavaScript File for ArkThor function
 //Author: MD Jawed
-// Deployed During CSCD IITK Program
+// Email: Jawed.ace@gmail.com
+// Application: ArkThor , Deployed During CSCD IITK Program
 //Date: 2022-2023
 //------------------------------------------//
 
