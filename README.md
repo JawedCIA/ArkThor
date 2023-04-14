@@ -1,6 +1,8 @@
 [![ArkThor Front Engine](https://github.com/JawedCIA/KCST/actions/workflows/dotnet.yml/badge.svg)](https://github.com/JawedCIA/KCST/actions/workflows/dotnet.yml)  [![Docker ArkThor UI Image CI](https://github.com/JawedCIA/ArkThor/actions/workflows/docker-image-UI.yml/badge.svg)](https://github.com/JawedCIA/ArkThor/actions/workflows/docker-image-UI.yml) [![Docker ArkThor API Image](https://github.com/JawedCIA/ArkThor/actions/workflows/docker-image-API.yml/badge.svg)](https://github.com/JawedCIA/ArkThor/actions/workflows/docker-image-API.yml)[![Docker Image CORE](https://github.com/JawedCIA/ArkThor/actions/workflows/docker-image-CORE.yml/badge.svg)](https://github.com/JawedCIA/ArkThor/actions/workflows/docker-image-CORE.yml)
 
 # ArkThor
+## ![image](https://user-images.githubusercontent.com/16477789/231995799-ed466aa4-538b-4504-b738-38ea0e853488.png)
+
 <p align="center">
  <strong> Safety and Strength to an organization in Cyber Security Cyber Defence  </strong>
     <br />
