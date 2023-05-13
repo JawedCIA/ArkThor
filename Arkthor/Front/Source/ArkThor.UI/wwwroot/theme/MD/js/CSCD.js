@@ -161,6 +161,11 @@ function getTopThreatOperation() {
     //let currentWeekStartDate = weekDates[0];          
     //let currentWeekEndDate = weekDates[6];
     let numberOfRecordsToFetch = 10;
+   // console.log(numberOfRecordsToFetch);
+    const recordsSummaryTableBody = document.getElementById("tblTbodyFileSummaryCurrent");
+    while (recordsSummaryTableBody.hasChildNodes()) {
+        recordsSummaryTableBody.removeChild(recordsSummaryTableBody.firstChild);
+    }
     var requestCurrentWeekURL ="FileRecord/GetTOPFileRecord?numberOfRecordsToFetch=" + numberOfRecordsToFetch;
 
     let req = new XMLHttpRequest();
@@ -186,8 +191,8 @@ function getTopThreatOperation() {
                             displayFileRecords(record, "tblTbodyFileSummaryCurrent");
                         }
                         //Disable No record Found Text
-                        var element = document.getElementById("trCurrentNoRecordFound");//.style.display = 'none';
-                        element.setAttribute("hidden", "hidden");
+                        //var element = document.getElementById("trCurrentNoRecordFound");//.style.display = 'none';
+                        //element.setAttribute("hidden", "hidden");
                     }
                     else {
                         //TODO
@@ -867,6 +872,7 @@ function GetSimilarThreats() {
 
 //Get dashboard Count Values
 function getDashboardCountValues() {
+  //  console.log("getDashboardCountValues");
 
     var fileRecordAPIURL = "FileRecord/GetDashboardCount";
 
