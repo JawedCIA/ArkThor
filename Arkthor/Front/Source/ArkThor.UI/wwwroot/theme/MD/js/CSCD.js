@@ -16,7 +16,7 @@ function dynamicAPIURL() {
         .then(response => response.text())
         .then(apiUrl => {
             apiURExtL = apiUrl
-            console.log("Return URL:" + apiUrl);
+           // console.log("Return URL:" + apiUrl);
             // Use the API URL in a POST request
             //fetch(apiUrl + "FileRecord/GetTOPFileRecord?numberOfRecordsToFetch=10")
             //    .then(response => response.json())

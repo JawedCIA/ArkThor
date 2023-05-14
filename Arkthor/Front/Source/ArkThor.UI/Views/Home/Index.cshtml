@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="~/theme/dist/css/adminlte.min.css">
       <!-- Toastr -->
   <link rel="stylesheet" href="~/theme/plugins/toastr/toastr.min.css">
+    <link rel="stylesheet" href="~/theme/MD/css/CSCD.css">
 
 }
 
@@ -24,6 +25,111 @@
 
     <script type="text/javascript">
         'use strict';
+
+
+        const dropZone = document.getElementById("drop-zone");
+        const fileInput = document.getElementById("file-input");
+        const fileList = document.getElementById("file-list");
+        var responseDiv = document.getElementById("divResponse");
+       // var height = (files.length * 50) + 20; // 50px per file plus 20px padding
+        //dropZone.style.height = height + 'px';
+
+        dropZone.addEventListener("dragover", e => {
+            e.preventDefault();
+            dropZone.classList.add("drag-over");
+            dropZone.style.backgroundColor = '#ddd';
+        });
+
+        dropZone.addEventListener("dragleave", e => {
+            e.preventDefault();
+            dropZone.classList.remove("drag-over");
+            dropZone.style.backgroundColor = '';
+        });
+
+        dropZone.addEventListener("drop", e => {
+            e.preventDefault();
+            // Remove existing child elements from the drop zone
+            //while (dropZone.firstChild) {
+            //    console.log(dropZone.firstChild.tagName);
+            //    if (dropZone.firstChild.tagName === "INPUT" && dropZone.firstChild.type === "file") {
+            //        // Do not remove the input element
+            //        break;
+            //    }
+            //    dropZone.removeChild(dropZone.firstChild);
+            //}
+
+            dropZone.classList.remove("drag-over");
+            dropZone.style.backgroundColor = '';
+            const files = e.dataTransfer.files;
+            fileInput.files = files;
+            fileInput.dispatchEvent(new Event('change'));
+           // updateFileList(files);
+        });
+       
+
+        fileInput.addEventListener("change", e => {
+            const files = fileInput.files;
+           // updateFileList(files);
+            //const formData = new FormData();
+            for (const file of files) {
+               // formData.append("files", file);
+                let formData = new FormData();
+                formData.append("files", file);
+                let progressDiv = document.createElement("div");
+               // progressDiv.innerHTML = `${file.name}: <progress value="0" max="100"></progress>`;
+                progressDiv.innerHTML = `<div style="text-align: left;">${file.name}: <progress style="width: 300px;" value="0" max="100"></progress></div>`;
+
+                dropZone.appendChild(progressDiv);
+           
+
+            fetch("/UploadFiles", {
+                method: "POST",
+                body: formData
+            })
+                .then(response => {
+                    if (response.ok) {
+                       // responseDiv.textContent = 'Files uploaded successfully!';
+                            progressDiv.innerHTML = `<div style="text-align: left;">${file.name}: => Upload successful`;
+                            progressDiv.style.color = "green";
+                       // responseDiv.style.color = 'green';
+                    } else {
+                        return response.text();
+                    }
+                })
+                .then(errorMessage => {
+                    if (errorMessage) {
+                        //responseDiv.textContent = JSON.parse(errorMessage).message;
+                            progressDiv.innerHTML = `<div style="text-align: left;">${file.name}: => ${JSON.parse(errorMessage).message}`;
+                        //responseDiv.style.color = 'red';
+                            progressDiv.style.color = "red";
+                    }
+                })
+                .catch(error => {
+                    //responseDiv.textContent = error;
+                        progressDiv.innerHTML = `<div style="text-align: left;">${file.name}: => ${error.message}`;
+                    //responseDiv.style.color = 'red';
+                        progressDiv.style.color = "red";
+                });
+            }
+        });
+
+        function updateFileList(files) {
+            fileList.innerHTML = "";
+            var i=1;
+            for (const file of files) {
+                const li = document.createElement("li");
+                li.textContent =i+". " + file.name;
+                fileList.appendChild(li);
+                i++;
+            }
+
+           // const height = files.length > 0 ? fileList.offsetHeight + 20 : 0;
+            //dropZone.style.height = `${height}px`;
+
+            var height = (files.length * 50) + 20; // 50px per file plus 20px padding
+            dropZone.style.height = height + 'px';
+        }
+
 
         $(document).ready(function () {
             bsCustomFileInput.init();
@@ -229,52 +335,23 @@
                                                         </h6>
                                                            <br/>
                                               </div>
-                                               <div class="col-6">
-                                                    <form method="post" asp-route="Home/UploadFiles" enctype="multipart/form-data">
-                                                
-                                                            <div class="input-group">
-                                                            
-                                                                <div class="custom-file">
-                                                                <input type="file" class="custom-file-input" id="files" name="files" required>
-                                                                    <label class="custom-file-label" for="lblInputFile" data-browse="Choose">Select pcap file (Max.Size limit - 50 MB)</label>
-                                                                </div>
-                                                                    <!--<div class="input-group-append"> asp-action="Index" asp-controller="Home" asp-controller="Home" asp-action="UploadFiles"
-                                                                    <div class="input-group-text"><i class="fa fa-paperclip lowprio"></i></div>
-                                                                </div>-->
-                                                                <div class="input-group-append">
-                                                                    <!--<span class="input-group-text" id="">Upload</span> <i class="fa fa-paperclip lowprio" aria-hidden="true"> </i>-->
-                                                            <button type="submit" class="btn btn-primary">Analyze</button>
-                                                                </div>
-                                                      
-                                                            </div>
-                                                            <br/>                                                
-                                                          
-                                                    </form>
-                                              </div>
+                                             
+
+                                                <div id="drop-zone" class="drop-zone" >
+                                                    <i class="fa fa-cogs fa-3x fa-fw"></i>
+                                                    <!--<h1>Drag and Drop Files Here</h1>-->
+                                                    <h4> <label for="file-input">Drag & Drop files or click to select files <br/> for threat categorization</label></h4>
+                                                    <!--<span>Drag and drop files here, or click to select files</span> style="width: 100%; height: 100px; border: 2px dashed gray; text-align: center;"-->
+                                                    <input type="file" id="file-input" multiple style="display: none">
+                                                    <ul id="file-list"></ul>
+                                                </div>
+                                                <!--
                                                 <div id="divResponse">
 
-                                                    @if (ViewBag.Message != null)
-                                                    {
-                                                        @if (ViewBag.Message.Contains("SUCCESS"))
-                                                        {
-                                                            <div class="card-success" style="margin-top:20px">
-                                                                <p class="text-success"> @ViewBag.Message</p>
-
-                                                            </div>
-                                                        }
-                                                        else
-                                                        {
-                                                            <div class="card-danger" style="margin-top:20px">
-                                                                <p class="text-danger"> @ViewBag.Message</p>
-                                                            </div>
-                                                        }
-                                                    }
-
+                                                 
                                                 </div>
-                                                <!-- </div>
-                                                </div>-->                                           
-                                                
-                                              
+                                                -->
+
                                            
                                             </div> 
                                       
