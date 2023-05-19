@@ -415,7 +415,7 @@ async function fetchC2ContriesData(FromDate, ToDate, baseAPIURL) {
    
     for (var count of data.result) {
         //console.log(count);
-        if (!(count.countries == undefined || count.countries == null || count.countries == "")) {
+        if (!(count.countries == undefined || count.countries == null || count.countries == 'null' || count.countries == "")) {
 
             // console.log((JSON.parse(count.countries)).length);
             combinedArrays.push(JSON.parse(count.countries));
@@ -467,7 +467,7 @@ async function fetchC2InfecContriesData(FromDate, ToDate, baseAPIURL) {
     const combinedArrays = [];
     for (var count of data.result) {
         // console.log(count);
-        if (!(count.countries == undefined || count.countries == null || count.countries == "")) {
+        if (!(count.countries == undefined || count.countries == null || count.countries == 'null' || count.countries == "")) {
            // console.log(JSON.parse(count.countries));
             combinedArrays.push(JSON.parse(count.countries));
         }
