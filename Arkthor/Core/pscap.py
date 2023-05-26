@@ -16,11 +16,16 @@ import re
 import time
 import mimetypes
 import datetime
+import pika
+import logging
 
+
+# Global variable declaration
+global_var_foldertowatch = None
 class config_loader:
 	def __init__(self):
 		jsn = json.load(open("config.json"))
-
+		#print(jsn)
 		try:
 			self.watchfolder = jsn["watcher"]["watch-folder"]
 			self.delaytime = int(jsn["watcher"]["watch-delay"])
@@ -45,7 +50,15 @@ class config_loader:
 			else:
 				raise Exception("Unknown value in deleteprocessed of config file")
 
+			if jsn['arkthor']['userabbitmq'].lower() == "false":
+				self.userabbitmq = False
+			elif jsn['arkthor']['userabbitmq'].lower() == "true":
+				self.userabbitmq = True
+			else:
+				raise Exception("Unknown value in userabbitmq of config file")
+
 			self.baseurl = jsn['arkthor']["apibaseurl"]
+			self.rabbitmqhost = jsn['arkthor']["rabbitmqhost"]
 
 		except KeyError as e:
 			raise Exception("Error parsing the config file" + e)
@@ -147,10 +160,10 @@ class rulesengine:
 		return True
 
 	def rundomainrules(self, content):
-		for fn in os.listdir():
+		for fn in os.listdir("ArkThorRule"):
 			if ".ark" not in fn: continue
 			print("Processing rules from", fn)
-			self.rengine = json.loads(open(fn).read())
+			self.rengine = json.loads(open(os.path.join("ArkThorRule",fn)).read())
 			for r in self.rengine:
 				context = rule_engine.Context(type_resolver=rule_engine.type_resolver_from_dict({
 					'domain': rule_engine.DataType.STRING,
@@ -207,6 +220,11 @@ class processing_history:
 		cur.execute("insert into processed ( `filehash`, `fdtime` ) values ('%s', '%s')" % (sha256.upper(), int(mtime)))
 		conn.commit()
 		conn.close()
+
+def set_global_variable(value):
+    # Declare global_var as global within the method
+    global global_var_foldertowatch
+    global_var_foldertowatch = value
 
 def intimate_status(filehash, status, url_prefix):
 	try:
@@ -401,8 +419,70 @@ def process_pcap(fname):
 	ph.insert_into_processing(s256, stat.st_mtime)
 	return
 
+# Define message callback function
+def process_message(ch, method, properties, body):
+    try:
+        # Perform your operations on the received message here
+        print("Received message:", body.decode())  # Example: Print the message
+		# Assuming `body` contains the decoded message body
+        decoded_body = body.decode()
+		# Parse the JSON string
+        message_data = json.loads(decoded_body)
+		# Access the hash value from the parsed JSON
+        hash_value = message_data["Hash"]
+		# Use the hash value for further processing
+        print("Analysing File with hash Value::", hash_value)
+		#Analysis Operation
+        fp=find_file_by_filename(global_var_foldertowatch, hash_value)
+        process_pcap(fp)
+        # Acknowledge the message
+        ch.basic_ack(delivery_tag=method.delivery_tag)
+        print("Acknowledge the message and wiating for Message..")
+		# Use the hash value for further processing
+    except Exception as e:
+        print("Error occurred while processing the message:", str(e))
+        # Handle the error and decide whether to retry or take other actions
+
+        # Retry after a delay
+        time.sleep(5)  # Wait for 5 seconds before retrying
+        consume_messages()
+
+def consume_messages(connection_params):
+	
+    try:
+        # Establish connection
+        print(connection_params)
+        connection = pika.BlockingConnection(connection_params)
+        channel = connection.channel()
+
+        # Declare queue
+        channel.queue_declare(queue='Analysis')  # Replace 'my_queue' with the name of your queue
+        print("RabbitMQ Connection Succesful, Now start consuming Message..")
+        # Start consuming messages
+        channel.basic_consume(queue='Analysis', on_message_callback=process_message)
+
+        # Start the event loop
+        channel.start_consuming()
+    except Exception as e:
+		
+        print("Error occurred while consuming messages:", str(e))
+        # Handle the error and decide whether to retry or take other actions
+
+        # Retry after a delay
+        time.sleep(5)  # Wait for 5 seconds before retrying
+        consume_messages(connection_params)
+
+def find_file_by_filename(folder_path, filename):
+    for root, dirs, files in os.walk(folder_path):
+        for file in files:
+            if os.path.splitext(file)[0] == filename:
+                return os.path.join(root, file)
+    return None
+
 def main():
 	fold = ""
+	# Enable verbose logging
+	logging.basicConfig(level=logging.INFO)
 	# watch the folder UploadedFiles
 
 	if len(sys.argv) > 2:
@@ -419,25 +499,39 @@ def main():
 
 	#load the config file
 	cnf = config_loader()
-
+	#print(cnf)
 	if fold == "":
-		fold = cnf.watchfolder
-
-	if not os.path.exists(fold):
-		print("Watcher folder not found", fold)
-		exit(1)
-
-	while True:
-		for fn in os.listdir(fold):
-			fp = os.path.join(fold, fn)
-			process_pcap(fp)
-			if cnf.deleteprocessed == True: os.unlink(fp)
-		print("Watching folder for file", fold)
-		try:
-			time.sleep(cnf.delaytime)
-		except KeyboardInterrupt:
-			break
-
+			fold = cnf.watchfolder
+			set_global_variable(fold)
+	else:
+		set_global_variable(fold)
+	if not os.path.exists(global_var_foldertowatch):
+			print("Watcher folder not found", global_var_foldertowatch)
+			exit(1)
+	
+	if cnf.userabbitmq == True:
+		# Connection parameters
+		print("Subscribing to RabbitMQ for messages..")
+		print(global_var_foldertowatch)
+		print(cnf.rabbitmqhost)
+		credentials = pika.credentials.PlainCredentials('guest', 'guest')
+		connection_params = pika.ConnectionParameters(host=cnf.rabbitmqhost, port=5672, virtual_host='/', credentials=credentials)
+		#print (connection_params)
+		time.sleep(5) #Wait for connection to established
+		#Start consuming messages
+		consume_messages(connection_params)
+	else:
+		
+		while True:
+			for fn in os.listdir(global_var_foldertowatch):
+				fp = os.path.join(global_var_foldertowatch, fn)
+				process_pcap(fp)
+				if cnf.deleteprocessed == True: os.unlink(fp)
+			print("Watching folder for file", global_var_foldertowatch)
+			try:
+				time.sleep(cnf.delaytime)
+			except KeyboardInterrupt:
+				break
 
 if __name__ == "__main__":
 	main()
