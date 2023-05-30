@@ -76,7 +76,7 @@ function GetAPIBaseURL() {
             // request finished
             apiBaseURL = this.response;
 
-            console.log("4:"+apiBaseURL);
+           // console.log("4:"+apiBaseURL);
         }
         //if (this.status === 200) {
 
@@ -941,7 +941,7 @@ function getLiveTrackingInfo() {
                     var apiResponse = JSON.parse(this.response);
 
                     if (apiResponse.result) {
-                        console.log(apiResponse.result);
+                       // console.log(apiResponse.result);
                         document.getElementById("divNoRequestFound").style.display = "none";
                         for (var record of apiResponse.result) {
                             displayLiveTrackingOnBoard(record);
@@ -1106,4 +1106,56 @@ function displayLiveTrackingOnBoard(response) {
     divcol.append(divinfo_box);
     // releaseActionViewLink.append(divcol);
     release360DivRow.append(divcol);
+};
+
+//Refresh ip2asn
+function refreship2asn() {
+
+    let req = new XMLHttpRequest();
+    fetch("/GetBaseAPIUrl")
+        .then(response => response.text())
+        .then(apiUrl => {
+            apiURExtL = apiUrl
+            req.open("POST", apiUrl + "CoreAdmin/Updateip2asn");
+            req.send();
+            req.onload = function () {
+                if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
+
+                    //var apiResponse = JSON.parse(this.response);
+                    // console.log(this.response);
+                    alert(this.response);
+                }
+                else {
+                    alert(this.response);
+                }
+                
+            };
+
+        });
+    // console.log("Ext URL:"+ apiURLExt);
+};
+
+//Refresh refreshThreatFoxRule
+function refreshThreatFoxRule() {
+
+    let req = new XMLHttpRequest();
+    fetch("/GetBaseAPIUrl")
+        .then(response => response.text())
+        .then(apiUrl => {
+            apiURExtL = apiUrl
+            req.open("POST", apiUrl + "CoreAdmin/UpdateThreatFoxRule");
+            req.send();
+            req.onload = function () {
+                if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
+
+                    alert(this.response);
+                }
+                else {
+                    alert(this.response);
+                }
+
+            };
+
+        });
+
 };

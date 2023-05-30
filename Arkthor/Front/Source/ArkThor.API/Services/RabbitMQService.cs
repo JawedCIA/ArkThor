@@ -11,7 +11,7 @@ namespace ArkThor.API.Services
  
     public interface IRabbitMQService
     {
-        void SendMessage<MessageInfo>(MessageInfo message);
+        void SendMessage<MessageInfo>(MessageInfo message,string queueName);
     }
 
     public class RabbitMQProducer : IRabbitMQService
@@ -24,7 +24,7 @@ namespace ArkThor.API.Services
             _RabbitMQConnection = config.GetValue<string>("RabbitMQConnection");
         }
 
-        public void SendMessage<MessageInfo>(MessageInfo message)
+        public void SendMessage<MessageInfo>(MessageInfo message, string queueName)
         {
             try
             {
@@ -32,7 +32,7 @@ namespace ArkThor.API.Services
                 var factory = new ConnectionFactory { HostName = _RabbitMQConnection };
                 var connection = factory.CreateConnection();
                 using var channel = connection.CreateModel();
-                channel.QueueDeclare("Analysis",
+                channel.QueueDeclare(queueName,
                      durable: false,
                      exclusive: false,
                      autoDelete: false,
@@ -41,7 +41,7 @@ namespace ArkThor.API.Services
                 var json = JsonConvert.SerializeObject(message);
                 var body = Encoding.UTF8.GetBytes(json);
 
-                channel.BasicPublish(exchange: "", routingKey: "Analysis", basicProperties: null, body: body);
+                channel.BasicPublish(exchange: "", routingKey: queueName, basicProperties: null, body: body);
                 channel.Close();
             }
             catch (Exception ex)

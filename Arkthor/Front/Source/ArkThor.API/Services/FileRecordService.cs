@@ -7,7 +7,7 @@ using ArkThor.API.Helpers;
 using Dapper;
 using ArkThor.API.Models.Records;
 using static System.Runtime.InteropServices.JavaScript.JSType;
-
+using ArkThor.API.Utilities;
 using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
 
@@ -436,7 +436,7 @@ public class FileRecordService : IFileRecordService
                 if (_pushMessageToRabitMQ.ToUpper() == "TRUE")
                 {
                     try { SendMessageToQueue(model.HashValue); }
-                    catch(Exception ex)
+                    catch (Exception ex)
                     {
                         //TOD Just Digest the error Message as of now
                     }
@@ -450,16 +450,15 @@ public class FileRecordService : IFileRecordService
             throw new ArgumentNullException("Provided File data byte is Null");
         }
     }
-
     //Publish Message to RabbitMQ Queue
     public void SendMessageToQueue(string hash)
     {
         RabbitMQMessage msginfo = new()
         {
-            Hash = hash
+            message = hash
         };
 
-        _rabbitMQService.SendMessage(msginfo);
+        _rabbitMQService.SendMessage(msginfo,"Analysis");
 
     }
 

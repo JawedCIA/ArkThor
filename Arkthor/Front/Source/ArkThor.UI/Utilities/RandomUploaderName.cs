@@ -6,14 +6,8 @@ namespace ArkThor.UI.Utilities
     {
 
         public static string[] Names = new string[] {
-              "Tom", "Rich", "Barry",
-              "Chris","Mary","Kate",
-              "Mo","Dil","Eddy","MD","Jawed",
-              "Pat","Peter","Matt",
-              "Jo","Anne","Don",
-              "Sales","Eng","Training",
-              "Tommy","Team A","Team B",
-              "Andy","Rachel","Les","SriRam","Mohammed",
+             "C3i","MD","Jawed","Anand",
+             "SriRam","Mohammed",
               "Mannat","Tamanna","ArkThor","Admin","KCST","Falcon"
             };
         public static string GetRandomName()

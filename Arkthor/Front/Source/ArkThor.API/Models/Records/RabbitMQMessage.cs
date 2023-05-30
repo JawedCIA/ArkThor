@@ -2,7 +2,8 @@
 {
     public class RabbitMQMessage
     {
-        public string? Hash { get; set; }
+        public string? message { get; set; }
+       // public string? QueueName { get; set; }
 
     }
 }

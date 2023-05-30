@@ -252,8 +252,19 @@ namespace ArkThor.Dashboard.Controllers
         {
 
             return View();
-        }
+        } //UnderDevelopment
 
+        public ActionResult UnderDevelopment()
+        {
+
+            return View();
+        } //UnderDevelopment
+        public ActionResult CoreComponentRefresh()
+        {
+
+            return View();
+        }
+        
         public ActionResult ThreatRecords()
         {
 
