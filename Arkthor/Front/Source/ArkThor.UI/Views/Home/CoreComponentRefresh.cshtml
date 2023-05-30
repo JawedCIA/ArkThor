@@ -1,0 +1,145 @@
+﻿@{
+    ViewData["Title"] = "CoreComponentRefresh";
+
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    <link rel="stylesheet" href="~/theme/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" href="~/theme/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
+    <!-- daterange picker -->
+    <link rel="stylesheet" href="~/theme/plugins/daterangepicker/daterangepicker.css">
+    <!-- Tempusdominus Bbootstrap 4 -->
+    <link rel="stylesheet" href="~/theme/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
+}
+
+@section scripts {
+    <!-- SGDOP -->
+    @*<script src="~/theme/MD/js/SGDOP.js"></script>*@
+
+    <!-- jQuery -->
+    <script src="~/theme/plugins/jquery/jquery.min.js"></script>
+    <!-- Bootstrap 4 -->
+    <script src="~/theme/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- DataTables -->
+    <script src="~/theme/plugins/datatables/jquery.dataTables.min.js"></script>
+    <script src="~/theme/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+    <script src="~/theme/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+    <script src="~/theme/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+
+    <!-- InputMask -->
+    <script src="~/theme/plugins/moment/moment.min.js"></script>
+    <script src="~/theme/plugins/inputmask/min/jquery.inputmask.bundle.min.js"></script>
+    <!-- Tempusdominus Bootstrap 4 -->
+    <script src="~/theme/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
+
+
+    <script type="text/javascript">
+        'use strict';       
+        
+       
+
+    </script>
+
+}
+
+<div class="content-wrapper" id="divContentWrapperRequestDetails">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1>REFRESH</h1>
+                </div>
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="~/Home">Home</a></li>
+                        <li class="breadcrumb-item active">Refresh</li>
+                    </ol>
+                </div>
+            </div>
+        </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+        @*<div class="card card-info collapsed-card">*@
+        <div class="card card-info">
+            <div class="card-header">
+                <h3 class="card-title" id="h3ThreatTraceTitle">Refresh the Core Engine components</h3>
+                <div class="card-tools">
+
+                    <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
+                        <i class="fas fa-minus"></i>
+                    </button>
+                </div>
+            </div>
+            <!-- <form class="form-horizontal">-->
+            <div class="card-body">
+                <div class="row">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th style="width: 5%">#</th>
+                                <th style="width: 20%">Component </th>
+                                <th style="width: 10%">Last Refresh</th>
+                                <th style="width: 55%">Description</th>
+                                <th style="width: 10%">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1.</td>
+                                <td>IP2ASN</td>
+                                <td></td>
+                                <td>
+                                    Update ArkThor IP address to ASN database from <a href="https://iptoasn.com/" target="_blank"> https://iptoasn.com/</a><br/>
+                                    The IP2ASN database or service provides a way to determine the ASN(Autonomous System Numbers (ASNs)) for a given IP address.
+                                </td>
+                                <td>
+                                    <a class="btn btn-app" onclick="refreship2asn()">
+                                        <i class="fas fa-sync-alt"></i> Refresh
+                                    </a>
+                                
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>2.</td>
+                                <td>ThreatFox Rule</td>
+                                <td></td>
+                                
+                                <td>
+                                    Update ArkThor Threat Categorization Rule based on ThreatFox open source IOC database <a href="https://threatfox.abuse.ch/downloads/misp/" target="_blank"> threatfox MISP</a><br />
+                                    Internally ArkThor Core will create rules based on ThreatFox MISP Json file.
+                                </td>
+                                <td>
+                                    <a class="btn btn-app" onclick="refreshThreatFoxRule()">
+                                        <i class="fas fa-sync-alt"></i> Refresh
+                                    </a>
+
+                                </td>
+                            </tr>
+                           
+                        </tbody>
+                    </table>
+                    <!--
+                    <div class="alert alert-success alert-dismissible">
+                        Success alert preview. This alert is dismissable.
+                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                        <h5><i class="icon fas fa-check"></i> Alert!</h5>
+                        
+                    </div>-->
+                </div>
+              
+
+
+            </div>
+         
+
+        </div>
+        <!-- /.card -->
+    </section>
+  
+</div>
+
+
+
+
