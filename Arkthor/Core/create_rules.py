@@ -32,7 +32,7 @@ def main():
 				"MITRE": [ "T1071.001", "T1132.001", "T1568", "T1102.003" ]
 			})
 
-    f = open("%s.ark"%(fname), "w")
+    f = open("ArkThorRule\\%s.ark"%(fname), "w")
     f.write(json.dumps(js, indent=4))
     f.close()
     return

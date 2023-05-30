@@ -222,9 +222,9 @@ class processing_history:
 		conn.close()
 
 def set_global_variable(value):
-    # Declare global_var as global within the method
-    global global_var_foldertowatch
-    global_var_foldertowatch = value
+	# Declare global_var as global within the method
+	global global_var_foldertowatch
+	global_var_foldertowatch = value
 
 def intimate_status(filehash, status, url_prefix):
 	try:
@@ -421,63 +421,63 @@ def process_pcap(fname):
 
 # Define message callback function
 def process_message(ch, method, properties, body):
-    try:
-        # Perform your operations on the received message here
-        print("Received message:", body.decode())  # Example: Print the message
+	try:
+		# Perform your operations on the received message here
+		print("Received message:", body.decode())  # Example: Print the message
 		# Assuming `body` contains the decoded message body
-        decoded_body = body.decode()
+		decoded_body = body.decode()
 		# Parse the JSON string
-        message_data = json.loads(decoded_body)
+		message_data = json.loads(decoded_body)
 		# Access the hash value from the parsed JSON
-        hash_value = message_data["Hash"]
+		hash_value = message_data["Hash"]
 		# Use the hash value for further processing
-        print("Analysing File with hash Value::", hash_value)
+		print("Analysing File with hash Value::", hash_value)
 		#Analysis Operation
-        fp=find_file_by_filename(global_var_foldertowatch, hash_value)
-        process_pcap(fp)
-        # Acknowledge the message
-        ch.basic_ack(delivery_tag=method.delivery_tag)
-        print("Acknowledge the message and wiating for Message..")
+		fp=find_file_by_filename(global_var_foldertowatch, hash_value)
+		process_pcap(fp)
+		# Acknowledge the message
+		ch.basic_ack(delivery_tag=method.delivery_tag)
+		print("Acknowledge the message and wiating for Message..")
 		# Use the hash value for further processing
-    except Exception as e:
-        print("Error occurred while processing the message:", str(e))
-        # Handle the error and decide whether to retry or take other actions
+	except Exception as e:
+		print("Error occurred while processing the message:", str(e))
+		# Handle the error and decide whether to retry or take other actions
 
-        # Retry after a delay
-        time.sleep(5)  # Wait for 5 seconds before retrying
-        consume_messages()
+		# Retry after a delay
+		time.sleep(5)  # Wait for 5 seconds before retrying
+		consume_messages()
 
 def consume_messages(connection_params):
 	
-    try:
-        # Establish connection
-        print(connection_params)
-        connection = pika.BlockingConnection(connection_params)
-        channel = connection.channel()
+	try:
+		# Establish connection
+		print(connection_params)
+		connection = pika.BlockingConnection(connection_params)
+		channel = connection.channel()
 
-        # Declare queue
-        channel.queue_declare(queue='Analysis')  # Replace 'my_queue' with the name of your queue
-        print("RabbitMQ Connection Succesful, Now start consuming Message..")
-        # Start consuming messages
-        channel.basic_consume(queue='Analysis', on_message_callback=process_message)
+		# Declare queue
+		channel.queue_declare(queue='Analysis')  # Replace 'my_queue' with the name of your queue
+		print("RabbitMQ Connection Succesful, Now start consuming Message..")
+		# Start consuming messages
+		channel.basic_consume(queue='Analysis', on_message_callback=process_message)
 
-        # Start the event loop
-        channel.start_consuming()
-    except Exception as e:
+		# Start the event loop
+		channel.start_consuming()
+	except Exception as e:
 		
-        print("Error occurred while consuming messages:", str(e))
-        # Handle the error and decide whether to retry or take other actions
+		print("Error occurred while consuming messages:", str(e))
+		# Handle the error and decide whether to retry or take other actions
 
-        # Retry after a delay
-        time.sleep(5)  # Wait for 5 seconds before retrying
-        consume_messages(connection_params)
+		# Retry after a delay
+		time.sleep(5)  # Wait for 5 seconds before retrying
+		consume_messages(connection_params)
 
 def find_file_by_filename(folder_path, filename):
-    for root, dirs, files in os.walk(folder_path):
-        for file in files:
-            if os.path.splitext(file)[0] == filename:
-                return os.path.join(root, file)
-    return None
+	for root, dirs, files in os.walk(folder_path):
+		for file in files:
+			if os.path.splitext(file)[0] == filename:
+				return os.path.join(root, file)
+	return None
 
 def main():
 	fold = ""
