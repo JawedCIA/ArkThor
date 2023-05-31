@@ -2,9 +2,8 @@
 
 services:
 
-  ui:
+  arkthorui:
     image: arkthor/arkthor-ui:latest
-    container_name: arkthorui
     depends_on:
       - api
     ports:
@@ -12,9 +11,8 @@ services:
     networks:
       - nwarkthor
 
-  api:
+  arkthorapi:
     image: arkthor/arkthor-api:latest
-    container_name: arkthorapi
     depends_on:
       - rabbitmq
     ports:
@@ -29,9 +27,8 @@ services:
     networks:
       - nwarkthor
 
-  core:
+  arkthorcore:
     image: arkthor/arkthor-core:latest
-    container_name: arkthorcore
     depends_on:
       - api
     volumes:
