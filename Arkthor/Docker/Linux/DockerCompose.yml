@@ -5,7 +5,7 @@ services:
   arkthorui:
     image: arkthor/arkthor-ui:latest
     depends_on:
-      - api
+      - arkthorapi
     ports:
       - "24297:80"    
     networks:
@@ -30,7 +30,7 @@ services:
   arkthorcore:
     image: arkthor/arkthor-core:latest
     depends_on:
-      - api
+      - arkthorapi
     volumes:
       - type: bind
         source: ./UploadedFiles
