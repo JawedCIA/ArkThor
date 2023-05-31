@@ -223,9 +223,9 @@ class processing_history:
 		conn.close()
 
 def set_global_variable(value):
-    # Declare global_var as global within the method
-    global global_var_foldertowatch
-    global_var_foldertowatch = value
+	# Declare global_var as global within the method
+	global global_var_foldertowatch
+	global_var_foldertowatch = value
 
 def intimate_status(filehash, status, url_prefix):
 	try:
@@ -421,169 +421,169 @@ def process_pcap(fname):
 	return
 #Update ThreatFox Rule
 def updat_threatFox_Rule():
-    base_url = "https://threatfox.abuse.ch/downloads/misp/"
-    url = "https://threatfox.abuse.ch/downloads/misp/"
-    try:
-        response = requests.get(url)
-        response.raise_for_status()  # Raise an exception if the request fails
-        content = response.text
-    
-        pattern = r'[\w-]+\.json'
-        matches = re.findall(pattern, content)
+	base_url = "https://threatfox.abuse.ch/downloads/misp/"
+	url = "https://threatfox.abuse.ch/downloads/misp/"
+	try:
+		response = requests.get(url)
+		response.raise_for_status()  # Raise an exception if the request fails
+		content = response.text
+	
+		pattern = r'[\w-]+\.json'
+		matches = re.findall(pattern, content)
 
-        downloadable_links = [link for link in matches if link != "manifest.json"]
+		downloadable_links = [link for link in matches if link != "manifest.json"]
 
-        for link in downloadable_links:
-            file_name = os.path.splitext(link)[0]
-            complete_url = base_url + link
-            logging.info("+"*20)
-            logging.info(f"START: python create_rules.py {complete_url} threatfox_{file_name}")
-            try:
-                os.system(f"python create_rules.py {complete_url} threatfox_{file_name}")
-            except Exception as e:
-                logging.error(f"Error processing file: {file_name}. Error: {str(e)}")
-            logging.info(f"DONE- processing file {file_name} for rule")
-            logging.info("+"*20)
-    except requests.exceptions.RequestException as e:
-        logging.error(f"Error making the network request. Error: {str(e)}")
-		    
+		for link in downloadable_links:
+			file_name = os.path.splitext(link)[0]
+			complete_url = base_url + link
+			logging.info("+"*20)
+			logging.info(f"START: python create_rules.py {complete_url} threatfox_{file_name}")
+			try:
+				os.system(f"python create_rules.py {complete_url} threatfox_{file_name}")
+			except Exception as e:
+				logging.error(f"Error processing file: {file_name}. Error: {str(e)}")
+			logging.info(f"DONE- processing file {file_name} for rule")
+			logging.info("+"*20)
+	except requests.exceptions.RequestException as e:
+		logging.error(f"Error making the network request. Error: {str(e)}")
+			
 
 # Define message callback function
 def process_message(ch, method, properties, body):
-    try:
-        # Perform your operations on the received message here
-        #logging.info("Received message:", body.decode())  # Example: Print the message
+	try:
+		# Perform your operations on the received message here
+		#logging.info("Received message:", body.decode())  # Example: Print the message
 		# Assuming `body` contains the decoded message body
-        decoded_body = body.decode()
+		decoded_body = body.decode()
 		# Parse the JSON string
-        message_data = json.loads(decoded_body)
+		message_data = json.loads(decoded_body)
 		# Access the hash value from the parsed JSON
-        hash_value = message_data["message"]
+		hash_value = message_data["message"]
 		# Use the hash value for further processing
-        logging.info(f"Analysing File with hash Value: {hash_value}")
+		logging.info(f"Analysing File with hash Value: {hash_value}")
 		#Analysis Operation
-        fp=find_file_by_filename(global_var_foldertowatch, hash_value)
-        process_pcap(fp)
-        # Acknowledge the message
-        ch.basic_ack(delivery_tag=method.delivery_tag)
-        logging.info("Acknowledge the message and wiating for Message..")
+		fp=find_file_by_filename(global_var_foldertowatch, hash_value)
+		process_pcap(fp)
+		# Acknowledge the message
+		ch.basic_ack(delivery_tag=method.delivery_tag)
+		logging.info("Acknowledge the message and wiating for Message..")
 		# Use the hash value for further processing
-    except Exception as e:
-        logging.error(f"Error occurred while processing the message: {str(e)}")
-        # Handle the error and decide whether to retry or take other actions
+	except Exception as e:
+		logging.error(f"Error occurred while processing the message: {str(e)}")
+		# Handle the error and decide whether to retry or take other actions
 
-        # Retry after a delay
-        time.sleep(5)  # Wait for 5 seconds before retrying
-        consume_messages()
+		# Retry after a delay
+		time.sleep(5)  # Wait for 5 seconds before retrying
+		consume_messages()
 # Define message callback function for ip2asn
 def process_message_ip2asn(ch, method, properties, body):
-    try:
-        # Perform your operations on the received message here
-        logging.info("="*50)
-       # logging.info("Received message to update ip2asn:", body.decode())  # Example: Print the message
+	try:
+		# Perform your operations on the received message here
+		logging.info("="*50)
+	   # logging.info("Received message to update ip2asn:", body.decode())  # Example: Print the message
 		# Assuming `body` contains the decoded message body
-        decoded_body = body.decode()
+		decoded_body = body.decode()
 		# Parse the JSON string
-        message_data = json.loads(decoded_body)
+		message_data = json.loads(decoded_body)
 		# Access the hash value from the parsed JSON
-        message_value = message_data["message"]
+		message_value = message_data["message"]
 		# Use the hash value for further processing
-        logging.info(f"Updating ip2asn at : {message_value}")
+		logging.info(f"Updating ip2asn at : {message_value}")
 		#trigger update Operation
-        # Define the command
-        command = [ "python", "./ip2asn.py"]
+		# Define the command
+		command = [ "python", "./ip2asn.py"]
 
-        # Execute the command
-        process = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-        stdout, stderr = process.communicate()
+		# Execute the command
+		process = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+		stdout, stderr = process.communicate()
 
-        # Print the output
-        logging.info("Command output from ip2asn:")
-        logging.info(stdout.decode())
+		# Print the output
+		logging.info("Command output from ip2asn:")
+		logging.info(stdout.decode())
 
-        # Print any error messages
-        if stderr:
-         logging.info("Error message ip2asn:")
-         logging.info(stderr.decode())
-        # Acknowledge the message
-        ch.basic_ack(delivery_tag=method.delivery_tag)
-        logging.info("Acknowledge the message of ip2ans and wiating for Message..")
+		# Print any error messages
+		if stderr:
+			logging.info("Error message ip2asn:")
+			logging.info(stderr.decode())
+		# Acknowledge the message
+		ch.basic_ack(delivery_tag=method.delivery_tag)
+		logging.info("Acknowledge the message of ip2ans and wiating for Message..")
 		# Use the hash value for further processing
-        logging.info("="*50)
-    except Exception as e:
-        logging.error(f"Error occurred while processing the ip2ans message: {str(e)}")
-        # Handle the error and decide whether to retry or take other actions
+		logging.info("="*50)
+	except Exception as e:
+		logging.error(f"Error occurred while processing the ip2ans message: {str(e)}")
+		# Handle the error and decide whether to retry or take other actions
 
-        # Retry after a delay
-        time.sleep(30)  # Wait for 30 seconds before retrying
-        consume_messages()
+		# Retry after a delay
+		time.sleep(30)  # Wait for 30 seconds before retrying
+		consume_messages()
 
 # Define message callback function for ip2asn
 def process_message_threatfoxRule(ch, method, properties, body):
-    logging.info("="*50)
-    try:
-        # Perform your operations on the received message here
-       # logging.info("Received message to update ThreatFoxRule:", body.decode())  # Example: Print the message
+	logging.info("="*50)
+	try:
+		# Perform your operations on the received message here
+	   # logging.info("Received message to update ThreatFoxRule:", body.decode())  # Example: Print the message
 		# Assuming `body` contains the decoded message body
-        decoded_body = body.decode()
+		decoded_body = body.decode()
 		# Parse the JSON string
-        message_data = json.loads(decoded_body)
+		message_data = json.loads(decoded_body)
 		# Access the hash value from the parsed JSON
-        message_value = message_data["message"]
+		message_value = message_data["message"]
 		# Use the hash value for further processing
-        logging.info(f"Updating ThreatFoxRule at :{message_value}")
+		logging.info(f"Updating ThreatFoxRule at :{message_value}")
 		#trigger update Operation
-        updat_threatFox_Rule()
-        # Acknowledge the message
-        ch.basic_ack(delivery_tag=method.delivery_tag)
-        logging.info("Acknowledge the message of ThreatFoxRule and wiating for Message..")
+		updat_threatFox_Rule()
+		# Acknowledge the message
+		ch.basic_ack(delivery_tag=method.delivery_tag)
+		logging.info("Acknowledge the message of ThreatFoxRule and wiating for Message..")
 		# Use the hash value for further processing
-        logging.info("="*50)
+		logging.info("="*50)
 		# Use the hash value for further processing
-    except Exception as e:
-        logging.error(f"Error occurred while processing the ThreatFoxRule message: {str(e)}")
-        # Handle the error and decide whether to retry or take other actions
+	except Exception as e:
+		logging.error(f"Error occurred while processing the ThreatFoxRule message: {str(e)}")
+		# Handle the error and decide whether to retry or take other actions
 
-        # Retry after a delay
-        time.sleep(30)  # Wait for 30 seconds before retrying
-        consume_messages()
-    logging.info("="*50)
+		# Retry after a delay
+		time.sleep(30)  # Wait for 30 seconds before retrying
+		consume_messages()
+	logging.info("="*50)
 def consume_messages(connection_params):
 	
-    try:
-        # Establish connection
-        #print(connection_params)
-        connection = pika.BlockingConnection(connection_params)
-        channel = connection.channel()
+	try:
+		# Establish connection
+		#print(connection_params)
+		connection = pika.BlockingConnection(connection_params)
+		channel = connection.channel()
 
-        # Declare queue
-        channel.queue_declare(queue='Analysis')
-        channel.queue_declare(queue='ip2asn')
-        channel.queue_declare(queue='ThreatFoxRule')
-       # print("RabbitMQ Connection Succesful, Now start consuming Message..")
-        logging.info("RabbitMQ Connection Succesful, Now start consuming Message..")
-        # Start consuming messages
-        channel.basic_consume(queue='Analysis', on_message_callback=process_message)
-        channel.basic_consume(queue='ip2asn', on_message_callback=process_message_ip2asn)
-        channel.basic_consume(queue='ThreatFoxRule', on_message_callback=process_message_threatfoxRule)
+		# Declare queue
+		channel.queue_declare(queue='Analysis')
+		channel.queue_declare(queue='ip2asn')
+		channel.queue_declare(queue='ThreatFoxRule')
+	   # print("RabbitMQ Connection Succesful, Now start consuming Message..")
+		logging.info("RabbitMQ Connection Succesful, Now start consuming Message..")
+		# Start consuming messages
+		channel.basic_consume(queue='Analysis', on_message_callback=process_message)
+		channel.basic_consume(queue='ip2asn', on_message_callback=process_message_ip2asn)
+		channel.basic_consume(queue='ThreatFoxRule', on_message_callback=process_message_threatfoxRule)
 
-        # Start the event loop
-        channel.start_consuming()
-    except Exception as e:
+		# Start the event loop
+		channel.start_consuming()
+	except Exception as e:
 		
-        logging.error(f"Error occurred while consuming messages: {str(e)}")
-        # Handle the error and decide whether to retry or take other actions
+		logging.error(f"Error occurred while consuming messages: {str(e)}")
+		# Handle the error and decide whether to retry or take other actions
 
-        # Retry after a delay
-        time.sleep(5)  # Wait for 5 seconds before retrying
-        consume_messages(connection_params)
+		# Retry after a delay
+		time.sleep(5)  # Wait for 5 seconds before retrying
+		consume_messages(connection_params)
 
 def find_file_by_filename(folder_path, filename):
-    for root, dirs, files in os.walk(folder_path):
-        for file in files:
-            if os.path.splitext(file)[0] == filename:
-                return os.path.join(root, file)
-    return None
+	for root, dirs, files in os.walk(folder_path):
+		for file in files:
+			if os.path.splitext(file)[0] == filename:
+				return os.path.join(root, file)
+	return None
 
 def main():
 	fold = ""
