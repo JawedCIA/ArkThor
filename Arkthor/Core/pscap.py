@@ -6,7 +6,9 @@
 ##############################################################
 
 from scapy.all import *
-import sys
+from scapy.layers.http import HTTPRequest
+
+import os, sys
 import json
 import rule_engine
 import sqlite3
@@ -314,6 +316,82 @@ def get_cn_from_ip(ipaddr):
 	return cn
 
 
+def process_threatfox_to_arkthor(use_cache = False, overwrite_rules=True):
+	import bs4
+	import re
+	import datetime
+
+	mispurl = "https://threatfox.abuse.ch/downloads/misp/"
+
+	if use_cache == True:
+		r = requests.get(mispurl)
+		if r.status_code != 200:
+			raise Exception("Error accessing Threatfox MISP page")
+		with open("threatfox.html", "w") as f:
+			f.write(r.text)
+		data = r.text
+	else:
+		data = open("threatfox.html", "r").read()
+	soup = bs4.BeautifulSoup(data, "html.parser")
+	#trs = [tr for tr in trs if len(tr.find_all('td')) == 2]
+	for tr in soup.find('table').find_all('tr'):
+		# extract the UUID and date for processing
+		td = tr.find_all('td')
+		if len(td) != 5: continue
+		a = re.search("^<td align=\"right\">(\d{4}\-\d{2}\-\d{2}).*<\/td>", str(td[2]))
+		if a == None: continue
+		dt = datetime.datetime.strptime(a[1], "%Y-%m-%d")
+		if dt < datetime.datetime.strptime('2023-04-01', "%Y-%m-%d"): continue
+		print(td[2], a[1], dt)
+
+		href = td[1].find_all("a")
+		b = re.search("^<a href=\".*\">([0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[0-9a-f]{4}-[0-9a-f]{12})\.json</a>$", str(href[0]))
+		if b is None: raise Exception("Error in understandong of threatfox page")
+		fn = "ArkThorRule\\arkthor-%s.ark"%(b[1])
+		if os.path.exists(fn): continue
+
+		jsonurl = mispurl + b[1] + ".json"
+
+		r = requests.get(jsonurl)
+		if r.status_code != 200:
+			raise Exception("Error accessing Threatfox Individual page", jsonurl)
+		s = r.json()
+		js = []
+		for dom in s["Event"]["Attribute"]:
+			if dom["type"] == "domain":
+				js.append({
+					"rule_name": dom["comment"],
+					"authored_timestamp": int(datetime.datetime.utcnow().timestamp()),
+					"rule": "domain == \"%s.\""%(dom["value"]),
+					"scope": "DNS",
+					"severity": 2,
+					"MITRE": [ "T1071.001", "T1132.001", "T1568", "T1102.003" ]
+				})
+			elif dom["type"] == "url":
+				js.append({
+					"rule_name": dom["comment"],
+					"authored_timestamp": int(datetime.datetime.utcnow().timestamp()),
+					"rule": "url == \"%s\""%(dom["value"]),
+					"scope": "DNS",
+					"severity": 2,
+				})
+			elif dom["type"] == "ip-dst|port":
+				js.append({
+					"rule_name": dom["comment"],
+					"authored_timestamp": int(datetime.datetime.utcnow().timestamp()),
+					"rule": "ip == \"%s\" and port == \"%s\""%(dom["value"]),
+					"scope": "DNS",
+					"severity": 2,
+					"MITRE": [ "T1071.001", "T1132.001", "T1568", "T1102.003" ]
+				})
+			
+
+		f = open("ArkThorRule\\%s.ark"%(fname), "w")
+		f.write(json.dumps(js, indent=4))
+		f.close()
+	return
+
+
 def aggregate_detections(ppe, s256):
 	ren = rulesengine()
 	ren.rundomainrules(ppe.get_processed_dns_packet())
@@ -595,8 +673,7 @@ def main():
 		print("Unwanted commandlines passed, Quitting")
 		exit(1)
 	elif len(sys.argv) == 2:
-		print("Usage: <pscap.py> <pcap folder to watch>")
-		fold = sys.argv[1]
+		process_threatfox_to_arkthor()
 
 	# load config file
 	if not os.path.exists("config.json"):
