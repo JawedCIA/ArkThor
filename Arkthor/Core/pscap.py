@@ -21,7 +21,7 @@ import datetime
 import pika
 import logging
 import subprocess
-
+import threading as th
 
 # Global variable declaration
 global_var_foldertowatch = None
@@ -67,6 +67,20 @@ class config_loader:
 			else:
 				raise Exception("Unknown value in update_ip2asn of config file")
 
+			if jsn['multithreaded_rules_processing'].lower() == "false":
+				self.multithreaded_rules_processing = False
+			elif jsn['multithreaded_rules_processing'].lower() == "true":
+				self.multithreaded_rules_processing = True
+			else:
+				raise Exception("Unknown value in multithreaded_rules_processing of config file")
+
+			if jsn['run_rules_on_processed_pcap'].lower() == "false":
+				self.run_rules_on_processed_pcap = False
+			elif jsn['run_rules_on_processed_pcap'].lower() == "true":
+				self.run_rules_on_processed_pcap = True
+			else:
+				raise Exception("Unknown value in run_rules_on_processed_pcap of config file")
+
 			self.baseurl = jsn['arkthor']["apibaseurl"]
 			self.rabbitmqhost = jsn['arkthor']["rabbitmqhost"]
 
@@ -77,6 +91,7 @@ class packetprocessengine:
 	def __init__(self):
 		self.fname = None
 		self.dns_list = {}
+		self.http_list = {}
 		self.packet_processed = False
 
 	def loadpcap(self, filename=None):
@@ -154,6 +169,10 @@ class packetprocessengine:
 			return self.dns_list
 
 		return {"success": False, "comments": "packet not processed"}
+	
+	def load_processed_dns_packet(self, jsn):
+		self.packet_processed = True
+		self.dns_list = jsn
 
 	def get_country_list(self):
 		retlist = []
@@ -554,6 +573,11 @@ def process_pcap(fname):
 
 	if ph.exists_in_processing(s256, stat.st_mtime) == True:
 		print("Already Processed", fname)
+		if cnf.run_rules_on_processed_pcap == "false": return
+		ppe = packetprocessengine()
+		js = json.load(open(os.path.join("results", s256, "dnsproto.json"), "r"))
+		ppe.load_processed_dns_packet(js)
+		v = aggregate_detections(ppe, s256)
 		return
 	
 	#Check if IP2ASN is updated one
