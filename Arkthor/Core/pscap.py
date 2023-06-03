@@ -59,6 +59,13 @@ class config_loader:
 				self.userabbitmq = True
 			else:
 				raise Exception("Unknown value in userabbitmq of config file")
+			
+			if jsn['update_ip2asn'].lower() == "false":
+				self.update_ip2asn = False
+			elif jsn['update_ip2asn'].lower() == "true":
+				self.update_ip2asn = True
+			else:
+				raise Exception("Unknown value in update_ip2asn of config file")
 
 			self.baseurl = jsn['arkthor']["apibaseurl"]
 			self.rabbitmqhost = jsn['arkthor']["rabbitmqhost"]
@@ -82,15 +89,25 @@ class packetprocessengine:
 		elif filename != None and self.fname == None:
 			self.fname = filename
 
-		self.packets = rdpcap(self.fname)
+		try:
+			self.packets = rdpcap(self.fname)
+		except:
+			print("Packet Loading Error")
+			return False
+		return True
 
-	def process_packet(self, packettypes=[DNS, TCP]):
-		for packet in self.packets:
-			if DNS in packettypes and packet.haslayer(DNS):
-				self.process_dns_packet(packet[DNS])
+	def process_packet(self):
+		for pkt in self.packets:
+			if pkt.haslayer(DNS):
+				self.process_dns_packet(pkt[DNS])
+			elif pkt.haslayer(HTTPRequest):
+				self.process_http_packet(pkt)
 
 		self.packet_processed = True
 		return
+	
+	def process_http_packet(self, hpkt):
+		print(ls(hpkt, verbose = True))
 
 	def process_dns_packet(self, dns):
 		pident = {1: "A", 2: "NS", 5: "CNAME", 6: "SOA", 12: "PTR", 15: "MX", 16: "TXT", 28: "AAAA", 33: "SRV",
@@ -238,6 +255,78 @@ def intimate_status(filehash, status, url_prefix):
 	else:
 		print(r.status_code)
 
+def check_create_ip2asn_data(should_create):
+
+	table_date = datetime.datetime.utcnow().strftime("as%Y%m%d")
+	
+	url = "https://iptoasn.com/data/ip2asn-v4-u32.tsv.gz"
+	ctquery = """
+		CREATE TABLE IF NOT EXISTS `%s` (
+		`start` BIGINT NULL DEFAULT NULL,
+		`end` BIGINT NULL DEFAULT NULL,
+		`as_number` BIGINT NULL DEFAULT NULL,
+		`country_name` CHAR(2) NULL
+	)
+	;"""%(table_date)
+	
+	import sqlite3
+	import requests
+	import gzip
+	from io import BytesIO
+
+	if not os.path.exists("ipasn.sqlite3") and should_create == "false":
+		print("ip2asn does not exist and creation option in config is set to false.")
+		return False
+
+	if os.path.exists("ipasn.sqlite3"):
+		st = os.stat("ipasn.sqlite3")
+		if st.st_ctime < datetime.datetime.now().timestamp() - 14400:
+			print("IP2asn databse is more than 4 hrs old.")
+			os.unlink("ipasn.sqlite3")
+
+	if os.path.exists("ipasn.sqlite3"):
+		print("IP2ASN is updated one")
+		return True
+	
+	conn = sqlite3.connect("ipasn.sqlite3")
+		
+	cur = conn.cursor()
+			
+	#download the tsv
+	r = requests.get(url)
+	if r.status_code != 200:
+		print("Unable to get the tsv", r.status_code)
+		return False
+		
+	#Extract the TSV in memory
+	bio = BytesIO(r.content)
+	gzf = gzip.open(bio)
+	
+	#create the table
+	cur.execute(ctquery)
+	conn.commit()
+	
+	count = 0
+		
+	#for ln in open("ip2asn-v4.tsv", encoding="ISO-8859-1").readlines():
+	for ln in gzf.readlines():
+		(start, end, as_number, country_code, dont_want) = ln.decode().strip().split("\t")
+		if country_code == "None" or country_code == "Unknown":
+			country_code = "00"
+		query = "INSERT INTO `%s`(`start`, `end`, `as_number`, `country_name`) VALUES(%s, %s, %s, \"%s\")"%(table_date, start, end, as_number, country_code)
+		cur.execute(query)
+			
+		count = count + 1
+		if count > 10000:
+			conn.commit()
+			count = 0
+		
+	conn.commit()
+	gzf.close()
+	conn.close()
+	return True
+
+
 def intimate_completion(fjson, url_prefix):
 	
 	try:
@@ -281,6 +370,13 @@ def submit_artifacts_of_pcaprun(filehash,foldername, url_prefix):
 				
 	os.rmdir(os.path.join("results", foldername))
 	
+##############################################################
+# Author: Sriram											 #
+# Contact: star.sriram [att] gmail [dot] com				 #
+# License: GPLV2						 					 #
+# Reason: Capstone Project April 2023 - IIT Kanpur	   		 #
+##############################################################
+
 def get_cn_from_ip(ipaddr):
 	import struct
 	import socket
@@ -315,25 +411,22 @@ def get_cn_from_ip(ipaddr):
 	conn.close()
 	return cn
 
-
-def process_threatfox_to_arkthor(use_cache = False, overwrite_rules=True):
+def process_threatfox_to_arkthor(overwrite_rules=True):
 	import bs4
 	import re
 	import datetime
 
 	mispurl = "https://threatfox.abuse.ch/downloads/misp/"
-
-	if use_cache == True:
-		r = requests.get(mispurl)
-		if r.status_code != 200:
-			raise Exception("Error accessing Threatfox MISP page")
-		with open("threatfox.html", "w") as f:
-			f.write(r.text)
-		data = r.text
-	else:
-		data = open("threatfox.html", "r").read()
+	# manifest.json can be read to understand more, Unfortunately, I saw this in the last moment
+	
+	r = requests.get(mispurl)
+	if r.status_code != 200:
+		raise Exception("Error accessing Threatfox MISP page")
+	with open("threatfox.html", "w") as f:
+		f.write(r.text)
+	data = r.text
 	soup = bs4.BeautifulSoup(data, "html.parser")
-	#trs = [tr for tr in trs if len(tr.find_all('td')) == 2]
+
 	for tr in soup.find('table').find_all('tr'):
 		# extract the UUID and date for processing
 		td = tr.find_all('td')
@@ -345,6 +438,7 @@ def process_threatfox_to_arkthor(use_cache = False, overwrite_rules=True):
 		print(td[2], a[1], dt)
 
 		href = td[1].find_all("a")
+		if "manifest.json" in  str(href[0]).lower(): continue
 		b = re.search("^<a href=\".*\">([0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[0-9a-f]{4}-[0-9a-f]{12})\.json</a>$", str(href[0]))
 		if b is None: raise Exception("Error in understandong of threatfox page")
 		fn = "ArkThorRule\\arkthor-%s.ark"%(b[1])
@@ -372,21 +466,22 @@ def process_threatfox_to_arkthor(use_cache = False, overwrite_rules=True):
 					"rule_name": dom["comment"],
 					"authored_timestamp": int(datetime.datetime.utcnow().timestamp()),
 					"rule": "url == \"%s\""%(dom["value"]),
-					"scope": "DNS",
-					"severity": 2,
+					"scope": "URL",
+					"severity": 2
 				})
 			elif dom["type"] == "ip-dst|port":
+				ip, port = dom["value"].split("|")
+				if port == "1": port = "*"
 				js.append({
 					"rule_name": dom["comment"],
 					"authored_timestamp": int(datetime.datetime.utcnow().timestamp()),
-					"rule": "ip == \"%s\" and port == \"%s\""%(dom["value"]),
-					"scope": "DNS",
-					"severity": 2,
-					"MITRE": [ "T1071.001", "T1132.001", "T1568", "T1102.003" ]
+					"rule": "ip == \"%s\" and port == \"%s\""%(ip, port),
+					"scope": "IPPORT",
+					"severity": 2
 				})
 			
 
-		f = open("ArkThorRule\\%s.ark"%(fname), "w")
+		f = open(fn, "w")
 		f.write(json.dumps(js, indent=4))
 		f.close()
 	return
@@ -460,17 +555,20 @@ def process_pcap(fname):
 	if ph.exists_in_processing(s256, stat.st_mtime) == True:
 		print("Already Processed", fname)
 		return
+	
+	#Check if IP2ASN is updated one
+	if check_create_ip2asn_data(cnf.update_ip2asn) == False:
+		return
+
 	if cnf.usearkthorapi == True:
 		intimate_status(s256, "InProgress", cnf.baseurl)
 
 	ppe = packetprocessengine()
-	try:
-		ppe.loadpcap(fname)
-	except:
+	if ppe.loadpcap(fname) != True:
 		if cnf.usearkthorapi == True:
 			intimate_status(s256, "Removed", cnf.baseurl)
-
 		return "Error processing pcap file"
+	
 	ppe.process_packet()
 
 	if not os.path.isdir("results"):
@@ -596,6 +694,13 @@ def process_message_ip2asn(ch, method, properties, body):
 		time.sleep(30)  # Wait for 30 seconds before retrying
 		consume_messages()
 
+##############################################################
+# Author: Sriram											 #
+# Contact: star.sriram [att] gmail [dot] com				 #
+# License: GPLV2						 					 #
+# Reason: Capstone Project April 2023 - IIT Kanpur	   		 #
+##############################################################
+
 # Define message callback function for ip2asn
 def process_message_threatfoxRule(ch, method, properties, body):
 	logging.info("="*50)
@@ -668,12 +773,21 @@ def main():
 	# Enable verbose logging
 	logging.basicConfig(level=logging.INFO)
 	# watch the folder UploadedFiles
+	param = ""
 
 	if len(sys.argv) > 2:
-		print("Unwanted commandlines passed, Quitting")
-		exit(1)
+		print("Unwanted commandlines passed, Exiting...")
+		return
+	
 	elif len(sys.argv) == 2:
-		process_threatfox_to_arkthor()
+		param = sys.argv[2]
+
+		if param == "updateark":
+			process_threatfox_to_arkthor()
+			return
+		else:
+			print("Unknown parameter:", param, "Exiting...")
+			return
 
 	# load config file
 	if not os.path.exists("config.json"):
@@ -718,3 +832,11 @@ def main():
 
 if __name__ == "__main__":
 	main()
+
+
+##############################################################
+# Author: Sriram											 #
+# Contact: star.sriram [att] gmail [dot] com				 #
+# License: GPLV2						 					 #
+# Reason: Capstone Project April 2023 - IIT Kanpur	   		 #
+##############################################################

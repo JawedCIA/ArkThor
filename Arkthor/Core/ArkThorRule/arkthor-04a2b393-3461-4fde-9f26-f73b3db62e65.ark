@@ -1,0 +1,3885 @@
+[
+    {
+        "rule_name": "Cobalt Strike botnet C2 (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"http://152.136.104.49:8080/admin/user\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2 server (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "ip == \"152.136.104.49\" and port == \"8080\"",
+        "scope": "IPPORT",
+        "severity": 2
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2 (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"http://209.141.58.24/ptj\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2 server (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "ip == \"209.141.58.24\" and port == \"80\"",
+        "scope": "IPPORT",
+        "severity": 2
+    },
+    {
+        "rule_name": "RedLine Stealer botnet C2 server (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "ip == \"20.226.69.130\" and port == \"30497\"",
+        "scope": "IPPORT",
+        "severity": 2
+    },
+    {
+        "rule_name": "Remcos botnet C2 server (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "ip == \"194.147.140.153\" and port == \"1997\"",
+        "scope": "IPPORT",
+        "severity": 2
+    },
+    {
+        "rule_name": "Mirai botnet C2 server (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "ip == \"204.44.109.81\" and port == \"56999\"",
+        "scope": "IPPORT",
+        "severity": 2
+    },
+    {
+        "rule_name": "Unknown malware botnet C2 server (confidence level: 75%)",
+        "authored_timestamp": 1685801507,
+        "rule": "ip == \"45.81.243.128\" and port == \"3333\"",
+        "scope": "IPPORT",
+        "severity": 2
+    },
+    {
+        "rule_name": "Unknown malware botnet C2 domain (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "domain == \"opusmedical.info.\"",
+        "scope": "DNS",
+        "severity": 2,
+        "MITRE": [
+            "T1071.001",
+            "T1132.001",
+            "T1568",
+            "T1102.003"
+        ]
+    },
+    {
+        "rule_name": "Unknown malware botnet C2 server (confidence level: 75%)",
+        "authored_timestamp": 1685801507,
+        "rule": "ip == \"137.184.72.49\" and port == \"443\"",
+        "scope": "IPPORT",
+        "severity": 2
+    },
+    {
+        "rule_name": "Unknown malware botnet C2 server (confidence level: 75%)",
+        "authored_timestamp": 1685801507,
+        "rule": "ip == \"45.90.58.69\" and port == \"443\"",
+        "scope": "IPPORT",
+        "severity": 2
+    },
+    {
+        "rule_name": "ModernLoader botnet C2 server (confidence level: 75%)",
+        "authored_timestamp": 1685801507,
+        "rule": "ip == \"185.225.74.24\" and port == \"80\"",
+        "scope": "IPPORT",
+        "severity": 2
+    },
+    {
+        "rule_name": "NjRAT botnet C2 domain (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "domain == \"verderesilencia.duckdns.org.\"",
+        "scope": "DNS",
+        "severity": 2,
+        "MITRE": [
+            "T1071.001",
+            "T1132.001",
+            "T1568",
+            "T1102.003"
+        ]
+    },
+    {
+        "rule_name": "NjRAT botnet C2 server (confidence level: 75%)",
+        "authored_timestamp": 1685801507,
+        "rule": "ip == \"146.59.185.74\" and port == \"2010\"",
+        "scope": "IPPORT",
+        "severity": 2
+    },
+    {
+        "rule_name": "Hydra botnet C2 domain (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "domain == \"alandiy10.com.\"",
+        "scope": "DNS",
+        "severity": 2,
+        "MITRE": [
+            "T1071.001",
+            "T1132.001",
+            "T1568",
+            "T1102.003"
+        ]
+    },
+    {
+        "rule_name": "Hydra botnet C2 server (confidence level: 75%)",
+        "authored_timestamp": 1685801507,
+        "rule": "ip == \"185.244.180.159\" and port == \"80\"",
+        "scope": "IPPORT",
+        "severity": 2
+    },
+    {
+        "rule_name": "Ave Maria botnet C2 server (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "ip == \"212.193.30.230\" and port == \"4545\"",
+        "scope": "IPPORT",
+        "severity": 2
+    },
+    {
+        "rule_name": "Aurora Stealer botnet C2 server (confidence level: 50%)",
+        "authored_timestamp": 1685801507,
+        "rule": "ip == \"89.208.103.78\" and port == \"80\"",
+        "scope": "IPPORT",
+        "severity": 2
+    },
+    {
+        "rule_name": "Stealc botnet C2 domain (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "domain == \"metacarpusget.top.\"",
+        "scope": "DNS",
+        "severity": 2,
+        "MITRE": [
+            "T1071.001",
+            "T1132.001",
+            "T1568",
+            "T1102.003"
+        ]
+    },
+    {
+        "rule_name": "Stealc botnet C2 (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"http://metacarpusget.top/c043bcd0ba06ae1d/sqlite3.dll\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "Stealc botnet C2 (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"http://metacarpusget.top/c043bcd0ba06ae1d/freebl3.dll\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "Stealc botnet C2 (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"http://metacarpusget.top/c043bcd0ba06ae1d/mozglue.dll\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "Stealc botnet C2 (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"http://metacarpusget.top/c043bcd0ba06ae1d/msvcp140.dll\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "Stealc botnet C2 (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"http://metacarpusget.top/c043bcd0ba06ae1d/nss3.dll\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "Stealc botnet C2 (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"http://metacarpusget.top/c043bcd0ba06ae1d/softokn3.dll\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "Stealc botnet C2 (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"http://metacarpusget.top/c043bcd0ba06ae1d/vcruntime140.dll\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "Meterpreter botnet C2 server (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "ip == \"101.42.20.25\" and port == \"443\"",
+        "scope": "IPPORT",
+        "severity": 2
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2 (confidence level: 75%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"http://101.42.20.25:443/__utm.gif\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "Astaroth botnet C2 domain (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "domain == \"asfamor.beauty.\"",
+        "scope": "DNS",
+        "severity": 2,
+        "MITRE": [
+            "T1071.001",
+            "T1132.001",
+            "T1568",
+            "T1102.003"
+        ]
+    },
+    {
+        "rule_name": "Astaroth botnet C2 domain (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "domain == \"bambuzalfeliz.makeup.\"",
+        "scope": "DNS",
+        "severity": 2,
+        "MITRE": [
+            "T1071.001",
+            "T1132.001",
+            "T1568",
+            "T1102.003"
+        ]
+    },
+    {
+        "rule_name": "Astaroth botnet C2 domain (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "domain == \"barulhodechuva.makeup.\"",
+        "scope": "DNS",
+        "severity": 2,
+        "MITRE": [
+            "T1071.001",
+            "T1132.001",
+            "T1568",
+            "T1102.003"
+        ]
+    },
+    {
+        "rule_name": "Astaroth botnet C2 domain (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "domain == \"beldsezas.beauty.\"",
+        "scope": "DNS",
+        "severity": 2,
+        "MITRE": [
+            "T1071.001",
+            "T1132.001",
+            "T1568",
+            "T1102.003"
+        ]
+    },
+    {
+        "rule_name": "Astaroth botnet C2 domain (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "domain == \"belesdaszas.beauty.\"",
+        "scope": "DNS",
+        "severity": 2,
+        "MITRE": [
+            "T1071.001",
+            "T1132.001",
+            "T1568",
+            "T1102.003"
+        ]
+    },
+    {
+        "rule_name": "Astaroth botnet C2 domain (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "domain == \"belezfasturais.beauty.\"",
+        "scope": "DNS",
+        "severity": 2,
+        "MITRE": [
+            "T1071.001",
+            "T1132.001",
+            "T1568",
+            "T1102.003"
+        ]
+    },
+    {
+        "rule_name": "Astaroth botnet C2 domain (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "domain == \"cheirodeterra.makeup.\"",
+        "scope": "DNS",
+        "severity": 2,
+        "MITRE": [
+            "T1071.001",
+            "T1132.001",
+            "T1568",
+            "T1102.003"
+        ]
+    },
+    {
+        "rule_name": "Astaroth botnet C2 domain (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "domain == \"donasdada.beauty.\"",
+        "scope": "DNS",
+        "severity": 2,
+        "MITRE": [
+            "T1071.001",
+            "T1132.001",
+            "T1568",
+            "T1102.003"
+        ]
+    },
+    {
+        "rule_name": "Astaroth botnet C2 domain (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "domain == \"fanticoelaterra.makeup.\"",
+        "scope": "DNS",
+        "severity": 2,
+        "MITRE": [
+            "T1071.001",
+            "T1132.001",
+            "T1568",
+            "T1102.003"
+        ]
+    },
+    {
+        "rule_name": "Astaroth botnet C2 domain (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "domain == \"fazendaazuladinho.makeup.\"",
+        "scope": "DNS",
+        "severity": 2,
+        "MITRE": [
+            "T1071.001",
+            "T1132.001",
+            "T1568",
+            "T1102.003"
+        ]
+    },
+    {
+        "rule_name": "Astaroth payload delivery domain (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "domain == \"clientesdawebs.icu.\"",
+        "scope": "DNS",
+        "severity": 2,
+        "MITRE": [
+            "T1071.001",
+            "T1132.001",
+            "T1568",
+            "T1102.003"
+        ]
+    },
+    {
+        "rule_name": "Astaroth payload delivery domain (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "domain == \"southamerica-east1-loyal-skill-365616.cloudfunctions.net.\"",
+        "scope": "DNS",
+        "severity": 2,
+        "MITRE": [
+            "T1071.001",
+            "T1132.001",
+            "T1568",
+            "T1102.003"
+        ]
+    },
+    {
+        "rule_name": "Astaroth payload delivery domain (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "domain == \"us-east4-vibrant-outpost-383916.cloudfunctions.net.\"",
+        "scope": "DNS",
+        "severity": 2,
+        "MITRE": [
+            "T1071.001",
+            "T1132.001",
+            "T1568",
+            "T1102.003"
+        ]
+    },
+    {
+        "rule_name": "Astaroth payload delivery domain (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "domain == \"planejamentoempresarialon.top.\"",
+        "scope": "DNS",
+        "severity": 2,
+        "MITRE": [
+            "T1071.001",
+            "T1132.001",
+            "T1568",
+            "T1102.003"
+        ]
+    },
+    {
+        "rule_name": "Astaroth payload delivery domain (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "domain == \"amanronxykri.com.\"",
+        "scope": "DNS",
+        "severity": 2,
+        "MITRE": [
+            "T1071.001",
+            "T1132.001",
+            "T1568",
+            "T1102.003"
+        ]
+    },
+    {
+        "rule_name": "Astaroth payload delivery domain (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "domain == \"manronxykrionline.com.\"",
+        "scope": "DNS",
+        "severity": 2,
+        "MITRE": [
+            "T1071.001",
+            "T1132.001",
+            "T1568",
+            "T1102.003"
+        ]
+    },
+    {
+        "rule_name": "Astaroth payload delivery domain (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "domain == \"matrugrupol.com.\"",
+        "scope": "DNS",
+        "severity": 2,
+        "MITRE": [
+            "T1071.001",
+            "T1132.001",
+            "T1568",
+            "T1102.003"
+        ]
+    },
+    {
+        "rule_name": "Astaroth payload delivery domain (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "domain == \"mondroushi.com.\"",
+        "scope": "DNS",
+        "severity": 2,
+        "MITRE": [
+            "T1071.001",
+            "T1132.001",
+            "T1568",
+            "T1102.003"
+        ]
+    },
+    {
+        "rule_name": "Astaroth botnet C2 domain (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "domain == \"glothiralha.me.\"",
+        "scope": "DNS",
+        "severity": 2,
+        "MITRE": [
+            "T1071.001",
+            "T1132.001",
+            "T1568",
+            "T1102.003"
+        ]
+    },
+    {
+        "rule_name": "Astaroth botnet C2 domain (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "domain == \"glothiralha.net.\"",
+        "scope": "DNS",
+        "severity": 2,
+        "MITRE": [
+            "T1071.001",
+            "T1132.001",
+            "T1568",
+            "T1102.003"
+        ]
+    },
+    {
+        "rule_name": "Astaroth botnet C2 domain (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "domain == \"ronabetla.com.\"",
+        "scope": "DNS",
+        "severity": 2,
+        "MITRE": [
+            "T1071.001",
+            "T1132.001",
+            "T1568",
+            "T1102.003"
+        ]
+    },
+    {
+        "rule_name": "Astaroth botnet C2 domain (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "domain == \"thramonor.com.\"",
+        "scope": "DNS",
+        "severity": 2,
+        "MITRE": [
+            "T1071.001",
+            "T1132.001",
+            "T1568",
+            "T1102.003"
+        ]
+    },
+    {
+        "rule_name": "Astaroth botnet C2 domain (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "domain == \"thunmuschet.com.\"",
+        "scope": "DNS",
+        "severity": 2,
+        "MITRE": [
+            "T1071.001",
+            "T1132.001",
+            "T1568",
+            "T1102.003"
+        ]
+    },
+    {
+        "rule_name": "Astaroth botnet C2 domain (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "domain == \"trigobats.com.\"",
+        "scope": "DNS",
+        "severity": 2,
+        "MITRE": [
+            "T1071.001",
+            "T1132.001",
+            "T1568",
+            "T1102.003"
+        ]
+    },
+    {
+        "rule_name": "Astaroth botnet C2 domain (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "domain == \"turonbats.com.\"",
+        "scope": "DNS",
+        "severity": 2,
+        "MITRE": [
+            "T1071.001",
+            "T1132.001",
+            "T1568",
+            "T1102.003"
+        ]
+    },
+    {
+        "rule_name": "Grandoreiro payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"https://nfefaturada19042023.s3.ir-thr-at1.arvanstorage.ir/nf-emitir.pdf.htm\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "Grandoreiro payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"https://nfeconsumidor.s3.ir-thr-at1.arvanstorage.ir/nfe-faturada19042023exp.html\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "Mirai botnet C2 server (confidence level: 75%)",
+        "authored_timestamp": 1685801507,
+        "rule": "ip == \"45.148.116.48\" and port == \"61002\"",
+        "scope": "IPPORT",
+        "severity": 2
+    },
+    {
+        "rule_name": "Astaroth botnet C2 domain (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "domain == \"abncient.za.com.\"",
+        "scope": "DNS",
+        "severity": 2,
+        "MITRE": [
+            "T1071.001",
+            "T1132.001",
+            "T1568",
+            "T1102.003"
+        ]
+    },
+    {
+        "rule_name": "Astaroth botnet C2 domain (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "domain == \"baviolent.za.com.\"",
+        "scope": "DNS",
+        "severity": 2,
+        "MITRE": [
+            "T1071.001",
+            "T1132.001",
+            "T1568",
+            "T1102.003"
+        ]
+    },
+    {
+        "rule_name": "Astaroth botnet C2 domain (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "domain == \"bbbcrowded.sa.com.\"",
+        "scope": "DNS",
+        "severity": 2,
+        "MITRE": [
+            "T1071.001",
+            "T1132.001",
+            "T1568",
+            "T1102.003"
+        ]
+    },
+    {
+        "rule_name": "Astaroth botnet C2 domain (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "domain == \"daamazing.za.com.\"",
+        "scope": "DNS",
+        "severity": 2,
+        "MITRE": [
+            "T1071.001",
+            "T1132.001",
+            "T1568",
+            "T1102.003"
+        ]
+    },
+    {
+        "rule_name": "Astaroth botnet C2 domain (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "domain == \"eeeknowing.sa.com.\"",
+        "scope": "DNS",
+        "severity": 2,
+        "MITRE": [
+            "T1071.001",
+            "T1132.001",
+            "T1568",
+            "T1102.003"
+        ]
+    },
+    {
+        "rule_name": "Astaroth botnet C2 domain (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "domain == \"gawelcome.za.com.\"",
+        "scope": "DNS",
+        "severity": 2,
+        "MITRE": [
+            "T1071.001",
+            "T1132.001",
+            "T1568",
+            "T1102.003"
+        ]
+    },
+    {
+        "rule_name": "Astaroth botnet C2 domain (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "domain == \"haorderly.za.com.\"",
+        "scope": "DNS",
+        "severity": 2,
+        "MITRE": [
+            "T1071.001",
+            "T1132.001",
+            "T1568",
+            "T1102.003"
+        ]
+    },
+    {
+        "rule_name": "Astaroth botnet C2 domain (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "domain == \"iasubdued.za.com.\"",
+        "scope": "DNS",
+        "severity": 2,
+        "MITRE": [
+            "T1071.001",
+            "T1132.001",
+            "T1568",
+            "T1102.003"
+        ]
+    },
+    {
+        "rule_name": "Astaroth botnet C2 domain (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "domain == \"javelvety.za.com.\"",
+        "scope": "DNS",
+        "severity": 2,
+        "MITRE": [
+            "T1071.001",
+            "T1132.001",
+            "T1568",
+            "T1102.003"
+        ]
+    },
+    {
+        "rule_name": "Astaroth botnet C2 domain (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "domain == \"jpojangelic.sa.com.\"",
+        "scope": "DNS",
+        "severity": 2,
+        "MITRE": [
+            "T1071.001",
+            "T1132.001",
+            "T1568",
+            "T1102.003"
+        ]
+    },
+    {
+        "rule_name": "Astaroth payload delivery domain (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "domain == \"riosasgrosso.makeup.\"",
+        "scope": "DNS",
+        "severity": 2,
+        "MITRE": [
+            "T1071.001",
+            "T1132.001",
+            "T1568",
+            "T1102.003"
+        ]
+    },
+    {
+        "rule_name": "Ave Maria botnet C2 server (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "ip == \"212.193.30.230\" and port == \"7820\"",
+        "scope": "IPPORT",
+        "severity": 2
+    },
+    {
+        "rule_name": "Unknown malware botnet C2 domain (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "domain == \"vintociao.live.\"",
+        "scope": "DNS",
+        "severity": 2,
+        "MITRE": [
+            "T1071.001",
+            "T1132.001",
+            "T1568",
+            "T1102.003"
+        ]
+    },
+    {
+        "rule_name": "Unknown malware botnet C2 domain (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "domain == \"financeto.live.\"",
+        "scope": "DNS",
+        "severity": 2,
+        "MITRE": [
+            "T1071.001",
+            "T1132.001",
+            "T1568",
+            "T1102.003"
+        ]
+    },
+    {
+        "rule_name": "Unknown malware botnet C2 domain (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "domain == \"regalovinto.live.\"",
+        "scope": "DNS",
+        "severity": 2,
+        "MITRE": [
+            "T1071.001",
+            "T1132.001",
+            "T1568",
+            "T1102.003"
+        ]
+    },
+    {
+        "rule_name": "Joker botnet C2 domain (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "domain == \"firega.shop.\"",
+        "scope": "DNS",
+        "severity": 2,
+        "MITRE": [
+            "T1071.001",
+            "T1132.001",
+            "T1568",
+            "T1102.003"
+        ]
+    },
+    {
+        "rule_name": "Joker botnet C2 domain (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "domain == \"linkmt.club.\"",
+        "scope": "DNS",
+        "severity": 2,
+        "MITRE": [
+            "T1071.001",
+            "T1132.001",
+            "T1568",
+            "T1102.003"
+        ]
+    },
+    {
+        "rule_name": "Joker botnet C2 domain (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "domain == \"softgb.shop.\"",
+        "scope": "DNS",
+        "severity": 2,
+        "MITRE": [
+            "T1071.001",
+            "T1132.001",
+            "T1568",
+            "T1102.003"
+        ]
+    },
+    {
+        "rule_name": "Joker botnet C2 domain (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "domain == \"urlgi.fun.\"",
+        "scope": "DNS",
+        "severity": 2,
+        "MITRE": [
+            "T1071.001",
+            "T1132.001",
+            "T1568",
+            "T1102.003"
+        ]
+    },
+    {
+        "rule_name": "Ave Maria botnet C2 server (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "ip == \"172.111.177.30\" and port == \"5200\"",
+        "scope": "IPPORT",
+        "severity": 2
+    },
+    {
+        "rule_name": "Mirai botnet C2 server (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "ip == \"85.217.144.182\" and port == \"8769\"",
+        "scope": "IPPORT",
+        "severity": 2
+    },
+    {
+        "rule_name": "Loki Password Stealer (PWS) botnet C2 (confidence level: 75%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"http://104.156.227.195/~blog/?p=935655688088695\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "AsyncRAT botnet C2 server (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "ip == \"45.81.243.217\" and port == \"7707\"",
+        "scope": "IPPORT",
+        "severity": 2
+    },
+    {
+        "rule_name": "AsyncRAT botnet C2 server (confidence level: 75%)",
+        "authored_timestamp": 1685801507,
+        "rule": "ip == \"45.81.243.217\" and port == \"6606\"",
+        "scope": "IPPORT",
+        "severity": 2
+    },
+    {
+        "rule_name": "AsyncRAT botnet C2 server (confidence level: 75%)",
+        "authored_timestamp": 1685801507,
+        "rule": "ip == \"45.81.243.217\" and port == \"8808\"",
+        "scope": "IPPORT",
+        "severity": 2
+    },
+    {
+        "rule_name": "Loki Password Stealer (PWS) botnet C2 (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"http://208.67.105.148/kudi/five/fre.php\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2 (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"http://31.44.184.63/visit.js\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2 (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"https://38.105.168.110:5443/j.ad\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2 (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"http://82.157.110.128/admin.js\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "Bashlite botnet C2 server (confidence level: 75%)",
+        "authored_timestamp": 1685801507,
+        "rule": "ip == \"68.183.196.213\" and port == \"666\"",
+        "scope": "IPPORT",
+        "severity": 2
+    },
+    {
+        "rule_name": "Vidar botnet C2 (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"http://116.203.15.24/\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "Vidar botnet C2 (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"http://116.203.15.24/install.zip\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "Vidar botnet C2 (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"http://116.203.7.73/\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "Vidar botnet C2 (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"http://116.203.7.73/install.zip\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "Vidar botnet C2 server (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "ip == \"116.203.7.73\" and port == \"80\"",
+        "scope": "IPPORT",
+        "severity": 2
+    },
+    {
+        "rule_name": "Vidar botnet C2 server (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "ip == \"116.203.15.24\" and port == \"80\"",
+        "scope": "IPPORT",
+        "severity": 2
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2 (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"http://82.157.110.128/r-arrow.css\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2 (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"https://82.157.110.128/r-arrow.css\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2 (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"http://service-gsgl208x-1307026294.sh.apigw.tencentcs.com/ptj\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2 (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"https://45.207.49.206:2080/dot.gif\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2 (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"http://43.247.164.188/ie9compatviewlist.xml\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2 (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"http://107.172.78.188:81/updates.rss\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2 (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"http://1.13.156.222:8877/dpixel\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2 (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"http://42.202.144.230:8088/cx\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "Mirai botnet C2 server (confidence level: 75%)",
+        "authored_timestamp": 1685801507,
+        "rule": "ip == \"185.224.128.110\" and port == \"38241\"",
+        "scope": "IPPORT",
+        "severity": 2
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2 (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"https://42.202.144.230:8443/pixel.gif\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2 server (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "ip == \"139.9.5.82\" and port == \"8888\"",
+        "scope": "IPPORT",
+        "severity": 2
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2 (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"http://116.204.121.193/j.ad\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2 (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"https://webtoolsmedia.com/tab_home\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2 server (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "ip == \"179.60.146.11\" and port == \"443\"",
+        "scope": "IPPORT",
+        "severity": 2
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2 (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"https://mynewoa.shqianxinn.tk:2087/jqueryjs/jquery-3.3.1.min.js\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2 server (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "ip == \"1.13.9.145\" and port == \"2087\"",
+        "scope": "IPPORT",
+        "severity": 2
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2 (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"http://216.83.45.170/ca\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2 server (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "ip == \"216.83.45.170\" and port == \"80\"",
+        "scope": "IPPORT",
+        "severity": 2
+    },
+    {
+        "rule_name": "Bashlite botnet C2 server (confidence level: 75%)",
+        "authored_timestamp": 1685801507,
+        "rule": "ip == \"103.180.137.4\" and port == \"1337\"",
+        "scope": "IPPORT",
+        "severity": 2
+    },
+    {
+        "rule_name": "Ave Maria botnet C2 server (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "ip == \"85.208.136.239\" and port == \"6991\"",
+        "scope": "IPPORT",
+        "severity": 2
+    },
+    {
+        "rule_name": "Unknown malware botnet C2 server (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "ip == \"195.201.81.165\" and port == \"21891\"",
+        "scope": "IPPORT",
+        "severity": 2
+    },
+    {
+        "rule_name": "Unknown malware botnet C2 server (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "ip == \"195.201.81.165\" and port == \"27134\"",
+        "scope": "IPPORT",
+        "severity": 2
+    },
+    {
+        "rule_name": "IcedID botnet C2 domain (confidence level: 50%)",
+        "authored_timestamp": 1685801507,
+        "rule": "domain == \"statiskalreon.com.\"",
+        "scope": "DNS",
+        "severity": 2,
+        "MITRE": [
+            "T1071.001",
+            "T1132.001",
+            "T1568",
+            "T1102.003"
+        ]
+    },
+    {
+        "rule_name": "IcedID botnet C2 domain (confidence level: 50%)",
+        "authored_timestamp": 1685801507,
+        "rule": "domain == \"skanerhavio.com.\"",
+        "scope": "DNS",
+        "severity": 2,
+        "MITRE": [
+            "T1071.001",
+            "T1132.001",
+            "T1568",
+            "T1102.003"
+        ]
+    },
+    {
+        "rule_name": "DCRat botnet C2 (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"http://37.220.87.84/multiproton7external/providerpubliclinux/externaleternaltoprocessordatalife.php\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "NetDooka botnet C2 server (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "ip == \"195.201.81.165\" and port == \"80\"",
+        "scope": "IPPORT",
+        "severity": 2
+    },
+    {
+        "rule_name": "NetDooka botnet C2 (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"http://195.201.81.165/\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "NetDooka botnet C2 (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"http://195.201.81.165/scripts/ffmpg.bin\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "NetDooka botnet C2 (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"http://195.201.81.165/loadaddr\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "DCRat botnet C2 (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"http://188.120.246.49/gamelinuxtemporary.php\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "CryptBot botnet C2 (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"http://fygaoy42.top/gate.php\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2 (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"https://settingdata.com/ce.js\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2 server (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "ip == \"91.238.181.240\" and port == \"443\"",
+        "scope": "IPPORT",
+        "severity": 2
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2 (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"https://47.96.151.215/wp06/wp-includes/po.php\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2 server (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "ip == \"47.96.151.215\" and port == \"443\"",
+        "scope": "IPPORT",
+        "severity": 2
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2 (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"https://msdn.ajax-microsoft.com:8443/link/v3.22/4en738vy\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2 server (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "ip == \"45.82.79.204\" and port == \"8443\"",
+        "scope": "IPPORT",
+        "severity": 2
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2 server (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "ip == \"158.247.203.176\" and port == \"443\"",
+        "scope": "IPPORT",
+        "severity": 2
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2 (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"http://47.96.151.215/wp06/wp-includes/po.php\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2 server (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "ip == \"47.96.151.215\" and port == \"80\"",
+        "scope": "IPPORT",
+        "severity": 2
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2 (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"http://1.15.40.248/g.pixel\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2 server (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "ip == \"1.15.40.248\" and port == \"80\"",
+        "scope": "IPPORT",
+        "severity": 2
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2 (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"https://duuoq42f19jly.cloudfront.net/jquery-3.3.1.min.js\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2 domain (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "domain == \"duuoq42f19jly.cloudfront.net.\"",
+        "scope": "DNS",
+        "severity": 2,
+        "MITRE": [
+            "T1071.001",
+            "T1132.001",
+            "T1568",
+            "T1102.003"
+        ]
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2 server (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "ip == \"184.73.49.168\" and port == \"443\"",
+        "scope": "IPPORT",
+        "severity": 2
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2 (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"http://103.146.179.70:800/match\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2 (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"https://image.cdn.ecmot.com/g.pixel\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2 domain (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "domain == \"image.cdn.ecmot.com.\"",
+        "scope": "DNS",
+        "severity": 2,
+        "MITRE": [
+            "T1071.001",
+            "T1132.001",
+            "T1568",
+            "T1102.003"
+        ]
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2 (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"https://code.cdn-js.ecmot.com/j.ad\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2 domain (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "domain == \"code.cdn-js.ecmot.com.\"",
+        "scope": "DNS",
+        "severity": 2,
+        "MITRE": [
+            "T1071.001",
+            "T1132.001",
+            "T1568",
+            "T1102.003"
+        ]
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2 server (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "ip == \"154.202.59.137\" and port == \"443\"",
+        "scope": "IPPORT",
+        "severity": 2
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2 server (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "ip == \"158.247.203.176\" and port == \"80\"",
+        "scope": "IPPORT",
+        "severity": 2
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2 (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"https://360.penw2iieel.tk:8443/api/3\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2 domain (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "domain == \"360.penw2iieel.tk.\"",
+        "scope": "DNS",
+        "severity": 2,
+        "MITRE": [
+            "T1071.001",
+            "T1132.001",
+            "T1568",
+            "T1102.003"
+        ]
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2 server (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "ip == \"43.139.4.101\" and port == \"8443\"",
+        "scope": "IPPORT",
+        "severity": 2
+    },
+    {
+        "rule_name": "Nanocore RAT botnet C2 server (confidence level: 75%)",
+        "authored_timestamp": 1685801507,
+        "rule": "ip == \"213.152.161.138\" and port == \"3692\"",
+        "scope": "IPPORT",
+        "severity": 2
+    },
+    {
+        "rule_name": "Astaroth payload delivery domain (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "domain == \"sathdusdaisybou.site.\"",
+        "scope": "DNS",
+        "severity": 2,
+        "MITRE": [
+            "T1071.001",
+            "T1132.001",
+            "T1568",
+            "T1102.003"
+        ]
+    },
+    {
+        "rule_name": "Mirai botnet C2 domain (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "domain == \"layer7.fun.\"",
+        "scope": "DNS",
+        "severity": 2,
+        "MITRE": [
+            "T1071.001",
+            "T1132.001",
+            "T1568",
+            "T1102.003"
+        ]
+    },
+    {
+        "rule_name": "IcedID botnet C2 domain (confidence level: 50%)",
+        "authored_timestamp": 1685801507,
+        "rule": "domain == \"pingwiskot.com.\"",
+        "scope": "DNS",
+        "severity": 2,
+        "MITRE": [
+            "T1071.001",
+            "T1132.001",
+            "T1568",
+            "T1102.003"
+        ]
+    },
+    {
+        "rule_name": "IcedID botnet C2 domain (confidence level: 50%)",
+        "authored_timestamp": 1685801507,
+        "rule": "domain == \"tronkaprofa.com.\"",
+        "scope": "DNS",
+        "severity": 2,
+        "MITRE": [
+            "T1071.001",
+            "T1132.001",
+            "T1568",
+            "T1102.003"
+        ]
+    },
+    {
+        "rule_name": "Mirai botnet C2 server (confidence level: 75%)",
+        "authored_timestamp": 1685801507,
+        "rule": "ip == \"107.189.4.143\" and port == \"56999\"",
+        "scope": "IPPORT",
+        "severity": 2
+    },
+    {
+        "rule_name": "Remcos botnet C2 server (confidence level: 75%)",
+        "authored_timestamp": 1685801507,
+        "rule": "ip == \"45.82.84.10\" and port == \"2408\"",
+        "scope": "IPPORT",
+        "severity": 2
+    },
+    {
+        "rule_name": "DCRat botnet C2 (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"http://whatipedia.org/cpuupdatetrack.php\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"https://design19.pk/wicd/sister.zip\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"https://desktopit.org/wicd/sister.zip\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"https://dxbott.ae/wicd/sister.zip\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"https://pausterbaik.xyz/wicd/sister.zip\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "DCRat botnet C2 (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"http://92.63.97.158/authdefaultwordpresspipe/_universal0/asyncprotonpipeprovider/poll8pipegame/processsecureuploads2/eternalsecure0/1/cdn7/privateprocessorvm/0/generatordump/5/uploads/temp9provider/imageflower.php\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "Ave Maria botnet C2 server (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "ip == \"45.88.67.9\" and port == \"5230\"",
+        "scope": "IPPORT",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot botnet C2 server (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "ip == \"86.176.80.98\" and port == \"2222\"",
+        "scope": "IPPORT",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot botnet C2 server (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "ip == \"86.136.208.125\" and port == \"443\"",
+        "scope": "IPPORT",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot botnet C2 server (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "ip == \"161.142.98.36\" and port == \"995\"",
+        "scope": "IPPORT",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot botnet C2 server (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "ip == \"70.26.75.148\" and port == \"2222\"",
+        "scope": "IPPORT",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot botnet C2 server (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "ip == \"75.90.41.108\" and port == \"995\"",
+        "scope": "IPPORT",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot botnet C2 server (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "ip == \"105.186.242.17\" and port == \"995\"",
+        "scope": "IPPORT",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot botnet C2 server (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "ip == \"41.62.106.252\" and port == \"443\"",
+        "scope": "IPPORT",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot botnet C2 server (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "ip == \"148.252.128.96\" and port == \"443\"",
+        "scope": "IPPORT",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot botnet C2 server (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "ip == \"41.230.144.48\" and port == \"443\"",
+        "scope": "IPPORT",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot botnet C2 server (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "ip == \"96.56.197.26\" and port == \"2078\"",
+        "scope": "IPPORT",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot botnet C2 server (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "ip == \"197.1.229.119\" and port == \"443\"",
+        "scope": "IPPORT",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot botnet C2 server (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "ip == \"96.56.197.26\" and port == \"2083\"",
+        "scope": "IPPORT",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot botnet C2 server (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "ip == \"89.36.206.220\" and port == \"995\"",
+        "scope": "IPPORT",
+        "severity": 2
+    },
+    {
+        "rule_name": "Loki Password Stealer (PWS) botnet C2 (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"http://185.246.220.85/zang1/five/fre.php\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2 (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"http://139.144.44.74/en_us/all.js\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2 (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"http://47.94.130.42:88/api/x\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "NjRAT botnet C2 server (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "ip == \"209.25.141.180\" and port == \"9693\"",
+        "scope": "IPPORT",
+        "severity": 2
+    },
+    {
+        "rule_name": "RedLine Stealer botnet C2 server (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "ip == \"45.32.29.148\" and port == \"34824\"",
+        "scope": "IPPORT",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"https://carladvogadatributaria.com/tvnq9/miqtwbr\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"https://carladvogadatributaria.com/tvnq9/njyjg\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"https://citytech-solutions.com/6mh1k/3nhmkg\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"https://citytech-solutions.com/6mh1k/zd58p\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"https://erg-eg.com/ocmb/apb7nwxri\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"https://erg-eg.com/ocmb/uxvocr2ll16\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"https://gsscorporationltd.com/oksfj/mpxflornhw8\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"https://gsscorporationltd.com/oksfj/t4o4cxn0cw9n\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"https://hotellosmirtos.com/sjn/ipxeyksv\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"https://hotellosmirtos.com/sjn/v0j3kwzf\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"https://mrcrizquna.com/l7ccn/jbumvemqesv\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"https://mrcrizquna.com/l7ccn/x6ejqwbvb\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"https://nayadofoundation.org/wxakm/fjaaeb\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"https://nayadofoundation.org/wxakm/qsihs\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"https://zainco.net/odou/p1wtd\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"https://zainco.net/odou/txlpvtiera\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"https://dst.co.tz/aszwuul/ef7nfgzstqj\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"https://utilimixnatal.com.br/dj9c/z6wyzhviqpb\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"https://lojalz14.com.br/8jj3b/swyrz\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"https://veley.co/5xxk2l/vcqv2pkwe\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"https://redbook.cloud/9ogznh/5rxaw7\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"https://capsimports.shop/hrsdh/9i4x30b\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"http://eventstream.asia/pep/per.zip\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"http://theplazahotelresort.com/pep/per.zip\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"http://hungrydolphin.net/pep/per.zip\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"http://ganadiando.com/pep/per.zip\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"http://grafishark.hu/pep/per.zip\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"http://fastmarketplace.co.ke/pep/per.zip\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"http://51.222.96.42/asxbaqnfj98w.dat\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"http://104.238.190.98/asxbaqnfj98wzv.dat\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"http://104.156.232.97/ao03psmvtkquf9b5.dat\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"http://45.59.170.43/ao03psmvtkq.dat\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"http://135.125.177.90/ao03psmvtkquf.dat\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"http://209.182.225.14/ao03psmvtk.dat\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"http://binmahboob.com/qci/placeatvoluptate.php\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"http://centigenph.com/odm/utconsequatur.php\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"http://nexuschemsys.com/ua/estmollitia.php\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"http://therapyhasnobounds.com/ui/laborumsit.php\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"http://trotinet.com.mk/dr/consequaturet.php\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"http://visionbuldana.org/iodm/dignissimosaut.php\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"https://222mlms.com/vole/explicaboet.php\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"https://400-sy.com/tmsa/nemodoloremque.php\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"https://aboutbusiness.us/saa/index.php\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"https://akampaventures.com/tu/quaesequi.php\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"https://andrazstok.com/isn/autnumquam.php\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"https://armieaccessori.com/al/eumvoluptates.php\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"https://avtocar.org/atp/quiquidem.php\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"https://banglatools.com/tsa/iureaut.php\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"https://bestitbazar.com/re/utqui.php\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"https://blackwatermedical.co.uk/pi/erroripsa.php\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"https://bola168king.com/oteq/numquammodi.php\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"https://bsinesssoft.com/oad/quaerataut.php\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"https://buahati.com/oqsu/cumquehic.php\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"https://buildcon.net/brau/doloressed.php\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"https://cafeterasprofesionales.com.mx/iu/aliquideius.php\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"https://cafeterassuperautomaticas.com.mx/iceu/autest.php\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"https://capstoneradioug.com/oaer/dolornulla.php\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"https://ccddfe.com/nque/infugit.php\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"https://chcco.net/id/nonnesciunt.php\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"https://codesurf.it/icta/delenitivelit.php\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"https://coopronda.com.br/llue/perferendisprovident.php\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"https://crowentertainment.org/ep/remconsequatur.php\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"https://dahirhassan.com/tr/doloresomnis.php\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"https://dataprogate.com/um/namducimus.php\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"https://demo.gwm.com.np/xtmm/exid.php\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"https://demogoruntule.com/us/repellata.php\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"https://diagramconstruction.com/cs/etneque.php\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"https://dinaseithigal.com/tied/istemagnam.php\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"https://doctorzoya.com/ui/quidemnemo.php\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"https://domelift.com/ciis/rerumaliquid.php\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"https://dpixchange.com/nio/utet.php\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"https://eminashville.com/ims/etexpedita.php\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"https://exemplarywriters.com/aler/cumnihil.php\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"https://fintechprogrammers.com/eep/commodiqui.php\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"https://gayatrirathore.com/asa/distinctiovoluptatum.php\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"https://grupombgyn.com.br/ias/voluptatibusenim.php\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"https://jbpips.com/rte/utqui.php\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"https://jutsolarenergy.com/quii/utalias.php\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"https://kassstudio.com/uc/quiasoluta.php\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"https://legalhighcannabis.com/olr/laudantiumanimi.php\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"https://lenergy.fr/mel/estquos.php\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"https://maderasintiynova.com/vsnl/quiquidem.php\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"https://manahprojetos.com.br/ar/quaequas.php\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"https://marasmllc.com/qore/laborequas.php\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"https://marketani.com/ists/nihilmolestiae.php\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"https://marketsbestrading.com/iopu/dictaea.php\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"https://meeyahbundle.com/umu/ipsamneque.php\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"https://mitrapasal.com/uaut/aliquamqui.php\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"https://muzicvue.org/aitq/eosaut.php\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"https://myanmarlogisticsinstitute.com/opt/similiquevoluptates.php\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"https://natrajdallmill.com/llii/autaut.php\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"https://niv-studio.com/pr/index.php\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"https://ns.com.pk/aao/etaut.php\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"https://nurad-x.com/med/velid.php\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"https://oplexxlifestyle.com/nri/index.php\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"https://optimizeservicesbd.com/rc/consequaturea.php\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"https://pearl-kw.com/pia/temporavoluptatum.php\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"https://performpracticesolutions.com/ifif/nihilminima.php\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"https://petitpawspa.com/ebta/eumalias.php\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"https://piefconference.com/apr/exercitationemet.php\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"https://pitanguinet.com.br/cic/laboriosamillo.php\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"https://protocolbd.com/pi/beataeamet.php\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"https://redlogstudio.com/ttid/consequaturassumenda.php\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"https://reparacioncreperas.com.mx/ism/molestiaset.php\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"https://roaatraining.com/mqe/etillum.php\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"https://rogerskimathi.com/este/doloresdolor.php\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"https://samemzowears.com/nmee/explicaboab.php\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"https://sandsdalen.com/ue/impeditet.php\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"https://sawabash-sd.com/pmiu/ametomnis.php\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"https://shaheenpipe.com/mcu/addoloribus.php\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"https://shayambabapackaging.com/el/quosea.php\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"https://sithland.com/iqs/saepetenetur.php\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"https://springbancorp.com/cau/eosrem.php\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"https://starlinksdigital.com/ta/etipsam.php\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"https://switchsub.com/ue/delenitireprehenderit.php\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"https://tajal.com.sa/nn/ipsamquam.php\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"https://tatileague.org/urq/quopariatur.php\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"https://trustme.com.ng/qusq/repellendusasperiores.php\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"https://tupnet.com.br/mulb/temporein.php\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"https://usog-ge.com/aet/iuresaepe.php\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"https://varanet.fr/vi/sitlaboriosam.php\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"https://villedeniamey.org/stau/iustorem.php\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"https://w15w.com/su/quivoluptatibus.php\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"https://warnmat.com/est/quiillum.php\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"https://wetravellebanon.com/tn/etveniam.php\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"https://yamehsystems.com/otp/perferendiscumque.php\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"https://youstylezcollections.com/roa/adipisciofficiis.php\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"http://humanittareinteligence.com.br/pep/per.zip\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"http://shineart.com.my/ir/dignissimosatque.php\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"http://treelogitech.com/atbu/suscipitratione.php\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"https://4buildapp.com/un/solutaomnis.php\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"https://actionhomerehab.com.au/ea/nemoeaque.php\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"https://alghreef.com/utn/quisquia.php\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"https://apcoorsac.com/eq/distinctioperspiciatis.php\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"https://artesurface.com/dena/utdolores.php\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"https://astrovardaan.com/ui/voluptasodit.php\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"https://bryllisinternational.com/pnmi/cumrerum.php\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"https://buildersoncall.com/eun/quiaaut.php\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"https://cilgpan.com.ng/iauc/quasinulla.php\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"https://circularmatters.com/rp/nostrummolestiae.php\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"https://codelinkinfotech.com/qui/rerumautem.php\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"https://denbyte.com/smr/voluptatesnostrum.php\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"https://desverse.co.uk/liu/earumrem.php\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"https://dgngastro.com/umnl/fugiataliquid.php\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"https://digitalpostoffice.com.bd/camt/quonisi.php\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"https://earningadvice.com/sir/idnam.php\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"https://facilityprint.com.br/fae/voluptatemsit.php\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"https://gecopakistan.com/miie/autpossimus.php\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"https://jibolasquare.com/erd/mollitianesciunt.php\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"https://olandbinaryinvestment.com/mu/eanulla.php\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"https://ondaserrano.com/am/enimid.php\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"https://ppgfans.com/umv/etmolestias.php\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"https://r-stechnologies.com/spr/eossunt.php\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"https://rahasports.com/ua/consequatura.php\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"https://reveltonhotels.com/tcpa/quidemexplicabo.php\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"https://rotaniz.com/et/idautem.php\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"https://safvoip.com/to/voluptatemcorporis.php\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"https://sahityaclasses.com/ixia/nemodicta.php\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"https://saifullahtoqeer.com/aea/solutaofficia.php\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"https://scmsgroup.org/ss/facerenon.php\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"https://sealfoxasphaltfl.com/cap/explicaboillo.php\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"https://smimarketing.co.uk/ivte/quisaspernatur.php\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"https://sofrekhanebaran.com/ipt/istenobis.php\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"https://softwareworlddesign.com/ipia/sitlibero.php\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"https://spectrumservicesllc.com/uea/velest.php\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"https://studiopsicologiaroma.com/erne/blanditiisnisi.php\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"https://tauheedgroup.com/raee/doloresvoluptatem.php\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"https://tecnolibre.net/etnd/sitquidem.php\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"https://villabohol.com/mi/liberovelit.php\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"https://viralebu.com/brlm/magninesciunt.php\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "BumbleBee botnet C2 server (confidence level: 75%)",
+        "authored_timestamp": 1685801507,
+        "rule": "ip == \"103.175.16.150\" and port == \"443\"",
+        "scope": "IPPORT",
+        "severity": 2
+    },
+    {
+        "rule_name": "BumbleBee botnet C2 server (confidence level: 75%)",
+        "authored_timestamp": 1685801507,
+        "rule": "ip == \"146.70.155.82\" and port == \"443\"",
+        "scope": "IPPORT",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"http://gurumm.com/pep/per.zip\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot botnet C2 server (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "ip == \"45.246.235.177\" and port == \"995\"",
+        "scope": "IPPORT",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot botnet C2 server (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "ip == \"190.206.92.41\" and port == \"2222\"",
+        "scope": "IPPORT",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot botnet C2 server (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "ip == \"87.221.197.91\" and port == \"2222\"",
+        "scope": "IPPORT",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot botnet C2 server (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "ip == \"96.56.197.26\" and port == \"2222\"",
+        "scope": "IPPORT",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot botnet C2 server (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "ip == \"95.60.243.16\" and port == \"995\"",
+        "scope": "IPPORT",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"http://121directmarketing.com/ooal/saepeconsectetur.php\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"http://globalsoulconnexion.com/ei/sitaut.php\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"http://modiranesarmaye.com/ri/nonlaudantium.php\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"https://aadf.org.br/ip/inminima.php\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"https://abdinconsult.com/omrn/autemconsequatur.php\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"https://alicontainers.com/mi/temporedolorem.php\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"https://all4insurances.com/elmx/harumet.php\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"https://arpareco.com.ar/fe/solutadolorum.php\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"https://barakatpharmacy.com/rcne/istemaiores.php\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"https://bmbpakistan.com/ili/velitplaceat.php\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"https://coolcivilengineering.com/icse/autincidunt.php\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"https://designfication.com/rdq/minusvel.php\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"https://dietitianareejchaudary.com/oie/aliasiusto.php\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"https://edenbeachresorts.com/dr/quiaimpedit.php\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"https://esthydata.com/st/totamprovident.php\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"https://fastnet.net.ec/er/architectoquis.php\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"https://forzafert.com.br/qeda/veldolorem.php\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"https://ftconsultores.com.mx/uiur/insed.php\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"https://gurnoorphotography.com/sa/etfugiat.php\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"https://humdatasell.com/erum/dolorvoluptatem.php\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"https://inspiruseducation.net/snl/occaecatiincidunt.php\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"https://lasustechgist.com.ng/eoaa/voluptatemsit.php\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"https://lubbockrvparktx.com/fgu/voluptatesrerum.php\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"https://martpoa.com/rl/modiqui.php\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"https://mbinfogv.com.br/lbqo/utincidunt.php\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"https://mscs-bcsir.com/ucns/corruptioptio.php\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"https://omcvn.org/ru/reprehenderitvero.php\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"https://orcasdental.com/quao/excepturiet.php\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"https://piggybankadvisor.com/nv/dictaearum.php\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"https://plumbinghours.com/no/velaliquid.php\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"https://previsoracolonia.com/cetl/minusipsam.php\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"https://reallynotrocketscience.com/mt/consequaturqui.php\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"https://theplazahotelresort.com/ess/etnihil.php\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"https://valleyaccounts.com/imnq/sedadipisci.php\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"https://yorgengalvis.com/qt/veltempore.php\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"https://zaheeruddinconsultants.com/mimu/modiid.php\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"http://expresspaisa.com/pep/per.zip\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"http://forskolin.info/pep/per.zip\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"http://goldenbook.ae/pep/per.zip\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"http://harshaauto.co.in/pep/per.zip\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"https://greenbox.click/pep/per.zip\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"http://nccsl.org/uids/cupiditateesse.php\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"http://tashdidhmim.com/uu/adipiscidistinctio.php\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"http://zedzahidul.com/uio/consequunturculpa.php\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"https://abebiconcept.com/ntts/undenulla.php\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"https://acedata.com.ng/uunn/quidolore.php\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"https://all4iptv.com/eo/autemaliquam.php\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"https://applacatintools.com/qba/voluptatemest.php\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"https://audan.org/so/quiatemporibus.php\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"https://banglanetbd.com/se/eased.php\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"https://brave-blog.see.com.py/rsco/autemaut.php\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"https://cognicen.com/uid/enimeum.php\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"https://conciergehomesng.com/onte/laudantiumcorporis.php\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"https://cortexeg.com/et/autmolestiae.php\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"https://eastpooja.com.my/uoi/ullamquos.php\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"https://emmanuelnnah.org.ng/se/dolormolestias.php\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"https://erayyigit.com/rd/uteligendi.php\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"https://fabiobertiart.it/iv/voluptatemet.php\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"https://flowshipping.com/ters/nesciuntquidem.php\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"https://formazione-bassareggiana.it/er/porropraesentium.php\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"https://forza.com.br/ram/hicdolorem.php\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"https://hansgross.com.pe/uarq/nequeautem.php\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"https://hrnews24.com/ut/etsit.php\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"https://hufaznashdata.com.ng/agra/hicquia.php\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"https://hustle2otoken.com/reup/consecteturreprehenderit.php\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"https://jktradingcompany.com/vin/sunttenetur.php\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"https://karnavatiengineering.com/msnr/cumest.php\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"https://madenlebanon.com/ce/dolorquas.php\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"https://oesdenizcilik.com/tdu/etaccusantium.php\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"https://optimussub.com/lia/voluptatemmaxime.php\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"https://pestworld2018.org/nmi/iustoautem.php\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"https://pokhrelrajat.com.np/tb/cumquia.php\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"https://skylight.com.ng/oeq/eanemo.php\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"https://succeedsolar.com/eaq/architectoeos.php\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"https://t3naturals.com/oiti/eiusab.php\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"https://takwinp.com/iiee/dictaaperiam.php\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "DCRat botnet C2 (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"http://a0806752.xsph.ru/eternallongpollasync.php\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"http://eurofinancesplus.com/pep/per.zip\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"http://fitnessguru.pk/pep/per.zip\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"http://glasnostindia.co.in/pep/per.zip\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"http://globalhandicraftscenter.org/pep/per.zip\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"http://grandarcbuilders.com/pep/per.zip\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"http://grantsofamerica.com/pep/per.zip\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"https://capsimports.shop/hrsdh/zmwkdlmk\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"https://utilimixnatal.com.br/dj9c/cmciv8e\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"https://dst.co.tz/aszwuul/fykvyoshms\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"https://lojalz14.com.br/8jj3b/jvevh0ttsz\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"https://redbook.cloud/9ogznh/aotqbd\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"https://veley.co/5xxk2l/o0xrd\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "IcedID botnet C2 server (confidence level: 75%)",
+        "authored_timestamp": 1685801507,
+        "rule": "ip == \"151.236.13.44\" and port == \"443\"",
+        "scope": "IPPORT",
+        "severity": 2
+    },
+    {
+        "rule_name": "IcedID botnet C2 server (confidence level: 75%)",
+        "authored_timestamp": 1685801507,
+        "rule": "ip == \"172.86.75.157\" and port == \"443\"",
+        "scope": "IPPORT",
+        "severity": 2
+    },
+    {
+        "rule_name": "QakBot payload delivery URL (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"http://wce.hosting.acm.org/pep/per.zip\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "LimeRAT botnet C2 server (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "ip == \"31.210.55.103\" and port == \"33313\"",
+        "scope": "IPPORT",
+        "severity": 2
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2 (confidence level: 75%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"http://fazehotafa.com:443/ak.css\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2 (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"https://139.144.44.74/ie9compatviewlist.xml\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2 (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"https://lubidex.xyz/terminate/sessions/s7k6mns8\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2 domain (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "domain == \"lubidex.xyz.\"",
+        "scope": "DNS",
+        "severity": 2,
+        "MITRE": [
+            "T1071.001",
+            "T1132.001",
+            "T1568",
+            "T1102.003"
+        ]
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2 (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"https://160.20.147.178/terminate/sessions/s7k6mns8\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2 server (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "ip == \"160.20.147.178\" and port == \"443\"",
+        "scope": "IPPORT",
+        "severity": 2
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2 (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"http://43.135.157.199:6000/en_us/all.js\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2 (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"http://8.218.176.6:8080/visit.js\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2 (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"http://103.149.91.175:8011/load\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2 (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"https://47.100.249.61/j.ad\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2 server (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "ip == \"47.100.249.61\" and port == \"443\"",
+        "scope": "IPPORT",
+        "severity": 2
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2 (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"http://1.13.249.191:30010/j.ad\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2 (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"http://106.54.81.238:3389/push\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2 (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"http://43.143.184.22:801/__utm.gif\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2 (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"http://47.115.203.251:8080/activity\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2 (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"https://106.53.74.135/fwlink\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2 server (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "ip == \"106.53.74.135\" and port == \"443\"",
+        "scope": "IPPORT",
+        "severity": 2
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2 (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"http://82.157.63.216:5712/jquery-3.3.1.min.js\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2 server (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "ip == \"101.43.161.148\" and port == \"5712\"",
+        "scope": "IPPORT",
+        "severity": 2
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2 (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"http://47.97.51.213:8008/j.ad\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2 (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"https://175.178.118.27/load\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2 server (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "ip == \"175.178.118.27\" and port == \"443\"",
+        "scope": "IPPORT",
+        "severity": 2
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2 (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"http://134.175.236.248:10443/updates.rss\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2 (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"http://43.156.67.216:55555/pixel\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2 server (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "ip == \"101.43.127.45\" and port == \"8800\"",
+        "scope": "IPPORT",
+        "severity": 2
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2 (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"http://fensisup.shop:8011/updates.rss\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2 server (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "ip == \"192.119.107.91\" and port == \"8011\"",
+        "scope": "IPPORT",
+        "severity": 2
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2 (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"http://103.234.72.186:8081/image/\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2 (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"http://18.181.171.173:8080/load\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2 (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"http://103.149.200.79:8080/en_us/all.js\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "RecordBreaker botnet C2 server (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "ip == \"45.9.74.36\" and port == \"80\"",
+        "scope": "IPPORT",
+        "severity": 2
+    },
+    {
+        "rule_name": "RecordBreaker botnet C2 server (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "ip == \"79.137.197.14\" and port == \"80\"",
+        "scope": "IPPORT",
+        "severity": 2
+    },
+    {
+        "rule_name": "RecordBreaker botnet C2 server (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "ip == \"45.138.74.99\" and port == \"80\"",
+        "scope": "IPPORT",
+        "severity": 2
+    },
+    {
+        "rule_name": "RecordBreaker botnet C2 server (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "ip == \"94.142.138.141\" and port == \"80\"",
+        "scope": "IPPORT",
+        "severity": 2
+    },
+    {
+        "rule_name": "RecordBreaker botnet C2 server (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "ip == \"94.142.138.143\" and port == \"80\"",
+        "scope": "IPPORT",
+        "severity": 2
+    },
+    {
+        "rule_name": "RecordBreaker botnet C2 server (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "ip == \"77.91.78.50\" and port == \"80\"",
+        "scope": "IPPORT",
+        "severity": 2
+    },
+    {
+        "rule_name": "SmokeLoader botnet C2 (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"http://alpatrik.com/\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "SmokeLoader botnet C2 (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"http://host-file-host6.com/\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "RedLine Stealer botnet C2 server (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "ip == \"149.248.17.106\" and port == \"27825\"",
+        "scope": "IPPORT",
+        "severity": 2
+    },
+    {
+        "rule_name": "RedLine Stealer botnet C2 server (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "ip == \"157.90.123.253\" and port == \"30113\"",
+        "scope": "IPPORT",
+        "severity": 2
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2 (confidence level: 75%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"http://esfxe.com:4444/link/formal.mpeg\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "Unknown malware botnet C2 (confidence level: 50%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"http://185.159.130.81/clpr/owusn2usodmsowisowusodisotasotesnjqsn2ys\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "Unknown malware botnet C2 (confidence level: 50%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"http://185.159.129.168/clpr/owusn2usodmsowisowusodisotasotesnjqsn2ys\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "Unknown malware botnet C2 (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"http://185.159.129.168/clpr/\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "Unknown malware botnet C2 (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"http://185.159.130.81/clpr/\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "XWorm botnet C2 server (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "ip == \"149.102.231.91\" and port == \"5000\"",
+        "scope": "IPPORT",
+        "severity": 2
+    },
+    {
+        "rule_name": "RecordBreaker botnet C2 (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"http://trastform.com\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "NetDooka botnet C2 (confidence level: 50%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"http://195.201.81.165:27134/\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "Rhadamanthys botnet C2 (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"http://179.43.142.201/img/favicon.png\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "Amadey botnet C2 (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"http://specialblue.pm/df30hn4m/index.php\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "Vidar botnet C2 (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"http://116.203.7.73\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "Vidar botnet C2 (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"http://116.203.15.24:80\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "Vidar botnet C2 (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"http://116.202.6.237\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "Vidar botnet C2 (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "url == \"http://195.201.44.70:80\"",
+        "scope": "URL",
+        "severity": 2
+    },
+    {
+        "rule_name": "Ave Maria botnet C2 server (confidence level: 100%)",
+        "authored_timestamp": 1685801507,
+        "rule": "ip == \"209.58.184.199\" and port == \"5202\"",
+        "scope": "IPPORT",
+        "severity": 2
+    }
+]
