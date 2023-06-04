@@ -1,10 +1,10 @@
 [
     {
         "rule_name": "BitRAT botnet C2 domain (confidence level: 100%)",
-        "authored_timestamp": 1685801525,
+        "authored_timestamp": 1685844175,
         "rule": "domain == \"rproxy.wefriendsright.xyz.\"",
         "scope": "DNS",
-        "severity": 2,
+        "severity": "100",
         "MITRE": [
             "T1071.001",
             "T1132.001",
@@ -14,66 +14,71 @@
     },
     {
         "rule_name": "Nanocore RAT botnet C2 server (confidence level: 100%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"194.147.140.133\" and port == \"1092\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"194.147.140.133\" and port == \"1092\"",
+        "rule_ip": "ip == \"194.147.140.133\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "100"
     },
     {
         "rule_name": "Loki Password Stealer (PWS) botnet C2 (confidence level: 100%)",
-        "authored_timestamp": 1685801525,
+        "authored_timestamp": 1685844175,
         "rule": "url == \"http://193.42.32.209/a/fre.php\"",
         "scope": "URL",
-        "severity": 2
+        "severity": "100"
     },
     {
         "rule_name": "Loki Password Stealer (PWS) botnet C2 (confidence level: 75%)",
-        "authored_timestamp": 1685801525,
+        "authored_timestamp": 1685844175,
         "rule": "url == \"http://185.246.220.85/line/five/fre.php\"",
         "scope": "URL",
-        "severity": 2
+        "severity": "75"
     },
     {
         "rule_name": "Bashlite botnet C2 server (confidence level: 75%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"193.200.16.112\" and port == \"415\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"193.200.16.112\" and port == \"415\"",
+        "rule_ip": "ip == \"193.200.16.112\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "75"
     },
     {
         "rule_name": "Mirai botnet C2 server (confidence level: 75%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"47.87.131.126\" and port == \"1337\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"47.87.131.126\" and port == \"1337\"",
+        "rule_ip": "ip == \"47.87.131.126\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "75"
     },
     {
         "rule_name": "Mozi payload delivery URL (confidence level: 50%)",
-        "authored_timestamp": 1685801525,
+        "authored_timestamp": 1685844175,
         "rule": "url == \"http://67.80.131.201:40998/mozi.m\"",
         "scope": "URL",
-        "severity": 2
+        "severity": "50"
     },
     {
         "rule_name": "Mirai botnet C2 server (confidence level: 75%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"77.91.85.194\" and port == \"81\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"77.91.85.194\" and port == \"81\"",
+        "rule_ip": "ip == \"77.91.85.194\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "75"
     },
     {
         "rule_name": "Ave Maria botnet C2 server (confidence level: 100%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"185.92.149.180\" and port == \"4244\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"185.92.149.180\" and port == \"4244\"",
+        "rule_ip": "ip == \"185.92.149.180\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "100"
     },
     {
         "rule_name": "Cobalt Strike botnet C2 domain (confidence level: 100%)",
-        "authored_timestamp": 1685801525,
+        "authored_timestamp": 1685844175,
         "rule": "domain == \"ns2.rtsafetech.com.\"",
         "scope": "DNS",
-        "severity": 2,
+        "severity": "100",
         "MITRE": [
             "T1071.001",
             "T1132.001",
@@ -83,17 +88,18 @@
     },
     {
         "rule_name": "Cobalt Strike botnet C2 server (confidence level: 100%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"216.238.66.188\" and port == \"*\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"216.238.66.188\" and port == \"*\"",
+        "rule_ip": "ip == \"216.238.66.188\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "100"
     },
     {
         "rule_name": "Cobalt Strike botnet C2 domain (confidence level: 100%)",
-        "authored_timestamp": 1685801525,
+        "authored_timestamp": 1685844175,
         "rule": "domain == \"dns.checkavail.space.\"",
         "scope": "DNS",
-        "severity": 2,
+        "severity": "100",
         "MITRE": [
             "T1071.001",
             "T1132.001",
@@ -103,17 +109,18 @@
     },
     {
         "rule_name": "Cobalt Strike botnet C2 server (confidence level: 100%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"191.101.44.35\" and port == \"*\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"191.101.44.35\" and port == \"*\"",
+        "rule_ip": "ip == \"191.101.44.35\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "100"
     },
     {
         "rule_name": "Cobalt Strike botnet C2 domain (confidence level: 100%)",
-        "authored_timestamp": 1685801525,
+        "authored_timestamp": 1685844175,
         "rule": "domain == \"ns1.centos-yum.xyz.\"",
         "scope": "DNS",
-        "severity": 2,
+        "severity": "100",
         "MITRE": [
             "T1071.001",
             "T1132.001",
@@ -123,10 +130,10 @@
     },
     {
         "rule_name": "Cobalt Strike botnet C2 domain (confidence level: 100%)",
-        "authored_timestamp": 1685801525,
+        "authored_timestamp": 1685844175,
         "rule": "domain == \"ns2.centos-yum.xyz.\"",
         "scope": "DNS",
-        "severity": 2,
+        "severity": "100",
         "MITRE": [
             "T1071.001",
             "T1132.001",
@@ -136,17 +143,18 @@
     },
     {
         "rule_name": "Cobalt Strike botnet C2 server (confidence level: 100%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"167.179.84.218\" and port == \"*\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"167.179.84.218\" and port == \"*\"",
+        "rule_ip": "ip == \"167.179.84.218\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "100"
     },
     {
         "rule_name": "Cobalt Strike botnet C2 domain (confidence level: 100%)",
-        "authored_timestamp": 1685801525,
+        "authored_timestamp": 1685844175,
         "rule": "domain == \"id1.opstionery.com.\"",
         "scope": "DNS",
-        "severity": 2,
+        "severity": "100",
         "MITRE": [
             "T1071.001",
             "T1132.001",
@@ -156,10 +164,10 @@
     },
     {
         "rule_name": "Cobalt Strike botnet C2 domain (confidence level: 100%)",
-        "authored_timestamp": 1685801525,
+        "authored_timestamp": 1685844175,
         "rule": "domain == \"id2.opstionery.com.\"",
         "scope": "DNS",
-        "severity": 2,
+        "severity": "100",
         "MITRE": [
             "T1071.001",
             "T1132.001",
@@ -169,10 +177,10 @@
     },
     {
         "rule_name": "Cobalt Strike botnet C2 domain (confidence level: 100%)",
-        "authored_timestamp": 1685801525,
+        "authored_timestamp": 1685844175,
         "rule": "domain == \"id3.opstionery.com.\"",
         "scope": "DNS",
-        "severity": 2,
+        "severity": "100",
         "MITRE": [
             "T1071.001",
             "T1132.001",
@@ -182,17 +190,18 @@
     },
     {
         "rule_name": "Cobalt Strike botnet C2 server (confidence level: 100%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"139.180.221.72\" and port == \"*\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"139.180.221.72\" and port == \"*\"",
+        "rule_ip": "ip == \"139.180.221.72\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "100"
     },
     {
         "rule_name": "Cobalt Strike botnet C2 domain (confidence level: 100%)",
-        "authored_timestamp": 1685801525,
+        "authored_timestamp": 1685844175,
         "rule": "domain == \"ld1.mobilecsssync.com.\"",
         "scope": "DNS",
-        "severity": 2,
+        "severity": "100",
         "MITRE": [
             "T1071.001",
             "T1132.001",
@@ -202,10 +211,10 @@
     },
     {
         "rule_name": "Cobalt Strike botnet C2 domain (confidence level: 100%)",
-        "authored_timestamp": 1685801525,
+        "authored_timestamp": 1685844175,
         "rule": "domain == \"ld2.mobilecsssync.com.\"",
         "scope": "DNS",
-        "severity": 2,
+        "severity": "100",
         "MITRE": [
             "T1071.001",
             "T1132.001",
@@ -215,10 +224,10 @@
     },
     {
         "rule_name": "Cobalt Strike botnet C2 domain (confidence level: 100%)",
-        "authored_timestamp": 1685801525,
+        "authored_timestamp": 1685844175,
         "rule": "domain == \"ld3.mobilecsssync.com.\"",
         "scope": "DNS",
-        "severity": 2,
+        "severity": "100",
         "MITRE": [
             "T1071.001",
             "T1132.001",
@@ -228,17 +237,18 @@
     },
     {
         "rule_name": "Cobalt Strike botnet C2 server (confidence level: 100%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"149.28.141.230\" and port == \"*\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"149.28.141.230\" and port == \"*\"",
+        "rule_ip": "ip == \"149.28.141.230\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "100"
     },
     {
         "rule_name": "Cobalt Strike botnet C2 domain (confidence level: 100%)",
-        "authored_timestamp": 1685801525,
+        "authored_timestamp": 1685844175,
         "rule": "domain == \"dns.exploitresearch.art.\"",
         "scope": "DNS",
-        "severity": 2,
+        "severity": "100",
         "MITRE": [
             "T1071.001",
             "T1132.001",
@@ -248,17 +258,18 @@
     },
     {
         "rule_name": "Cobalt Strike botnet C2 server (confidence level: 100%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"45.79.125.241\" and port == \"*\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"45.79.125.241\" and port == \"*\"",
+        "rule_ip": "ip == \"45.79.125.241\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "100"
     },
     {
         "rule_name": "Cobalt Strike botnet C2 domain (confidence level: 100%)",
-        "authored_timestamp": 1685801525,
+        "authored_timestamp": 1685844175,
         "rule": "domain == \"qq.chenda.xyz.\"",
         "scope": "DNS",
-        "severity": 2,
+        "severity": "100",
         "MITRE": [
             "T1071.001",
             "T1132.001",
@@ -268,17 +279,18 @@
     },
     {
         "rule_name": "Cobalt Strike botnet C2 server (confidence level: 100%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"106.55.180.110\" and port == \"*\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"106.55.180.110\" and port == \"*\"",
+        "rule_ip": "ip == \"106.55.180.110\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "100"
     },
     {
         "rule_name": "Cobalt Strike botnet C2 domain (confidence level: 100%)",
-        "authored_timestamp": 1685801525,
+        "authored_timestamp": 1685844175,
         "rule": "domain == \"login.webapi-telegram.com.\"",
         "scope": "DNS",
-        "severity": 2,
+        "severity": "100",
         "MITRE": [
             "T1071.001",
             "T1132.001",
@@ -288,10 +300,10 @@
     },
     {
         "rule_name": "Cobalt Strike botnet C2 domain (confidence level: 100%)",
-        "authored_timestamp": 1685801525,
+        "authored_timestamp": 1685844175,
         "rule": "domain == \"auth.webapi-telegram.com.\"",
         "scope": "DNS",
-        "severity": 2,
+        "severity": "100",
         "MITRE": [
             "T1071.001",
             "T1132.001",
@@ -301,59 +313,63 @@
     },
     {
         "rule_name": "Cobalt Strike botnet C2 server (confidence level: 100%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"185.105.1.233\" and port == \"*\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"185.105.1.233\" and port == \"*\"",
+        "rule_ip": "ip == \"185.105.1.233\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "100"
     },
     {
         "rule_name": "Cobalt Strike botnet C2 server (confidence level: 100%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"111.230.194.172\" and port == \"*\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"111.230.194.172\" and port == \"*\"",
+        "rule_ip": "ip == \"111.230.194.172\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "100"
     },
     {
         "rule_name": "Cobalt Strike botnet C2 (confidence level: 100%)",
-        "authored_timestamp": 1685801525,
+        "authored_timestamp": 1685844175,
         "rule": "url == \"http://104.194.227.218/visit.js\"",
         "scope": "URL",
-        "severity": 2
+        "severity": "100"
     },
     {
         "rule_name": "Cobalt Strike botnet C2 server (confidence level: 100%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"104.194.227.218\" and port == \"80\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"104.194.227.218\" and port == \"80\"",
+        "rule_ip": "ip == \"104.194.227.218\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "100"
     },
     {
         "rule_name": "Cobalt Strike botnet C2 (confidence level: 100%)",
-        "authored_timestamp": 1685801525,
+        "authored_timestamp": 1685844175,
         "rule": "url == \"https://121.40.192.133/match\"",
         "scope": "URL",
-        "severity": 2
+        "severity": "100"
     },
     {
         "rule_name": "Cobalt Strike botnet C2 server (confidence level: 100%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"121.40.192.133\" and port == \"443\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"121.40.192.133\" and port == \"443\"",
+        "rule_ip": "ip == \"121.40.192.133\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "100"
     },
     {
         "rule_name": "Cobalt Strike botnet C2 (confidence level: 100%)",
-        "authored_timestamp": 1685801525,
+        "authored_timestamp": 1685844175,
         "rule": "url == \"http://service-plcnurt7-1300693486.bj.apigw.tencentcs.com/api/x\"",
         "scope": "URL",
-        "severity": 2
+        "severity": "100"
     },
     {
         "rule_name": "Cobalt Strike botnet C2 domain (confidence level: 100%)",
-        "authored_timestamp": 1685801525,
+        "authored_timestamp": 1685844175,
         "rule": "domain == \"service-plcnurt7-1300693486.bj.apigw.tencentcs.com.\"",
         "scope": "DNS",
-        "severity": 2,
+        "severity": "100",
         "MITRE": [
             "T1071.001",
             "T1132.001",
@@ -363,1389 +379,1567 @@
     },
     {
         "rule_name": "Cobalt Strike botnet C2 (confidence level: 100%)",
-        "authored_timestamp": 1685801525,
+        "authored_timestamp": 1685844175,
         "rule": "url == \"http://59.110.221.242:4444/dot.gif\"",
         "scope": "URL",
-        "severity": 2
+        "severity": "100"
     },
     {
         "rule_name": "AsyncRAT botnet C2 server (confidence level: 75%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"5.224.222.214\" and port == \"4001\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"5.224.222.214\" and port == \"4001\"",
+        "rule_ip": "ip == \"5.224.222.214\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "75"
     },
     {
         "rule_name": "AsyncRAT botnet C2 server (confidence level: 75%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"5.249.165.85\" and port == \"6666\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"5.249.165.85\" and port == \"6666\"",
+        "rule_ip": "ip == \"5.249.165.85\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "75"
     },
     {
         "rule_name": "AsyncRAT botnet C2 server (confidence level: 75%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"15.165.236.45\" and port == \"8808\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"15.165.236.45\" and port == \"8808\"",
+        "rule_ip": "ip == \"15.165.236.45\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "75"
     },
     {
         "rule_name": "AsyncRAT botnet C2 server (confidence level: 75%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"20.67.243.141\" and port == \"113\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"20.67.243.141\" and port == \"113\"",
+        "rule_ip": "ip == \"20.67.243.141\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "75"
     },
     {
         "rule_name": "AsyncRAT botnet C2 server (confidence level: 75%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"23.254.130.126\" and port == \"6667\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"23.254.130.126\" and port == \"6667\"",
+        "rule_ip": "ip == \"23.254.130.126\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "75"
     },
     {
         "rule_name": "AsyncRAT botnet C2 server (confidence level: 75%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"23.254.227.121\" and port == \"6666\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"23.254.227.121\" and port == \"6666\"",
+        "rule_ip": "ip == \"23.254.227.121\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "75"
     },
     {
         "rule_name": "AsyncRAT botnet C2 server (confidence level: 75%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"23.254.231.83\" and port == \"1002\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"23.254.231.83\" and port == \"1002\"",
+        "rule_ip": "ip == \"23.254.231.83\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "75"
     },
     {
         "rule_name": "AsyncRAT botnet C2 server (confidence level: 75%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"38.242.242.149\" and port == \"7777\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"38.242.242.149\" and port == \"7777\"",
+        "rule_ip": "ip == \"38.242.242.149\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "75"
     },
     {
         "rule_name": "AsyncRAT botnet C2 server (confidence level: 75%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"45.58.190.125\" and port == \"8808\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"45.58.190.125\" and port == \"8808\"",
+        "rule_ip": "ip == \"45.58.190.125\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "75"
     },
     {
         "rule_name": "AsyncRAT botnet C2 server (confidence level: 75%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"45.80.158.57\" and port == \"8888\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"45.80.158.57\" and port == \"8888\"",
+        "rule_ip": "ip == \"45.80.158.57\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "75"
     },
     {
         "rule_name": "AsyncRAT botnet C2 server (confidence level: 75%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"45.138.16.48\" and port == \"1234\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"45.138.16.48\" and port == \"1234\"",
+        "rule_ip": "ip == \"45.138.16.48\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "75"
     },
     {
         "rule_name": "AsyncRAT botnet C2 server (confidence level: 75%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"45.138.16.161\" and port == \"2020\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"45.138.16.161\" and port == \"2020\"",
+        "rule_ip": "ip == \"45.138.16.161\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "75"
     },
     {
         "rule_name": "AsyncRAT botnet C2 server (confidence level: 75%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"45.138.16.202\" and port == \"6666\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"45.138.16.202\" and port == \"6666\"",
+        "rule_ip": "ip == \"45.138.16.202\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "75"
     },
     {
         "rule_name": "AsyncRAT botnet C2 server (confidence level: 75%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"45.141.215.81\" and port == \"888\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"45.141.215.81\" and port == \"888\"",
+        "rule_ip": "ip == \"45.141.215.81\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "75"
     },
     {
         "rule_name": "AsyncRAT botnet C2 server (confidence level: 75%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"45.141.215.84\" and port == \"222\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"45.141.215.84\" and port == \"222\"",
+        "rule_ip": "ip == \"45.141.215.84\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "75"
     },
     {
         "rule_name": "AsyncRAT botnet C2 server (confidence level: 75%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"45.143.99.54\" and port == \"1337\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"45.143.99.54\" and port == \"1337\"",
+        "rule_ip": "ip == \"45.143.99.54\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "75"
     },
     {
         "rule_name": "AsyncRAT botnet C2 server (confidence level: 75%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"45.154.98.110\" and port == \"1989\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"45.154.98.110\" and port == \"1989\"",
+        "rule_ip": "ip == \"45.154.98.110\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "75"
     },
     {
         "rule_name": "AsyncRAT botnet C2 server (confidence level: 75%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"45.154.98.192\" and port == \"222\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"45.154.98.192\" and port == \"222\"",
+        "rule_ip": "ip == \"45.154.98.192\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "75"
     },
     {
         "rule_name": "AsyncRAT botnet C2 server (confidence level: 75%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"51.81.24.93\" and port == \"7000\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"51.81.24.93\" and port == \"7000\"",
+        "rule_ip": "ip == \"51.81.24.93\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "75"
     },
     {
         "rule_name": "AsyncRAT botnet C2 server (confidence level: 75%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"51.81.126.13\" and port == \"222\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"51.81.126.13\" and port == \"222\"",
+        "rule_ip": "ip == \"51.81.126.13\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "75"
     },
     {
         "rule_name": "AsyncRAT botnet C2 server (confidence level: 75%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"51.89.204.67\" and port == \"7707\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"51.89.204.67\" and port == \"7707\"",
+        "rule_ip": "ip == \"51.89.204.67\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "75"
     },
     {
         "rule_name": "AsyncRAT botnet C2 server (confidence level: 75%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"51.89.207.166\" and port == \"8808\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"51.89.207.166\" and port == \"8808\"",
+        "rule_ip": "ip == \"51.89.207.166\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "75"
     },
     {
         "rule_name": "AsyncRAT botnet C2 server (confidence level: 75%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"51.120.120.162\" and port == \"8808\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"51.120.120.162\" and port == \"8808\"",
+        "rule_ip": "ip == \"51.120.120.162\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "75"
     },
     {
         "rule_name": "AsyncRAT botnet C2 server (confidence level: 75%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"51.161.59.75\" and port == \"7707\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"51.161.59.75\" and port == \"7707\"",
+        "rule_ip": "ip == \"51.161.59.75\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "75"
     },
     {
         "rule_name": "AsyncRAT botnet C2 server (confidence level: 75%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"51.161.104.149\" and port == \"8808\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"51.161.104.149\" and port == \"8808\"",
+        "rule_ip": "ip == \"51.161.104.149\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "75"
     },
     {
         "rule_name": "AsyncRAT botnet C2 server (confidence level: 75%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"51.161.105.119\" and port == \"7707\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"51.161.105.119\" and port == \"7707\"",
+        "rule_ip": "ip == \"51.161.105.119\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "75"
     },
     {
         "rule_name": "AsyncRAT botnet C2 server (confidence level: 75%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"54.38.124.50\" and port == \"8096\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"54.38.124.50\" and port == \"8096\"",
+        "rule_ip": "ip == \"54.38.124.50\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "75"
     },
     {
         "rule_name": "AsyncRAT botnet C2 server (confidence level: 75%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"54.38.234.73\" and port == \"8808\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"54.38.234.73\" and port == \"8808\"",
+        "rule_ip": "ip == \"54.38.234.73\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "75"
     },
     {
         "rule_name": "AsyncRAT botnet C2 server (confidence level: 75%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"66.94.118.174\" and port == \"1188\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"66.94.118.174\" and port == \"1188\"",
+        "rule_ip": "ip == \"66.94.118.174\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "75"
     },
     {
         "rule_name": "AsyncRAT botnet C2 server (confidence level: 75%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"66.94.122.207\" and port == \"8808\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"66.94.122.207\" and port == \"8808\"",
+        "rule_ip": "ip == \"66.94.122.207\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "75"
     },
     {
         "rule_name": "AsyncRAT botnet C2 server (confidence level: 75%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"70.36.110.159\" and port == \"8888\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"70.36.110.159\" and port == \"8888\"",
+        "rule_ip": "ip == \"70.36.110.159\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "75"
     },
     {
         "rule_name": "AsyncRAT botnet C2 server (confidence level: 75%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"74.222.22.72\" and port == \"8888\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"74.222.22.72\" and port == \"8888\"",
+        "rule_ip": "ip == \"74.222.22.72\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "75"
     },
     {
         "rule_name": "AsyncRAT botnet C2 server (confidence level: 75%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"82.159.198.174\" and port == \"4002\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"82.159.198.174\" and port == \"4002\"",
+        "rule_ip": "ip == \"82.159.198.174\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "75"
     },
     {
         "rule_name": "AsyncRAT botnet C2 server (confidence level: 75%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"85.206.172.156\" and port == \"444\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"85.206.172.156\" and port == \"444\"",
+        "rule_ip": "ip == \"85.206.172.156\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "75"
     },
     {
         "rule_name": "AsyncRAT botnet C2 server (confidence level: 75%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"85.215.190.69\" and port == \"8808\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"85.215.190.69\" and port == \"8808\"",
+        "rule_ip": "ip == \"85.215.190.69\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "75"
     },
     {
         "rule_name": "AsyncRAT botnet C2 server (confidence level: 75%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"98.26.85.5\" and port == \"6969\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"98.26.85.5\" and port == \"6969\"",
+        "rule_ip": "ip == \"98.26.85.5\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "75"
     },
     {
         "rule_name": "AsyncRAT botnet C2 server (confidence level: 75%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"109.230.238.142\" and port == \"6666\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"109.230.238.142\" and port == \"6666\"",
+        "rule_ip": "ip == \"109.230.238.142\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "75"
     },
     {
         "rule_name": "AsyncRAT botnet C2 server (confidence level: 75%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"116.62.115.255\" and port == \"8808\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"116.62.115.255\" and port == \"8808\"",
+        "rule_ip": "ip == \"116.62.115.255\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "75"
     },
     {
         "rule_name": "AsyncRAT botnet C2 server (confidence level: 75%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"120.146.185.63\" and port == \"443\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"120.146.185.63\" and port == \"443\"",
+        "rule_ip": "ip == \"120.146.185.63\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "75"
     },
     {
         "rule_name": "AsyncRAT botnet C2 server (confidence level: 75%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"142.202.240.126\" and port == \"5555\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"142.202.240.126\" and port == \"5555\"",
+        "rule_ip": "ip == \"142.202.240.126\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "75"
     },
     {
         "rule_name": "AsyncRAT botnet C2 server (confidence level: 75%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"146.59.161.194\" and port == \"8808\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"146.59.161.194\" and port == \"8808\"",
+        "rule_ip": "ip == \"146.59.161.194\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "75"
     },
     {
         "rule_name": "AsyncRAT botnet C2 server (confidence level: 75%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"149.102.132.253\" and port == \"3110\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"149.102.132.253\" and port == \"3110\"",
+        "rule_ip": "ip == \"149.102.132.253\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "75"
     },
     {
         "rule_name": "AsyncRAT botnet C2 server (confidence level: 75%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"172.81.60.205\" and port == \"8808\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"172.81.60.205\" and port == \"8808\"",
+        "rule_ip": "ip == \"172.81.60.205\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "75"
     },
     {
         "rule_name": "AsyncRAT botnet C2 server (confidence level: 75%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"185.81.157.5\" and port == \"4152\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"185.81.157.5\" and port == \"4152\"",
+        "rule_ip": "ip == \"185.81.157.5\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "75"
     },
     {
         "rule_name": "AsyncRAT botnet C2 server (confidence level: 75%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"185.81.157.14\" and port == \"4444\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"185.81.157.14\" and port == \"4444\"",
+        "rule_ip": "ip == \"185.81.157.14\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "75"
     },
     {
         "rule_name": "AsyncRAT botnet C2 server (confidence level: 75%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"185.81.157.105\" and port == \"5130\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"185.81.157.105\" and port == \"5130\"",
+        "rule_ip": "ip == \"185.81.157.105\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "75"
     },
     {
         "rule_name": "AsyncRAT botnet C2 server (confidence level: 75%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"185.81.157.135\" and port == \"7777\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"185.81.157.135\" and port == \"7777\"",
+        "rule_ip": "ip == \"185.81.157.135\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "75"
     },
     {
         "rule_name": "AsyncRAT botnet C2 server (confidence level: 75%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"185.81.157.168\" and port == \"7701\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"185.81.157.168\" and port == \"7701\"",
+        "rule_ip": "ip == \"185.81.157.168\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "75"
     },
     {
         "rule_name": "AsyncRAT botnet C2 server (confidence level: 75%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"190.28.148.168\" and port == \"2000\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"190.28.148.168\" and port == \"2000\"",
+        "rule_ip": "ip == \"190.28.148.168\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "75"
     },
     {
         "rule_name": "AsyncRAT botnet C2 server (confidence level: 75%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"192.119.108.77\" and port == \"8713\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"192.119.108.77\" and port == \"8713\"",
+        "rule_ip": "ip == \"192.119.108.77\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "75"
     },
     {
         "rule_name": "AsyncRAT botnet C2 server (confidence level: 75%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"192.119.108.78\" and port == \"8713\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"192.119.108.78\" and port == \"8713\"",
+        "rule_ip": "ip == \"192.119.108.78\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "75"
     },
     {
         "rule_name": "AsyncRAT botnet C2 server (confidence level: 75%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"193.23.161.246\" and port == \"6666\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"193.23.161.246\" and port == \"6666\"",
+        "rule_ip": "ip == \"193.23.161.246\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "75"
     },
     {
         "rule_name": "AsyncRAT botnet C2 server (confidence level: 75%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"194.9.172.60\" and port == \"8808\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"194.9.172.60\" and port == \"8808\"",
+        "rule_ip": "ip == \"194.9.172.60\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "75"
     },
     {
         "rule_name": "AsyncRAT botnet C2 server (confidence level: 75%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"194.156.91.127\" and port == \"8743\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"194.156.91.127\" and port == \"8743\"",
+        "rule_ip": "ip == \"194.156.91.127\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "75"
     },
     {
         "rule_name": "AsyncRAT botnet C2 server (confidence level: 75%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"198.244.251.230\" and port == \"2222\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"198.244.251.230\" and port == \"2222\"",
+        "rule_ip": "ip == \"198.244.251.230\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "75"
     },
     {
         "rule_name": "AsyncRAT botnet C2 server (confidence level: 75%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"207.32.217.71\" and port == \"5001\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"207.32.217.71\" and port == \"5001\"",
+        "rule_ip": "ip == \"207.32.217.71\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "75"
     },
     {
         "rule_name": "AsyncRAT botnet C2 server (confidence level: 75%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"207.244.232.102\" and port == \"8808\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"207.244.232.102\" and port == \"8808\"",
+        "rule_ip": "ip == \"207.244.232.102\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "75"
     },
     {
         "rule_name": "NjRAT botnet C2 server (confidence level: 100%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"194.62.1.7\" and port == \"5552\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"194.62.1.7\" and port == \"5552\"",
+        "rule_ip": "ip == \"194.62.1.7\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "100"
     },
     {
         "rule_name": "Sliver botnet C2 server (confidence level: 75%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"162.33.177.23\" and port == \"31337\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"162.33.177.23\" and port == \"31337\"",
+        "rule_ip": "ip == \"162.33.177.23\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "75"
     },
     {
         "rule_name": "Sliver botnet C2 server (confidence level: 75%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"116.203.203.130\" and port == \"31337\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"116.203.203.130\" and port == \"31337\"",
+        "rule_ip": "ip == \"116.203.203.130\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "75"
     },
     {
         "rule_name": "Sliver botnet C2 server (confidence level: 75%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"159.65.112.137\" and port == \"31337\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"159.65.112.137\" and port == \"31337\"",
+        "rule_ip": "ip == \"159.65.112.137\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "75"
     },
     {
         "rule_name": "Sliver botnet C2 server (confidence level: 75%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"34.171.81.60\" and port == \"31337\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"34.171.81.60\" and port == \"31337\"",
+        "rule_ip": "ip == \"34.171.81.60\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "75"
     },
     {
         "rule_name": "Sliver botnet C2 server (confidence level: 75%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"129.151.160.94\" and port == \"31337\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"129.151.160.94\" and port == \"31337\"",
+        "rule_ip": "ip == \"129.151.160.94\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "75"
     },
     {
         "rule_name": "Sliver botnet C2 server (confidence level: 75%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"8.218.204.19\" and port == \"31337\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"8.218.204.19\" and port == \"31337\"",
+        "rule_ip": "ip == \"8.218.204.19\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "75"
     },
     {
         "rule_name": "Sliver botnet C2 server (confidence level: 75%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"146.70.79.54\" and port == \"31337\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"146.70.79.54\" and port == \"31337\"",
+        "rule_ip": "ip == \"146.70.79.54\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "75"
     },
     {
         "rule_name": "Sliver botnet C2 server (confidence level: 75%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"168.100.11.70\" and port == \"31337\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"168.100.11.70\" and port == \"31337\"",
+        "rule_ip": "ip == \"168.100.11.70\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "75"
     },
     {
         "rule_name": "Sliver botnet C2 server (confidence level: 75%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"173.212.239.43\" and port == \"31337\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"173.212.239.43\" and port == \"31337\"",
+        "rule_ip": "ip == \"173.212.239.43\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "75"
     },
     {
         "rule_name": "Sliver botnet C2 server (confidence level: 75%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"198.244.135.232\" and port == \"31337\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"198.244.135.232\" and port == \"31337\"",
+        "rule_ip": "ip == \"198.244.135.232\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "75"
     },
     {
         "rule_name": "Sliver botnet C2 server (confidence level: 75%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"64.226.109.209\" and port == \"31337\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"64.226.109.209\" and port == \"31337\"",
+        "rule_ip": "ip == \"64.226.109.209\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "75"
     },
     {
         "rule_name": "Sliver botnet C2 server (confidence level: 75%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"68.183.30.174\" and port == \"31337\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"68.183.30.174\" and port == \"31337\"",
+        "rule_ip": "ip == \"68.183.30.174\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "75"
     },
     {
         "rule_name": "Sliver botnet C2 server (confidence level: 75%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"139.162.143.123\" and port == \"31337\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"139.162.143.123\" and port == \"31337\"",
+        "rule_ip": "ip == \"139.162.143.123\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "75"
     },
     {
         "rule_name": "Sliver botnet C2 server (confidence level: 75%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"159.8.96.5\" and port == \"31337\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"159.8.96.5\" and port == \"31337\"",
+        "rule_ip": "ip == \"159.8.96.5\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "75"
     },
     {
         "rule_name": "Sliver botnet C2 server (confidence level: 75%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"107.174.68.34\" and port == \"31337\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"107.174.68.34\" and port == \"31337\"",
+        "rule_ip": "ip == \"107.174.68.34\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "75"
     },
     {
         "rule_name": "Sliver botnet C2 server (confidence level: 75%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"103.106.190.183\" and port == \"31337\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"103.106.190.183\" and port == \"31337\"",
+        "rule_ip": "ip == \"103.106.190.183\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "75"
     },
     {
         "rule_name": "Sliver botnet C2 server (confidence level: 75%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"69.164.202.214\" and port == \"31337\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"69.164.202.214\" and port == \"31337\"",
+        "rule_ip": "ip == \"69.164.202.214\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "75"
     },
     {
         "rule_name": "Sliver botnet C2 server (confidence level: 75%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"103.176.145.162\" and port == \"31337\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"103.176.145.162\" and port == \"31337\"",
+        "rule_ip": "ip == \"103.176.145.162\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "75"
     },
     {
         "rule_name": "Sliver botnet C2 server (confidence level: 75%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"217.182.76.45\" and port == \"31337\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"217.182.76.45\" and port == \"31337\"",
+        "rule_ip": "ip == \"217.182.76.45\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "75"
     },
     {
         "rule_name": "Sliver botnet C2 server (confidence level: 75%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"104.238.60.2\" and port == \"31337\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"104.238.60.2\" and port == \"31337\"",
+        "rule_ip": "ip == \"104.238.60.2\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "75"
     },
     {
         "rule_name": "Sliver botnet C2 server (confidence level: 75%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"134.122.133.135\" and port == \"31337\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"134.122.133.135\" and port == \"31337\"",
+        "rule_ip": "ip == \"134.122.133.135\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "75"
     },
     {
         "rule_name": "Sliver botnet C2 server (confidence level: 75%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"45.148.120.192\" and port == \"31337\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"45.148.120.192\" and port == \"31337\"",
+        "rule_ip": "ip == \"45.148.120.192\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "75"
     },
     {
         "rule_name": "Sliver botnet C2 server (confidence level: 75%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"212.129.36.61\" and port == \"31337\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"212.129.36.61\" and port == \"31337\"",
+        "rule_ip": "ip == \"212.129.36.61\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "75"
     },
     {
         "rule_name": "Sliver botnet C2 server (confidence level: 75%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"212.129.36.59\" and port == \"31337\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"212.129.36.59\" and port == \"31337\"",
+        "rule_ip": "ip == \"212.129.36.59\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "75"
     },
     {
         "rule_name": "Sliver botnet C2 server (confidence level: 75%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"45.153.129.38\" and port == \"31337\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"45.153.129.38\" and port == \"31337\"",
+        "rule_ip": "ip == \"45.153.129.38\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "75"
     },
     {
         "rule_name": "Sliver botnet C2 server (confidence level: 75%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"13.56.236.146\" and port == \"31337\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"13.56.236.146\" and port == \"31337\"",
+        "rule_ip": "ip == \"13.56.236.146\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "75"
     },
     {
         "rule_name": "Sliver botnet C2 server (confidence level: 75%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"54.180.156.74\" and port == \"31337\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"54.180.156.74\" and port == \"31337\"",
+        "rule_ip": "ip == \"54.180.156.74\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "75"
     },
     {
         "rule_name": "Sliver botnet C2 server (confidence level: 75%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"134.122.133.131\" and port == \"31337\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"134.122.133.131\" and port == \"31337\"",
+        "rule_ip": "ip == \"134.122.133.131\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "75"
     },
     {
         "rule_name": "Sliver botnet C2 server (confidence level: 75%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"198.244.135.229\" and port == \"31337\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"198.244.135.229\" and port == \"31337\"",
+        "rule_ip": "ip == \"198.244.135.229\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "75"
     },
     {
         "rule_name": "Sliver botnet C2 server (confidence level: 75%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"146.190.13.16\" and port == \"31337\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"146.190.13.16\" and port == \"31337\"",
+        "rule_ip": "ip == \"146.190.13.16\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "75"
     },
     {
         "rule_name": "Sliver botnet C2 server (confidence level: 75%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"74.120.172.209\" and port == \"31337\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"74.120.172.209\" and port == \"31337\"",
+        "rule_ip": "ip == \"74.120.172.209\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "75"
     },
     {
         "rule_name": "Sliver botnet C2 server (confidence level: 75%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"212.129.36.58\" and port == \"31337\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"212.129.36.58\" and port == \"31337\"",
+        "rule_ip": "ip == \"212.129.36.58\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "75"
     },
     {
         "rule_name": "Sliver botnet C2 server (confidence level: 75%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"43.142.109.133\" and port == \"31337\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"43.142.109.133\" and port == \"31337\"",
+        "rule_ip": "ip == \"43.142.109.133\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "75"
     },
     {
         "rule_name": "Sliver botnet C2 server (confidence level: 75%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"84.201.179.148\" and port == \"31337\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"84.201.179.148\" and port == \"31337\"",
+        "rule_ip": "ip == \"84.201.179.148\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "75"
     },
     {
         "rule_name": "Sliver botnet C2 server (confidence level: 75%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"62.210.70.184\" and port == \"31337\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"62.210.70.184\" and port == \"31337\"",
+        "rule_ip": "ip == \"62.210.70.184\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "75"
     },
     {
         "rule_name": "Sliver botnet C2 server (confidence level: 75%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"152.67.1.187\" and port == \"31337\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"152.67.1.187\" and port == \"31337\"",
+        "rule_ip": "ip == \"152.67.1.187\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "75"
     },
     {
         "rule_name": "Sliver botnet C2 server (confidence level: 75%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"106.14.219.117\" and port == \"31337\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"106.14.219.117\" and port == \"31337\"",
+        "rule_ip": "ip == \"106.14.219.117\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "75"
     },
     {
         "rule_name": "Sliver botnet C2 server (confidence level: 75%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"3.70.227.81\" and port == \"31337\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"3.70.227.81\" and port == \"31337\"",
+        "rule_ip": "ip == \"3.70.227.81\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "75"
     },
     {
         "rule_name": "Sliver botnet C2 server (confidence level: 75%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"138.197.36.34\" and port == \"31337\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"138.197.36.34\" and port == \"31337\"",
+        "rule_ip": "ip == \"138.197.36.34\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "75"
     },
     {
         "rule_name": "Sliver botnet C2 server (confidence level: 75%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"89.147.110.79\" and port == \"31337\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"89.147.110.79\" and port == \"31337\"",
+        "rule_ip": "ip == \"89.147.110.79\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "75"
     },
     {
         "rule_name": "Sliver botnet C2 server (confidence level: 75%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"42.194.137.196\" and port == \"31337\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"42.194.137.196\" and port == \"31337\"",
+        "rule_ip": "ip == \"42.194.137.196\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "75"
     },
     {
         "rule_name": "Sliver botnet C2 server (confidence level: 75%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"139.144.24.48\" and port == \"31337\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"139.144.24.48\" and port == \"31337\"",
+        "rule_ip": "ip == \"139.144.24.48\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "75"
     },
     {
         "rule_name": "Sliver botnet C2 server (confidence level: 75%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"143.198.144.239\" and port == \"31337\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"143.198.144.239\" and port == \"31337\"",
+        "rule_ip": "ip == \"143.198.144.239\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "75"
     },
     {
         "rule_name": "Sliver botnet C2 server (confidence level: 75%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"34.150.49.203\" and port == \"31337\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"34.150.49.203\" and port == \"31337\"",
+        "rule_ip": "ip == \"34.150.49.203\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "75"
     },
     {
         "rule_name": "Sliver botnet C2 server (confidence level: 75%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"45.77.177.30\" and port == \"31337\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"45.77.177.30\" and port == \"31337\"",
+        "rule_ip": "ip == \"45.77.177.30\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "75"
     },
     {
         "rule_name": "Sliver botnet C2 server (confidence level: 75%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"182.16.40.118\" and port == \"31337\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"182.16.40.118\" and port == \"31337\"",
+        "rule_ip": "ip == \"182.16.40.118\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "75"
     },
     {
         "rule_name": "Sliver botnet C2 server (confidence level: 75%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"82.139.253.28\" and port == \"31337\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"82.139.253.28\" and port == \"31337\"",
+        "rule_ip": "ip == \"82.139.253.28\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "75"
     },
     {
         "rule_name": "Sliver botnet C2 server (confidence level: 75%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"172.81.123.204\" and port == \"31337\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"172.81.123.204\" and port == \"31337\"",
+        "rule_ip": "ip == \"172.81.123.204\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "75"
     },
     {
         "rule_name": "Sliver botnet C2 server (confidence level: 75%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"140.82.34.250\" and port == \"31337\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"140.82.34.250\" and port == \"31337\"",
+        "rule_ip": "ip == \"140.82.34.250\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "75"
     },
     {
         "rule_name": "Sliver botnet C2 server (confidence level: 75%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"147.78.47.233\" and port == \"31337\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"147.78.47.233\" and port == \"31337\"",
+        "rule_ip": "ip == \"147.78.47.233\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "75"
     },
     {
         "rule_name": "Sliver botnet C2 server (confidence level: 75%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"192.210.179.148\" and port == \"31337\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"192.210.179.148\" and port == \"31337\"",
+        "rule_ip": "ip == \"192.210.179.148\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "75"
     },
     {
         "rule_name": "Sliver botnet C2 server (confidence level: 75%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"67.205.157.109\" and port == \"31337\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"67.205.157.109\" and port == \"31337\"",
+        "rule_ip": "ip == \"67.205.157.109\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "75"
     },
     {
         "rule_name": "Sliver botnet C2 server (confidence level: 75%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"192.227.194.137\" and port == \"31337\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"192.227.194.137\" and port == \"31337\"",
+        "rule_ip": "ip == \"192.227.194.137\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "75"
     },
     {
         "rule_name": "Sliver botnet C2 server (confidence level: 75%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"43.156.59.135\" and port == \"31337\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"43.156.59.135\" and port == \"31337\"",
+        "rule_ip": "ip == \"43.156.59.135\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "75"
     },
     {
         "rule_name": "Sliver botnet C2 server (confidence level: 75%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"54.209.86.218\" and port == \"31337\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"54.209.86.218\" and port == \"31337\"",
+        "rule_ip": "ip == \"54.209.86.218\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "75"
     },
     {
         "rule_name": "Sliver botnet C2 server (confidence level: 75%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"150.158.142.12\" and port == \"31337\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"150.158.142.12\" and port == \"31337\"",
+        "rule_ip": "ip == \"150.158.142.12\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "75"
     },
     {
         "rule_name": "Sliver botnet C2 server (confidence level: 75%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"129.159.135.74\" and port == \"31337\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"129.159.135.74\" and port == \"31337\"",
+        "rule_ip": "ip == \"129.159.135.74\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "75"
     },
     {
         "rule_name": "Sliver botnet C2 server (confidence level: 75%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"165.22.188.207\" and port == \"31337\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"165.22.188.207\" and port == \"31337\"",
+        "rule_ip": "ip == \"165.22.188.207\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "75"
     },
     {
         "rule_name": "Sliver botnet C2 server (confidence level: 75%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"20.227.28.202\" and port == \"31337\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"20.227.28.202\" and port == \"31337\"",
+        "rule_ip": "ip == \"20.227.28.202\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "75"
     },
     {
         "rule_name": "Sliver botnet C2 server (confidence level: 75%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"3.92.41.116\" and port == \"31337\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"3.92.41.116\" and port == \"31337\"",
+        "rule_ip": "ip == \"3.92.41.116\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "75"
     },
     {
         "rule_name": "Sliver botnet C2 server (confidence level: 75%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"198.244.135.226\" and port == \"31337\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"198.244.135.226\" and port == \"31337\"",
+        "rule_ip": "ip == \"198.244.135.226\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "75"
     },
     {
         "rule_name": "Sliver botnet C2 server (confidence level: 75%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"165.227.47.240\" and port == \"31337\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"165.227.47.240\" and port == \"31337\"",
+        "rule_ip": "ip == \"165.227.47.240\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "75"
     },
     {
         "rule_name": "Sliver botnet C2 server (confidence level: 75%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"159.223.182.9\" and port == \"31337\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"159.223.182.9\" and port == \"31337\"",
+        "rule_ip": "ip == \"159.223.182.9\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "75"
     },
     {
         "rule_name": "Sliver botnet C2 server (confidence level: 75%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"185.254.37.216\" and port == \"31337\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"185.254.37.216\" and port == \"31337\"",
+        "rule_ip": "ip == \"185.254.37.216\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "75"
     },
     {
         "rule_name": "Sliver botnet C2 server (confidence level: 75%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"157.245.202.4\" and port == \"31337\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"157.245.202.4\" and port == \"31337\"",
+        "rule_ip": "ip == \"157.245.202.4\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "75"
     },
     {
         "rule_name": "Sliver botnet C2 server (confidence level: 75%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"5.188.34.63\" and port == \"31337\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"5.188.34.63\" and port == \"31337\"",
+        "rule_ip": "ip == \"5.188.34.63\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "75"
     },
     {
         "rule_name": "Sliver botnet C2 server (confidence level: 75%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"62.113.119.105\" and port == \"31337\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"62.113.119.105\" and port == \"31337\"",
+        "rule_ip": "ip == \"62.113.119.105\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "75"
     },
     {
         "rule_name": "Sliver botnet C2 server (confidence level: 75%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"188.166.218.66\" and port == \"31337\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"188.166.218.66\" and port == \"31337\"",
+        "rule_ip": "ip == \"188.166.218.66\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "75"
     },
     {
         "rule_name": "Sliver botnet C2 server (confidence level: 75%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"173.254.204.68\" and port == \"31337\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"173.254.204.68\" and port == \"31337\"",
+        "rule_ip": "ip == \"173.254.204.68\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "75"
     },
     {
         "rule_name": "Sliver botnet C2 server (confidence level: 75%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"34.105.151.117\" and port == \"31337\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"34.105.151.117\" and port == \"31337\"",
+        "rule_ip": "ip == \"34.105.151.117\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "75"
     },
     {
         "rule_name": "Sliver botnet C2 server (confidence level: 75%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"195.123.225.29\" and port == \"31337\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"195.123.225.29\" and port == \"31337\"",
+        "rule_ip": "ip == \"195.123.225.29\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "75"
     },
     {
         "rule_name": "Sliver botnet C2 server (confidence level: 75%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"139.180.213.133\" and port == \"31337\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"139.180.213.133\" and port == \"31337\"",
+        "rule_ip": "ip == \"139.180.213.133\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "75"
     },
     {
         "rule_name": "Sliver botnet C2 server (confidence level: 75%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"192.3.161.110\" and port == \"31337\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"192.3.161.110\" and port == \"31337\"",
+        "rule_ip": "ip == \"192.3.161.110\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "75"
     },
     {
         "rule_name": "Sliver botnet C2 server (confidence level: 75%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"152.67.26.76\" and port == \"31337\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"152.67.26.76\" and port == \"31337\"",
+        "rule_ip": "ip == \"152.67.26.76\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "75"
     },
     {
         "rule_name": "Sliver botnet C2 server (confidence level: 75%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"51.91.103.116\" and port == \"31337\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"51.91.103.116\" and port == \"31337\"",
+        "rule_ip": "ip == \"51.91.103.116\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "75"
     },
     {
         "rule_name": "Sliver botnet C2 server (confidence level: 75%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"182.16.40.115\" and port == \"31337\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"182.16.40.115\" and port == \"31337\"",
+        "rule_ip": "ip == \"182.16.40.115\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "75"
     },
     {
         "rule_name": "Sliver botnet C2 server (confidence level: 75%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"212.83.158.17\" and port == \"31337\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"212.83.158.17\" and port == \"31337\"",
+        "rule_ip": "ip == \"212.83.158.17\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "75"
     },
     {
         "rule_name": "Sliver botnet C2 server (confidence level: 75%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"164.90.149.21\" and port == \"31337\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"164.90.149.21\" and port == \"31337\"",
+        "rule_ip": "ip == \"164.90.149.21\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "75"
     },
     {
         "rule_name": "Sliver botnet C2 server (confidence level: 75%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"43.137.17.156\" and port == \"31337\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"43.137.17.156\" and port == \"31337\"",
+        "rule_ip": "ip == \"43.137.17.156\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "75"
     },
     {
         "rule_name": "Sliver botnet C2 server (confidence level: 75%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"62.182.84.234\" and port == \"31337\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"62.182.84.234\" and port == \"31337\"",
+        "rule_ip": "ip == \"62.182.84.234\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "75"
     },
     {
         "rule_name": "Sliver botnet C2 server (confidence level: 75%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"18.163.80.92\" and port == \"31337\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"18.163.80.92\" and port == \"31337\"",
+        "rule_ip": "ip == \"18.163.80.92\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "75"
     },
     {
         "rule_name": "Sliver botnet C2 server (confidence level: 75%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"158.160.20.71\" and port == \"31337\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"158.160.20.71\" and port == \"31337\"",
+        "rule_ip": "ip == \"158.160.20.71\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "75"
     },
     {
         "rule_name": "Sliver botnet C2 server (confidence level: 75%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"167.114.115.246\" and port == \"31337\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"167.114.115.246\" and port == \"31337\"",
+        "rule_ip": "ip == \"167.114.115.246\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "75"
     },
     {
         "rule_name": "Sliver botnet C2 server (confidence level: 75%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"45.81.243.45\" and port == \"31337\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"45.81.243.45\" and port == \"31337\"",
+        "rule_ip": "ip == \"45.81.243.45\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "75"
     },
     {
         "rule_name": "Sliver botnet C2 server (confidence level: 75%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"154.40.45.38\" and port == \"31337\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"154.40.45.38\" and port == \"31337\"",
+        "rule_ip": "ip == \"154.40.45.38\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "75"
     },
     {
         "rule_name": "Sliver botnet C2 server (confidence level: 75%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"80.78.23.172\" and port == \"31337\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"80.78.23.172\" and port == \"31337\"",
+        "rule_ip": "ip == \"80.78.23.172\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "75"
     },
     {
         "rule_name": "Sliver botnet C2 server (confidence level: 75%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"158.160.0.160\" and port == \"31337\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"158.160.0.160\" and port == \"31337\"",
+        "rule_ip": "ip == \"158.160.0.160\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "75"
     },
     {
         "rule_name": "Sliver botnet C2 server (confidence level: 75%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"20.58.167.202\" and port == \"31337\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"20.58.167.202\" and port == \"31337\"",
+        "rule_ip": "ip == \"20.58.167.202\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "75"
     },
     {
         "rule_name": "Sliver botnet C2 server (confidence level: 75%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"82.66.159.119\" and port == \"31337\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"82.66.159.119\" and port == \"31337\"",
+        "rule_ip": "ip == \"82.66.159.119\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "75"
     },
     {
         "rule_name": "Sliver botnet C2 server (confidence level: 75%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"101.42.166.216\" and port == \"31337\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"101.42.166.216\" and port == \"31337\"",
+        "rule_ip": "ip == \"101.42.166.216\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "75"
     },
     {
         "rule_name": "Sliver botnet C2 server (confidence level: 75%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"1.13.180.253\" and port == \"31337\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"1.13.180.253\" and port == \"31337\"",
+        "rule_ip": "ip == \"1.13.180.253\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "75"
     },
     {
         "rule_name": "Sliver botnet C2 server (confidence level: 75%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"84.248.198.231\" and port == \"31337\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"84.248.198.231\" and port == \"31337\"",
+        "rule_ip": "ip == \"84.248.198.231\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "75"
     },
     {
         "rule_name": "Sliver botnet C2 server (confidence level: 75%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"161.35.99.1\" and port == \"31337\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"161.35.99.1\" and port == \"31337\"",
+        "rule_ip": "ip == \"161.35.99.1\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "75"
     },
     {
         "rule_name": "Sliver botnet C2 server (confidence level: 75%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"1.13.174.161\" and port == \"31337\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"1.13.174.161\" and port == \"31337\"",
+        "rule_ip": "ip == \"1.13.174.161\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "75"
     },
     {
         "rule_name": "Sliver botnet C2 server (confidence level: 75%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"212.118.54.51\" and port == \"31337\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"212.118.54.51\" and port == \"31337\"",
+        "rule_ip": "ip == \"212.118.54.51\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "75"
     },
     {
         "rule_name": "Sliver botnet C2 server (confidence level: 75%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"37.187.123.146\" and port == \"31337\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"37.187.123.146\" and port == \"31337\"",
+        "rule_ip": "ip == \"37.187.123.146\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "75"
     },
     {
         "rule_name": "Sliver botnet C2 server (confidence level: 75%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"3.80.71.248\" and port == \"31337\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"3.80.71.248\" and port == \"31337\"",
+        "rule_ip": "ip == \"3.80.71.248\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "75"
     },
     {
         "rule_name": "Sliver botnet C2 server (confidence level: 75%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"46.249.100.15\" and port == \"31337\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"46.249.100.15\" and port == \"31337\"",
+        "rule_ip": "ip == \"46.249.100.15\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "75"
     },
     {
         "rule_name": "Sliver botnet C2 server (confidence level: 75%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"13.238.218.206\" and port == \"31337\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"13.238.218.206\" and port == \"31337\"",
+        "rule_ip": "ip == \"13.238.218.206\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "75"
     },
     {
         "rule_name": "Sliver botnet C2 server (confidence level: 75%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"89.163.219.56\" and port == \"31337\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"89.163.219.56\" and port == \"31337\"",
+        "rule_ip": "ip == \"89.163.219.56\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "75"
     },
     {
         "rule_name": "Sliver botnet C2 server (confidence level: 75%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"159.223.53.246\" and port == \"31337\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"159.223.53.246\" and port == \"31337\"",
+        "rule_ip": "ip == \"159.223.53.246\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "75"
     },
     {
         "rule_name": "Sliver botnet C2 server (confidence level: 75%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"185.193.127.208\" and port == \"31337\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"185.193.127.208\" and port == \"31337\"",
+        "rule_ip": "ip == \"185.193.127.208\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "75"
     },
     {
         "rule_name": "Sliver botnet C2 server (confidence level: 75%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"159.223.113.166\" and port == \"31337\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"159.223.113.166\" and port == \"31337\"",
+        "rule_ip": "ip == \"159.223.113.166\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "75"
     },
     {
         "rule_name": "Sliver botnet C2 server (confidence level: 75%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"104.234.147.42\" and port == \"31337\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"104.234.147.42\" and port == \"31337\"",
+        "rule_ip": "ip == \"104.234.147.42\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "75"
     },
     {
         "rule_name": "Sliver botnet C2 server (confidence level: 75%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"192.248.176.111\" and port == \"31337\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"192.248.176.111\" and port == \"31337\"",
+        "rule_ip": "ip == \"192.248.176.111\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "75"
     },
     {
         "rule_name": "Sliver botnet C2 server (confidence level: 75%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"185.154.52.186\" and port == \"31337\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"185.154.52.186\" and port == \"31337\"",
+        "rule_ip": "ip == \"185.154.52.186\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "75"
     },
     {
         "rule_name": "Sliver botnet C2 server (confidence level: 75%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"194.233.169.252\" and port == \"31337\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"194.233.169.252\" and port == \"31337\"",
+        "rule_ip": "ip == \"194.233.169.252\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "75"
     },
     {
         "rule_name": "Sliver botnet C2 server (confidence level: 75%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"107.148.149.89\" and port == \"31337\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"107.148.149.89\" and port == \"31337\"",
+        "rule_ip": "ip == \"107.148.149.89\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "75"
     },
     {
         "rule_name": "Sliver botnet C2 server (confidence level: 75%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"167.99.191.228\" and port == \"31337\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"167.99.191.228\" and port == \"31337\"",
+        "rule_ip": "ip == \"167.99.191.228\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "75"
     },
     {
         "rule_name": "Sliver botnet C2 server (confidence level: 75%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"129.211.212.174\" and port == \"31337\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"129.211.212.174\" and port == \"31337\"",
+        "rule_ip": "ip == \"129.211.212.174\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "75"
     },
     {
         "rule_name": "Sliver botnet C2 server (confidence level: 75%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"104.251.212.135\" and port == \"31337\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"104.251.212.135\" and port == \"31337\"",
+        "rule_ip": "ip == \"104.251.212.135\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "75"
     },
     {
         "rule_name": "Sliver botnet C2 server (confidence level: 75%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"85.10.135.126\" and port == \"31337\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"85.10.135.126\" and port == \"31337\"",
+        "rule_ip": "ip == \"85.10.135.126\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "75"
     },
     {
         "rule_name": "AsyncRAT botnet C2 server (confidence level: 75%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"88.198.206.217\" and port == \"4449\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"88.198.206.217\" and port == \"4449\"",
+        "rule_ip": "ip == \"88.198.206.217\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "75"
     },
     {
         "rule_name": "Cobalt Strike botnet C2 (confidence level: 100%)",
-        "authored_timestamp": 1685801525,
+        "authored_timestamp": 1685844175,
         "rule": "url == \"http://43.138.168.20:8001/dpixel\"",
         "scope": "URL",
-        "severity": 2
+        "severity": "100"
     },
     {
         "rule_name": "Cobalt Strike botnet C2 (confidence level: 100%)",
-        "authored_timestamp": 1685801525,
+        "authored_timestamp": 1685844175,
         "rule": "url == \"http://139.155.126.141:9010/ca\"",
         "scope": "URL",
-        "severity": 2
+        "severity": "100"
     },
     {
         "rule_name": "Cobalt Strike botnet C2 (confidence level: 100%)",
-        "authored_timestamp": 1685801525,
+        "authored_timestamp": 1685844175,
         "rule": "url == \"https://39.104.76.226:6443/en_us/all.js\"",
         "scope": "URL",
-        "severity": 2
+        "severity": "100"
     },
     {
         "rule_name": "Cobalt Strike botnet C2 (confidence level: 100%)",
-        "authored_timestamp": 1685801525,
+        "authored_timestamp": 1685844175,
         "rule": "url == \"https://43.142.47.213/g.pixel\"",
         "scope": "URL",
-        "severity": 2
+        "severity": "100"
     },
     {
         "rule_name": "Cobalt Strike botnet C2 server (confidence level: 100%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"1.14.70.97\" and port == \"443\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"1.14.70.97\" and port == \"443\"",
+        "rule_ip": "ip == \"1.14.70.97\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "100"
     },
     {
         "rule_name": "Cobalt Strike botnet C2 server (confidence level: 100%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"77.40.160.47\" and port == \"443\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"77.40.160.47\" and port == \"443\"",
+        "rule_ip": "ip == \"77.40.160.47\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "100"
     },
     {
         "rule_name": "Cobalt Strike botnet C2 (confidence level: 100%)",
-        "authored_timestamp": 1685801525,
+        "authored_timestamp": 1685844175,
         "rule": "url == \"http://167.71.245.119:8083/c/msdownload/update/others/2016/12/29136388_\"",
         "scope": "URL",
-        "severity": 2
+        "severity": "100"
     },
     {
         "rule_name": "Cobalt Strike botnet C2 server (confidence level: 100%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"161.35.251.249\" and port == \"8083\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"161.35.251.249\" and port == \"8083\"",
+        "rule_ip": "ip == \"161.35.251.249\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "100"
     },
     {
         "rule_name": "Cobalt Strike botnet C2 (confidence level: 100%)",
-        "authored_timestamp": 1685801525,
+        "authored_timestamp": 1685844175,
         "rule": "url == \"http://167.71.245.119:8084/c/msdownload/update/others/2016/12/29136388_\"",
         "scope": "URL",
-        "severity": 2
+        "severity": "100"
     },
     {
         "rule_name": "Cobalt Strike botnet C2 (confidence level: 100%)",
-        "authored_timestamp": 1685801525,
+        "authored_timestamp": 1685844175,
         "rule": "url == \"https://www.lion3.life/developer-server/online/_next/static/css\"",
         "scope": "URL",
-        "severity": 2
+        "severity": "100"
     },
     {
         "rule_name": "Cobalt Strike botnet C2 (confidence level: 100%)",
-        "authored_timestamp": 1685801525,
+        "authored_timestamp": 1685844175,
         "rule": "url == \"http://121.4.64.103:9999/ptj\"",
         "scope": "URL",
-        "severity": 2
+        "severity": "100"
     },
     {
         "rule_name": "Cobalt Strike botnet C2 (confidence level: 100%)",
-        "authored_timestamp": 1685801525,
+        "authored_timestamp": 1685844175,
         "rule": "url == \"http://39.104.81.101:7777/pixel\"",
         "scope": "URL",
-        "severity": 2
+        "severity": "100"
     },
     {
         "rule_name": "Cobalt Strike botnet C2 (confidence level: 100%)",
-        "authored_timestamp": 1685801525,
+        "authored_timestamp": 1685844175,
         "rule": "url == \"http://43.154.14.120:25001/dpixel\"",
         "scope": "URL",
-        "severity": 2
+        "severity": "100"
     },
     {
         "rule_name": "Cobalt Strike botnet C2 (confidence level: 100%)",
-        "authored_timestamp": 1685801525,
+        "authored_timestamp": 1685844175,
         "rule": "url == \"https://82.157.9.58/ca\"",
         "scope": "URL",
-        "severity": 2
+        "severity": "100"
     },
     {
         "rule_name": "Cobalt Strike botnet C2 server (confidence level: 100%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"82.157.9.58\" and port == \"443\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"82.157.9.58\" and port == \"443\"",
+        "rule_ip": "ip == \"82.157.9.58\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "100"
     },
     {
         "rule_name": "Cobalt Strike botnet C2 (confidence level: 100%)",
-        "authored_timestamp": 1685801525,
+        "authored_timestamp": 1685844175,
         "rule": "url == \"http://78.141.217.65/g.pixel\"",
         "scope": "URL",
-        "severity": 2
+        "severity": "100"
     },
     {
         "rule_name": "Cobalt Strike botnet C2 server (confidence level: 100%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"78.141.217.65\" and port == \"80\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"78.141.217.65\" and port == \"80\"",
+        "rule_ip": "ip == \"78.141.217.65\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "100"
     },
     {
         "rule_name": "Cobalt Strike botnet C2 (confidence level: 100%)",
-        "authored_timestamp": 1685801525,
+        "authored_timestamp": 1685844175,
         "rule": "url == \"https://45.81.39.176:8443/jquery-3.3.1.min.js\"",
         "scope": "URL",
-        "severity": 2
+        "severity": "100"
     },
     {
         "rule_name": "Cobalt Strike botnet C2 server (confidence level: 100%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"1.14.70.97\" and port == \"8011\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"1.14.70.97\" and port == \"8011\"",
+        "rule_ip": "ip == \"1.14.70.97\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "100"
     },
     {
         "rule_name": "Cobalt Strike botnet C2 (confidence level: 100%)",
-        "authored_timestamp": 1685801525,
+        "authored_timestamp": 1685844175,
         "rule": "url == \"http://43.140.247.138/push\"",
         "scope": "URL",
-        "severity": 2
+        "severity": "100"
     },
     {
         "rule_name": "Cobalt Strike botnet C2 server (confidence level: 100%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"43.140.247.138\" and port == \"80\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"43.140.247.138\" and port == \"80\"",
+        "rule_ip": "ip == \"43.140.247.138\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "100"
     },
     {
         "rule_name": "Cobalt Strike botnet C2 (confidence level: 100%)",
-        "authored_timestamp": 1685801525,
+        "authored_timestamp": 1685844175,
         "rule": "url == \"http://31.44.184.181/match\"",
         "scope": "URL",
-        "severity": 2
+        "severity": "100"
     },
     {
         "rule_name": "Cobalt Strike botnet C2 (confidence level: 100%)",
-        "authored_timestamp": 1685801525,
+        "authored_timestamp": 1685844175,
         "rule": "url == \"http://85.175.101.203/pixel\"",
         "scope": "URL",
-        "severity": 2
+        "severity": "100"
     },
     {
         "rule_name": "Cobalt Strike botnet C2 (confidence level: 100%)",
-        "authored_timestamp": 1685801525,
+        "authored_timestamp": 1685844175,
         "rule": "url == \"http://88.218.192.130:8086/ptj\"",
         "scope": "URL",
-        "severity": 2
+        "severity": "100"
     },
     {
         "rule_name": "Cobalt Strike botnet C2 (confidence level: 100%)",
-        "authored_timestamp": 1685801525,
+        "authored_timestamp": 1685844175,
         "rule": "url == \"http://8.140.12.158:9998/jquery-3.3.1.min.js\"",
         "scope": "URL",
-        "severity": 2
+        "severity": "100"
     },
     {
         "rule_name": "Cobalt Strike botnet C2 domain (confidence level: 100%)",
-        "authored_timestamp": 1685801525,
+        "authored_timestamp": 1685844175,
         "rule": "domain == \"leno.outlookonlines.com.\"",
         "scope": "DNS",
-        "severity": 2,
+        "severity": "100",
         "MITRE": [
             "T1071.001",
             "T1132.001",
@@ -1755,10 +1949,10 @@
     },
     {
         "rule_name": "Cobalt Strike botnet C2 domain (confidence level: 100%)",
-        "authored_timestamp": 1685801525,
+        "authored_timestamp": 1685844175,
         "rule": "domain == \"iane.outlookonlines.com.\"",
         "scope": "DNS",
-        "severity": 2,
+        "severity": "100",
         "MITRE": [
             "T1071.001",
             "T1132.001",
@@ -1768,10 +1962,10 @@
     },
     {
         "rule_name": "Cobalt Strike botnet C2 domain (confidence level: 100%)",
-        "authored_timestamp": 1685801525,
+        "authored_timestamp": 1685844175,
         "rule": "domain == \"rano.outlookonlines.com.\"",
         "scope": "DNS",
-        "severity": 2,
+        "severity": "100",
         "MITRE": [
             "T1071.001",
             "T1132.001",
@@ -1781,45 +1975,50 @@
     },
     {
         "rule_name": "QakBot botnet C2 server (confidence level: 50%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"102.156.153.33\" and port == \"443\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"102.156.153.33\" and port == \"443\"",
+        "rule_ip": "ip == \"102.156.153.33\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "50"
     },
     {
         "rule_name": "QakBot botnet C2 server (confidence level: 50%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"70.48.46.235\" and port == \"2222\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"70.48.46.235\" and port == \"2222\"",
+        "rule_ip": "ip == \"70.48.46.235\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "50"
     },
     {
         "rule_name": "QakBot botnet C2 server (confidence level: 50%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"78.160.146.127\" and port == \"443\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"78.160.146.127\" and port == \"443\"",
+        "rule_ip": "ip == \"78.160.146.127\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "50"
     },
     {
         "rule_name": "QakBot botnet C2 server (confidence level: 50%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"90.26.152.228\" and port == \"2222\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"90.26.152.228\" and port == \"2222\"",
+        "rule_ip": "ip == \"90.26.152.228\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "50"
     },
     {
         "rule_name": "QakBot botnet C2 server (confidence level: 50%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"105.101.34.87\" and port == \"443\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"105.101.34.87\" and port == \"443\"",
+        "rule_ip": "ip == \"105.101.34.87\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "50"
     },
     {
         "rule_name": "FAKEUPDATES payload delivery domain (confidence level: 100%)",
-        "authored_timestamp": 1685801525,
+        "authored_timestamp": 1685844175,
         "rule": "domain == \"enterprise.alliantlaw.us.\"",
         "scope": "DNS",
-        "severity": 2,
+        "severity": "100",
         "MITRE": [
             "T1071.001",
             "T1132.001",
@@ -1829,52 +2028,54 @@
     },
     {
         "rule_name": "Cobalt Strike botnet C2 (confidence level: 100%)",
-        "authored_timestamp": 1685801525,
+        "authored_timestamp": 1685844175,
         "rule": "url == \"https://198.211.15.48:8090/dpixel\"",
         "scope": "URL",
-        "severity": 2
+        "severity": "100"
     },
     {
         "rule_name": "Quasar RAT botnet C2 server (confidence level: 100%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"146.56.36.222\" and port == \"4782\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"146.56.36.222\" and port == \"4782\"",
+        "rule_ip": "ip == \"146.56.36.222\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "100"
     },
     {
         "rule_name": "Cobalt Strike botnet C2 (confidence level: 100%)",
-        "authored_timestamp": 1685801525,
+        "authored_timestamp": 1685844175,
         "rule": "url == \"http://104.168.68.177:4321/cx\"",
         "scope": "URL",
-        "severity": 2
+        "severity": "100"
     },
     {
         "rule_name": "Cobalt Strike botnet C2 (confidence level: 100%)",
-        "authored_timestamp": 1685801525,
+        "authored_timestamp": 1685844175,
         "rule": "url == \"http://85.217.144.148/dot.gif\"",
         "scope": "URL",
-        "severity": 2
+        "severity": "100"
     },
     {
         "rule_name": "AsyncRAT botnet C2 server (confidence level: 75%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"64.235.61.43\" and port == \"8848\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"64.235.61.43\" and port == \"8848\"",
+        "rule_ip": "ip == \"64.235.61.43\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "75"
     },
     {
         "rule_name": "Cobalt Strike botnet C2 (confidence level: 100%)",
-        "authored_timestamp": 1685801525,
+        "authored_timestamp": 1685844175,
         "rule": "url == \"https://gifhamburgers.com/design/query/9x5m3soe0f\"",
         "scope": "URL",
-        "severity": 2
+        "severity": "100"
     },
     {
         "rule_name": "Cobalt Strike botnet C2 domain (confidence level: 100%)",
-        "authored_timestamp": 1685801525,
+        "authored_timestamp": 1685844175,
         "rule": "domain == \"gifhamburgers.com.\"",
         "scope": "DNS",
-        "severity": 2,
+        "severity": "100",
         "MITRE": [
             "T1071.001",
             "T1132.001",
@@ -1884,192 +2085,200 @@
     },
     {
         "rule_name": "Mirai botnet C2 server (confidence level: 75%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"84.54.50.198\" and port == \"55650\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"84.54.50.198\" and port == \"55650\"",
+        "rule_ip": "ip == \"84.54.50.198\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "75"
     },
     {
         "rule_name": "Cobalt Strike botnet C2 (confidence level: 100%)",
-        "authored_timestamp": 1685801525,
+        "authored_timestamp": 1685844175,
         "rule": "url == \"http://1.14.68.150/ca\"",
         "scope": "URL",
-        "severity": 2
+        "severity": "100"
     },
     {
         "rule_name": "Cobalt Strike botnet C2 (confidence level: 100%)",
-        "authored_timestamp": 1685801525,
+        "authored_timestamp": 1685844175,
         "rule": "url == \"http://107.173.15.17:8080/ptj\"",
         "scope": "URL",
-        "severity": 2
+        "severity": "100"
     },
     {
         "rule_name": "Cobalt Strike botnet C2 (confidence level: 100%)",
-        "authored_timestamp": 1685801525,
+        "authored_timestamp": 1685844175,
         "rule": "url == \"https://172.96.237.159:8443/fwlink\"",
         "scope": "URL",
-        "severity": 2
+        "severity": "100"
     },
     {
         "rule_name": "Cobalt Strike botnet C2 (confidence level: 100%)",
-        "authored_timestamp": 1685801525,
+        "authored_timestamp": 1685844175,
         "rule": "url == \"http://1.12.243.119:1111/en_us/all.js\"",
         "scope": "URL",
-        "severity": 2
+        "severity": "100"
     },
     {
         "rule_name": "Cobalt Strike botnet C2 (confidence level: 100%)",
-        "authored_timestamp": 1685801525,
+        "authored_timestamp": 1685844175,
         "rule": "url == \"http://216.83.45.170/pixel\"",
         "scope": "URL",
-        "severity": 2
+        "severity": "100"
     },
     {
         "rule_name": "Cobalt Strike botnet C2 (confidence level: 100%)",
-        "authored_timestamp": 1685801525,
+        "authored_timestamp": 1685844175,
         "rule": "url == \"http://116.196.68.29:50001/ptj\"",
         "scope": "URL",
-        "severity": 2
+        "severity": "100"
     },
     {
         "rule_name": "Cobalt Strike botnet C2 (confidence level: 100%)",
-        "authored_timestamp": 1685801525,
+        "authored_timestamp": 1685844175,
         "rule": "url == \"http://172.174.64.174:668/cm\"",
         "scope": "URL",
-        "severity": 2
+        "severity": "100"
     },
     {
         "rule_name": "Cobalt Strike botnet C2 server (confidence level: 100%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"52.224.63.68\" and port == \"668\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"52.224.63.68\" and port == \"668\"",
+        "rule_ip": "ip == \"52.224.63.68\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "100"
     },
     {
         "rule_name": "Cobalt Strike botnet C2 (confidence level: 100%)",
-        "authored_timestamp": 1685801525,
+        "authored_timestamp": 1685844175,
         "rule": "url == \"http://172.174.64.174:668/cx\"",
         "scope": "URL",
-        "severity": 2
+        "severity": "100"
     },
     {
         "rule_name": "Cobalt Strike botnet C2 server (confidence level: 100%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"52.191.64.121\" and port == \"668\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"52.191.64.121\" and port == \"668\"",
+        "rule_ip": "ip == \"52.191.64.121\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "100"
     },
     {
         "rule_name": "Cobalt Strike botnet C2 (confidence level: 100%)",
-        "authored_timestamp": 1685801525,
+        "authored_timestamp": 1685844175,
         "rule": "url == \"http://134.209.34.2:8190/c/msdownload/update/others/2020/10/29136388_\"",
         "scope": "URL",
-        "severity": 2
+        "severity": "100"
     },
     {
         "rule_name": "Cobalt Strike botnet C2 server (confidence level: 100%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"31.44.184.241\" and port == \"80\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"31.44.184.241\" and port == \"80\"",
+        "rule_ip": "ip == \"31.44.184.241\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "100"
     },
     {
         "rule_name": "Cobalt Strike botnet C2 (confidence level: 100%)",
-        "authored_timestamp": 1685801525,
+        "authored_timestamp": 1685844175,
         "rule": "url == \"https://85.217.144.148/push\"",
         "scope": "URL",
-        "severity": 2
+        "severity": "100"
     },
     {
         "rule_name": "Cobalt Strike botnet C2 (confidence level: 100%)",
-        "authored_timestamp": 1685801525,
+        "authored_timestamp": 1685844175,
         "rule": "url == \"http://116.204.114.153:8080/cm\"",
         "scope": "URL",
-        "severity": 2
+        "severity": "100"
     },
     {
         "rule_name": "Cobalt Strike botnet C2 (confidence level: 100%)",
-        "authored_timestamp": 1685801525,
+        "authored_timestamp": 1685844175,
         "rule": "url == \"http://192.168.18.128/pixel.gif\"",
         "scope": "URL",
-        "severity": 2
+        "severity": "100"
     },
     {
         "rule_name": "Cobalt Strike botnet C2 server (confidence level: 100%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"59.110.221.242\" and port == \"80\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"59.110.221.242\" and port == \"80\"",
+        "rule_ip": "ip == \"59.110.221.242\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "100"
     },
     {
         "rule_name": "Cobalt Strike botnet C2 (confidence level: 100%)",
-        "authored_timestamp": 1685801525,
+        "authored_timestamp": 1685844175,
         "rule": "url == \"http://134.209.34.2:8188/c/msdownload/update/others/2020/10/29136388_\"",
         "scope": "URL",
-        "severity": 2
+        "severity": "100"
     },
     {
         "rule_name": "Cobalt Strike botnet C2 (confidence level: 100%)",
-        "authored_timestamp": 1685801525,
+        "authored_timestamp": 1685844175,
         "rule": "url == \"http://112.126.73.43:8082/en-us/silentauth\"",
         "scope": "URL",
-        "severity": 2
+        "severity": "100"
     },
     {
         "rule_name": "Cobalt Strike botnet C2 (confidence level: 100%)",
-        "authored_timestamp": 1685801525,
+        "authored_timestamp": 1685844175,
         "rule": "url == \"https://118.195.211.70/match\"",
         "scope": "URL",
-        "severity": 2
+        "severity": "100"
     },
     {
         "rule_name": "Cobalt Strike botnet C2 server (confidence level: 100%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"118.195.211.70\" and port == \"443\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"118.195.211.70\" and port == \"443\"",
+        "rule_ip": "ip == \"118.195.211.70\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "100"
     },
     {
         "rule_name": "Cobalt Strike botnet C2 (confidence level: 100%)",
-        "authored_timestamp": 1685801525,
+        "authored_timestamp": 1685844175,
         "rule": "url == \"https://114.115.148.254/cx\"",
         "scope": "URL",
-        "severity": 2
+        "severity": "100"
     },
     {
         "rule_name": "Cobalt Strike botnet C2 server (confidence level: 100%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"114.115.148.254\" and port == \"443\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"114.115.148.254\" and port == \"443\"",
+        "rule_ip": "ip == \"114.115.148.254\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "100"
     },
     {
         "rule_name": "Cobalt Strike botnet C2 (confidence level: 100%)",
-        "authored_timestamp": 1685801525,
+        "authored_timestamp": 1685844175,
         "rule": "url == \"http://172.174.64.174:668/__utm.gif\"",
         "scope": "URL",
-        "severity": 2
+        "severity": "100"
     },
     {
         "rule_name": "Cobalt Strike botnet C2 server (confidence level: 100%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"52.226.160.53\" and port == \"668\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"52.226.160.53\" and port == \"668\"",
+        "rule_ip": "ip == \"52.226.160.53\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "100"
     },
     {
         "rule_name": "Cobalt Strike botnet C2 (confidence level: 100%)",
-        "authored_timestamp": 1685801525,
+        "authored_timestamp": 1685844175,
         "rule": "url == \"https://admin.16-fa.pw:2053/api/logout\"",
         "scope": "URL",
-        "severity": 2
+        "severity": "100"
     },
     {
         "rule_name": "Cobalt Strike botnet C2 domain (confidence level: 100%)",
-        "authored_timestamp": 1685801525,
+        "authored_timestamp": 1685844175,
         "rule": "domain == \"admin.16-fa.pw.\"",
         "scope": "DNS",
-        "severity": 2,
+        "severity": "100",
         "MITRE": [
             "T1071.001",
             "T1132.001",
@@ -2079,17 +2288,17 @@
     },
     {
         "rule_name": "Cobalt Strike botnet C2 (confidence level: 100%)",
-        "authored_timestamp": 1685801525,
+        "authored_timestamp": 1685844175,
         "rule": "url == \"https://www.16-fa.pw:2053/api/logout\"",
         "scope": "URL",
-        "severity": 2
+        "severity": "100"
     },
     {
         "rule_name": "Cobalt Strike botnet C2 domain (confidence level: 100%)",
-        "authored_timestamp": 1685801525,
+        "authored_timestamp": 1685844175,
         "rule": "domain == \"www.16-fa.pw.\"",
         "scope": "DNS",
-        "severity": 2,
+        "severity": "100",
         "MITRE": [
             "T1071.001",
             "T1132.001",
@@ -2099,108 +2308,115 @@
     },
     {
         "rule_name": "Cobalt Strike botnet C2 (confidence level: 100%)",
-        "authored_timestamp": 1685801525,
+        "authored_timestamp": 1685844175,
         "rule": "url == \"https://16-fa.pw:2053/api/logout\"",
         "scope": "URL",
-        "severity": 2
+        "severity": "100"
     },
     {
         "rule_name": "Cobalt Strike botnet C2 server (confidence level: 100%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"43.154.88.249\" and port == \"2053\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"43.154.88.249\" and port == \"2053\"",
+        "rule_ip": "ip == \"43.154.88.249\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "100"
     },
     {
         "rule_name": "Cobalt Strike botnet C2 (confidence level: 100%)",
-        "authored_timestamp": 1685801525,
+        "authored_timestamp": 1685844175,
         "rule": "url == \"http://45.154.14.249/www/handle/doc\"",
         "scope": "URL",
-        "severity": 2
+        "severity": "100"
     },
     {
         "rule_name": "Cobalt Strike botnet C2 server (confidence level: 100%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"45.154.14.249\" and port == \"80\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"45.154.14.249\" and port == \"80\"",
+        "rule_ip": "ip == \"45.154.14.249\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "100"
     },
     {
         "rule_name": "Cobalt Strike botnet C2 (confidence level: 100%)",
-        "authored_timestamp": 1685801525,
+        "authored_timestamp": 1685844175,
         "rule": "url == \"http://173.82.135.229/cm\"",
         "scope": "URL",
-        "severity": 2
+        "severity": "100"
     },
     {
         "rule_name": "Cobalt Strike botnet C2 server (confidence level: 100%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"173.82.135.229\" and port == \"80\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"173.82.135.229\" and port == \"80\"",
+        "rule_ip": "ip == \"173.82.135.229\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "100"
     },
     {
         "rule_name": "Cobalt Strike botnet C2 (confidence level: 100%)",
-        "authored_timestamp": 1685801525,
+        "authored_timestamp": 1685844175,
         "rule": "url == \"https://106.14.38.113/g.pixel\"",
         "scope": "URL",
-        "severity": 2
+        "severity": "100"
     },
     {
         "rule_name": "Cobalt Strike botnet C2 server (confidence level: 100%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"106.14.38.113\" and port == \"443\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"106.14.38.113\" and port == \"443\"",
+        "rule_ip": "ip == \"106.14.38.113\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "100"
     },
     {
         "rule_name": "Cobalt Strike botnet C2 (confidence level: 100%)",
-        "authored_timestamp": 1685801525,
+        "authored_timestamp": 1685844175,
         "rule": "url == \"http://172.174.64.174:668/j.ad\"",
         "scope": "URL",
-        "severity": 2
+        "severity": "100"
     },
     {
         "rule_name": "Cobalt Strike botnet C2 server (confidence level: 100%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"104.41.145.132\" and port == \"668\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"104.41.145.132\" and port == \"668\"",
+        "rule_ip": "ip == \"104.41.145.132\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "100"
     },
     {
         "rule_name": "Cobalt Strike botnet C2 (confidence level: 100%)",
-        "authored_timestamp": 1685801525,
+        "authored_timestamp": 1685844175,
         "rule": "url == \"http://121.5.117.172/info\"",
         "scope": "URL",
-        "severity": 2
+        "severity": "100"
     },
     {
         "rule_name": "Cobalt Strike botnet C2 server (confidence level: 100%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"121.5.117.173\" and port == \"80\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"121.5.117.173\" and port == \"80\"",
+        "rule_ip": "ip == \"121.5.117.173\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "100"
     },
     {
         "rule_name": "Cobalt Strike botnet C2 server (confidence level: 100%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"101.37.88.59\" and port == \"80\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"101.37.88.59\" and port == \"80\"",
+        "rule_ip": "ip == \"101.37.88.59\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "100"
     },
     {
         "rule_name": "Cobalt Strike botnet C2 (confidence level: 100%)",
-        "authored_timestamp": 1685801525,
+        "authored_timestamp": 1685844175,
         "rule": "url == \"http://update.edgeupdates.com:8080/updata/newtab_ogb\"",
         "scope": "URL",
-        "severity": 2
+        "severity": "100"
     },
     {
         "rule_name": "Cobalt Strike botnet C2 domain (confidence level: 100%)",
-        "authored_timestamp": 1685801525,
+        "authored_timestamp": 1685844175,
         "rule": "domain == \"update.edgeupdates.com.\"",
         "scope": "DNS",
-        "severity": 2,
+        "severity": "100",
         "MITRE": [
             "T1071.001",
             "T1132.001",
@@ -2210,171 +2426,179 @@
     },
     {
         "rule_name": "Cobalt Strike botnet C2 server (confidence level: 100%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"47.242.105.249\" and port == \"8080\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"47.242.105.249\" and port == \"8080\"",
+        "rule_ip": "ip == \"47.242.105.249\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "100"
     },
     {
         "rule_name": "Cobalt Strike botnet C2 (confidence level: 100%)",
-        "authored_timestamp": 1685801525,
+        "authored_timestamp": 1685844175,
         "rule": "url == \"https://home-hsf2czcghwhjg7fh.z01.azurefd.net/safebrowsing/3c4j21xn/xijqb2bwp9tk63lwqnalftwpdyo70\"",
         "scope": "URL",
-        "severity": 2
+        "severity": "100"
     },
     {
         "rule_name": "Cobalt Strike botnet C2 server (confidence level: 100%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"159.89.175.243\" and port == \"443\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"159.89.175.243\" and port == \"443\"",
+        "rule_ip": "ip == \"159.89.175.243\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "100"
     },
     {
         "rule_name": "Cobalt Strike botnet C2 (confidence level: 100%)",
-        "authored_timestamp": 1685801525,
+        "authored_timestamp": 1685844175,
         "rule": "url == \"http://146.56.234.18:8043/push\"",
         "scope": "URL",
-        "severity": 2
+        "severity": "100"
     },
     {
         "rule_name": "Cobalt Strike botnet C2 (confidence level: 100%)",
-        "authored_timestamp": 1685801525,
+        "authored_timestamp": 1685844175,
         "rule": "url == \"http://47.120.6.87:7777/pixel\"",
         "scope": "URL",
-        "severity": 2
+        "severity": "100"
     },
     {
         "rule_name": "Cobalt Strike botnet C2 (confidence level: 100%)",
-        "authored_timestamp": 1685801525,
+        "authored_timestamp": 1685844175,
         "rule": "url == \"http://165.22.194.129:8080/j.ad\"",
         "scope": "URL",
-        "severity": 2
+        "severity": "100"
     },
     {
         "rule_name": "Cobalt Strike botnet C2 (confidence level: 100%)",
-        "authored_timestamp": 1685801525,
+        "authored_timestamp": 1685844175,
         "rule": "url == \"http://158.247.242.98/en_us/all.js\"",
         "scope": "URL",
-        "severity": 2
+        "severity": "100"
     },
     {
         "rule_name": "Cobalt Strike botnet C2 server (confidence level: 100%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"158.247.242.98\" and port == \"80\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"158.247.242.98\" and port == \"80\"",
+        "rule_ip": "ip == \"158.247.242.98\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "100"
     },
     {
         "rule_name": "Cobalt Strike botnet C2 (confidence level: 100%)",
-        "authored_timestamp": 1685801525,
+        "authored_timestamp": 1685844175,
         "rule": "url == \"http://103.133.176.247/fwlink\"",
         "scope": "URL",
-        "severity": 2
+        "severity": "100"
     },
     {
         "rule_name": "Cobalt Strike botnet C2 server (confidence level: 100%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"103.133.176.247\" and port == \"80\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"103.133.176.247\" and port == \"80\"",
+        "rule_ip": "ip == \"103.133.176.247\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "100"
     },
     {
         "rule_name": "Cobalt Strike botnet C2 (confidence level: 100%)",
-        "authored_timestamp": 1685801525,
+        "authored_timestamp": 1685844175,
         "rule": "url == \"https://36.24.181.172:60443/activity\"",
         "scope": "URL",
-        "severity": 2
+        "severity": "100"
     },
     {
         "rule_name": "Cobalt Strike botnet C2 server (confidence level: 100%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"115.193.38.150\" and port == \"60443\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"115.193.38.150\" and port == \"60443\"",
+        "rule_ip": "ip == \"115.193.38.150\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "100"
     },
     {
         "rule_name": "Cobalt Strike botnet C2 (confidence level: 100%)",
-        "authored_timestamp": 1685801525,
+        "authored_timestamp": 1685844175,
         "rule": "url == \"http://49.232.197.218:8092/dot.gif\"",
         "scope": "URL",
-        "severity": 2
+        "severity": "100"
     },
     {
         "rule_name": "Cobalt Strike botnet C2 (confidence level: 100%)",
-        "authored_timestamp": 1685801525,
+        "authored_timestamp": 1685844175,
         "rule": "url == \"https://121.37.68.228/ca\"",
         "scope": "URL",
-        "severity": 2
+        "severity": "100"
     },
     {
         "rule_name": "Cobalt Strike botnet C2 server (confidence level: 100%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"121.37.68.228\" and port == \"443\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"121.37.68.228\" and port == \"443\"",
+        "rule_ip": "ip == \"121.37.68.228\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "100"
     },
     {
         "rule_name": "Cobalt Strike botnet C2 (confidence level: 100%)",
-        "authored_timestamp": 1685801525,
+        "authored_timestamp": 1685844175,
         "rule": "url == \"http://106.75.232.4:8081/__utm.gif\"",
         "scope": "URL",
-        "severity": 2
+        "severity": "100"
     },
     {
         "rule_name": "Cobalt Strike botnet C2 (confidence level: 100%)",
-        "authored_timestamp": 1685801525,
+        "authored_timestamp": 1685844175,
         "rule": "url == \"http://101.33.208.118:22/dot.gif\"",
         "scope": "URL",
-        "severity": 2
+        "severity": "100"
     },
     {
         "rule_name": "Cobalt Strike botnet C2 (confidence level: 100%)",
-        "authored_timestamp": 1685801525,
+        "authored_timestamp": 1685844175,
         "rule": "url == \"http://43.138.234.113:50001/pixel.gif\"",
         "scope": "URL",
-        "severity": 2
+        "severity": "100"
     },
     {
         "rule_name": "Cobalt Strike botnet C2 (confidence level: 100%)",
-        "authored_timestamp": 1685801525,
+        "authored_timestamp": 1685844175,
         "rule": "url == \"http://1.13.160.239/sugrec\"",
         "scope": "URL",
-        "severity": 2
+        "severity": "100"
     },
     {
         "rule_name": "Cobalt Strike botnet C2 server (confidence level: 100%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"1.13.160.239\" and port == \"80\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"1.13.160.239\" and port == \"80\"",
+        "rule_ip": "ip == \"1.13.160.239\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "100"
     },
     {
         "rule_name": "Cobalt Strike botnet C2 (confidence level: 100%)",
-        "authored_timestamp": 1685801525,
+        "authored_timestamp": 1685844175,
         "rule": "url == \"http://43.143.175.188:2096/cx\"",
         "scope": "URL",
-        "severity": 2
+        "severity": "100"
     },
     {
         "rule_name": "Cobalt Strike botnet C2 (confidence level: 100%)",
-        "authored_timestamp": 1685801525,
+        "authored_timestamp": 1685844175,
         "rule": "url == \"http://118.195.201.92:8088/pixel.gif\"",
         "scope": "URL",
-        "severity": 2
+        "severity": "100"
     },
     {
         "rule_name": "Loda botnet C2 server (confidence level: 100%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"149.50.211.160\" and port == \"7777\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"149.50.211.160\" and port == \"7777\"",
+        "rule_ip": "ip == \"149.50.211.160\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "100"
     },
     {
         "rule_name": "RedLine Stealer botnet C2 domain (confidence level: 100%)",
-        "authored_timestamp": 1685801525,
+        "authored_timestamp": 1685844175,
         "rule": "domain == \"htdi.aburke.top.\"",
         "scope": "DNS",
-        "severity": 2,
+        "severity": "100",
         "MITRE": [
             "T1071.001",
             "T1132.001",
@@ -2384,500 +2608,549 @@
     },
     {
         "rule_name": "Stealc botnet C2 (confidence level: 100%)",
-        "authored_timestamp": 1685801525,
+        "authored_timestamp": 1685844175,
         "rule": "url == \"http://5.78.104.48/d130c39575999622.php\"",
         "scope": "URL",
-        "severity": 2
+        "severity": "100"
     },
     {
         "rule_name": "RedLine Stealer botnet C2 server (confidence level: 100%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"49.12.237.207\" and port == \"5710\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"49.12.237.207\" and port == \"5710\"",
+        "rule_ip": "ip == \"49.12.237.207\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "100"
     },
     {
         "rule_name": "Sliver botnet C2 server (confidence level: 50%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"46.29.160.10\" and port == \"8443\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"46.29.160.10\" and port == \"8443\"",
+        "rule_ip": "ip == \"46.29.160.10\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "50"
     },
     {
         "rule_name": "Sliver botnet C2 server (confidence level: 50%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"45.142.166.93\" and port == \"41823\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"45.142.166.93\" and port == \"41823\"",
+        "rule_ip": "ip == \"45.142.166.93\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "50"
     },
     {
         "rule_name": "Unknown malware botnet C2 server (confidence level: 50%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"84.54.50.110\" and port == \"7443\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"84.54.50.110\" and port == \"7443\"",
+        "rule_ip": "ip == \"84.54.50.110\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "50"
     },
     {
         "rule_name": "Unknown malware botnet C2 server (confidence level: 50%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"45.156.243.188\" and port == \"7443\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"45.156.243.188\" and port == \"7443\"",
+        "rule_ip": "ip == \"45.156.243.188\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "50"
     },
     {
         "rule_name": "BianLian botnet C2 server (confidence level: 50%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"162.252.172.194\" and port == \"443\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"162.252.172.194\" and port == \"443\"",
+        "rule_ip": "ip == \"162.252.172.194\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "50"
     },
     {
         "rule_name": "BianLian botnet C2 server (confidence level: 50%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"162.252.172.194\" and port == \"8080\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"162.252.172.194\" and port == \"8080\"",
+        "rule_ip": "ip == \"162.252.172.194\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "50"
     },
     {
         "rule_name": "BianLian botnet C2 server (confidence level: 50%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"192.71.227.236\" and port == \"8080\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"192.71.227.236\" and port == \"8080\"",
+        "rule_ip": "ip == \"192.71.227.236\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "50"
     },
     {
         "rule_name": "Havoc botnet C2 server (confidence level: 50%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"64.227.130.238\" and port == \"443\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"64.227.130.238\" and port == \"443\"",
+        "rule_ip": "ip == \"64.227.130.238\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "50"
     },
     {
         "rule_name": "Havoc botnet C2 server (confidence level: 50%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"13.213.147.86\" and port == \"80\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"13.213.147.86\" and port == \"80\"",
+        "rule_ip": "ip == \"13.213.147.86\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "50"
     },
     {
         "rule_name": "Havoc botnet C2 server (confidence level: 50%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"190.133.130.250\" and port == \"443\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"190.133.130.250\" and port == \"443\"",
+        "rule_ip": "ip == \"190.133.130.250\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "50"
     },
     {
         "rule_name": "Havoc botnet C2 server (confidence level: 50%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"13.93.75.195\" and port == \"443\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"13.93.75.195\" and port == \"443\"",
+        "rule_ip": "ip == \"13.93.75.195\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "50"
     },
     {
         "rule_name": "Responder botnet C2 server (confidence level: 50%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"45.135.135.132\" and port == \"5985\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"45.135.135.132\" and port == \"5985\"",
+        "rule_ip": "ip == \"45.135.135.132\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "50"
     },
     {
         "rule_name": "Responder botnet C2 server (confidence level: 50%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"159.203.143.27\" and port == \"445\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"159.203.143.27\" and port == \"445\"",
+        "rule_ip": "ip == \"159.203.143.27\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "50"
     },
     {
         "rule_name": "Responder botnet C2 server (confidence level: 50%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"159.203.143.27\" and port == \"80\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"159.203.143.27\" and port == \"80\"",
+        "rule_ip": "ip == \"159.203.143.27\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "50"
     },
     {
         "rule_name": "Responder botnet C2 server (confidence level: 50%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"159.203.143.27\" and port == \"5985\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"159.203.143.27\" and port == \"5985\"",
+        "rule_ip": "ip == \"159.203.143.27\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "50"
     },
     {
         "rule_name": "Responder botnet C2 server (confidence level: 50%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"103.179.98.83\" and port == \"80\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"103.179.98.83\" and port == \"80\"",
+        "rule_ip": "ip == \"103.179.98.83\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "50"
     },
     {
         "rule_name": "Responder botnet C2 server (confidence level: 50%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"104.131.3.28\" and port == \"80\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"104.131.3.28\" and port == \"80\"",
+        "rule_ip": "ip == \"104.131.3.28\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "50"
     },
     {
         "rule_name": "Responder botnet C2 server (confidence level: 50%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"109.248.6.221\" and port == \"443\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"109.248.6.221\" and port == \"443\"",
+        "rule_ip": "ip == \"109.248.6.221\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "50"
     },
     {
         "rule_name": "Responder botnet C2 server (confidence level: 50%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"194.67.103.231\" and port == \"80\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"194.67.103.231\" and port == \"80\"",
+        "rule_ip": "ip == \"194.67.103.231\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "50"
     },
     {
         "rule_name": "Responder botnet C2 server (confidence level: 50%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"88.218.194.37\" and port == \"443\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"88.218.194.37\" and port == \"443\"",
+        "rule_ip": "ip == \"88.218.194.37\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "50"
     },
     {
         "rule_name": "Responder botnet C2 server (confidence level: 50%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"78.47.126.26\" and port == \"80\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"78.47.126.26\" and port == \"80\"",
+        "rule_ip": "ip == \"78.47.126.26\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "50"
     },
     {
         "rule_name": "Responder botnet C2 server (confidence level: 50%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"157.245.118.196\" and port == \"443\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"157.245.118.196\" and port == \"443\"",
+        "rule_ip": "ip == \"157.245.118.196\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "50"
     },
     {
         "rule_name": "Responder botnet C2 server (confidence level: 50%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"143.198.11.108\" and port == \"445\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"143.198.11.108\" and port == \"445\"",
+        "rule_ip": "ip == \"143.198.11.108\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "50"
     },
     {
         "rule_name": "pupy botnet C2 server (confidence level: 50%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"62.234.32.192\" and port == \"9000\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"62.234.32.192\" and port == \"9000\"",
+        "rule_ip": "ip == \"62.234.32.192\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "50"
     },
     {
         "rule_name": "pupy botnet C2 server (confidence level: 50%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"139.84.142.187\" and port == \"443\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"139.84.142.187\" and port == \"443\"",
+        "rule_ip": "ip == \"139.84.142.187\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "50"
     },
     {
         "rule_name": "pupy botnet C2 server (confidence level: 50%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"139.84.140.157\" and port == \"443\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"139.84.140.157\" and port == \"443\"",
+        "rule_ip": "ip == \"139.84.140.157\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "50"
     },
     {
         "rule_name": "QakBot botnet C2 server (confidence level: 100%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"66.180.234.51\" and port == \"2222\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"66.180.234.51\" and port == \"2222\"",
+        "rule_ip": "ip == \"66.180.234.51\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "100"
     },
     {
         "rule_name": "QakBot botnet C2 server (confidence level: 100%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"190.75.158.216\" and port == \"2222\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"190.75.158.216\" and port == \"2222\"",
+        "rule_ip": "ip == \"190.75.158.216\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "100"
     },
     {
         "rule_name": "QakBot botnet C2 server (confidence level: 100%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"151.62.238.176\" and port == \"443\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"151.62.238.176\" and port == \"443\"",
+        "rule_ip": "ip == \"151.62.238.176\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "100"
     },
     {
         "rule_name": "QakBot botnet C2 server (confidence level: 100%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"82.125.44.236\" and port == \"2222\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"82.125.44.236\" and port == \"2222\"",
+        "rule_ip": "ip == \"82.125.44.236\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "100"
     },
     {
         "rule_name": "QakBot botnet C2 server (confidence level: 100%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"89.36.206.69\" and port == \"995\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"89.36.206.69\" and port == \"995\"",
+        "rule_ip": "ip == \"89.36.206.69\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "100"
     },
     {
         "rule_name": "QakBot botnet C2 server (confidence level: 100%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"197.0.76.189\" and port == \"443\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"197.0.76.189\" and port == \"443\"",
+        "rule_ip": "ip == \"197.0.76.189\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "100"
     },
     {
         "rule_name": "QakBot botnet C2 server (confidence level: 100%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"151.65.69.12\" and port == \"443\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"151.65.69.12\" and port == \"443\"",
+        "rule_ip": "ip == \"151.65.69.12\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "100"
     },
     {
         "rule_name": "QakBot botnet C2 server (confidence level: 100%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"87.223.86.50\" and port == \"443\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"87.223.86.50\" and port == \"443\"",
+        "rule_ip": "ip == \"87.223.86.50\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "100"
     },
     {
         "rule_name": "QakBot botnet C2 server (confidence level: 100%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"105.186.138.188\" and port == \"995\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"105.186.138.188\" and port == \"995\"",
+        "rule_ip": "ip == \"105.186.138.188\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "100"
     },
     {
         "rule_name": "QakBot botnet C2 server (confidence level: 100%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"102.159.19.118\" and port == \"443\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"102.159.19.118\" and port == \"443\"",
+        "rule_ip": "ip == \"102.159.19.118\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "100"
     },
     {
         "rule_name": "QakBot botnet C2 server (confidence level: 100%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"197.164.217.136\" and port == \"995\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"197.164.217.136\" and port == \"995\"",
+        "rule_ip": "ip == \"197.164.217.136\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "100"
     },
     {
         "rule_name": "QakBot botnet C2 server (confidence level: 100%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"161.142.103.187\" and port == \"995\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"161.142.103.187\" and port == \"995\"",
+        "rule_ip": "ip == \"161.142.103.187\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "100"
     },
     {
         "rule_name": "QakBot botnet C2 server (confidence level: 100%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"116.75.63.253\" and port == \"443\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"116.75.63.253\" and port == \"443\"",
+        "rule_ip": "ip == \"116.75.63.253\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "100"
     },
     {
         "rule_name": "Amadey botnet C2 (confidence level: 100%)",
-        "authored_timestamp": 1685801525,
+        "authored_timestamp": 1685844175,
         "rule": "url == \"http://5.42.65.1/gj3c2sn30/index.php\"",
         "scope": "URL",
-        "severity": 2
+        "severity": "100"
     },
     {
         "rule_name": "Amadey botnet C2 server (confidence level: 50%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"5.42.65.1\" and port == \"80\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"5.42.65.1\" and port == \"80\"",
+        "rule_ip": "ip == \"5.42.65.1\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "50"
     },
     {
         "rule_name": "Cobalt Strike botnet C2 (confidence level: 100%)",
-        "authored_timestamp": 1685801525,
+        "authored_timestamp": 1685844175,
         "rule": "url == \"http://123.60.153.7/jquery-3.3.1.min.js\"",
         "scope": "URL",
-        "severity": 2
+        "severity": "100"
     },
     {
         "rule_name": "Cobalt Strike botnet C2 server (confidence level: 100%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"123.60.153.7\" and port == \"80\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"123.60.153.7\" and port == \"80\"",
+        "rule_ip": "ip == \"123.60.153.7\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "100"
     },
     {
         "rule_name": "Cobalt Strike botnet C2 (confidence level: 100%)",
-        "authored_timestamp": 1685801525,
+        "authored_timestamp": 1685844175,
         "rule": "url == \"http://92.63.196.45:82/jquery-3.3.1.min.js\"",
         "scope": "URL",
-        "severity": 2
+        "severity": "100"
     },
     {
         "rule_name": "Cobalt Strike botnet C2 (confidence level: 100%)",
-        "authored_timestamp": 1685801525,
+        "authored_timestamp": 1685844175,
         "rule": "url == \"http://192.168.2.116:2222/activity\"",
         "scope": "URL",
-        "severity": 2
+        "severity": "100"
     },
     {
         "rule_name": "Cobalt Strike botnet C2 (confidence level: 100%)",
-        "authored_timestamp": 1685801525,
+        "authored_timestamp": 1685844175,
         "rule": "url == \"http://80.143.34.59:2222/load\"",
         "scope": "URL",
-        "severity": 2
+        "severity": "100"
     },
     {
         "rule_name": "Cobalt Strike botnet C2 server (confidence level: 100%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"80.143.35.183\" and port == \"2222\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"80.143.35.183\" and port == \"2222\"",
+        "rule_ip": "ip == \"80.143.35.183\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "100"
     },
     {
         "rule_name": "Cobalt Strike botnet C2 (confidence level: 100%)",
-        "authored_timestamp": 1685801525,
+        "authored_timestamp": 1685844175,
         "rule": "url == \"https://36.99.39.121:55443/g.pixel\"",
         "scope": "URL",
-        "severity": 2
+        "severity": "100"
     },
     {
         "rule_name": "Cobalt Strike botnet C2 (confidence level: 100%)",
-        "authored_timestamp": 1685801525,
+        "authored_timestamp": 1685844175,
         "rule": "url == \"https://95.164.47.146/validate/v10.6/w2ge3sc8\"",
         "scope": "URL",
-        "severity": 2
+        "severity": "100"
     },
     {
         "rule_name": "Cobalt Strike botnet C2 server (confidence level: 100%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"95.164.47.146\" and port == \"443\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"95.164.47.146\" and port == \"443\"",
+        "rule_ip": "ip == \"95.164.47.146\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "100"
     },
     {
         "rule_name": "Cobalt Strike botnet C2 (confidence level: 100%)",
-        "authored_timestamp": 1685801525,
+        "authored_timestamp": 1685844175,
         "rule": "url == \"http://92.63.196.45:83/jquery-3.3.1.min.js\"",
         "scope": "URL",
-        "severity": 2
+        "severity": "100"
     },
     {
         "rule_name": "Cobalt Strike botnet C2 (confidence level: 100%)",
-        "authored_timestamp": 1685801525,
+        "authored_timestamp": 1685844175,
         "rule": "url == \"http://43.143.246.164:1111/cm\"",
         "scope": "URL",
-        "severity": 2
+        "severity": "100"
     },
     {
         "rule_name": "Cobalt Strike botnet C2 (confidence level: 100%)",
-        "authored_timestamp": 1685801525,
+        "authored_timestamp": 1685844175,
         "rule": "url == \"http://92.63.196.45:81/jquery-3.3.1.min.js\"",
         "scope": "URL",
-        "severity": 2
+        "severity": "100"
     },
     {
         "rule_name": "Cobalt Strike botnet C2 (confidence level: 100%)",
-        "authored_timestamp": 1685801525,
+        "authored_timestamp": 1685844175,
         "rule": "url == \"https://104.234.11.226:8443/jquery-3.3.1.min.js\"",
         "scope": "URL",
-        "severity": 2
+        "severity": "100"
     },
     {
         "rule_name": "Cobalt Strike botnet C2 (confidence level: 100%)",
-        "authored_timestamp": 1685801525,
+        "authored_timestamp": 1685844175,
         "rule": "url == \"http://45.91.82.6:88/jquery-3.3.1.min.js\"",
         "scope": "URL",
-        "severity": 2
+        "severity": "100"
     },
     {
         "rule_name": "Cobalt Strike botnet C2 server (confidence level: 100%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"45.91.82.6\" and port == \"88\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"45.91.82.6\" and port == \"88\"",
+        "rule_ip": "ip == \"45.91.82.6\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "100"
     },
     {
         "rule_name": "Cobalt Strike botnet C2 (confidence level: 100%)",
-        "authored_timestamp": 1685801525,
+        "authored_timestamp": 1685844175,
         "rule": "url == \"http://101.42.37.235:9999/visit.js\"",
         "scope": "URL",
-        "severity": 2
+        "severity": "100"
     },
     {
         "rule_name": "Cobalt Strike botnet C2 (confidence level: 100%)",
-        "authored_timestamp": 1685801525,
+        "authored_timestamp": 1685844175,
         "rule": "url == \"http://47.109.70.144:808/updates\"",
         "scope": "URL",
-        "severity": 2
+        "severity": "100"
     },
     {
         "rule_name": "AsyncRAT botnet C2 server (confidence level: 100%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"43.226.49.147\" and port == \"8080\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"43.226.49.147\" and port == \"8080\"",
+        "rule_ip": "ip == \"43.226.49.147\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "100"
     },
     {
         "rule_name": "Cobalt Strike botnet C2 (confidence level: 100%)",
-        "authored_timestamp": 1685801525,
+        "authored_timestamp": 1685844175,
         "rule": "url == \"http://59.110.220.47/fwlink\"",
         "scope": "URL",
-        "severity": 2
+        "severity": "100"
     },
     {
         "rule_name": "Cobalt Strike botnet C2 server (confidence level: 100%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"59.110.220.47\" and port == \"80\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"59.110.220.47\" and port == \"80\"",
+        "rule_ip": "ip == \"59.110.220.47\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "100"
     },
     {
         "rule_name": "Cobalt Strike botnet C2 (confidence level: 100%)",
-        "authored_timestamp": 1685801525,
+        "authored_timestamp": 1685844175,
         "rule": "url == \"http://111.230.90.14/ca\"",
         "scope": "URL",
-        "severity": 2
+        "severity": "100"
     },
     {
         "rule_name": "Cobalt Strike botnet C2 server (confidence level: 100%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"111.230.90.14\" and port == \"80\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"111.230.90.14\" and port == \"80\"",
+        "rule_ip": "ip == \"111.230.90.14\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "100"
     },
     {
         "rule_name": "Cobalt Strike botnet C2 (confidence level: 100%)",
-        "authored_timestamp": 1685801525,
+        "authored_timestamp": 1685844175,
         "rule": "url == \"http://43.143.129.154:8888/__utm.gif\"",
         "scope": "URL",
-        "severity": 2
+        "severity": "100"
     },
     {
         "rule_name": "Cobalt Strike botnet C2 (confidence level: 100%)",
-        "authored_timestamp": 1685801525,
+        "authored_timestamp": 1685844175,
         "rule": "url == \"https://13.113.191.91/_/scs/mail-static/_/js/\"",
         "scope": "URL",
-        "severity": 2
+        "severity": "100"
     },
     {
         "rule_name": "Cobalt Strike botnet C2 server (confidence level: 100%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"13.113.191.91\" and port == \"443\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"13.113.191.91\" and port == \"443\"",
+        "rule_ip": "ip == \"13.113.191.91\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "100"
     },
     {
         "rule_name": "Cobalt Strike botnet C2 (confidence level: 100%)",
-        "authored_timestamp": 1685801525,
+        "authored_timestamp": 1685844175,
         "rule": "url == \"http://49.4.24.255:8011/cx\"",
         "scope": "URL",
-        "severity": 2
+        "severity": "100"
     },
     {
         "rule_name": "Cobalt Strike botnet C2 (confidence level: 100%)",
-        "authored_timestamp": 1685801525,
+        "authored_timestamp": 1685844175,
         "rule": "url == \"https://www.ba1duu.icu:8000/activity\"",
         "scope": "URL",
-        "severity": 2
+        "severity": "100"
     },
     {
         "rule_name": "Cobalt Strike botnet C2 domain (confidence level: 100%)",
-        "authored_timestamp": 1685801525,
+        "authored_timestamp": 1685844175,
         "rule": "domain == \"www.ba1duu.icu.\"",
         "scope": "DNS",
-        "severity": 2,
+        "severity": "100",
         "MITRE": [
             "T1071.001",
             "T1132.001",
@@ -2887,44 +3160,48 @@
     },
     {
         "rule_name": "Cobalt Strike botnet C2 server (confidence level: 100%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"120.132.81.18\" and port == \"8000\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"120.132.81.18\" and port == \"8000\"",
+        "rule_ip": "ip == \"120.132.81.18\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "100"
     },
     {
         "rule_name": "Cobalt Strike botnet C2 (confidence level: 100%)",
-        "authored_timestamp": 1685801525,
+        "authored_timestamp": 1685844175,
         "rule": "url == \"http://120.79.3.140:2001/ga.js\"",
         "scope": "URL",
-        "severity": 2
+        "severity": "100"
     },
     {
         "rule_name": "Cobalt Strike botnet C2 (confidence level: 100%)",
-        "authored_timestamp": 1685801525,
+        "authored_timestamp": 1685844175,
         "rule": "url == \"https://update.edgeupdates.com:8443/updata/newtab_ogb\"",
         "scope": "URL",
-        "severity": 2
+        "severity": "100"
     },
     {
         "rule_name": "Cobalt Strike botnet C2 server (confidence level: 100%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"47.242.105.249\" and port == \"8443\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"47.242.105.249\" and port == \"8443\"",
+        "rule_ip": "ip == \"47.242.105.249\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "100"
     },
     {
         "rule_name": "Cobalt Strike botnet C2 server (confidence level: 100%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"31.44.184.241\" and port == \"443\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"31.44.184.241\" and port == \"443\"",
+        "rule_ip": "ip == \"31.44.184.241\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "100"
     },
     {
         "rule_name": "Mirai botnet C2 server (confidence level: 75%)",
-        "authored_timestamp": 1685801525,
-        "rule": "ip == \"45.128.232.143\" and port == \"34129\"",
+        "authored_timestamp": 1685844175,
+        "rule_ip_port": "ip == \"45.128.232.143\" and port == \"34129\"",
+        "rule_ip": "ip == \"45.128.232.143\"",
         "scope": "IPPORT",
-        "severity": 2
+        "severity": "75"
     }
 ]

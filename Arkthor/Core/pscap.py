@@ -6,7 +6,7 @@
 ##############################################################
 
 from scapy.all import *
-from scapy.layers.http import HTTPRequest
+from scapy.layers.http import *
 
 import os, sys
 import json
@@ -91,7 +91,8 @@ class packetprocessengine:
 	def __init__(self):
 		self.fname = None
 		self.dns_list = {}
-		self.http_list = {}
+		self.http_list = []
+		self.ip_list = []
 		self.packet_processed = False
 
 	def loadpcap(self, filename=None):
@@ -105,7 +106,8 @@ class packetprocessengine:
 			self.fname = filename
 
 		try:
-			self.packets = rdpcap(self.fname)
+			#self.packets = rdpcap(self.fname)
+			self.packets = PcapReader(self.fname)
 		except:
 			print("Packet Loading Error")
 			return False
@@ -115,14 +117,53 @@ class packetprocessengine:
 		for pkt in self.packets:
 			if pkt.haslayer(DNS):
 				self.process_dns_packet(pkt[DNS])
-			elif pkt.haslayer(HTTPRequest):
+			if pkt.haslayer(IP):
+				self.process_ip_packet(pkt)
+			# Processing only HTTPRequest, We can still develop HTTPResponse
+			if pkt.haslayer(HTTPRequest):
 				self.process_http_packet(pkt)
 
 		self.packet_processed = True
 		return
 	
+	def process_ip_packet(self, hpkt):
+		for xpkt in hpkt[IP]:
+			try:
+				tjs = {	"version": xpkt.version, "src": xpkt.src, "dst": xpkt.dst, "sport": xpkt.sport, "dport": xpkt.dport }
+			except AttributeError as e:
+				print(e)
+				# print(ls(xpkt, verbose = True))
+				return
+			# convert bytes to string
+			for x in tjs:
+				if tjs[x] is not None and isinstance(tjs[x], bytes):
+					try:
+						tjs[x] = tjs[x].decode()
+					except UnicodeDecodeError:
+						pass
+			self.ip_list.append(tjs)
+
 	def process_http_packet(self, hpkt):
-		print(ls(hpkt, verbose = True))
+		for xpkt in hpkt[HTTPRequest]:
+			try:
+				tjs = {
+					"accept": xpkt.Accept, "accept_encoding": xpkt.Accept_Encoding, "accept_language": xpkt.Accept_Language,
+					"method": xpkt.Method, "http_version": xpkt.Http_Version, "accept_language": xpkt.Accept_Language,
+					"authorization": xpkt.Authorization, "user_agent": xpkt.User_Agent, "http2_settings": xpkt.HTTP2_Settings,
+					"permanent": xpkt.Permanent, "path": xpkt.User_Agent, "host": xpkt.Host,
+				}
+			except AttributeError as e:
+				print(e)
+				# print(ls(xpkt, verbose = True))
+				return
+			# convert bytes to string
+			for x in tjs:
+				if tjs[x] is not None and isinstance(tjs[x], bytes):
+					try:
+						tjs[x] = tjs[x].decode()
+					except UnicodeDecodeError:
+						pass
+			self.http_list.append(tjs)
 
 	def process_dns_packet(self, dns):
 		pident = {1: "A", 2: "NS", 5: "CNAME", 6: "SOA", 12: "PTR", 15: "MX", 16: "TXT", 28: "AAAA", 33: "SRV",
@@ -132,8 +173,6 @@ class packetprocessengine:
 			if dv not in self.dns_list:
 				self.dns_list[dv] = {}
 			self.dns_list[dv] = {"dns_query_num": dns.qd.qtype, "dns_query_type": pident[dns.qd.qtype]}
-		# print("DNS Query Name:", dns.qd.qname.decode())
-		# print("DNS Query Type:", dns.qd.qtype)
 
 		elif dns.qr == 1:  # DNS response
 			if dns.qd == None:
@@ -158,6 +197,7 @@ class packetprocessengine:
 							self.dns_list[dv]["answers"].append(answer.rdata)
 
 				for ip in self.dns_list[dv]["answers"]:
+					if not isinstance(ip, str): continue
 					if re.match("\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}", ip) is not None:
 						print("Val", ip)
 						self.dns_list[dv]["CN"] = get_cn_from_ip(ip)
@@ -173,6 +213,26 @@ class packetprocessengine:
 	def load_processed_dns_packet(self, jsn):
 		self.packet_processed = True
 		self.dns_list = jsn
+
+	def get_processed_http_packet(self):
+		if self.packet_processed == True:
+			return self.http_list
+
+		return {"success": False, "comments": "packet not processed"}
+	
+	def load_processed_http_packet(self, jsn):
+		self.packet_processed = True
+		self.http_list = jsn
+
+	def get_processed_ip_packet(self):
+		if self.packet_processed == True:
+			return self.ip_list
+
+		return {"success": False, "comments": "packet not processed"}
+	
+	def load_processed_ip_packet(self, jsn):
+		self.packet_processed = True
+		self.ip_list = jsn
 
 	def get_country_list(self):
 		retlist = []
@@ -204,25 +264,44 @@ class rulesengine:
 			print("Processing rules from", fn)
 			self.rengine = json.loads(open(os.path.join("ArkThorRule",fn)).read())
 			for r in self.rengine:
-				context = rule_engine.Context(type_resolver=rule_engine.type_resolver_from_dict({
-					'domain': rule_engine.DataType.STRING,
-					'address': rule_engine.DataType.ARRAY(rule_engine.DataType.STRING)
-				}))
-				rule = rule_engine.Rule(r["rule"])
-				for x in content:
-					js = {"domain": x}
-					for y in content[x]:
-						js[y] = content[x][y]
-					try:
-						if rule.matches(js) == True:
-							print("Matched", js)
-							rs = r
-							if "rule" in rs: del (rs['rule'])
-							if "scope" in rs: del (rs['scope'])
-							self.ruleset.append(rs)
-					except rule_engine.errors.SymbolResolutionError as ex:
-						# print("Unavailable param", ex)
-						pass
+				if r["scope"] == "DNS":
+					context = rule_engine.Context(type_resolver=rule_engine.type_resolver_from_dict({
+						'domain': rule_engine.DataType.STRING,
+						'address': rule_engine.DataType.ARRAY(rule_engine.DataType.STRING)
+					}))
+					rule = rule_engine.Rule(r["rule"])
+					for x in content:
+						js = {"domain": x}
+						for y in content[x]:
+							js[y] = content[x][y]
+						try:
+							if rule.matches(js) == True:
+								rs = r
+								if "rule" in rs: del (rs['rule'])
+								if "scope" in rs: del (rs['scope'])
+								self.ruleset.append(rs)
+						except rule_engine.errors.SymbolResolutionError as ex:
+							# print("Unavailable param", ex)
+							pass
+				elif r["scope"] == "IPPORT":
+					context = rule_engine.Context(type_resolver=rule_engine.type_resolver_from_dict({
+						'ip': rule_engine.DataType.STRING,
+					}))
+					rule = rule_engine.Rule(r["rule_ip"])
+					for x in content:
+						if 'answers' not in content[x]: continue
+						js = {"ip": content[x]['answers']}
+						try:
+							if rule.matches(js) == True:
+								rs = r
+								if "rule" in rs: del (rs['rule'])
+								if "scope" in rs: del (rs['scope'])
+								if "rule_ip_port" in rs: del (rs['rule_ip_port'])
+								if "rule_ip" in rs: del (rs['rule_ip'])
+								self.ruleset.append(rs)
+						except rule_engine.errors.SymbolResolutionError as ex:
+							# print("Unavailable param", ex)
+							pass
 
 	def get_detected_rules(self):
 		return self.ruleset
@@ -275,6 +354,12 @@ def intimate_status(filehash, status, url_prefix):
 		print(r.status_code)
 
 def check_create_ip2asn_data(should_create):
+	######################################################################
+	# For scalability in containers, this database file has to be stored #
+	# in a common shared location like s3 bucket or gcs bucket. The file #
+	# creation has to be locked with a lockfile and other process has to #
+	# # wait until this lockfile is released                             #
+	######################################################################
 
 	table_date = datetime.datetime.utcnow().strftime("as%Y%m%d")
 	
@@ -293,13 +378,13 @@ def check_create_ip2asn_data(should_create):
 	import gzip
 	from io import BytesIO
 
-	if not os.path.exists("ipasn.sqlite3") and should_create == "false":
+	if not os.path.exists("ipasn.sqlite3") and should_create == False:
 		print("ip2asn does not exist and creation option in config is set to false.")
 		return False
 
 	if os.path.exists("ipasn.sqlite3"):
 		st = os.stat("ipasn.sqlite3")
-		if st.st_ctime < datetime.datetime.now().timestamp() - 14400:
+		if st.st_mtime < datetime.datetime.now().timestamp() - 14400:
 			print("IP2asn databse is more than 4 hrs old.")
 			os.unlink("ipasn.sqlite3")
 
@@ -344,7 +429,6 @@ def check_create_ip2asn_data(should_create):
 	gzf.close()
 	conn.close()
 	return True
-
 
 def intimate_completion(fjson, url_prefix):
 	
@@ -396,14 +480,14 @@ def submit_artifacts_of_pcaprun(filehash,foldername, url_prefix):
 # Reason: Capstone Project April 2023 - IIT Kanpur	   		 #
 ##############################################################
 
-def get_cn_from_ip(ipaddr):
+def get_cn_from_ip(ipaddr, fname="ipasn.sqlite3"):
 	import struct
 	import socket
 
-	if not os.path.exists("ipasn.sqlite3"):
+	if not os.path.exists(fname):
 		raise Exception("Please run ip2asn.py")
 
-	conn = sqlite3.connect("ipasn.sqlite3")
+	conn = sqlite3.connect(fname)
 
 	cur = conn.cursor()
 
@@ -438,12 +522,15 @@ def process_threatfox_to_arkthor(overwrite_rules=True):
 	mispurl = "https://threatfox.abuse.ch/downloads/misp/"
 	# manifest.json can be read to understand more, Unfortunately, I saw this in the last moment
 	
-	r = requests.get(mispurl)
-	if r.status_code != 200:
-		raise Exception("Error accessing Threatfox MISP page")
-	with open("threatfox.html", "w") as f:
-		f.write(r.text)
-	data = r.text
+	if False:
+		r = requests.get(mispurl)
+		if r.status_code != 200:
+			raise Exception("Error accessing Threatfox MISP page")
+		with open("threatfox.html", "w") as f:
+			f.write(r.text)
+		data = r.text
+	else:
+		data = open("threatfox.html", "r").read()
 	soup = bs4.BeautifulSoup(data, "html.parser")
 
 	for tr in soup.find('table').find_all('tr'):
@@ -471,13 +558,16 @@ def process_threatfox_to_arkthor(overwrite_rules=True):
 		s = r.json()
 		js = []
 		for dom in s["Event"]["Attribute"]:
+			sev = re.search("\(confidence level: (\d{1,3})%\)", dom["comment"])
+			if sev == None:
+				raise Exception("Error understanding threatfox page")
 			if dom["type"] == "domain":
 				js.append({
 					"rule_name": dom["comment"],
 					"authored_timestamp": int(datetime.datetime.utcnow().timestamp()),
 					"rule": "domain == \"%s.\""%(dom["value"]),
 					"scope": "DNS",
-					"severity": 2,
+					"severity": sev[1],
 					"MITRE": [ "T1071.001", "T1132.001", "T1568", "T1102.003" ]
 				})
 			elif dom["type"] == "url":
@@ -486,7 +576,7 @@ def process_threatfox_to_arkthor(overwrite_rules=True):
 					"authored_timestamp": int(datetime.datetime.utcnow().timestamp()),
 					"rule": "url == \"%s\""%(dom["value"]),
 					"scope": "URL",
-					"severity": 2
+					"severity": sev[1]
 				})
 			elif dom["type"] == "ip-dst|port":
 				ip, port = dom["value"].split("|")
@@ -494,26 +584,21 @@ def process_threatfox_to_arkthor(overwrite_rules=True):
 				js.append({
 					"rule_name": dom["comment"],
 					"authored_timestamp": int(datetime.datetime.utcnow().timestamp()),
-					"rule": "ip == \"%s\" and port == \"%s\""%(ip, port),
+					"rule_ip_port": "ip == \"%s\" and port == \"%s\""%(ip, port),
+					"rule_ip": "ip == \"%s\""%(ip),
 					"scope": "IPPORT",
-					"severity": 2
+					"severity": sev[1]
 				})
-			
 
 		f = open(fn, "w")
 		f.write(json.dumps(js, indent=4))
 		f.close()
 	return
 
-
 def aggregate_detections(ppe, s256):
 	ren = rulesengine()
 	ren.rundomainrules(ppe.get_processed_dns_packet())
 	cl = ppe.get_country_list()
-
-	if False:
-		fd = json.load(open("%s_dnsproto.json" % (s256)))
-		ren.rundomainrules(fd)
 
 	union_json = {}
 	res = ren.get_detected_rules()
@@ -569,21 +654,21 @@ def process_pcap(fname):
 	s256 = sha256.hexdigest()
 	s256 = s256.upper()
 
+	#Check if IP2ASN is updated one
+	if check_create_ip2asn_data(cnf.update_ip2asn) == False:
+		return
+
 	stat = os.stat(fname)
 
 	if ph.exists_in_processing(s256, stat.st_mtime) == True:
 		print("Already Processed", fname)
-		if cnf.run_rules_on_processed_pcap == "false": return
+		if cnf.run_rules_on_processed_pcap == False: return
 		ppe = packetprocessengine()
 		js = json.load(open(os.path.join("results", s256, "dnsproto.json"), "r"))
 		ppe.load_processed_dns_packet(js)
 		v = aggregate_detections(ppe, s256)
 		return
 	
-	#Check if IP2ASN is updated one
-	if check_create_ip2asn_data(cnf.update_ip2asn) == False:
-		return
-
 	if cnf.usearkthorapi == True:
 		intimate_status(s256, "InProgress", cnf.baseurl)
 
@@ -603,6 +688,12 @@ def process_pcap(fname):
 
 	with open("results/%s/dnsproto.json" % (s256), "w") as f:
 		f.write(json.dumps(ppe.get_processed_dns_packet(), indent=4))
+
+	with open("results/%s/httpproto.json" % (s256), "w") as f:
+		f.write(json.dumps(ppe.get_processed_http_packet(), indent=4))
+
+	with open("results/%s/ipproto.json" % (s256), "w") as f:
+		f.write(json.dumps(ppe.get_processed_ip_packet(), indent=4))
 
 	v = aggregate_detections(ppe, s256)
 	if v is not None:
@@ -804,7 +895,7 @@ def main():
 		return
 	
 	elif len(sys.argv) == 2:
-		param = sys.argv[2]
+		param = sys.argv[1]
 
 		if param == "updateark":
 			process_threatfox_to_arkthor()
