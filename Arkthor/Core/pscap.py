@@ -5,6 +5,7 @@
 # Reason: Capstone Project April 2023 - IIT Kanpur	   		 #
 ##############################################################
 
+from asyncio.log import logger
 from scapy.all import *
 from scapy.layers.http import *
 
@@ -108,6 +109,7 @@ class packetprocessengine:
 			self.packets = PcapReader(self.fname)
 		except:
 			print("Packet Loading Error")
+			logging.info("Packet Loading Error")
 			return False
 		return True
 
@@ -348,8 +350,10 @@ def intimate_status(filehash, status, url_prefix):
 					 params={"hash256": filehash.upper(), "status": status})
 	except requests.exceptions.ConnectionError as e:
 		print("Cannot connect to server to post data")
+		logging.info("Cannot connect to server to post data")
 	else:
 		print(r.status_code)
+		logging.info(f"Updated Statu to ArkThor API with StatusCode: {r.status_code}")
 
 def check_create_ip2asn_data(should_create):
 	######################################################################
@@ -377,26 +381,30 @@ def check_create_ip2asn_data(should_create):
 
 	if not os.path.exists("ipasn.sqlite3") and should_create == False:
 		print("ip2asn does not exist and creation option in config is set to false.")
+		logging.info("ip2asn does not exist and creation option in config is set to false.")
 		return False
 
 	if os.path.exists("ipasn.sqlite3"):
 		st = os.stat("ipasn.sqlite3")
 		if st.st_mtime < datetime.datetime.now().timestamp() - 14400:
 			print("IP2asn databse is more than 4 hrs old.")
+			logging.info("IP2asn databse is more than 4 hrs old.")
 			os.unlink("ipasn.sqlite3")
 
 	if os.path.exists("ipasn.sqlite3"):
 		print("IP2ASN is updated one")
+		logging.info("IP2ASN is updated one")
 		return True
-	
+	logging.info("Updating IP2ASN Database")
 	conn = sqlite3.connect("ipasn.sqlite3")
 		
 	cur = conn.cursor()
 			
-	#download the tsv
+	#download the tsv=
 	r = requests.get(url)
 	if r.status_code != 200:
 		print("Unable to get the tsv", r.status_code)
+		logging.error(f"Unable to get the tsv : {r.status_code} ")
 		return False
 		
 	#Extract the TSV in memory
@@ -425,6 +433,7 @@ def check_create_ip2asn_data(should_create):
 	conn.commit()
 	gzf.close()
 	conn.close()
+	logging.info("IP2ASN Database update complete..")
 	return True
 
 def intimate_completion(fjson, url_prefix):
@@ -442,13 +451,16 @@ def intimate_completion(fjson, url_prefix):
 					  headers=headers)
 	except requests.exceptions.ConnectionError as e:
 		print("Cannot connect to server to post data")
+		logging.info("Cannot connect to server to post data")
 	else:
 		# Check the response status code
 		if r.status_code == 200:
 			print('File upload successful.')
+			logging.info("File upload successful.")
 			#os.unlink(fjson)
 		else:
 			print(f'File upload failed with status code {r.status_code}.')
+			logging.info(f"File upload failed with status code {r.status_code}.")
 		  
 
 def submit_artifacts_of_pcaprun(filehash,foldername, url_prefix):
@@ -463,8 +475,10 @@ def submit_artifacts_of_pcaprun(filehash,foldername, url_prefix):
 					headers={ 'accept': '*/*'})
 		except requests.exceptions.ConnectionError as e:
 			print("Cannot connect to server to post data")
+			logging.info("Cannot connect to server to post data")
 		else:
 			print("Submitting ", fn, "with return code", r.status_code)
+			logging.info(f"Submitting  {fn}, with return code: {r.status_code}")
 			if r.status_code == 200:
 				os.unlink(os.path.join("results", foldername, fn))
 				
@@ -539,14 +553,14 @@ def process_threatfox_to_arkthor(overwrite_rules=True):
 		a = re.search("^<td align=\"right\">(\d{4}\-\d{2}\-\d{2}).*<\/td>", str(td[2]))
 		if a == None: continue
 		dt = datetime.datetime.strptime(a[1], "%Y-%m-%d")
-		if dt < datetime.datetime.strptime('2023-04-01', "%Y-%m-%d"): continue
+		if dt < datetime.datetime.strptime('2021-01-01', "%Y-%m-%d"): continue
 		print(td[2], a[1], dt)
 
 		href = td[1].find_all("a")
 		if "manifest.json" in  str(href[0]).lower(): continue
 		b = re.search("^<a href=\".*\">([0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[0-9a-f]{4}-[0-9a-f]{12})\.json</a>$", str(href[0]))
 		if b is None: raise Exception("Error in understandong of threatfox page")
-		fn = "ArkThorRule\\arkthor-%s.ark"%(b[1])
+		fn = "ArkThorRule//arkthor-%s.ark"%(b[1])
 		if os.path.exists(fn): continue
 
 		jsonurl = mispurl + b[1] + ".json"
@@ -603,6 +617,7 @@ def aggregate_detections(ppe, s256):
 	res = ren.get_detected_rules()
 	if res == []:
 		print("No Detection seen")
+		logging.info("No Detection seen")
 		union_json = {}
 		union_json['Status'] = "Done"
 		union_json['SHA256'] = s256
@@ -661,6 +676,7 @@ def process_pcap(fname):
 
 	if ph.exists_in_processing(s256, stat.st_mtime) == True:
 		print("Already Processed", fname)
+		logging.info(f"Already Processed :{fname}")
 		if cnf.run_rules_on_processed_pcap == False: return
 		ppe = packetprocessengine()
 		js = json.load(open(os.path.join("results", s256, "dnsproto.json"), "r"))
@@ -711,6 +727,7 @@ def process_pcap(fname):
 	return
 
 # Define message callback function
+#Added by jawed for RabbitMQ message processing
 def process_message(ch, method, properties, body):
 	try:
 		# Perform your operations on the received message here
@@ -728,7 +745,7 @@ def process_message(ch, method, properties, body):
 		process_pcap(fp)
 		# Acknowledge the message
 		ch.basic_ack(delivery_tag=method.delivery_tag)
-		logging.info("Acknowledge the message and wiating for Message..")
+		logging.info("Acknowledge the message and waiting for Message..")
 		# Use the hash value for further processing
 	except Exception as e:
 		logging.error(f"Error occurred while processing the message: {str(e)}")
@@ -738,6 +755,7 @@ def process_message(ch, method, properties, body):
 		time.sleep(5)  # Wait for 5 seconds before retrying
 		consume_messages()
 # Define message callback function for ip2asn
+#Added by Jawed for UI trigger ip2asn rule refresh
 def process_message_ip2asn(ch, method, properties, body):
 	try:
 		# Perform your operations on the received message here
@@ -775,6 +793,7 @@ def process_message_ip2asn(ch, method, properties, body):
 ##############################################################
 
 # Define message callback function for ip2asn
+#Added by Jawed for UI trigger Threatfox rule refresh
 def process_message_threatfoxRule(ch, method, properties, body):
 	logging.info("="*50)
 	try:
@@ -805,6 +824,8 @@ def process_message_threatfoxRule(ch, method, properties, body):
 		time.sleep(30)  # Wait for 30 seconds before retrying
 		consume_messages()
 	logging.info("="*50)
+
+#Added by Jawed for RabbitMQ connection for Queues
 def consume_messages(connection_params):
 	
 	try:
@@ -835,6 +856,7 @@ def consume_messages(connection_params):
 		time.sleep(5)  # Wait for 5 seconds before retrying
 		consume_messages(connection_params)
 
+#Added by Jawed to get the file based on hash value from RabbitMQ Queue
 def find_file_by_filename(folder_path, filename):
 	for root, dirs, files in os.walk(folder_path):
 		for file in files:
@@ -883,14 +905,14 @@ def main():
 	if not os.path.exists(global_var_foldertowatch):
 			logging.info("Watcher folder not found", global_var_foldertowatch)
 			exit(1)
-	
+	#Added by Jawed for RabbitMQ Integration
 	if cnf.userabbitmq == True:
 		# Connection parameters
 		logging.info("Subscribing to RabbitMQ for messages..")
 		logging.info(global_var_foldertowatch)
 		logging.info(cnf.rabbitmqhost)		
-		credentials = pika.credentials.PlainCredentials('guest', 'guest')
-		connection_params = pika.ConnectionParameters(host=cnf.rabbitmqhost, port=5672, virtual_host='/', credentials=credentials)
+		#credentials = pika.credentials.PlainCredentials('guest', 'guest')
+		connection_params = pika.ConnectionParameters(host=cnf.rabbitmqhost, port=5672, virtual_host='/')#, credentials=credentials)
 		#print (connection_params)
 		time.sleep(5) #Wait for connection to established
 		#Start consuming messages
