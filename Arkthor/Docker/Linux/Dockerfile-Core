@@ -7,6 +7,6 @@ RUN python -m pip install --no-cache-dir -r requirements.txt
 
 COPY Core/. .
 
-RUN ["python", "./ip2asn.py"]
+#RUN ["python", "./ip2asn.py"]
 
 CMD ["python", "./pscap.py","./UploadedFiles"]
