@@ -27,7 +27,6 @@ global_var_foldertowatch = None
 class config_loader:
 	def __init__(self):
 		jsn = json.load(open("config.json"))
-		#print(jsn)
 		try:
 			self.watchfolder = jsn["watcher"]["watch-folder"]
 			self.delaytime = int(jsn["watcher"]["watch-delay"])
@@ -130,8 +129,8 @@ class packetprocessengine:
 			try:
 				tjs = {	"version": xpkt.version, "src": xpkt.src, "dst": xpkt.dst, "sport": xpkt.sport, "dport": xpkt.dport }
 			except AttributeError as e:
-				print(e)
-				# print(ls(xpkt, verbose = True))
+				logging.info(e)
+				logging.info(ls(xpkt, verbose = True))
 				return
 			# convert bytes to string
 			for x in tjs:
@@ -152,8 +151,8 @@ class packetprocessengine:
 					"permanent": xpkt.Permanent, "path": xpkt.User_Agent, "host": xpkt.Host,
 				}
 			except AttributeError as e:
-				print(e)
-				# print(ls(xpkt, verbose = True))
+				logging.info(e)
+				logging.info(ls(xpkt, verbose = True))
 				return
 			# convert bytes to string
 			for x in tjs:
@@ -179,7 +178,7 @@ class packetprocessengine:
 			dv = dns.qd.qname.decode()
 			if dv not in self.dns_list:
 				#raise Exception("DNS answer present, without query")
-				print("DNS answer present, without query")
+				logging.info("DNS answer present, without query")
 				return
 			self.dns_list[dv]["response_code"] = dns.rcode
 			# print("DNS Response Code:", dns.rcode)
@@ -198,7 +197,7 @@ class packetprocessengine:
 				for ip in self.dns_list[dv]["answers"]:
 					if not isinstance(ip, str): continue
 					if re.match("\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}", ip) is not None:
-						print("Val", ip)
+						# print("Val", ip)
 						self.dns_list[dv]["CN"] = get_cn_from_ip(ip)
 
 				self.dns_list[dv]["answers"] = ", ".join(self.dns_list[dv]["answers"])
@@ -260,7 +259,7 @@ class rulesengine:
 	def rundomainrules(self, content):
 		for fn in os.listdir("ArkThorRule"):
 			if ".ark" not in fn: continue
-			print("Processing rules from", fn)
+			# print("Processing rules from", fn)
 			self.rengine = json.loads(open(os.path.join("ArkThorRule",fn)).read())
 			for r in self.rengine:
 				if r["scope"] == "DNS":
@@ -710,34 +709,6 @@ def process_pcap(fname):
 
 	ph.insert_into_processing(s256, stat.st_mtime)
 	return
-#Update ThreatFox Rule
-def updat_threatFox_Rule():
-	base_url = "https://threatfox.abuse.ch/downloads/misp/"
-	url = "https://threatfox.abuse.ch/downloads/misp/"
-	try:
-		response = requests.get(url)
-		response.raise_for_status()  # Raise an exception if the request fails
-		content = response.text
-	
-		pattern = r'[\w-]+\.json'
-		matches = re.findall(pattern, content)
-
-		downloadable_links = [link for link in matches if link != "manifest.json"]
-
-		for link in downloadable_links:
-			file_name = os.path.splitext(link)[0]
-			complete_url = base_url + link
-			logging.info("+"*20)
-			logging.info(f"START: python create_rules.py {complete_url} threatfox_{file_name}")
-			try:
-				os.system(f"python create_rules.py {complete_url} threatfox_{file_name}")
-			except Exception as e:
-				logging.error(f"Error processing file: {file_name}. Error: {str(e)}")
-			logging.info(f"DONE- processing file {file_name} for rule")
-			logging.info("+"*20)
-	except requests.exceptions.RequestException as e:
-		logging.error(f"Error making the network request. Error: {str(e)}")
-			
 
 # Define message callback function
 def process_message(ch, method, properties, body):
@@ -780,22 +751,9 @@ def process_message_ip2asn(ch, method, properties, body):
 		message_value = message_data["message"]
 		# Use the hash value for further processing
 		logging.info(f"Updating ip2asn at : {message_value}")
-		#trigger update Operation
-		# Define the command
-		command = [ "python", "./ip2asn.py"]
-
-		# Execute the command
-		process = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-		stdout, stderr = process.communicate()
-
-		# Print the output
-		logging.info("Command output from ip2asn:")
-		logging.info(stdout.decode())
-
-		# Print any error messages
-		if stderr:
-			logging.info("Error message ip2asn:")
-			logging.info(stderr.decode())
+		#trigger update Operation		
+		check_create_ip2asn_data(True)
+		
 		# Acknowledge the message
 		ch.basic_ack(delivery_tag=method.delivery_tag)
 		logging.info("Acknowledge the message of ip2ans and wiating for Message..")
@@ -831,7 +789,8 @@ def process_message_threatfoxRule(ch, method, properties, body):
 		# Use the hash value for further processing
 		logging.info(f"Updating ThreatFoxRule at :{message_value}")
 		#trigger update Operation
-		updat_threatFox_Rule()
+		
+		process_threatfox_to_arkthor()
 		# Acknowledge the message
 		ch.basic_ack(delivery_tag=method.delivery_tag)
 		logging.info("Acknowledge the message of ThreatFoxRule and wiating for Message..")
@@ -892,6 +851,7 @@ def main():
 
 	if len(sys.argv) > 2:
 		print("Unwanted commandlines passed, Exiting...")
+		logging.info("Unwanted commandlines passed, Exiting...")
 		return
 	
 	elif len(sys.argv) == 2:
@@ -909,19 +869,19 @@ def main():
 
 	# load config file
 	if not os.path.exists("config.json"):
-		print("config.json file not found in the folder")
+		logging.info("config.json file not found in the folder")
 		exit(1)
 
 	#load the config file
 	cnf = config_loader()
-	#print(cnf)
+	logging.info("Config Loaded Successfully")
 	if fold == "":
 			fold = cnf.watchfolder
 			set_global_variable(fold)
 	else:
 		set_global_variable(fold)
 	if not os.path.exists(global_var_foldertowatch):
-			print("Watcher folder not found", global_var_foldertowatch)
+			logging.info("Watcher folder not found", global_var_foldertowatch)
 			exit(1)
 	
 	if cnf.userabbitmq == True:
