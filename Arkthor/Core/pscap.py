@@ -545,8 +545,8 @@ def process_threatfox_to_arkthor(overwrite_rules=True):
 		href = td[1].find_all("a")
 		if "manifest.json" in  str(href[0]).lower(): continue
 		b = re.search("^<a href=\".*\">([0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[0-9a-f]{4}-[0-9a-f]{12})\.json</a>$", str(href[0]))
-		if b is None: raise Exception("Error in understandong of threatfox page")
-		fn = "ArkThorRule\\arkthor-%s.ark"%(b[1])
+		if b is None: raise Exception("Error in understanding of threatfox page")
+		fn = os.path.join("ArkThorRule", "arkthor-%s.ark"%(b[1]))
 		if os.path.exists(fn): continue
 
 		jsonurl = mispurl + b[1] + ".json"
