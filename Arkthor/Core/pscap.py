@@ -21,7 +21,6 @@ import datetime
 import pika
 import logging
 import subprocess
-import threading as th
 
 # Global variable declaration
 global_var_foldertowatch = None
@@ -374,7 +373,6 @@ def check_create_ip2asn_data(should_create):
 	;"""%(table_date)
 	
 	import sqlite3
-	import requests
 	import gzip
 	from io import BytesIO
 
@@ -522,14 +520,16 @@ def process_threatfox_to_arkthor(overwrite_rules=True):
 	mispurl = "https://threatfox.abuse.ch/downloads/misp/"
 	# manifest.json can be read to understand more, Unfortunately, I saw this in the last moment
 	
-	if False:
+	if True:
 		r = requests.get(mispurl)
 		if r.status_code != 200:
 			raise Exception("Error accessing Threatfox MISP page")
-		with open("threatfox.html", "w") as f:
-			f.write(r.text)
+		# I use this for testing
+		#with open("threatfox.html", "w") as f:
+		#	f.write(r.text)
 		data = r.text
 	else:
+		# I use this for testing
 		data = open("threatfox.html", "r").read()
 	soup = bs4.BeautifulSoup(data, "html.parser")
 
@@ -899,6 +899,9 @@ def main():
 
 		if param == "updateark":
 			process_threatfox_to_arkthor()
+			return
+		if param == "updateip2asn":
+			check_create_ip2asn_data(True)
 			return
 		else:
 			print("Unknown parameter:", param, "Exiting...")
