@@ -752,7 +752,10 @@ def process_message(ch, method, properties, body):
 		if fp is None:
 			logging.error("Unable to find file at given location")
 		else:
-			process_pcap(fp)
+			try:
+				process_pcap(fp)
+			except Exception as e:
+				logging.error(f"Error cought in process_pcap module: {str(e)}")
 		# Acknowledge the message
 		ch.basic_ack(delivery_tag=method.delivery_tag)
 		logging.info("Acknowledge the message and waiting for Message..")
