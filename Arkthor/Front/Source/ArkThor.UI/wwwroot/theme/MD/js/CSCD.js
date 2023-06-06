@@ -297,6 +297,9 @@ function displayFileRecords(response, tblBodyID) {
      //ThreatType
     let recordType = document.createElement('td')
     recordType.className = 'project-state'
+    recordType.style.whiteSpace = "nowrap";
+    recordType.style.overflow = "hidden";
+    recordType.style.textOverflow = "ellipsis";
     let recordTypeSpan = document.createElement('span')
 
     if (response.threatType) {
@@ -326,13 +329,13 @@ function displayFileRecords(response, tblBodyID) {
    
  
    //Current Stage
-    let tdCurrentStage = document.createElement('td');
-    if (response.currentStage == undefined || response.currentStage == null || response.currentStage == "") {
-        tdCurrentStage.innerText = "";
-    }
-    else {
-        tdCurrentStage.innerText = response.currentStage;
-    }
+  //  let tdCurrentStage = document.createElement('td');
+   // if (response.currentStage == undefined || response.currentStage == null || response.currentStage == "") {
+     //   tdCurrentStage.innerText = "";
+    //}
+    //else {
+      //  tdCurrentStage.innerText = response.currentStage;
+    //}
    
 
     //UploadedBy
@@ -414,12 +417,7 @@ function GetFileRecordDetails() {
     var hashOfFile = getParams["SHA"];
    // var ID = getParams["ID"];
 
-   // console.log(hashOfFile);
-    if (hashOfFile == 1) {
-       
-        DisplayDummyRecordInformation();
-    }
-    else {
+
         var fileRecordAPIURL = apiURL + "?hash256=" + hashOfFile;
         let req = new XMLHttpRequest();
         fetch("/GetBaseAPIUrl")
@@ -471,7 +469,7 @@ function GetFileRecordDetails() {
             });
       
        
-    }
+
 
 };
 //Get Supprt Files
@@ -582,7 +580,7 @@ function displayFileRecordInformation(resultResponse) {
         setValue("ddSHA256", resultResponse.hashValue);
     }
     if (resultResponse.currentStage) {
-        setValue("spanStage", resultResponse.currentStage);
+       // setValue("spanStage", resultResponse.currentStage);
     }
    
     //Set Submitted By
@@ -688,35 +686,6 @@ function displayFileRecordInformation(resultResponse) {
 
     }
 
-};
-
-//Display Dummy Record Information
-function DisplayDummyRecordInformation() {
-    setValue("title", "Malware's C2 Communication Summary for file id : 1" );
-    c2CommunicationFlowGraph();
-    setValue("spanStatus", "InProgress");
-    var iStatus = document.getElementById("iStatus");
-    iStatus.className = 'fa fa-cog fa-spin fa-2x fa-fw';
-
-    setValue("spanType", "RAT");
-    setValue("spanStage", "Parser");
-
-
-    setValue("spanSeverity", "9");
-    setValue("ddSHA256", "8F0B29B16E03586E87FECDD76DA3FDB353B6CBA728B18F443A8924597FBB2410");
-    setValue("ddUploader", "Mohammed, Jawed");
-    setValue("ddUploadTime", "2023-03-15 08:08");
-    setValue("ddAnalysisDateTime", "2023-03-15 14:32");
-
-    document.getElementById("hrefsimilar").href = "/Home/SimilarThreat?threatType=RAT";
-
-    document.getElementById("hrefUploadedFile").href = "data:application/octet-stream;base64,r234ewdwer23r4";
-    document.getElementById("hrefUploadedFile").download = "Dummy.pcap";
-    setValueinnerHTML("hrefUploadedFile", "Dummy.pcap");
-
-    document.getElementById("hrefJsonFile").href = "data:application/octet-stream;base64,r234ewdwer23r4";
-    document.getElementById("hrefJsonFile").download ="8F0B29B16E03586E87FECDD76DA3FDB353B6CBA728B18F443A8924597FBB2410.json";
-    setValueinnerHTML("hrefJsonFile", "8F0B29B16E03586E87FECDD76DA3FDB353B6CBA728B18F443A8924597FBB2410.json");
 };
 
 //Show Analysis Records
