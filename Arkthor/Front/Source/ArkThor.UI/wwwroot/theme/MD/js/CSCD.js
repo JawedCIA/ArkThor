@@ -363,7 +363,7 @@ function displayFileRecords(response, tblBodyID) {
     //Append Table
     //recordboardTableBodyRow.append(tdRecordID, recordDate, recordStatus, recordFileName, recordSHA, tdCurrentStage, recordType, dtAnalysisDate, recordUploadedBy, recordAction);
     //recordboardTableBodyRow.append(recordSHA, recordFileName, recordDate, recordStatus, recordType, dtAnalysisDate, recordUploadedBy, tdCurrentStage, recordAction);
-    recordboardTableBodyRow.append(tdRecordID,recordSHA, recordFileName, recordDate, recordStatus, recordType, dtAnalysisDate, tdCurrentStage, recordAction);
+    recordboardTableBodyRow.append(tdRecordID,recordSHA, recordFileName, recordDate, recordStatus, recordType, dtAnalysisDate, recordAction);
    
     recordboardTableBodyCurrentWeek.append(recordboardTableBodyRow);
 
@@ -487,7 +487,7 @@ function GetSupportFileRecords(baseApiUrl, hashOfFile) {
             if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
                 // var options = '';
                 let files = JSON.parse(this.response);
-                console.log(files);
+               // console.log(files);
 
                 if (!(files == undefined || files == null || files == "")) {
                                         
@@ -725,7 +725,7 @@ function GetAnalysisRecordsForChoosenDate() {
 
     if (dropdownRecordSummaryToDate >= dropdownRecordSummaryFromDate) {
         var getRecordRequestURL = BaseUrl + "?FromUploadedDate=" + dropdownRecordSummaryFromDate + "&ToUploadedDate=" + dropdownRecordSummaryToDate;
-        console.log(getRecordRequestURL);
+       // console.log(getRecordRequestURL);
         let req = new XMLHttpRequest();
         fetch("/GetBaseAPIUrl")
             .then(response => response.text())
