@@ -349,11 +349,11 @@ def intimate_status(filehash, status, url_prefix):
 		r = requests.put("%s/api/FileRecord/UpdateStatus"%(url_prefix),
 					 params={"hash256": filehash.upper(), "status": status})
 	except requests.exceptions.ConnectionError as e:
-		print("Cannot connect to server to post data")
-		logging.info("Cannot connect to server to post data")
+		print("Cannot connect to Arkthor API server to post data")
+		logging.info("Cannot connect to Arkthor API server to post data")
 	else:
 		print(r.status_code)
-		logging.info(f"Updated Statu to ArkThor API with StatusCode: {r.status_code}")
+		logging.info(f"Updated Processing Status {status} to ArkThor API with StatusCode: {r.status_code}")
 
 def check_create_ip2asn_data(should_create):
 	######################################################################
@@ -659,9 +659,13 @@ def aggregate_detections(ppe, s256):
 
 
 def process_pcap(fname):
+	logging.info(f"Method: process_pcap")
+	logging.info(f"loading config_loader: Start")
 	cnf = config_loader()
-
+	logging.info(f"loading config_loader: DONE")
+	logging.info(f"loading processing_history:Start")
 	ph = processing_history()
+	logging.info(f"loading processing_history:Done")
 
 	sha256 = hashlib.sha256()
 	sha256.update(open(fname, "rb").read())
@@ -687,7 +691,10 @@ def process_pcap(fname):
 	if cnf.usearkthorapi == True:
 		intimate_status(s256, "InProgress", cnf.baseurl)
 
+	logging.info(f"Method:packetprocessengine : Start")
 	ppe = packetprocessengine()
+	
+	logging.info(f"Method:packetprocessengine : DONE")
 	if ppe.loadpcap(fname) != True:
 		if cnf.usearkthorapi == True:
 			intimate_status(s256, "Removed", cnf.baseurl)
@@ -908,7 +915,7 @@ def main():
 	else:
 		set_global_variable(fold)
 	if not os.path.exists(global_var_foldertowatch):
-			logging.info("Watcher folder not found", global_var_foldertowatch)
+			logging.info(f"Watcher folder not found {global_var_foldertowatch}")
 			exit(1)
 	#Added by Jawed for RabbitMQ Integration
 	if cnf.userabbitmq == True:
@@ -929,7 +936,7 @@ def main():
 				fp = os.path.join(global_var_foldertowatch, fn)
 				process_pcap(fp)
 				if cnf.deleteprocessed == True: os.unlink(fp)
-			logging.info("Watching folder for file", global_var_foldertowatch)
+			logging.info(f"Watching folder for file {global_var_foldertowatch}")
 			try:
 				time.sleep(cnf.delaytime)
 			except KeyboardInterrupt:
