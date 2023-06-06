@@ -138,10 +138,12 @@ function setValueinnerHTML(id, info) {
 };
 //Retrieve Parameter from URL 
 function getParamFromUrl(baseURl) {
-    // console.log("In:" + baseURl);
+    console.log("In:" + baseURl);
+    var encodedUrl = encodeURI(baseURl); // Attempt to encode the URL
+    console.log("encodedUrl:" + encodedUrl);
     var params = {};
     var parser = document.createElement('a');
-    parser.href = baseURl;
+    parser.href = encodedUrl;
     var query = parser.search.substring(1);
     var vars = query.split('&');
     for (var i = 0; i < vars.length; i++) {
@@ -297,20 +299,35 @@ function displayFileRecords(response, tblBodyID) {
      //ThreatType
     let recordType = document.createElement('td')
     recordType.className = 'project-state'
-    recordType.style.whiteSpace = "nowrap";
-    recordType.style.overflow = "hidden";
-    recordType.style.textOverflow = "ellipsis";
+   // recordType.style.whiteSpace = "nowrap";
+    //recordType.style.overflow = "hidden";
+    //recordType.style.textOverflow = "ellipsis";
     let recordTypeSpan = document.createElement('span')
-    recordTypeSpan.style.whiteSpace = "nowrap";
-    recordTypeSpan.style.overflow = "hidden";
-    recordTypeSpan.style.textOverflow = "ellipsis";
+   // recordTypeSpan.style.whiteSpace = "nowrap";
+    //recordTypeSpan.style.overflow = "hidden";
+    //recordTypeSpan.style.textOverflow = "ellipsis";
+    //recordTypeSpan.style.display = "inline-block";
+    //recordTypeSpan.style.maxWidth = "150px"; // Adjust the value as needed for the maximum width
 
+    
     if (response.threatType) {
-        recordTypeSpan.innerText = response.threatType.toUpperCase();    
-        if ((response.threatType).toUpperCase() == 'NO THREAT') { recordTypeSpan.className = 'badge bg-success' }
-        else if ((response.threatType).toUpperCase() == 'AMBIGUOUS') { recordTypeSpan.className = 'badge badge-secondary ' }
-        else if ((response.threatType).toUpperCase() == 'SUSPICIOUS') { recordTypeSpan.className = 'badge badge-warning' }
-        else { recordTypeSpan.className = 'badge bg-danger' }
+        let threatType = response.threatType.toUpperCase();
+        if (threatType.includes(", ")) {
+
+           
+            threatType = getHighestConfidenceLevelThreatType(threatType);
+            console.log("Highest Threat Type: " + threatType);
+          //  console.log(highestConfidenceVariable); // Output: COBALT STRIKE BOTNET C2 SERVER (CONFIDENCE LEVEL: 100%)
+
+        }
+        recordTypeSpan.innerText = threatType;// response.threatType.toUpperCase();    
+        if (threatType == 'NO THREAT') { recordTypeSpan.className = 'badge bg-success' }
+        else if (threatType == 'AMBIGUOUS') { recordTypeSpan.className = 'badge badge-secondary ' }
+        else if (threatType == 'SUSPICIOUS') { recordTypeSpan.className = 'badge badge-warning' }
+        else {
+            recordTypeSpan.className = 'badge bg-danger wrap-text'
+            //wrap - text' 
+        }
     }
     else {
        // recordTypeSpan.innerText = "Waiting.."
@@ -371,7 +388,27 @@ function displayFileRecords(response, tblBodyID) {
     recordboardTableBodyCurrentWeek.append(recordboardTableBodyRow);
 
 };
+//Get Highest Confidence level Threat Type
+function getHighestConfidenceLevelThreatType(threatType) {
+    //Split the threatType
+    // Split the text into parts using the comma as the separator
+    let parts = threatType.split(", ");
+    // Initialize variables to track the highest confidence level and its corresponding part
+    let highestConfidenceLevel = 0;
+    let highestConfidenceVariable = "";
+    // Iterate over each part and extract the confidence level
+    for (let part of parts) {
+        let confidenceLevel = parseInt(part.match(/\d+/)[0]);
 
+        // Update the highestConfidenceLevel and highestConfidenceVariable if a higher confidence level is found
+        if (confidenceLevel > highestConfidenceLevel) {
+            highestConfidenceLevel = confidenceLevel;
+            highestConfidenceVariable = part;
+        }
+    }
+    return highestConfidenceVariable;
+
+}
 //C2 Communication Flow
 function c2CommunicationFlowGraph() {
     var graph = new flowjs.DiGraph();
@@ -785,11 +822,14 @@ function GetSimilarThreats() {
 
    
     var clickedBaseURl = window.location.href;
-    var getParams = getParamFromUrl(clickedBaseURl);
-    var threatType = getParams["threatType"];    
+   // var getParams = getParamFromUrl(clickedBaseURl);
+   // var threatType = getParams["threatType"];    
 
-    setValue("h2ThreatTraceTitle", threatType);
-    var fileRecordAPIURL = BaseUrl + "?threatType=" + threatType;
+    var encodedParam = (new URL(clickedBaseURl)).searchParams.get('threatType');
+
+    //console.log(encodedParam);
+    setValue("h2ThreatTraceTitle", encodedParam);
+    var fileRecordAPIURL = BaseUrl + "?threatType=" + encodedParam;
     let req = new XMLHttpRequest();
     fetch("/GetBaseAPIUrl")
         .then(response => response.text())
@@ -975,7 +1015,7 @@ function displayLiveTrackingOnBoard(response) {
 
     let divinfo_box_content = document.createElement('div');
     divinfo_box_content.className = 'info-box-content';
-
+    let parentWidth = divinfo_box_content.clientWidth;
     //Display Request Status Icon at top
 
     let span_info_box_content_Status_Icon = document.createElement('span');
@@ -992,14 +1032,27 @@ function displayLiveTrackingOnBoard(response) {
 
     let span_info_box_content_VR = document.createElement('span');
     span_info_box_content_VR.className = 'info-box-number';
-    span_info_box_content_VR.style.whiteSpace = "nowrap";
+
+    //span_info_box_content_VR.style.whiteSpace = "nowrap";
     span_info_box_content_VR.style.overflow = "hidden";
     span_info_box_content_VR.style.textOverflow = "ellipsis";
+    span_info_box_content_VR.style.display = "inline-block";
+   // console.log("parentWidth: " + parentWidth);
+
+    // Get the screen width
+    let screenWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+    console.log("parentWidth: " + parentWidth);
+    // Set the maxWidth of the span based on the screen width
+   //(parentWidth * 0.7) + "px"; // Adjust the factor (0.8) as needed
+
+   // span_info_box_content_VR.style.maxWidth = (parentWidth * 0.8) + "px"; // Adjust the value as needed for the maximum width
+   
     if ((response.threatType == undefined || response.threatType == null || response.threatType == "")) {
         span_info_box_content_VR.innerText = "Threat Type: ";// + response.threatType;
     }
     else { span_info_box_content_VR.innerText = "Threat Type: " + response.threatType.toUpperCase(); }
    
+    span_info_box_content_VR.style.maxWidth = '100%';
 
     let span_info_box_content_Type = document.createElement('span');
     span_info_box_content_Type.className = 'badge bg-info';//'info-box-number';
