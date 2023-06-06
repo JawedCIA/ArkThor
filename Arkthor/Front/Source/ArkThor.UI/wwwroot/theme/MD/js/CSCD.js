@@ -301,6 +301,9 @@ function displayFileRecords(response, tblBodyID) {
     recordType.style.overflow = "hidden";
     recordType.style.textOverflow = "ellipsis";
     let recordTypeSpan = document.createElement('span')
+    recordTypeSpan.style.whiteSpace = "nowrap";
+    recordTypeSpan.style.overflow = "hidden";
+    recordTypeSpan.style.textOverflow = "ellipsis";
 
     if (response.threatType) {
         recordTypeSpan.innerText = response.threatType.toUpperCase();    
@@ -989,6 +992,9 @@ function displayLiveTrackingOnBoard(response) {
 
     let span_info_box_content_VR = document.createElement('span');
     span_info_box_content_VR.className = 'info-box-number';
+    span_info_box_content_VR.style.whiteSpace = "nowrap";
+    span_info_box_content_VR.style.overflow = "hidden";
+    span_info_box_content_VR.style.textOverflow = "ellipsis";
     if ((response.threatType == undefined || response.threatType == null || response.threatType == "")) {
         span_info_box_content_VR.innerText = "Threat Type: ";// + response.threatType;
     }
