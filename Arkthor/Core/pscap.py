@@ -742,7 +742,10 @@ def process_message(ch, method, properties, body):
 		logging.info(f"Analysing File with hash Value: {hash_value}")
 		#Analysis Operation
 		fp=find_file_by_filename(global_var_foldertowatch, hash_value)
-		process_pcap(fp)
+		if fp is None:
+			logging.error("Unable to find file at given location")
+		else:
+			process_pcap(fp)
 		# Acknowledge the message
 		ch.basic_ack(delivery_tag=method.delivery_tag)
 		logging.info("Acknowledge the message and waiting for Message..")
@@ -861,7 +864,9 @@ def find_file_by_filename(folder_path, filename):
 	for root, dirs, files in os.walk(folder_path):
 		for file in files:
 			if os.path.splitext(file)[0] == filename:
+				logging.info(f"Uploaded File Available at location: {os.path.join(root, file)}");
 				return os.path.join(root, file)
+	logging.error(f"Uploaded File {filename} not-available at location: {folder_path}")
 	return None
 
 def main():
