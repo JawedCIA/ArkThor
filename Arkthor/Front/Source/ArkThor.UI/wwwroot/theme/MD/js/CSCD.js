@@ -138,9 +138,9 @@ function setValueinnerHTML(id, info) {
 };
 //Retrieve Parameter from URL 
 function getParamFromUrl(baseURl) {
-    console.log("In:" + baseURl);
+    //console.log("In:" + baseURl);
     var encodedUrl = encodeURI(baseURl); // Attempt to encode the URL
-    console.log("encodedUrl:" + encodedUrl);
+   // console.log("encodedUrl:" + encodedUrl);
     var params = {};
     var parser = document.createElement('a');
     parser.href = encodedUrl;
@@ -476,8 +476,9 @@ function GetFileRecordDetails() {
                             //  console.log(response.result[0]);
                             //console.log(response.result.length);
                             if (response.result.length > 0) {
+                                
                                 displayFileRecordInformation(response.result[0]);
-                               // console.log("Getting Support Files");
+                               
                                 GetSupportFileRecords(apiUrl,hashOfFile);
                             }
                             else {
@@ -606,7 +607,16 @@ function displayFileRecordInformation(resultResponse) {
 
     //Set Threat Type
     if (!(resultResponse.threatType == undefined || resultResponse.threatType == null || resultResponse.threatType == "")) {
-        setValue("spanType", resultResponse.threatType.toUpperCase());
+        let threatType = resultResponse.threatType.toUpperCase();
+        setValue("ddThreatTypeIdentified", threatType);
+        if (threatType.includes(", ")) {
+            threatType = getHighestConfidenceLevelThreatType(threatType);
+           // console.log("Highest Threat Type: " + threatType);
+            
+        }
+        var updatedthreatType = threatType.replace(/\s*\(CONFIDENCE LEVEL: [1-9][0-9]?(?:\d{0,1}|100)%\)/, "");
+        setValue("spanType", updatedthreatType);
+       // setValue("spanType", threatType);
     }
 
     
@@ -672,14 +682,16 @@ function displayFileRecordInformation(resultResponse) {
        
         var countries = JSON.parse(resultResponse.c2Countries); 
        // console.log(typeof mulCountries);
-        for (var i = 0; i < countries.length; i++) {
-           //console.log(countries[i]);
-            let tdCountry = document.createElement('td');
-            let flagicon = document.createElement('i');
-            flagicon.className = 'flag flag-sm flag-country-' + countries[i].toLowerCase();
-            tdCountry.innerHTML ="<p>"+ country.getName(countries[i].toLowerCase());
-            tdCountry.append(flagicon);            
-            tableRowC2Conrties.append(tdCountry);
+        if (!(countries == undefined || countries == null || countries == "")) {
+            for (var i = 0; i < countries.length; i++) {
+                //console.log(countries[i]);
+                let tdCountry = document.createElement('td');
+                let flagicon = document.createElement('i');
+                flagicon.className = 'flag flag-sm flag-country-' + countries[i].toLowerCase();
+                tdCountry.innerHTML = "<p>" + country.getName(countries[i].toLowerCase());
+                tdCountry.append(flagicon);
+                tableRowC2Conrties.append(tdCountry);
+            }
         }
 
     }
@@ -693,14 +705,16 @@ function displayFileRecordInformation(resultResponse) {
 
         var countries = JSON.parse(resultResponse.infected_countries);
         // console.log(typeof mulCountries);
-        for (var i = 0; i < countries.length; i++) {
-            //console.log(countries[i]);
-            let tdCountry = document.createElement('td');
-            let flagicon = document.createElement('i');
-            flagicon.className = 'flag flag-sm flag-country-' + countries[i].toLowerCase();
-            tdCountry.innerHTML = "<p>" + country.getName(countries[i].toLowerCase());
-            tdCountry.append(flagicon);
-            tableRowInfC2Contries.append(tdCountry);
+        if (!(countries == undefined || countries == null || countries == "")) {
+            for (var i = 0; i < countries.length; i++) {
+                //console.log(countries[i]);
+                let tdCountry = document.createElement('td');
+                let flagicon = document.createElement('i');
+                flagicon.className = 'flag flag-sm flag-country-' + countries[i].toLowerCase();
+                tdCountry.innerHTML = "<p>" + country.getName(countries[i].toLowerCase());
+                tdCountry.append(flagicon);
+                tableRowInfC2Contries.append(tdCountry);
+            }
         }
 
     }
@@ -714,14 +728,16 @@ function displayFileRecordInformation(resultResponse) {
        // console.log(resultResponse.mitre);
 
         var mitreTech = JSON.parse(resultResponse.mitre);
-        // console.log(typeof mulCountries);
-        for (var i = 0; i < mitreTech.length; i++) {
-            //console.log(countries[i]);
-            let liMitre = document.createElement('li');
+        if (!(mitreTech == undefined || mitreTech == null || mitreTech == "")) {
+            // console.log(typeof mulCountries);
+            for (var i = 0; i < mitreTech.length; i++) {
+                //console.log(countries[i]);
+                let liMitre = document.createElement('li');
 
-            liMitre.innerHTML = mitreTech[i].toUpperCase();
-           
-            ulMitreDisplay.append(liMitre);
+                liMitre.innerHTML = mitreTech[i].toUpperCase();
+
+                ulMitreDisplay.append(liMitre);
+            }
         }
 
     }
@@ -1050,7 +1066,17 @@ function displayLiveTrackingOnBoard(response) {
     if ((response.threatType == undefined || response.threatType == null || response.threatType == "")) {
         span_info_box_content_VR.innerText = "Threat Type: ";// + response.threatType;
     }
-    else { span_info_box_content_VR.innerText = "Threat Type: " + response.threatType.toUpperCase(); }
+    else {
+        let threatType = response.threatType.toUpperCase();
+        if (threatType.includes(", ")) {
+            threatType = getHighestConfidenceLevelThreatType(threatType);
+            // console.log("Highest Threat Type: " + threatType);
+
+        }
+        var updatedthreatType = threatType.replace(/\s*\(CONFIDENCE LEVEL: [1-9][0-9]?(?:\d{0,1}|100)%\)/, "");
+       
+        span_info_box_content_VR.innerText = "Threat Type: " + updatedthreatType;
+    }
    
     span_info_box_content_VR.style.maxWidth = '100%';
 

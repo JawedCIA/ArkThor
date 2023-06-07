@@ -136,21 +136,54 @@ function DistributionTypeChart(FromDate, ToDate, elementID,baseAPIURL) {
                 if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
                      //console.log(this.response);
                     var responseResult = JSON.parse(this.response);
-                     //console.log(responseResult);
+                    // console.log(responseResult);
                     if (responseResult.result.length > 0) {
                        // console.log(responseResult.result);
                         for (var index = 0; index < responseResult.result.length; index++) {
+                            let label = (responseResult.result[index].type).toUpperCase().replace(/\s*\(CONFIDENCE LEVEL: [1-9][0-9]?(?:\d{0,1}|100)%\)/g, "");
+                            let dat = Number(responseResult.result[index].totalCount);
+                           // console.log(label);
+                            if (label.includes(", ")) {
+                                let parts = label.split(", ");
+                               // console.log(parts);
+                                for(let part of parts)
+                                {
+                                    labels.push(part);
+                                    Data.push(dat);
 
-                            labels.push(
-                                responseResult.result[index].type
-                            );
-                            Data.push(
-                                Number(responseResult.result[index].totalCount)
-                            );
+                                }
+                            }
+                            else {
+                                labels.push(label);
+                                Data.push(dat);
+                            }
+                          
+                            
+                        }
+                      //  console.log(labels);
+                        //console.log(Data);
+                        var combinedList1 = labels.map(function (key, index) {
+                            return { key: key, value: Data[index] };
+                        });
+                       // console.log(combinedList1);
 
+                        var combinedList = {};
 
-                        }                        
-                        drawDoughNutChart(labels, Data, backgroundColor, elementID, hoverBackgroundColor);
+                        for (var i = 0; i < labels.length; i++) {
+                            var key = labels[i];
+                            var value = parseInt(Data[i]);
+
+                            if (combinedList[key]) {
+                                combinedList[key] += value;
+                            } else {
+                                combinedList[key] = value;
+                            }
+                        }
+                        var keys = Object.keys(combinedList);
+                        var values = Object.values(combinedList);
+
+                       // console.log(combinedList);
+                        drawDoughNutChart(keys, values, backgroundColor, elementID, hoverBackgroundColor);
                     }
                 }
             };
@@ -196,6 +229,7 @@ function DistributionStatusChart(FromDate, ToDate, elementID) {
 
 
                         }
+                        
                         drawDoughNutChart(labels, data, backgroundColor, elementID, hoverBackgroundColor);
                     }
                 }
@@ -263,8 +297,14 @@ function drawDoughNutChart(labels, data, colors, elementID, hoverBackgroundColor
       var donutData = [];
 
     for (var i = 0; i < labels.length; i++) {
+        if ((labels[i].toUpperCase() == "NO THREAT") || (labels[i].toUpperCase() == "DONE")) {
+            colors[i] = "#008000"
+        }
+        if (labels[i].toUpperCase() == "INPROGRESS") {
+            colors[i] = "#00FF00"
+        }
         donutData.push({
-            label: labels[i],
+            label: labels[i].toUpperCase(),
             data: data[i],
             color: colors[i]
         });
@@ -369,13 +409,22 @@ function generateRandomColor() {
 * Custom Label formatter
 * ----------------------
 */
-function labelFormatter(label, series) {
-    return '<div style="font-size:13px; text-align:center; padding:2px; color: #fff; font-weight: 600;">'
+function labelFormatter_old(label, series) {
+    return "<div style='font-size:12px; text-align:center; padding:2px; color:#ffffff;'>"
         + label
         + '<br>'
         + Math.round(series.percent) + '%</div>'
 }
-
+function labelFormatter(label, series) {
+    var formattedLabel = label;
+    var percent = Math.round(series.percent);
+    if (formattedLabel.length > 10) {
+        formattedLabel = formattedLabel.substring(0, 14) + '...';
+    }
+    return "<div style='font-size:12px; text-align:center; padding:2px; color:#ffffff;' title='" + label + "'>" +
+        formattedLabel + "<br/>" +
+        percent + "%</div>";
+}
 //fetch API URL
 async function fetchBaseAPIUrl() {
     const response = await fetch('/GetBaseAPIUrl');
