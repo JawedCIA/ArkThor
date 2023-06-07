@@ -747,6 +747,7 @@ def process_message(ch, method, properties, body):
 		# Access the hash value from the parsed JSON
 		hash_value = message_data["message"]
 		# Use the hash value for further processing
+		logging.info(f"++++++++++++++++++++++++++++++ {hash_value} ++++++++++++++++++++++++++++++")
 		logging.info(f"Analysing File with hash Value: {hash_value}")
 		#Analysis Operation
 		fp=find_file_by_filename(global_var_foldertowatch, hash_value)
@@ -769,6 +770,7 @@ def process_message(ch, method, properties, body):
 		# Retry after a delay
 		time.sleep(5)  # Wait for 5 seconds before retrying
 		consume_messages()
+	logging.info(f"+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++")
 # Define message callback function for ip2asn
 #Added by Jawed for UI trigger ip2asn rule refresh
 def process_message_ip2asn(ch, method, properties, body):

@@ -1,0 +1,51 @@
+﻿version: '3.9'
+
+services:
+
+  arkthorui:
+    image: arkthor/arkthor-ui:latest
+    restart: "always"
+    depends_on:
+      - arkthorapi
+    ports:
+      - "24297:80"    
+    networks:
+      - nwarkthor
+
+  arkthorapi:
+    image: arkthor/arkthor-api:latest
+    restart: "always"
+    depends_on:
+      - rabbitmq
+    ports:
+      - "33900:80"
+    volumes:
+      - "AnalysesFiles:/app/UploadedFiles"
+      - "Database:/app/ArkThorDatabase"
+    networks:
+      - nwarkthor
+
+  arkthorcore:
+    image: arkthor/arkthor-core:latest
+    restart: "always"
+    depends_on:
+      - arkthorapi
+    volumes:
+      - "AnalysesFiles:/app/UploadedFiles"
+    networks:
+      - nwarkthor  
+ 
+  rabbitmq:
+    image: rabbitmq:3.12-management
+    container_name: rabbitmq
+    restart: "always"
+    ports:
+      - "15672:15672"
+    networks:
+      - nwarkthor
+volumes:
+  AnalysesFiles:
+  Database:
+networks:
+  nwarkthor:
+    name: nwarkthor
