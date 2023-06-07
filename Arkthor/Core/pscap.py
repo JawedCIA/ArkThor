@@ -25,6 +25,7 @@ import subprocess
 
 # Global variable declaration
 global_var_foldertowatch = None
+global_var_arkthorapiUrl = None
 class config_loader:
 	def __init__(self):
 		jsn = json.load(open("config.json"))
@@ -451,7 +452,7 @@ def intimate_completion(fjson, url_prefix):
 					  headers=headers)
 	except requests.exceptions.ConnectionError as e:
 		print("Cannot connect to server to post data")
-		logging.info("Cannot connect to server to post data")
+		logging.error("Cannot connect to server to post data")
 	else:
 		# Check the response status code
 		if r.status_code == 200:
@@ -460,7 +461,7 @@ def intimate_completion(fjson, url_prefix):
 			#os.unlink(fjson)
 		else:
 			print(f'File upload failed with status code {r.status_code}.')
-			logging.info(f"File upload failed with status code {r.status_code}.")
+			logging.error(f"File upload failed with status code {r.status_code}.")
 		  
 
 def submit_artifacts_of_pcaprun(filehash,foldername, url_prefix):
@@ -475,7 +476,7 @@ def submit_artifacts_of_pcaprun(filehash,foldername, url_prefix):
 					headers={ 'accept': '*/*'})
 		except requests.exceptions.ConnectionError as e:
 			print("Cannot connect to server to post data")
-			logging.info("Cannot connect to server to post data")
+			logging.error("Cannot connect to server to post data")
 		else:
 			print("Submitting ", fn, "with return code", r.status_code)
 			logging.info(f"Submitting  {fn}, with return code: {r.status_code}")
@@ -756,6 +757,7 @@ def process_message(ch, method, properties, body):
 				process_pcap(fp)
 			except Exception as e:
 				logging.error(f"Error cought in process_pcap module: {str(e)}")
+				intimate_status(hash_value, "Removed", global_var_arkthorapiUrl)
 		# Acknowledge the message
 		ch.basic_ack(delivery_tag=method.delivery_tag)
 		logging.info("Acknowledge the message and waiting for Message..")
@@ -911,6 +913,9 @@ def main():
 
 	#load the config file
 	cnf = config_loader()
+	global global_var_arkthorapiUrl
+	global_var_arkthorapiUrl = cnf.baseurl
+
 	logging.info("Config Loaded Successfully")
 	if fold == "":
 			fold = cnf.watchfolder
