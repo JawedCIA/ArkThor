@@ -438,30 +438,46 @@ def check_create_ip2asn_data(should_create):
 	return True
 
 def intimate_completion(fjson, url_prefix):
-	
-	try:
-		print(fjson)
-		headers = {
-					'accept': '*/*'
-		 }
+    retries = 3
+    delay = 1  # seconds
+    
+    while retries > 0:
+        if os.path.exists(fjson):
+            try:
+                print(fjson)
+                headers = {
+                    'accept': '*/*'
+                }
+                files = {
+                    'file': (fjson, open(fjson, 'rb'), 'application/json')
+                }
+                r = requests.post("%s/api/FileUpload/UploadFileOutPutJson" % (url_prefix), files=files, headers=headers)
 
-		files = {
-					'file': (fjson, open(fjson, 'rb'), 'application/json')
-		 }
-		r = requests.post("%s/api/FileUpload/UploadFileOutPutJson"%(url_prefix), files=files,				
-					  headers=headers)
-	except requests.exceptions.ConnectionError as e:
-		print("Cannot connect to server to post data")
-		logging.error("Cannot connect to server to post data")
-	else:
-		# Check the response status code
-		if r.status_code == 200:
-			print('File upload successful.')
-			logging.info("File upload successful.")
-			#os.unlink(fjson)
-		else:
-			print(f'File upload failed with status code {r.status_code}.')
-			logging.error(f"File upload failed with status code {r.status_code}.")
+                # Check the response status code
+                if r.status_code == 200:
+                    print('File upload successful.')
+                    logging.info(f"File {fjson} upload successful.")
+                    # os.unlink(fjson)
+                    break  # Exit the loop if the upload is successful
+                else:
+                    print(f'File {fjson} upload failed with status code {r.status_code}.')
+                    logging.error(f"File {fjson} upload failed with status code {r.status_code}.")
+            except requests.exceptions.ConnectionError as e:
+                print("Cannot connect to the server to post data")
+                logging.error("Cannot connect to the server to post data")
+        else:
+            print("File does not exist.")
+            logging.error(f"File {fjson} does not exist.")
+
+        retries -= 1
+        if retries > 0:
+            print(f"Retrying after {delay} seconds...")
+            logging.error(f"Retrying after {delay} seconds...")
+            time.sleep(delay)
+    
+    if retries == 0:
+        print("Maximum retries exceeded. File upload failed.")
+        logging.error(f"Maximum retries exceeded. File {fjson}  upload failed..")
 		  
 
 def submit_artifacts_of_pcaprun(filehash,foldername, url_prefix):
@@ -646,10 +662,30 @@ def aggregate_detections(ppe, s256):
 				if val[v] not in union_json[v]:
 					union_json[v].append(val[v])
 
+
+
 	for val in union_json:
 		if val == "MITRE": continue
 		if type(union_json[val]) == list:
 			union_json[val] = ", ".join(union_json[val])
+	
+	#Check for Severity in case multiple rule detected with different severity 
+	severity_str = union_json['severity']
+
+	if severity_str:
+		severity_list = []
+		split_values = severity_str.split(',')
+		if len(split_values) > 0:
+			severity_list = [int(num) for num in split_values]
+
+		if len(severity_list) > 0:
+			highest_number = max(severity_list)
+			union_json["severity"]=highest_number
+			#print(highest_number)
+		else:
+			union_json["severity"]=0
+	else:
+		union_json["severity"]=0
 
 	union_json["infected_countries"] = cl
 	union_json["c2_countries"] = cl
@@ -732,6 +768,9 @@ def process_pcap(fname):
 		submit_artifacts_of_pcaprun(s256,s256, cnf.baseurl)
 
 	ph.insert_into_processing(s256, stat.st_mtime)
+	if cnf.deleteprocessed == True: 
+					#os.unlink(fp)
+		delete_file(fname)
 	return
 
 # Define message callback function
@@ -758,7 +797,7 @@ def process_message(ch, method, properties, body):
 				process_pcap(fp)
 			except Exception as e:
 				logging.error(f"Error cought in process_pcap module: {str(e)}")
-				intimate_status(hash_value, "Removed", global_var_arkthorapiUrl)
+				intimate_status(hash_value, "Failure", global_var_arkthorapiUrl)
 		# Acknowledge the message
 		ch.basic_ack(delivery_tag=method.delivery_tag)
 		logging.info("Acknowledge the message and waiting for Message..")
@@ -883,6 +922,33 @@ def find_file_by_filename(folder_path, filename):
 	logging.error(f"Uploaded File {filename} not-available at location: {folder_path}")
 	return None
 
+#Added by jawed to delete processed files
+def delete_file(filename):
+	#max_retries = 5
+	#retry_delay = 1  # seconds
+    try:
+        os.remove(filename)
+        logging.info(f"File {filename} deleted successfully.")
+    except PermissionError:
+        retries = 0
+        while retries < 3:
+            logging.info(f"File {filename} is being used by another process. Retrying...")
+            time.sleep(1)
+            retries += 1
+            try:
+				# Check if the file is open and close it if necessary
+                with open(filename, "a") as file:
+                    pass  # Do nothing, just checking if it raises an exception
+                file.close()  # Close the file before attempting deletion
+                os.remove(filename)
+                logging.info(f"File  {filename} deleted successfully after retry.")
+                break  # Exit the retry loop if the deletion is successful
+            except PermissionError:
+                continue
+        else:
+            logging.info(f"Maximum retries exceeded. Unable to delete the file {filename}.")
+
+
 def main():
 	fold = ""
 	# Enable verbose logging
@@ -945,7 +1011,9 @@ def main():
 			for fn in os.listdir(global_var_foldertowatch):
 				fp = os.path.join(global_var_foldertowatch, fn)
 				process_pcap(fp)
-				if cnf.deleteprocessed == True: os.unlink(fp)
+				#if cnf.deleteprocessed == True: 
+					#os.unlink(fp)
+				#	delete_file(fp)
 			logging.info(f"Watching folder for file {global_var_foldertowatch}")
 			try:
 				time.sleep(cnf.delaytime)
