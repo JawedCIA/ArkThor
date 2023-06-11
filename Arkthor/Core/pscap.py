@@ -734,7 +734,7 @@ def process_pcap(fname):
 	logging.info(f"Method:packetprocessengine : DONE")
 	if ppe.loadpcap(fname) != True:
 		if cnf.usearkthorapi == True:
-			intimate_status(s256, "Removed", cnf.baseurl)
+			intimate_status(s256, "Failure", cnf.baseurl)
 		return "Error processing pcap file"
 	
 	ppe.process_packet()

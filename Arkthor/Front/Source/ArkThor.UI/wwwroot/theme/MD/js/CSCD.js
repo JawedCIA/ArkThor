@@ -390,6 +390,7 @@ function displayFileRecords(response, tblBodyID) {
 };
 //Get Highest Confidence level Threat Type
 function getHighestConfidenceLevelThreatType(threatType) {
+    //threatType = "BOKBOT (CONFIDENCE LEVEL: 75%), COBALT STRIKE BOTNET C2 SERVER (CONFIDENCE LEVEL: 100%), NETWIRE RC BOTNET C2 SERVER (CONFIDENCE LEVEL: 100%)";
     //Split the threatType
     // Split the text into parts using the comma as the separator
     let parts = threatType.split(", ");
@@ -398,13 +399,19 @@ function getHighestConfidenceLevelThreatType(threatType) {
     let highestConfidenceVariable = "";
     // Iterate over each part and extract the confidence level
     for (let part of parts) {
-        let confidenceLevel = parseInt(part.match(/\d+/)[0]);
+        //if (part.match(/\s*\(CONFIDENCE LEVEL: [1-9][0-9]?(?:\d{0,1}|100)%\)/)) {
+        let match = part.match(/\(CONFIDENCE LEVEL: (\d+)%\)/);
+            if (match) {
+                let confidenceLevel = parseInt(match[1]);
 
-        // Update the highestConfidenceLevel and highestConfidenceVariable if a higher confidence level is found
-        if (confidenceLevel > highestConfidenceLevel) {
-            highestConfidenceLevel = confidenceLevel;
-            highestConfidenceVariable = part;
-        }
+                if (confidenceLevel > highestConfidenceLevel) {
+                    highestConfidenceLevel = confidenceLevel;
+                    highestConfidenceVariable = part;
+                } else if (confidenceLevel === highestConfidenceLevel && !highestConfidenceVariable.includes('(CONFIDENCE LEVEL:')) {
+                    highestConfidenceVariable = part;
+                }
+            }
+       // }
     }
     return highestConfidenceVariable;
 
