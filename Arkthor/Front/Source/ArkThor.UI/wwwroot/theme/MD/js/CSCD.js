@@ -615,7 +615,10 @@ function displayFileRecordInformation(resultResponse) {
     //Set Threat Type
     if (!(resultResponse.threatType == undefined || resultResponse.threatType == null || resultResponse.threatType == "")) {
         let threatType = resultResponse.threatType.toUpperCase();
-        setValue("ddThreatTypeIdentified", threatType);
+       // setValueinnerHTML("ddThreatTypeIdentified", threatType.replace(/,/g, "<br>- "));
+        let ddThreatTypeIdentifiedElement = document.getElementById("ddThreatTypeIdentified");
+        ddThreatTypeIdentifiedElement.innerHTML = "- " + threatType.replace(/,/g, "<br>- ");
+
         if (threatType.includes(", ")) {
             threatType = getHighestConfidenceLevelThreatType(threatType);
            // console.log("Highest Threat Type: " + threatType);
@@ -1119,7 +1122,7 @@ function displayLiveTrackingOnBoard(response) {
 
         if ((response.status).toUpperCase() == 'DONE') { divinfo_box.className = 'callout callout-success info-box' }
         else if ((response.status).toUpperCase() == 'QUEUED') { divinfo_box.className = 'callout callout-warning info-box'; iConStatus.className = 'fa fa-hourglass'; }
-        else if ((response.status).toUpperCase() == 'REMOVED' || (response.status).toUpperCase() == 'CANCELLED') { divinfo_box.className = 'callout callout-danger info-box'; iConStatus.className = 'icon fas fa-ban'; }
+        else if ((response.status).toUpperCase() == 'REMOVED' || (response.status).toUpperCase() == 'CANCELLED' || (response.status).toUpperCase() == 'FAILURE') { divinfo_box.className = 'callout callout-danger info-box'; iConStatus.className = 'icon fas fa-ban'; }
         else if ((response.status).toUpperCase() == 'INPROGRESS') { divinfo_box.className = 'callout callout-info info-box'; iConStatus.className = 'fa fa-cog fa-spin fa-2x fa-fw'; }
         else { divinfo_box.className = 'callout callout-danger info-box' }
     }
