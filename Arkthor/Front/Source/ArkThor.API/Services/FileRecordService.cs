@@ -152,6 +152,7 @@ public class FileRecordService : IFileRecordService
     }
 
     //Get Threat Type Distribution
+    // AND LOWER(a.ThreatType) <> 'no threat' 
     public async Task<IEnumerable<DistributionCount>> GetThreatDistributionBasedOnUploadedDate(DateTime FromDate, DateTime ToDate)
     {
         using var connection = _context.CreateConnection();
@@ -160,7 +161,7 @@ public class FileRecordService : IFileRecordService
         FROM FilesRecord a
         LEFT JOIN FilesRecord b ON a.ThreatType = b.ThreatType
         WHERE a.ThreatType IS NOT NULL AND a.ThreatType <> ''
-        AND LOWER(a.ThreatType) <> 'no threat' 
+       
         AND
         DATE(a.UploadedDate) between DATE(@FromDate) AND DATE(@ToDate)
         GROUP BY a.ThreatType;      
