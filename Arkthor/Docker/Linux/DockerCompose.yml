@@ -4,6 +4,7 @@ services:
 
   arkthorui:
     image: arkthor/arkthor-ui:latest
+    restart: "always"
     depends_on:
       - arkthorapi
     ports:
@@ -13,38 +14,38 @@ services:
 
   arkthorapi:
     image: arkthor/arkthor-api:latest
+    restart: "always"
     depends_on:
       - rabbitmq
     ports:
       - "33900:80"
     volumes:
-      - type: bind
-        source: ./UploadedFiles
-        target: /app/UploadedFiles
-      - type: bind
-        source: ./ArkThorDatabase
-        target: /app/ArkThorDatabase
+      - "AnalysesFiles:/app/UploadedFiles"
+      - "Database:/app/ArkThorDatabase"
     networks:
       - nwarkthor
 
   arkthorcore:
     image: arkthor/arkthor-core:latest
+    restart: "always"
     depends_on:
       - arkthorapi
     volumes:
-      - type: bind
-        source: ./UploadedFiles
-        target: /app/UploadedFiles
+      - "AnalysesFiles:/app/UploadedFiles"
     networks:
       - nwarkthor  
  
   rabbitmq:
-    image: rabbitmq:3.11-management
+    image: rabbitmq:3.12-management
     container_name: rabbitmq
+    restart: "always"
     ports:
       - "15672:15672"
     networks:
       - nwarkthor
+volumes:
+  AnalysesFiles:
+  Database:
 networks:
   nwarkthor:
     name: nwarkthor

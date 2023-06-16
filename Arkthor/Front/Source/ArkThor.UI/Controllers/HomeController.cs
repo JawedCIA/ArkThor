@@ -110,7 +110,7 @@ namespace ArkThor.Dashboard.Controllers
                             // var fileName = Path.GetFileNameWithoutExtension(formFile.FileName);
 
                             // var extension = Path.GetExtension(formFile.FileName);
-
+                            _logger.LogInformation("File Submitted: {0} : {DT}", trustedFileNameForDisplay,  DateTime.UtcNow.ToLongTimeString());
                             //check for FileExtension
                             if (string.IsNullOrEmpty(extension) || !_permittedExtensions.Contains(extension))
                             {
@@ -167,12 +167,20 @@ namespace ArkThor.Dashboard.Controllers
                                                     HashValue = hashValue.ToUpper(),
                                                     Status = "Queued"
                                                 };
-                                                using (var dataStream = new MemoryStream())
-                                                {
-                                                    await formFile.CopyToAsync(dataStream);
-                                                    fileModel.Data = dataStream.ToArray();
-                                                }
+                                               
+                                                //if (fileSizeInMB <= 50)
+                                            //    {
+                                                    using (var dataStream = new MemoryStream())
+                                                    {
+                                                        await file.CopyToAsync(dataStream);
+                                                        fileModel.Data = dataStream.ToArray();
+                                                    }
 
+                                            //    }
+                                            //    else
+                                            //    {
+                                           //         fileModel.Data = null;
+                                             //   }
                                                 string fileData = JsonConvert.SerializeObject(fileModel);
                                                 HttpContent httpContent = new StringContent(fileData, Encoding.UTF8, "application/json");
 
@@ -190,13 +198,14 @@ namespace ArkThor.Dashboard.Controllers
                                                 }
                                                 else //web api sent error response 
                                                 {
-
-                                                   return StatusCode(422, new { message = "File Upload Failed: " + responseTaskUploadReleaseFile.Result.ReasonPhrase + " : " + responseTaskUploadReleaseFile.Result.StatusCode });
+                                                    _logger.LogError("Error:File Upload Failed {0} : {DT}", trustedFileNameForDisplay, DateTime.UtcNow.ToLongTimeString());
+                                                    return StatusCode(422, new { message = "File Upload Failed: " + responseTaskUploadReleaseFile.Result.ReasonPhrase + " : " + responseTaskUploadReleaseFile.Result.StatusCode });
 
                                                 }
                                             }
                                             else
                                             {
+                                                _logger.LogError("File Upload Failed: {0} {DT}", trustedFileNameForDisplay, DateTime.UtcNow.ToLongTimeString());
                                                 return StatusCode(422, new { message = "File Upload Failed: Unable to get Hash-256 of file, Kinldy try again with different file" });
                                                 //return BadRequest("File Upload Failed: Unable to get Hash-256 of file, Kinldy try again with different file");
                                             }
@@ -209,9 +218,9 @@ namespace ArkThor.Dashboard.Controllers
                                     {
                                         // return Ok(new { count = files.Count, size, ex.Message });                    
                                        
-                                        _logger.LogInformation("Error: {0} : {1}: {DT}", trustedFileNameForDisplay, ex.Message, DateTime.UtcNow.ToLongTimeString());
+                                        _logger.LogError("Error: {0} : {1}: {DT}", trustedFileNameForDisplay, ex.Message, DateTime.UtcNow.ToLongTimeString());
                                        // return BadRequest("File Upload Failed EX: " + ex.Message);
-                                        return StatusCode(422, new { message = "File Upload Failed: " + ex.Message });
+                                        return StatusCode(422, new { message = "File Upload Failed: "+ trustedFileNameForDisplay + ex.Message });
                                     }
                                 }
                                 else
@@ -224,7 +233,7 @@ namespace ArkThor.Dashboard.Controllers
                     }
                     else
                     {
-                        return BadRequest("Chosen file size :" + fileSizeInMB + " MB is above permitted size :" + megabyteSizeLimit + " MB, Kindly choose file size small than permitted size!");
+                        return StatusCode(500,new { message = "Chosen file size :" + fileSizeInMB + " MB is above permitted size :" + megabyteSizeLimit + " MB, Kindly choose file size small than permitted size, or use ArkThor API to upload File!" });
                         //string.Format("Chosen file size : {size} is above permitted size : {permittedSize} MB, Kindly choose file size small than permitted size!", size, megabyteSizeLimit);
                     }                  
 
@@ -232,7 +241,8 @@ namespace ArkThor.Dashboard.Controllers
                 catch (System.Exception ex)
                 {
                     // Handle the upload error here
-                   // return BadRequest("An error occurred while uploading the file: " + ex.Message);
+                    // return BadRequest("An error occurred while uploading the file: " + ex.Message);
+                    _logger.LogError("Error:File - {0} : {DT}", ex.Message, DateTime.UtcNow.ToLongTimeString());
                     return StatusCode(422, new { message = "An error occurred while uploading the file: " + ex.Message });
                 }
             }

@@ -1,6 +1,8 @@
 using System.Text.Json.Serialization;
 using ArkThor.API.Helpers;
 using ArkThor.API.Services;
+using Microsoft.AspNetCore.Http.Features;
+using Microsoft.AspNetCore.Server.Kestrel.Core;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -25,6 +27,24 @@ builder.Services.AddSwaggerGen();
 
         // ignore omitted parameters on models to enable optional params (e.g. User update)
         x.JsonSerializerOptions.DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull;
+    });
+    services.Configure<FormOptions>(options =>
+    {
+        // Set the limit to 256 MB
+        options.ValueLengthLimit = int.MaxValue;
+        options.MultipartBodyLengthLimit = int.MaxValue; // if don't set default value is: 128 MB
+        options.MultipartHeadersLengthLimit = int.MaxValue;
+
+    });
+    services.Configure<IISServerOptions>(options =>
+    {
+        options.MaxRequestBodySize = int.MaxValue;
+    });
+
+    services.Configure<KestrelServerOptions>(options =>
+    {
+        options.Limits.MaxRequestBodySize = int.MaxValue; // if don't set default value is: 30 MB
+        options.AllowSynchronousIO = true; // Enable streaming
     });
     services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 

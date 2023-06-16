@@ -371,14 +371,19 @@ public class FileRecordService : IFileRecordService
     {
         var existingRecord = _context.FilesRecord.SingleOrDefault(m => m.HashValue == model.HashValue);
         // validate
-       
+        if(model.Size > 52428800)
+        {
+            model.Data = null;
+        }
+
             if (existingRecord != null)
             {
                 
                     // copy model to user and save
                     _mapper.Map(model, existingRecord);
                     _context.FilesRecord.Update(existingRecord);
-                    _context.SaveChanges();
+           // _context.Database.ExecuteSqlRaw("PRAGMA cache_size = 10000;");
+            _context.SaveChanges();
                    // throw new AppException("File with the same hash256 '" + model.HashValue + "' already exists"); 
                            
             }
@@ -388,7 +393,8 @@ public class FileRecordService : IFileRecordService
                 var file = _mapper.Map<FileRecord>(model);
                 // save file
                 _context.FilesRecord.Add(file);
-                _context.SaveChanges();
+            //_context.Database.ExecuteSqlRaw("PRAGMA cache_size = 10000;");
+            _context.SaveChanges();
             }
        
 

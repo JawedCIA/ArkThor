@@ -314,15 +314,15 @@ function displayFileRecords(response, tblBodyID) {
         let threatType = response.threatType.toUpperCase();
         if (threatType.includes(", ")) {
 
-           
+
             threatType = getHighestConfidenceLevelThreatType(threatType);
             console.log("Highest Threat Type: " + threatType);
-          //  console.log(highestConfidenceVariable); // Output: COBALT STRIKE BOTNET C2 SERVER (CONFIDENCE LEVEL: 100%)
+            //  console.log(highestConfidenceVariable); // Output: COBALT STRIKE BOTNET C2 SERVER (CONFIDENCE LEVEL: 100%)
 
         }
         recordTypeSpan.innerText = threatType;// response.threatType.toUpperCase();    
         if (threatType == 'NO THREAT') { recordTypeSpan.className = 'badge bg-success' }
-        else if (threatType == 'AMBIGUOUS') { recordTypeSpan.className = 'badge badge-secondary ' }
+        else if ((threatType == 'AMBIGUOUS') || (threatType == 'UNCATEGORIZED')) { recordTypeSpan.className = 'badge badge-secondary ' } //Uncategorized
         else if (threatType == 'SUSPICIOUS') { recordTypeSpan.className = 'badge badge-warning' }
         else {
             recordTypeSpan.className = 'badge bg-danger wrap-text'
@@ -1140,7 +1140,7 @@ function displayLiveTrackingOnBoard(response) {
         div_ribbon_wrapper.append(div_ribbon_bg_primary);
     }
 
-    else if ((response.threatType).toUpperCase() == 'AMBIGUOUS' || (response.threatType).toUpperCase() == 'SUSPICIOUS') {
+    else if ((response.threatType).toUpperCase() == 'AMBIGUOUS' || (response.threatType).toUpperCase() == 'SUSPICIOUS' || (response.threatType).toUpperCase() == 'UNCATEGORIZED') {
         div_ribbon_bg_primary.className = 'ribbon bg-secondary';
         iConStatus.className = 'icon fas fa-bug';
         displayRibbon = '1';

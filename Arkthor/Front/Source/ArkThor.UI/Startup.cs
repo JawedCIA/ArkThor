@@ -11,6 +11,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using ArkThor.Dashboard.Models;
 using Microsoft.AspNetCore.Http.Features;
+using Microsoft.AspNetCore.Server.Kestrel.Core;
 
 namespace ArkThor.Dashboard
 {
@@ -30,7 +31,19 @@ namespace ArkThor.Dashboard
             services.Configure<FormOptions>(options =>
             {
                 // Set the limit to 256 MB
-                options.MultipartBodyLengthLimit = 52428800;//134217728
+                options.ValueLengthLimit = int.MaxValue;
+                options.MultipartBodyLengthLimit = int.MaxValue; // if don't set default value is: 128 MB
+                options.MultipartHeadersLengthLimit = int.MaxValue;
+            });
+            services.Configure<IISServerOptions>(options =>
+            {
+                options.MaxRequestBodySize = int.MaxValue;
+            });
+
+            services.Configure<KestrelServerOptions>(options =>
+            {
+                options.Limits.MaxRequestBodySize = int.MaxValue; // if don't set default value is: 30 MB
+                options.AllowSynchronousIO = true; // Enable streaming
             });
             // services.AddDbContext<DatabaseContext>(options =>
             //options.UseSqlServer(Configuration.GetConnectionString("ArkThorDBConnectionStr")));

@@ -639,7 +639,7 @@ def aggregate_detections(ppe, s256):
 		union_json['Status'] = "Done"
 		union_json['SHA256'] = s256
 		union_json["c2_countries"] = []
-		union_json["rule_name"] = "No THREAT"
+		union_json["rule_name"] = "Uncategorized"
 		union_json['analyzed_time'] = int(datetime.datetime.utcnow().timestamp())
 		return union_json
 

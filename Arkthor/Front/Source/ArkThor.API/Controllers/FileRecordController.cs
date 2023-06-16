@@ -175,10 +175,12 @@ public class FileRecordController : ControllerBase
     [Route("CreateFileRecord")]
     public IActionResult CreateFileRecord(CreateFileRecord model)
     {
-        _fileService.Create(model);
+       
         //Save File on disk
-        _fileService.SaveFileOnDisk(model);     
-   
+        _fileService.SaveFileOnDisk(model);
+        //Save Record in Database
+        _fileService.Create(model);
+
         return Ok(new { message = "File created" });
     }
    

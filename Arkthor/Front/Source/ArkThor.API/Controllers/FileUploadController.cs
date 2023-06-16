@@ -178,21 +178,6 @@ namespace ArkThor.API.Controllers
                                 //Get SHA256 of uploaded file
                                 var hashValue = GenereteHash256.SHA256file(filePath);
 
-                                //using (var dataStream = new MemoryStream())
-                                //    {
-                                //        await file.CopyToAsync(dataStream);
-                                //        //fileModel.Data = dataStream.ToArray();
-                                //        using (SHA256 sha256 = SHA256.Create())
-                                //        {
-                                //            // calculate the hash of the MemoryStream
-                                //            byte[] hash = sha256.ComputeHash(dataStream);
-                                //        string hash256Value = GenereteHash256.PrintByteArray(hash);
-                                //        // convert the hash byte array to a string
-                                //        string hashString = BitConverter.ToString(hash).Replace("-", "").ToLower();
-
-                                //            // the hashString variable now contains the SHA256 hash of the file data stream
-                                //        }
-                                //    }
                                 if (hashValue != null)
                                 {
                                     var fileToBeUpload = new CreateFileRecord
@@ -209,15 +194,26 @@ namespace ArkThor.API.Controllers
                                         Status = "Queued"
 
                                     };
-                                    using (var dataStream = new MemoryStream())
-                                    {
-                                        await file.CopyToAsync(dataStream);
-                                        fileToBeUpload.Data = dataStream.ToArray();
-                                    }
+                                 //   if(fileSizeInMB <=50)
+                                //    {
+                                        using (var dataStream = new MemoryStream())
+                                        {
+                                            await file.CopyToAsync(dataStream);
+                                            fileToBeUpload.Data = dataStream.ToArray();
+                                        }
 
-                                    _fileService.Create(fileToBeUpload);
+                                   // }
+                                 //   else
+                                 //   {
+                                       // fileToBeUpload.Data = null;
+                                //    }
+                                   
+
+                                   
                                     //Save File on disk
                                     _fileService.SaveFileOnDisk(fileToBeUpload);
+                                    //Save Record in Database
+                                    _fileService.Create(fileToBeUpload);
 
                                     return Ok(new { message = "File created" });
 
