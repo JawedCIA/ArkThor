@@ -440,16 +440,15 @@ def check_create_ip2asn_data(should_create):
 def intimate_completion(fjson, url_prefix):
 	retries = 3
 	delay = 1  # seconds
-	
-	from io import BytesIO
-	d = json.load(open(fjson))
-	
-	event = BytesIO(json.dumps(max(d, key=lambda ev: ev['severity'])).encode())
-	event.seek(0)
-	
+	from io import BytesIO	
 	while retries > 0:
 		if os.path.exists(fjson):
 			try:
+				d = json.load(open(fjson))
+
+				event = BytesIO(json.dumps(max(d, key=lambda ev: ev['severity'])).encode())
+				event.seek(0)
+
 				print(fjson)
 				headers = {
 					'accept': '*/*'
