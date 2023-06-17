@@ -446,7 +446,10 @@ def intimate_completion(fjson, url_prefix):
 			try:
 				d = json.load(open(fjson))
 
-				event = BytesIO(json.dumps(max(d, key=lambda ev: ev['severity'])).encode())
+				try:
+					event = BytesIO(json.dumps(max(d, key=lambda ev: ev['severity'])).encode())
+				except KeyError:
+					event = BytesIO(json.dumps(d))
 				event.seek(0)
 
 				print(fjson)
