@@ -438,46 +438,52 @@ def check_create_ip2asn_data(should_create):
 	return True
 
 def intimate_completion(fjson, url_prefix):
-    retries = 3
-    delay = 1  # seconds
-    
-    while retries > 0:
-        if os.path.exists(fjson):
-            try:
-                print(fjson)
-                headers = {
-                    'accept': '*/*'
-                }
-                files = {
-                    'file': (fjson, open(fjson, 'rb'), 'application/json')
-                }
-                r = requests.post("%s/api/FileUpload/UploadFileOutPutJson" % (url_prefix), files=files, headers=headers)
+	retries = 3
+	delay = 1  # seconds
+	
+	from io import BytesIO
+	d = json.load(open(fjson))
+	
+	event = BytesIO(json.dumps(max(d, key=lambda ev: ev['severity'])).encode())
+	event.seek(0)
+	
+	while retries > 0:
+		if os.path.exists(fjson):
+			try:
+				print(fjson)
+				headers = {
+					'accept': '*/*'
+				}
+				files = {
+					'file': (fjson, event, 'application/json')
+				}
+				r = requests.post("%s/api/FileUpload/UploadFileOutPutJson" % (url_prefix), files=files, headers=headers)
 
-                # Check the response status code
-                if r.status_code == 200:
-                    print('File upload successful.')
-                    logging.info(f"File {fjson} upload successful.")
-                    # os.unlink(fjson)
-                    break  # Exit the loop if the upload is successful
-                else:
-                    print(f'File {fjson} upload failed with status code {r.status_code}.')
-                    logging.error(f"File {fjson} upload failed with status code {r.status_code}.")
-            except requests.exceptions.ConnectionError as e:
-                print("Cannot connect to the server to post data")
-                logging.error("Cannot connect to the server to post data")
-        else:
-            print("File does not exist.")
-            logging.error(f"File {fjson} does not exist.")
+				# Check the response status code
+				if r.status_code == 200:
+					print('File upload successful.')
+					logging.info(f"File {fjson} upload successful.")
+					# os.unlink(fjson)
+					break  # Exit the loop if the upload is successful
+				else:
+					print(f'File {fjson} upload failed with status code {r.status_code}.')
+					logging.error(f"File {fjson} upload failed with status code {r.status_code}.")
+			except requests.exceptions.ConnectionError as e:
+				print("Cannot connect to the server to post data")
+				logging.error("Cannot connect to the server to post data")
+		else:
+			print("File does not exist.")
+			logging.error(f"File {fjson} does not exist.")
 
-        retries -= 1
-        if retries > 0:
-            print(f"Retrying after {delay} seconds...")
-            logging.error(f"Retrying after {delay} seconds...")
-            time.sleep(delay)
-    
-    if retries == 0:
-        print("Maximum retries exceeded. File upload failed.")
-        logging.error(f"Maximum retries exceeded. File {fjson}  upload failed..")
+		retries -= 1
+		if retries > 0:
+			print(f"Retrying after {delay} seconds...")
+			logging.error(f"Retrying after {delay} seconds...")
+			time.sleep(delay)
+	
+	if retries == 0:
+		print("Maximum retries exceeded. File upload failed.")
+		logging.error(f"Maximum retries exceeded. File {fjson}  upload failed..")
 		  
 
 def submit_artifacts_of_pcaprun(filehash,foldername, url_prefix):
@@ -926,27 +932,27 @@ def find_file_by_filename(folder_path, filename):
 def delete_file(filename):
 	#max_retries = 5
 	#retry_delay = 1  # seconds
-    try:
-        os.remove(filename)
-        logging.info(f"File {filename} deleted successfully.")
-    except PermissionError:
-        retries = 0
-        while retries < 3:
-            logging.info(f"File {filename} is being used by another process. Retrying...")
-            time.sleep(1)
-            retries += 1
-            try:
+	try:
+		os.remove(filename)
+		logging.info(f"File {filename} deleted successfully.")
+	except PermissionError:
+		retries = 0
+		while retries < 3:
+			logging.info(f"File {filename} is being used by another process. Retrying...")
+			time.sleep(1)
+			retries += 1
+			try:
 				# Check if the file is open and close it if necessary
-                with open(filename, "a") as file:
-                    pass  # Do nothing, just checking if it raises an exception
-                file.close()  # Close the file before attempting deletion
-                os.remove(filename)
-                logging.info(f"File  {filename} deleted successfully after retry.")
-                break  # Exit the retry loop if the deletion is successful
-            except PermissionError:
-                continue
-        else:
-            logging.info(f"Maximum retries exceeded. Unable to delete the file {filename}.")
+				with open(filename, "a") as file:
+					pass  # Do nothing, just checking if it raises an exception
+				file.close()  # Close the file before attempting deletion
+				os.remove(filename)
+				logging.info(f"File  {filename} deleted successfully after retry.")
+				break  # Exit the retry loop if the deletion is successful
+			except PermissionError:
+				continue
+		else:
+			logging.info(f"Maximum retries exceeded. Unable to delete the file {filename}.")
 
 
 def main():
