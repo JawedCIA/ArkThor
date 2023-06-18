@@ -1,0 +1,50 @@
+[
+	{
+		"rule_name": "bokbot",
+		"authored_timestamp": 1679144203,
+		"rule": ["domain == \".statifaronta.com.\" or answers =~ \".*45\\.61\\.136\\.30.*\""],
+		"scope": "DNS",
+		"severity": "100",
+		"MITRE": [ "T1071.001", "T1132.001", "T1568", "T1102.003" ]
+	},
+	{
+		"rule_name": "bokbot",
+		"authored_timestamp": 1679144203,
+		"rule": ["domain == \"lifeinsurancequotes.xyz.\" or answers == \"146.19.230.208\""],
+		"scope": "DNS",
+		"severity": "100",
+		"MITRE": [ "T1071.001", "T1132.001", "T1568", "T1102.003" ]
+	},
+	{
+		"rule_name": "bokbot",
+		"authored_timestamp": 1679144203,
+		"rule": ["domain == \"neaachar.com.\" or answers == \"146.19.230.208\""],
+		"scope": "DNS",
+		"severity": "100",
+		"MITRE": [ "T1071.001", "T1132.001", "T1568", "T1102.003" ]
+	},
+	{
+		"rule_name": "ParallelsBot",
+		"authored_timestamp": 1679144203,
+		"rule": ["ip == \"10.3.16.2\""],
+		"scope": "IPPORT",
+		"severity": "80",
+		"MITRE": [ "T1071.001", "T1132.001", "T1568", "T1102.003" ]
+	},
+	{
+		"rule_name": "Modiloader Test UA",
+		"authored_timestamp": 1679144203,
+		"rule": ["user_agent == \"Mozilla/5.0 (Windows NT 10.0; Win64; x64; Trident/7.0; rv:11.0) like Gecko\""],
+		"scope": "URL",
+		"severity": "100",
+		"MITRE": [ "T1071.001", "T1132.001", "T1568", "T1102.003" ]
+	},
+	{
+		"rule_name": "Modiloader Test URL",
+		"authored_timestamp": 1679144203,
+		"rule": ["path =~ \"/ee2q/.*\""],
+		"scope": "URL",
+		"severity": "100",
+		"MITRE": [ "T1071.001", "T1132.001", "T1568", "T1102.003" ]
+	}
+]

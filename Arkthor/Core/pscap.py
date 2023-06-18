@@ -21,7 +21,10 @@ import mimetypes
 import datetime
 import pika
 import logging
-import subprocess
+import threading as th
+from urllib.parse import urlparse
+from io import BytesIO
+import zipfile
 
 # Global variable declaration
 global_var_foldertowatch = None
@@ -93,7 +96,15 @@ class packetprocessengine:
 		self.dns_list = {}
 		self.http_list = []
 		self.ip_list = []
+		self.is_zip = False
 		self.packet_processed = False
+
+	def __del__(self):
+		pass
+	
+	def close(self):
+		if self.is_zip == False:
+			self.packets.close()
 
 	def loadpcap(self, filename=None):
 		if self.fname == None and filename == None:
@@ -105,13 +116,18 @@ class packetprocessengine:
 		elif filename != None and self.fname == None:
 			self.fname = filename
 
-		try:
-			#self.packets = rdpcap(self.fname)
+		#self.packets = rdpcap(self.fname)
+		if ".zip" in self.fname:
+			bio = BytesIO()
+			zf = zipfile.ZipFile(self.fname)
+			zf.pwd = b'infected'
+			bio = zf.extract(zf.filelist[0])		#Extract first file assuming only 1 file
+			zf.close()
+			self.packets = PcapReader(bio)
+			bio = None
+			self.is_zip = True
+		else:
 			self.packets = PcapReader(self.fname)
-		except:
-			print("Packet Loading Error")
-			logging.info("Packet Loading Error")
-			return False
 		return True
 
 	def process_packet(self):
@@ -129,12 +145,32 @@ class packetprocessengine:
 	
 	def process_ip_packet(self, hpkt):
 		for xpkt in hpkt[IP]:
-			try:
-				tjs = {	"version": xpkt.version, "src": xpkt.src, "dst": xpkt.dst, "sport": xpkt.sport, "dport": xpkt.dport }
-			except AttributeError as e:
-				logging.info(e)
-				logging.info(ls(xpkt, verbose = True))
-				return
+			tjs = {	}
+			if hasattr(xpkt, "version"):
+				tjs["version"] = xpkt.version
+			else:
+				tjs["version"] = None
+
+			if hasattr(xpkt, "src"):
+				tjs["src"] = xpkt.src
+			else:
+				tjs["src"] = None
+
+			if hasattr(xpkt, "dst"):
+				tjs["dst"] = xpkt.dst
+			else:
+				tjs["dst"] = None
+
+			if hasattr(xpkt, "sport"):
+				tjs["sport"] = xpkt.sport
+			else:
+				tjs["sport"] = None
+
+			if hasattr(xpkt, "dport"):
+				tjs["dport"] = xpkt.dport
+			else:
+				tjs["dport"] = None
+
 			# convert bytes to string
 			for x in tjs:
 				if tjs[x] is not None and isinstance(tjs[x], bytes):
@@ -146,17 +182,56 @@ class packetprocessengine:
 
 	def process_http_packet(self, hpkt):
 		for xpkt in hpkt[HTTPRequest]:
-			try:
-				tjs = {
-					"accept": xpkt.Accept, "accept_encoding": xpkt.Accept_Encoding, "accept_language": xpkt.Accept_Language,
-					"method": xpkt.Method, "http_version": xpkt.Http_Version, "accept_language": xpkt.Accept_Language,
-					"authorization": xpkt.Authorization, "user_agent": xpkt.User_Agent, "http2_settings": xpkt.HTTP2_Settings,
-					"permanent": xpkt.Permanent, "path": xpkt.User_Agent, "host": xpkt.Host,
-				}
-			except AttributeError as e:
-				logging.info(e)
-				logging.info(ls(xpkt, verbose = True))
-				return
+			print(xpkt)
+			tjs = {}
+			if hasattr(xpkt, "Accept"):
+				tjs["accept"] = xpkt.Accept
+			else:
+				tjs["accept"] = None
+			if hasattr(xpkt, "Accept_Encoding"):
+				tjs["accept_encoding"] = xpkt.Accept_Encoding
+			else:
+				tjs["accept_encoding"] = None
+			if hasattr(xpkt, "Accept_Language"):
+				tjs["accept_language"] = xpkt.Accept_Language
+			else:
+				tjs["accept_language"] = None
+			if hasattr(xpkt, "Method"):
+				tjs["method"] = xpkt.Method
+			else:
+				tjs["method"] = None
+			if hasattr(xpkt, "Http_Version"):
+				tjs["http_version"] = xpkt.Http_Version
+			else:
+				tjs["http_version"] = None
+			if hasattr(xpkt, "Accept_Language"):
+				tjs["accept_language"] = xpkt.Accept_Language
+			else:
+				tjs["accept_language"] = None
+			if hasattr(xpkt, "Authorization"):
+				tjs["authorization"] = xpkt.Authorization
+			else:
+				tjs["authorization"] = None
+			if hasattr(xpkt, "User_Agent"):
+				tjs["user_agent"] = xpkt.User_Agent
+			else:
+				tjs["user_agent"] = None
+			if hasattr(xpkt, "HTTP2_Settings"):
+				tjs["http2_settings"] = xpkt.HTTP2_Settings
+			else:
+				tjs["http2_settings"] = None
+			if hasattr(xpkt, "Permanent"):
+				tjs["permanent"] = xpkt.Permanent
+			else:
+				tjs["permanent"] = None
+			if hasattr(xpkt, "Path"):
+				tjs["path"] = xpkt.Path
+			else:
+				tjs["path"] = None
+			if hasattr(xpkt, "Host"):
+				tjs["host"] = xpkt.Host
+			else:
+				tjs["host"] = None
 			# convert bytes to string
 			for x in tjs:
 				if tjs[x] is not None and isinstance(tjs[x], bytes):
@@ -184,7 +259,6 @@ class packetprocessengine:
 				logging.info("DNS answer present, without query")
 				return
 			self.dns_list[dv]["response_code"] = dns.rcode
-			# print("DNS Response Code:", dns.rcode)
 			if dns.an is not None:
 				# print(dns.an)
 				self.dns_list[dv]["answers"] = []
@@ -256,21 +330,19 @@ class rulesengine:
 		self.ruleset = []
 
 	def validaterules(self):
-
 		return True
-
-	def rundomainrules(self, content):
-		for fn in os.listdir("ArkThorRule"):
-			if ".ark" not in fn: continue
-			# print("Processing rules from", fn)
-			self.rengine = json.loads(open(os.path.join("ArkThorRule",fn)).read())
-			for r in self.rengine:
-				if r["scope"] == "DNS":
-					context = rule_engine.Context(type_resolver=rule_engine.type_resolver_from_dict({
-						'domain': rule_engine.DataType.STRING,
-						'address': rule_engine.DataType.ARRAY(rule_engine.DataType.STRING)
-					}))
-					rule = rule_engine.Rule(r["rule"])
+	
+	def domainrulesinthread(self, fn, content):
+		self.rengine = json.loads(open(os.path.join("ArkThorRule",fn)).read())
+		st = time.perf_counter()
+		for r in self.rengine:
+			if r["scope"] == "DNS":
+				context = rule_engine.Context(type_resolver=rule_engine.type_resolver_from_dict({
+					'domain': rule_engine.DataType.STRING,
+					'address': rule_engine.DataType.ARRAY(rule_engine.DataType.STRING)
+				}))
+				for ru in r["rule"]:
+					rule = rule_engine.Rule(ru)
 					for x in content:
 						js = {"domain": x}
 						for y in content[x]:
@@ -284,29 +356,118 @@ class rulesengine:
 						except rule_engine.errors.SymbolResolutionError as ex:
 							# print("Unavailable param", ex)
 							pass
-				elif r["scope"] == "IPPORT":
-					context = rule_engine.Context(type_resolver=rule_engine.type_resolver_from_dict({
-						'ip': rule_engine.DataType.STRING,
-					}))
-					rule = rule_engine.Rule(r["rule_ip"])
+
+		logging.info("Domain [-] %s took %s to complete"%(fn, str(time.perf_counter() - st)))
+
+	def rundomainrules(self, content):
+		count = 0
+		for fn in os.listdir("ArkThorRule"):
+			if ".ark" not in fn: continue
+			# print("Processing rules from", fn)
+			th.Thread(target=self.domainrulesinthread, args=(fn, content)).start()
+			count = count + 1
+			if (count % 10) == 0:
+				print("Wait for threads to spawn")
+				time.sleep(10)
+			
+		while th.active_count() != 1:
+			logging.info(th.active_count())
+			time.sleep(10)
+
+		logging.info("Domain Rules Processing COmplete")
+
+	def iprulesinthread(self, fn, content):
+		self.rengine = json.loads(open(os.path.join("ArkThorRule",fn)).read())
+		st = time.perf_counter()
+		for r in self.rengine:
+			if r["scope"] == "IPPORT":
+				# to check rules with IP only
+				context = rule_engine.Context(type_resolver=rule_engine.type_resolver_from_dict({
+					'ip': rule_engine.DataType.STRING,
+					'port': rule_engine.DataType.STRING,
+				}))
+				for ru in r["rule"]:
+					rule = rule_engine.Rule(ru)
 					for x in content:
-						if 'answers' not in content[x]: continue
-						js = {"ip": content[x]['answers']}
+						if 'src' in x:
+							js = {"ip": x['src'], "port" : x['sport']}
+							try:
+								if rule.matches(js) == True:
+									rs = r
+									if "rule" in rs: del (rs['rule'])
+									if "scope" in rs: del (rs['scope'])
+									self.ruleset.append(rs)
+							except rule_engine.errors.SymbolResolutionError as ex:
+								# print("Unavailable param", ex)
+								pass
+
+		logging.info("IP [-] %s took %s to complete"%(fn, str(time.perf_counter() - st)))
+
+	def runiprules(self, content):
+		count = 0
+		for fn in os.listdir("ArkThorRule"):
+			if ".ark" not in fn: continue
+			# print("Processing rules from", fn)
+			th.Thread(target=self.iprulesinthread, args=(fn, content)).start()
+			count = count + 1
+			if (count % 10) == 0:
+				print("Wait for threads to spawn")
+				time.sleep(10)
+			
+		while th.active_count() != 1:
+			logging.info(th.active_count())
+			time.sleep(10)
+
+		logging.info("IP Rules Processing COmplete")
+
+	def httprulesinthread(self, fn, content):
+		self.rengine = json.loads(open(os.path.join("ArkThorRule",fn)).read())
+		st = time.perf_counter()
+		for r in self.rengine:
+			if r["scope"] == "URL":
+				context = rule_engine.Context(type_resolver=rule_engine.type_resolver_from_dict({
+					'user_agent': rule_engine.DataType.STRING,
+					'path': rule_engine.DataType.STRING,
+					'host': rule_engine.DataType.STRING,
+					'url': rule_engine.DataType.STRING,
+				}))
+				for ru in r["rule"]:
+					rule = rule_engine.Rule(ru)
+					for x in content:
+						js = {"user_agent": x['user_agent'], "path" : x['path'],
+							"host" : x['host'], 'url' : x['host'] + x['path'] }
 						try:
 							if rule.matches(js) == True:
 								rs = r
 								if "rule" in rs: del (rs['rule'])
 								if "scope" in rs: del (rs['scope'])
-								if "rule_ip_port" in rs: del (rs['rule_ip_port'])
-								if "rule_ip" in rs: del (rs['rule_ip'])
 								self.ruleset.append(rs)
 						except rule_engine.errors.SymbolResolutionError as ex:
 							# print("Unavailable param", ex)
 							pass
+		logging.info("IP [-] %s took %s to complete"%(fn, str(time.perf_counter() - st)))
+
+	def runhttprules(self, content):
+		count = 0
+		for fn in os.listdir("ArkThorRule"):
+			if ".ark" not in fn: continue
+			# print("Processing rules from", fn)
+			#th.Thread(target=self.httprulesinthread, args=(fn, content)).start()
+			self.httprulesinthread(fn, content)
+			count = count + 1
+			if (count % 10) == 0:
+				print("Wait for threads to spawn")
+				time.sleep(10)
+			
+		while th.active_count() != 1:
+			logging.info(th.active_count())
+			time.sleep(10)
+
+		logging.info("IP Rules Processing COmplete")
+
 
 	def get_detected_rules(self):
 		return self.ruleset
-
 
 class processing_history:
 	def __init__(self):
@@ -328,7 +489,7 @@ class processing_history:
 		cur.execute("select * from processed where filehash = '%s' and fdtime = '%s'"%(sha256.upper(), int(mtime) ))
 		retval = False
 		for v in cur.fetchall():
-			print(v)
+			logging.info(v)
 			retval = True
 		conn.close()
 		return retval
@@ -387,22 +548,27 @@ def check_create_ip2asn_data(should_create):
 
 	if os.path.exists("ipasn.sqlite3"):
 		st = os.stat("ipasn.sqlite3")
-		if st.st_mtime < datetime.datetime.now().timestamp() - 14400:
-			print("IP2asn databse is more than 4 hrs old.")
+		if st.st_mtime < datetime.datetime.now().timestamp() - 14400: 	# 4 hrs in seconds
 			logging.info("IP2asn databse is more than 4 hrs old.")
 			os.unlink("ipasn.sqlite3")
 
+		if st.st_size < 10240:
+			logging.info("IP2asn databse may be corrupted.")
+			os.unlink("ipasn.sqlite3")
+
 	if os.path.exists("ipasn.sqlite3"):
-		print("IP2ASN is updated one")
 		logging.info("IP2ASN is updated one")
 		return True
 	logging.info("Updating IP2ASN Database")
 	conn = sqlite3.connect("ipasn.sqlite3")
-		
+
 	cur = conn.cursor()
 			
 	#download the tsv=
-	r = requests.get(url)
+	try:
+		r = requests.get(url)
+	except requests.exceptions.SSLError:
+		r = requests.get(url, verify = False)
 	if r.status_code != 200:
 		print("Unable to get the tsv", r.status_code)
 		logging.error(f"Unable to get the tsv : {r.status_code} ")
@@ -449,7 +615,7 @@ def intimate_completion(fjson, url_prefix):
 				try:
 					event = BytesIO(json.dumps(max(d, key=lambda ev: ev['severity'])).encode())
 				except KeyError:
-					event = BytesIO(json.dumps(d))
+					event = BytesIO(json.dumps(d).encode())
 				event.seek(0)
 
 				print(fjson)
@@ -492,6 +658,7 @@ def submit_artifacts_of_pcaprun(filehash,foldername, url_prefix):
 	for fn in os.listdir(os.path.join("results", foldername)):
 		#get the mimetype of submiiting file
 		#content_type, encoding = mimetypes.guess_type(os.path.join(foldername, fn))
+		submit_successful = True
 		if fn == "detected.json": continue
 		try:
 			r = requests.post("%s/api/FileUpload/UploadSupportingFile"%(url_prefix),
@@ -501,13 +668,16 @@ def submit_artifacts_of_pcaprun(filehash,foldername, url_prefix):
 		except requests.exceptions.ConnectionError as e:
 			print("Cannot connect to server to post data")
 			logging.error("Cannot connect to server to post data")
+			submit_successful = False
 		else:
 			print("Submitting ", fn, "with return code", r.status_code)
 			logging.info(f"Submitting  {fn}, with return code: {r.status_code}")
 			if r.status_code == 200:
 				os.unlink(os.path.join("results", foldername, fn))
 				
-	os.rmdir(os.path.join("results", foldername))
+		if submit_successful == True:
+			import shutil
+			shutil.rmtree(os.path.join("results", foldername))
 	
 ##############################################################
 # Author: Sriram											 #
@@ -531,10 +701,13 @@ def get_cn_from_ip(ipaddr, fname="ipasn.sqlite3"):
 	cur.execute(tequery)
 
 	res = cur.fetchall()
+	if res == []:
+		raise Exception("Error in last run of ip2asn. Please rerun ip2asn")
+	
 	tablename = ""
 
 	for tn in res:
-		tablename = tn[0]
+		tablename = tn[-1]
 
 	ipnum = struct.unpack("!I", socket.inet_aton(ipaddr))[0]
 
@@ -559,7 +732,10 @@ def process_threatfox_to_arkthor(overwrite_rules=True):
 	# manifest.json can be read to understand more, Unfortunately, I saw this in the last moment
 	
 	if True:
-		r = requests.get(mispurl)
+		try:
+			r = requests.get(mispurl)
+		except requests.exceptions.SSLError:
+			r = requests.get(mispurl, verify = False)
 		if r.status_code != 200:
 			raise Exception("Error accessing Threatfox MISP page")
 		# I use this for testing
@@ -590,41 +766,55 @@ def process_threatfox_to_arkthor(overwrite_rules=True):
 
 		jsonurl = mispurl + b[1] + ".json"
 
-		r = requests.get(jsonurl)
+		try:
+			r = requests.get(jsonurl)
+		except requests.exceptions.SSLError:
+			r = requests.get(jsonurl, verify = False)
 		if r.status_code != 200:
 			raise Exception("Error accessing Threatfox Individual page", jsonurl)
 		s = r.json()
 		js = []
 		for dom in s["Event"]["Attribute"]:
+			if "(confidence level" in dom["comment"]:
+				name = dom["comment"][ : dom["comment"].find("(confidence level")]
+			else:
+				name = dom["comment"]
+			name = name.strip()
 			sev = re.search("\(confidence level: (\d{1,3})%\)", dom["comment"])
 			if sev == None:
 				raise Exception("Error understanding threatfox page")
 			if dom["type"] == "domain":
 				js.append({
-					"rule_name": dom["comment"],
+					"rule_name": name,
 					"authored_timestamp": int(datetime.datetime.utcnow().timestamp()),
-					"rule": "domain == \"%s.\""%(dom["value"]),
+					"rule": ["domain == \"%s.\""%(dom["value"])],
 					"scope": "DNS",
 					"severity": sev[1],
+					"automated" : "true",
 					"MITRE": [ "T1071.001", "T1132.001", "T1568", "T1102.003" ]
 				})
 			elif dom["type"] == "url":
+				path = urlparse(dom["value"])
+				netloc = path.netloc
+				if ":" in netloc:
+					netloc = netloc[ : netloc.find(":")]
 				js.append({
-					"rule_name": dom["comment"],
+					"rule_name": name,
 					"authored_timestamp": int(datetime.datetime.utcnow().timestamp()),
-					"rule": "url == \"%s\""%(dom["value"]),
+					"rule": ["url == \"%s\""%(dom["value"]), "path == \"%s\""%(path.path), "domain == \"%s\""%(netloc)],
 					"scope": "URL",
+					"automated" : "true",
 					"severity": sev[1]
 				})
 			elif dom["type"] == "ip-dst|port":
 				ip, port = dom["value"].split("|")
 				if port == "1": port = "*"
 				js.append({
-					"rule_name": dom["comment"],
+					"rule_name": name,
 					"authored_timestamp": int(datetime.datetime.utcnow().timestamp()),
-					"rule_ip_port": "ip == \"%s\" and port == \"%s\""%(ip, port),
-					"rule_ip": "ip == \"%s\""%(ip),
+					"rule": ["ip == \"%s\""%(ip), "ip == \"%s\" and port == \"%s\""%(ip, port)],
 					"scope": "IPPORT",
+					"automated" : "true",
 					"severity": sev[1]
 				})
 
@@ -636,6 +826,8 @@ def process_threatfox_to_arkthor(overwrite_rules=True):
 def aggregate_detections(ppe, s256):
 	ren = rulesengine()
 	ren.rundomainrules(ppe.get_processed_dns_packet())
+	ren.runiprules(ppe.get_processed_ip_packet())
+	ren.runhttprules(ppe.get_processed_http_packet())
 	cl = ppe.get_country_list()
 
 	union_json = {}
@@ -712,10 +904,20 @@ def process_pcap(fname):
 	ph = processing_history()
 	logging.info(f"loading processing_history:Done")
 
+	# if file is zip password protected, extract the file and then calculate sha256
 	sha256 = hashlib.sha256()
-	sha256.update(open(fname, "rb").read())
+	if ".zip" in fname:
+		bio = BytesIO()
+		zf = zipfile.ZipFile(fname)
+		zf.pwd = b'infected'
+		sha256.update(zf.extract(zf.filelist[0]).encode())		#Extract first file assuming only 1 file
+		zf.close()
+		logging.info(f"The pcap is Zipped password protected, successfully processed")
+	else:
+		sha256.update(open(fname, "rb").read())
 	s256 = sha256.hexdigest()
 	s256 = s256.upper()
+	logging.info(f"SHA256 for the pcap is calculated as %s"%(s256))
 
 	#Check if IP2ASN is updated one
 	if check_create_ip2asn_data(cnf.update_ip2asn) == False:
@@ -724,7 +926,6 @@ def process_pcap(fname):
 	stat = os.stat(fname)
 
 	if ph.exists_in_processing(s256, stat.st_mtime) == True:
-		print("Already Processed", fname)
 		logging.info(f"Already Processed :{fname}")
 		if cnf.run_rules_on_processed_pcap == False: return
 		ppe = packetprocessengine()
@@ -776,9 +977,10 @@ def process_pcap(fname):
 		submit_artifacts_of_pcaprun(s256,s256, cnf.baseurl)
 
 	ph.insert_into_processing(s256, stat.st_mtime)
+	ppe.close()
+
 	if cnf.deleteprocessed == True: 
-					#os.unlink(fp)
-		delete_file(fname)
+		os.unlink(fname)
 	return
 
 # Define message callback function
@@ -894,7 +1096,6 @@ def consume_messages(connection_params):
 	
 	try:
 		# Establish connection
-		#print(connection_params)
 		connection = pika.BlockingConnection(connection_params)
 		channel = connection.channel()
 
@@ -902,7 +1103,6 @@ def consume_messages(connection_params):
 		channel.queue_declare(queue='Analysis')
 		channel.queue_declare(queue='ip2asn')
 		channel.queue_declare(queue='ThreatFoxRule')
-	   # print("RabbitMQ Connection Succesful, Now start consuming Message..")
 		logging.info("RabbitMQ Connection Succesful, Now start consuming Message..")
 		# Start consuming messages
 		channel.basic_consume(queue='Analysis', on_message_callback=process_message)
@@ -930,33 +1130,6 @@ def find_file_by_filename(folder_path, filename):
 	logging.error(f"Uploaded File {filename} not-available at location: {folder_path}")
 	return None
 
-#Added by jawed to delete processed files
-def delete_file(filename):
-	#max_retries = 5
-	#retry_delay = 1  # seconds
-	try:
-		os.remove(filename)
-		logging.info(f"File {filename} deleted successfully.")
-	except PermissionError:
-		retries = 0
-		while retries < 3:
-			logging.info(f"File {filename} is being used by another process. Retrying...")
-			time.sleep(1)
-			retries += 1
-			try:
-				# Check if the file is open and close it if necessary
-				with open(filename, "a") as file:
-					pass  # Do nothing, just checking if it raises an exception
-				file.close()  # Close the file before attempting deletion
-				os.remove(filename)
-				logging.info(f"File  {filename} deleted successfully after retry.")
-				break  # Exit the retry loop if the deletion is successful
-			except PermissionError:
-				continue
-		else:
-			logging.info(f"Maximum retries exceeded. Unable to delete the file {filename}.")
-
-
 def main():
 	fold = ""
 	# Enable verbose logging
@@ -964,8 +1137,7 @@ def main():
 	# watch the folder UploadedFiles
 	param = ""
 
-	if len(sys.argv) > 2:
-		print("Unwanted commandlines passed, Exiting...")
+	if len(sys.argv) > 3:
 		logging.info("Unwanted commandlines passed, Exiting...")
 		return
 	
@@ -980,6 +1152,12 @@ def main():
 			return
 		else:
 			print("Unknown parameter:", param, "Exiting...")
+			return
+	elif len(sys.argv) == 3:
+		param = sys.argv[1]
+		if param == "testpcap":
+			fn = sys.argv[2]
+			process_pcap(fn)
 			return
 
 	# load config file
@@ -1009,7 +1187,6 @@ def main():
 		logging.info(cnf.rabbitmqhost)		
 		#credentials = pika.credentials.PlainCredentials('guest', 'guest')
 		connection_params = pika.ConnectionParameters(host=cnf.rabbitmqhost, port=5672, virtual_host='/')#, credentials=credentials)
-		#print (connection_params)
 		time.sleep(5) #Wait for connection to established
 		#Start consuming messages
 		consume_messages(connection_params)
@@ -1030,7 +1207,7 @@ def main():
 
 if __name__ == "__main__":
 	main()
-
+	
 
 ##############################################################
 # Author: Sriram											 #
