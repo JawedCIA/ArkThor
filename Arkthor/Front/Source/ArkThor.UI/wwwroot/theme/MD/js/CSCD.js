@@ -574,7 +574,7 @@ function GetSupportFileRecords(baseApiUrl, hashOfFile) {
 
                 }
                 else {
-                    console.log("0 Applications return from API.." + services);
+                    console.log("0 Support File Return from API..");
                 }
 
             }
