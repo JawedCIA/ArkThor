@@ -413,6 +413,9 @@ function getHighestConfidenceLevelThreatType(threatType) {
             }
        // }
     }
+    if ((highestConfidenceVariable == undefined || highestConfidenceVariable == null || highestConfidenceVariable == "")) {
+        highestConfidenceVariable = parts[0];
+    }
     return highestConfidenceVariable;
 
 }
