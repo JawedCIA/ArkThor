@@ -122,7 +122,7 @@ function DistributionTypeChart(FromDate, ToDate, elementID,baseAPIURL) {
 
     const labels = [];
     const Data = [];
-    const backgroundColor = ["#949FB1", "#46BFBD", "#F7464A", "#FDB45C"];
+    const backgroundColor = ["#5AD3D1", "#46BFBD", "#F7464A", "#FDB45C"];
     const hoverBackgroundColor = ["#A8B3C5", "#5AD3D1", "#FF5A5E", "#FFC870"];
 
     let urlToGetData = baseAPIURL+"FileRecord/GetThreatDistributionBasedOnUploadedDate?FromUploadedDate=" + FromDate + "&ToUploadedDate=" + ToDate;
@@ -198,7 +198,7 @@ function DistributionStatusChart(FromDate, ToDate, elementID) {
 
     const labels = [];
     const data = [];
-    const backgroundColor = ["#949FB1", "#46BFBD", "#F7464A", "#FDB45C", "#00FF00"];
+    const backgroundColor = ["#5AD3D1", "#46BFBD", "#F7464A", "#FDB45C", "#00FF00"];
     const hoverBackgroundColor = ["#A8B3C5", "#5AD3D1", "#FF5A5E", "#FFC870"];
 
     let urlToGetData = "FileRecord/GetStatusDistributionBasedOnUploadedDate?FromUploadedDate=" + FromDate + "&ToUploadedDate=" + ToDate;
@@ -302,6 +302,12 @@ function drawDoughNutChart(labels, data, colors, elementID, hoverBackgroundColor
         }
         if (labels[i].toUpperCase() == "INPROGRESS") {
             colors[i] = "#00FF00"
+        }
+        if (labels[i].toUpperCase() == "UNCATEGORIZED") {
+            colors[i] = "#949FB1"
+        }
+        if (labels[i].toUpperCase() == "FAILURE") {
+            colors[i] = "red"
         }
         donutData.push({
             label: labels[i].toUpperCase(),

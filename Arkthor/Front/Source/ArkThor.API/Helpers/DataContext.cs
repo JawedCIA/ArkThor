@@ -5,6 +5,7 @@ using System.Data;
 using ArkThor.API.Entities;
 using Dapper;
 using Microsoft.Data.Sqlite;
+using Polly;
 public class DataContext : DbContext
 {
     protected readonly IConfiguration Configuration;
@@ -17,13 +18,50 @@ public class DataContext : DbContext
     protected override void OnConfiguring(DbContextOptionsBuilder options)
     {
         // connect to sqlite database
-        options.UseSqlite(Configuration.GetConnectionString("ArkThorDatabase"));
+        // options.UseSqlite(Configuration.GetConnectionString("ArkThorDatabase"));
+        var connectionStringBuilder = new SqliteConnectionStringBuilder(Configuration.GetConnectionString("ArkThorDatabase"))
+        {
+            DefaultTimeout = 30, // Increase the default timeout value
+        };
+
+        // Retry policy for SQLite locking errors
+        var retryPolicy = Policy
+            .Handle<SqliteException>(ex => ex.ErrorCode == 5) // Check for SQLite Error 5: 'database is locked'
+            .Retry(3, (exception, retryCount) =>
+            {
+                // Optionally, log the retry attempts
+                Console.WriteLine($"Retry #{retryCount} due to locking error: {exception.Message}");
+            });
+
+        // Connect to the SQLite database with retry policy
+        retryPolicy.Execute(() => options.UseSqlite(connectionStringBuilder.ConnectionString));
     }
 
 
     public IDbConnection CreateConnection()
     {
-        return new SqliteConnection(Configuration.GetConnectionString("ArkThorDatabase"));
+        var connectionStringBuilder = new SqliteConnectionStringBuilder(Configuration.GetConnectionString("ArkThorDatabase"))
+        {
+            DefaultTimeout = 30, // Increase the default timeout value
+        };
+
+        IDbConnection connection = null;
+
+        var retryPolicy = Policy
+            .Handle<SqliteException>(ex => ex.ErrorCode == 5) // Check for SQLite Error 5: 'database is locked'
+            .Retry(3, (exception, retryCount) =>
+            {
+                // Optionally, log the retry attempts
+                Console.WriteLine($"Retry #{retryCount} due to locking error: {exception.Message}");
+            });
+
+        retryPolicy.Execute(() =>
+        {
+            connection = new SqliteConnection(connectionStringBuilder.ConnectionString);
+            connection.Open();
+        });
+
+        return connection;
     }
 
     public async Task Init()
