@@ -29,6 +29,8 @@ import zipfile
 # Global variable declaration
 global_var_foldertowatch = None
 global_var_arkthorapiUrl = None
+global_var_threatfox_rule_update_from_Date = None
+global_var_threatfox_rule_update_to_Date = None
 class config_loader:
 	def __init__(self):
 		jsn = json.load(open("config.json"))
@@ -76,7 +78,7 @@ class config_loader:
 				self.multithreaded_rules_processing = True
 			else:
 				raise Exception("Unknown value in multithreaded_rules_processing of config file")
-
+			
 			if jsn['run_rules_on_processed_pcap'].lower() == "false":
 				self.run_rules_on_processed_pcap = False
 			elif jsn['run_rules_on_processed_pcap'].lower() == "true":
@@ -86,6 +88,10 @@ class config_loader:
 
 			self.baseurl = jsn['arkthor']["apibaseurl"]
 			self.rabbitmqhost = jsn['arkthor']["rabbitmqhost"]
+
+			self.threatfox_rule_update_from_Date = jsn['threatfox_rule_update_from_Date']
+		
+			self.threatfox_rule_update_to_Date = jsn['threatfox_rule_update_to_Date']
 
 		except KeyError as e:
 			raise Exception("Error parsing the config file" + e)
@@ -507,15 +513,28 @@ def set_global_variable(value):
 	global_var_foldertowatch = value
 
 def intimate_status(filehash, status, url_prefix):
-	try:
-		r = requests.put("%s/api/FileRecord/UpdateStatus"%(url_prefix),
-					 params={"hash256": filehash.upper(), "status": status})
-	except requests.exceptions.ConnectionError as e:
-		print("Cannot connect to Arkthor API server to post data")
-		logging.info("Cannot connect to Arkthor API server to post data")
-	else:
-		print(r.status_code)
-		logging.info(f"Updated Processing Status {status} to ArkThor API with StatusCode: {r.status_code}")
+    try:
+        r = requests.put(f"{url_prefix}/api/FileRecord/UpdateStatus",
+                         params={"hash256": filehash.upper(), "status": status})
+    except requests.exceptions.ConnectionError as e:
+        logging.error("Cannot connect to Arkthor API server to post data")
+    else:
+        logging.info(f"Updated Processing Status {status} to ArkThor API with StatusCode: {r.status_code}")
+        
+        # Check if the request was successful (status code 200)
+        if r.status_code == 200:
+            # Parse the JSON response
+            data = r.json()
+            
+            # Check if the 'result' key exists in the response
+            if 'result' in data:
+                # Retrieve the value of the 'result' key
+                result = data['result']
+                logging.info(f"Result: {result}")
+            else:
+                logging.error("No 'result' key found in the response")
+        else:
+            logging.error(f"Request failed with status code: {r.status_code}")
 
 def check_create_ip2asn_data(should_create):
 	######################################################################
@@ -613,9 +632,11 @@ def intimate_completion(fjson, url_prefix):
 				d = json.load(open(fjson))
 
 				try:
-					event = BytesIO(json.dumps(max(d, key=lambda ev: ev['severity'])).encode())
-				except KeyError:
+					#event = BytesIO(json.dumps(max(d, key=lambda ev: ev['severity'])).encode())
 					event = BytesIO(json.dumps(d).encode())
+				except KeyError:
+					#event = BytesIO(json.dumps(d).encode())
+					event = BytesIO()
 				event.seek(0)
 
 				print(fjson)
@@ -623,7 +644,7 @@ def intimate_completion(fjson, url_prefix):
 					'accept': '*/*'
 				}
 				files = {
-					'file': (fjson, event, 'application/json')
+					'file': (fjson, event, mimetypes.guess_type(fjson)[0])
 				}
 				r = requests.post("%s/api/FileUpload/UploadFileOutPutJson" % (url_prefix), files=files, headers=headers)
 
@@ -675,9 +696,9 @@ def submit_artifacts_of_pcaprun(filehash,foldername, url_prefix):
 			if r.status_code == 200:
 				os.unlink(os.path.join("results", foldername, fn))
 				
-		if submit_successful == True:
-			import shutil
-			shutil.rmtree(os.path.join("results", foldername))
+	if submit_successful == True:
+		import shutil
+		shutil.rmtree(os.path.join("results", foldername))
 	
 ##############################################################
 # Author: Sriram											 #
@@ -730,7 +751,11 @@ def process_threatfox_to_arkthor(overwrite_rules=True):
 
 	mispurl = "https://threatfox.abuse.ch/downloads/misp/"
 	# manifest.json can be read to understand more, Unfortunately, I saw this in the last moment
-	
+	from_date = datetime.datetime.strptime(global_var_threatfox_rule_update_from_Date, "%Y-%m-%d")
+	to_date = datetime.datetime.strptime(global_var_threatfox_rule_update_to_Date, "%Y-%m-%d")
+	logging.info(f"from date to convert threatfox : {from_date}")
+	logging.info(f"To date to convert threatfox : {to_date}")
+
 	if True:
 		try:
 			r = requests.get(mispurl)
@@ -754,7 +779,9 @@ def process_threatfox_to_arkthor(overwrite_rules=True):
 		a = re.search("^<td align=\"right\">(\d{4}\-\d{2}\-\d{2}).*<\/td>", str(td[2]))
 		if a == None: continue
 		dt = datetime.datetime.strptime(a[1], "%Y-%m-%d")
-		if dt < datetime.datetime.strptime('2021-01-01', "%Y-%m-%d"): continue
+		#print(dt)
+		if not (from_date <= dt <= to_date):
+			continue
 		print(td[2], a[1], dt)
 
 		href = td[1].find_all("a")
@@ -880,7 +907,7 @@ def aggregate_detections(ppe, s256):
 
 		if len(severity_list) > 0:
 			highest_number = max(severity_list)
-			union_json["severity"]=highest_number
+			union_json["severity"]=str(highest_number)
 			#print(highest_number)
 		else:
 			union_json["severity"]=0
@@ -980,7 +1007,11 @@ def process_pcap(fname):
 	ppe.close()
 
 	if cnf.deleteprocessed == True: 
-		os.unlink(fname)
+		try:
+			os.unlink(fname)
+			logging.info(f"File {fname} successfully deleted.")
+		except OSError as e:
+			logging.error(f"Failed to delete file {fname}. Error: {str(e)}")
 	return
 
 # Define message callback function
@@ -1136,6 +1167,16 @@ def main():
 	logging.basicConfig(level=logging.INFO)
 	# watch the folder UploadedFiles
 	param = ""
+		#load the config file
+	cnf = config_loader()
+	global global_var_arkthorapiUrl
+	global_var_arkthorapiUrl = cnf.baseurl
+
+	global global_var_threatfox_rule_update_from_Date
+	global_var_threatfox_rule_update_from_Date = cnf.threatfox_rule_update_from_Date
+
+	global global_var_threatfox_rule_update_to_Date
+	global_var_threatfox_rule_update_to_Date = cnf.threatfox_rule_update_to_Date
 
 	if len(sys.argv) > 3:
 		logging.info("Unwanted commandlines passed, Exiting...")
@@ -1165,10 +1206,8 @@ def main():
 		logging.info("config.json file not found in the folder")
 		exit(1)
 
-	#load the config file
-	cnf = config_loader()
-	global global_var_arkthorapiUrl
-	global_var_arkthorapiUrl = cnf.baseurl
+
+
 
 	logging.info("Config Loaded Successfully")
 	if fold == "":

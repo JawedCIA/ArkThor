@@ -1136,16 +1136,16 @@ function displayLiveTrackingOnBoard(response) {
     //New System
     //To Display Banner  
     if ((response.threatType)) { 
-    if ((response.threatType).toUpperCase() == 'NO THREAT') {
+        if ((response.threatType).toUpperCase() == 'NO THREAT') {
         div_ribbon_bg_primary.className = 'ribbon bg-success';
         iConStatus.className = 'icon fas fa-check';
         displayRibbon = '1';
         div_ribbon_wrapper.append(div_ribbon_bg_primary);
     }
 
-    else if ((response.threatType).toUpperCase() == 'AMBIGUOUS' || (response.threatType).toUpperCase() == 'SUSPICIOUS' || (response.threatType).toUpperCase() == 'UNCATEGORIZED') {
+        else if ((response.threatType).toUpperCase() == 'AMBIGUOUS' || (response.threatType).toUpperCase() == 'SUSPICIOUS' || (response.threatType).toUpperCase() == 'UNCATEGORIZED' ) {
         div_ribbon_bg_primary.className = 'ribbon bg-secondary';
-        iConStatus.className = 'icon fas fa-bug';
+            iConStatus.className = 'icon far fa-question-circle';
         displayRibbon = '1';
         div_ribbon_wrapper.append(div_ribbon_bg_primary);
     }
