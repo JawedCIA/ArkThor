@@ -33,7 +33,10 @@ global_var_threatfox_rule_update_from_Date = None
 global_var_threatfox_rule_update_to_Date = None
 class config_loader:
 	def __init__(self):
-		jsn = json.load(open("config.json"))
+		file_path = "arkthorcoreconfig/config.json"
+		with open(file_path) as file:
+			jsn = json.load(file)
+		#jsn = json.load(open("config.json"))
 		try:
 			self.watchfolder = jsn["watcher"]["watch-folder"]
 			self.delaytime = int(jsn["watcher"]["watch-delay"])
