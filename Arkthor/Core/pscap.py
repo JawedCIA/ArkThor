@@ -33,7 +33,7 @@ global_var_threatfox_rule_update_from_Date = None
 global_var_threatfox_rule_update_to_Date = None
 class config_loader:
 	def __init__(self):
-		file_path = "arkthorcoreconfig/config.json"
+		file_path = os.path.join("arkthorcoreconfig", "config.json")
 		with open(file_path) as file:
 			jsn = json.load(file)
 		#jsn = json.load(open("config.json"))
@@ -1170,7 +1170,7 @@ def main():
 	logging.basicConfig(level=logging.INFO)
 	# watch the folder UploadedFiles
 	param = ""
-		#load the config file
+
 	cnf = config_loader()
 	global global_var_arkthorapiUrl
 	global_var_arkthorapiUrl = cnf.baseurl
@@ -1204,15 +1204,7 @@ def main():
 			process_pcap(fn)
 			return
 
-	# load config file
-	if not os.path.exists("config.json"):
-		logging.info("config.json file not found in the folder")
-		exit(1)
 
-
-
-
-	logging.info("Config Loaded Successfully")
 	if fold == "":
 			fold = cnf.watchfolder
 			set_global_variable(fold)
