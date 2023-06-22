@@ -25,6 +25,7 @@ import threading as th
 from urllib.parse import urlparse
 from io import BytesIO
 import zipfile
+import shutil
 
 # Global variable declaration
 global_var_foldertowatch = None
@@ -33,9 +34,10 @@ global_var_threatfox_rule_update_from_Date = None
 global_var_threatfox_rule_update_to_Date = None
 class config_loader:
 	def __init__(self):
-		file_path = os.path.join("arkthorcoreconfig", "config.json")
-		with open(file_path) as file:
-			jsn = json.load(file)
+		#file_path = os.path.join("arkthorcoreconfig", "config.json")
+		jsn = json.loads(open(os.path.join("arkthorcoreconfig","config.json")).read())
+		#with open(file_path) as file:
+			#jsn = json.load(file)
 		#jsn = json.load(open("config.json"))
 		try:
 			self.watchfolder = jsn["watcher"]["watch-folder"]
@@ -1164,13 +1166,58 @@ def find_file_by_filename(folder_path, filename):
 	logging.error(f"Uploaded File {filename} not-available at location: {folder_path}")
 	return None
 
+#Move COnfig file under folder- needed to mapped container with host for config
+def move_configfile(file_name, destination_folder):
+	
+    # Get the current working directory (root folder)
+    current_directory = os.getcwd()
+
+    # Create the full path for the source file
+    source_file_path = os.path.join(current_directory, file_name)
+
+    # Create the full path for the destination folder
+    destination_folder_path = os.path.join(current_directory, destination_folder)
+
+    # Create the destination folder if it doesn't exist
+    if not os.path.exists(destination_folder_path):
+        os.makedirs(destination_folder_path)
+
+    # Create the full path for the destination file
+    destination_file_path = os.path.join(destination_folder_path, file_name)
+
+    # Check if the destination file already exists
+    if os.path.exists(destination_file_path):
+        logging.info(f"File '{file_name}' already exists in '{destination_folder}'.")
+    else:
+        # Move the file to the destination folder
+        try:
+            shutil.copy(source_file_path, destination_file_path)
+            logging.info(f"File '{file_name}' moved to '{destination_folder}' successfully.")
+        except shutil.Error as e:
+            logging.error(f"Failed to move file '{file_name}': {str(e)}")
+
+#Check for ArkThor Rule folder contents if there is file then exist otherwise execute rule creation method.
+def check_rulefolder_contents(folder_path):
+    # Get the list of files in the folder
+    files = os.listdir(folder_path)
+
+    # Check if any file exists starting with "arkthor"
+    if any(file.startswith("arkthor") for file in files):
+        logging.info(f"Found a file starting with 'arkthor' in the folder.")
+    else:
+        logging.info(f"No file starting with 'arkthor' found in the folder, calling method to fetch threatfox rule..")
+        process_threatfox_to_arkthor()
+
+
+#main Method
 def main():
 	fold = ""
 	# Enable verbose logging
 	logging.basicConfig(level=logging.INFO)
 	# watch the folder UploadedFiles
 	param = ""
-
+	#Move the config file under Arkthorcoreconfi folder- needed to mapped container with host
+	move_configfile("config.json","arkthorcoreconfig")
 	cnf = config_loader()
 	global global_var_arkthorapiUrl
 	global_var_arkthorapiUrl = cnf.baseurl
@@ -1180,6 +1227,9 @@ def main():
 
 	global global_var_threatfox_rule_update_to_Date
 	global_var_threatfox_rule_update_to_Date = cnf.threatfox_rule_update_to_Date
+
+	#Check for Arkthor Rules folder for its contents
+	check_rulefolder_contents("ArkThorRule")
 
 	if len(sys.argv) > 3:
 		logging.info("Unwanted commandlines passed, Exiting...")
