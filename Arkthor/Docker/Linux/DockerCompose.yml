@@ -8,7 +8,7 @@ services:
     depends_on:
       - arkthorapi
     ports:
-      - "24297:80"    
+      - "24297:80"
     networks:
       - nwarkthor
 
@@ -28,17 +28,22 @@ services:
   arkthorcore:
     image: arkthor/arkthor-core:latest
     restart: "always"
+    deploy:
+      replicas: 3    
     depends_on:
       - arkthorapi
+      - rabbitmq
     volumes:
       - "AnalysesFiles:/app/UploadedFiles"
+      - "ArkThorRule:/app/ArkThorRule"
+      - "ArkthorCoreConfig:/app/arkthorcoreconfig"
     networks:
-      - nwarkthor  
+      - nwarkthor
  
   rabbitmq:
     image: rabbitmq:3.12-management
-    container_name: rabbitmq
     restart: "always"
+    container_name: rabbitmq
     ports:
       - "15672:15672"
     networks:
@@ -46,6 +51,8 @@ services:
 volumes:
   AnalysesFiles:
   Database:
+  ArkThorRule:
+  ArkthorCoreConfig:
 networks:
   nwarkthor:
     name: nwarkthor
