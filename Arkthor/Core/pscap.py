@@ -535,97 +535,108 @@ def intimate_status(filehash, status, url_prefix):
             if 'result' in data:
                 # Retrieve the value of the 'result' key
                 result = data['result']
-                logging.info(f"Result: {result}")
+                logging.info(f"Status Result: {result}")
             else:
-                logging.error("No 'result' key found in the response")
+                logging.error("No 'Status result' key found in the response")
         else:
-            logging.error(f"Request failed with status code: {r.status_code}")
+            logging.error(f"Status Update Request failed with status code: {r.status_code}")
 
 def check_create_ip2asn_data(should_create):
-	######################################################################
-	# For scalability in containers, this database file has to be stored #
-	# in a common shared location like s3 bucket or gcs bucket. The file #
-	# creation has to be locked with a lockfile and other process has to #
-	# # wait until this lockfile is released                             #
-	######################################################################
+    ######################################################################
+    # For scalability in containers, this database file has to be stored #
+    # in a common shared location like s3 bucket or gcs bucket. The file #
+    # creation has to be locked with a lockfile and other process has to #
+    # wait until this lockfile is released                             #
+    ######################################################################
 
-	table_date = datetime.datetime.utcnow().strftime("as%Y%m%d")
-	
-	url = "https://iptoasn.com/data/ip2asn-v4-u32.tsv.gz"
-	ctquery = """
-		CREATE TABLE IF NOT EXISTS `%s` (
-		`start` BIGINT NULL DEFAULT NULL,
-		`end` BIGINT NULL DEFAULT NULL,
-		`as_number` BIGINT NULL DEFAULT NULL,
-		`country_name` CHAR(2) NULL
-	)
-	;"""%(table_date)
-	
-	import sqlite3
-	import gzip
-	from io import BytesIO
+    table_date = datetime.datetime.utcnow().strftime("as%Y%m%d")
+    url = "https://iptoasn.com/data/ip2asn-v4-u32.tsv.gz"
+    ctquery = """
+        CREATE TABLE IF NOT EXISTS `%s` (
+        `start` BIGINT NULL DEFAULT NULL,
+        `end` BIGINT NULL DEFAULT NULL,
+        `as_number` BIGINT NULL DEFAULT NULL,
+        `country_name` CHAR(2) NULL
+    )
+    ;""" % (table_date)
 
-	if not os.path.exists("ipasn.sqlite3") and should_create == False:
-		print("ip2asn does not exist and creation option in config is set to false.")
-		logging.info("ip2asn does not exist and creation option in config is set to false.")
-		return False
+    if not os.path.exists("ipasn.sqlite3") and not should_create:
+        print("ip2asn does not exist and creation option in config is set to false.")
+        logging.info("ip2asn does not exist and creation option in config is set to false.")
+        return False
 
-	if os.path.exists("ipasn.sqlite3"):
-		st = os.stat("ipasn.sqlite3")
-		if st.st_mtime < datetime.datetime.now().timestamp() - 14400: 	# 4 hrs in seconds
-			logging.info("IP2asn databse is more than 4 hrs old.")
-			os.unlink("ipasn.sqlite3")
+    if os.path.exists("ipasn.sqlite3"):
+        st = os.stat("ipasn.sqlite3")
+        if st.st_mtime < datetime.datetime.now().timestamp() - 14400:  # 4 hrs in seconds
+            logging.info("IP2asn database is more than 4 hrs old.")
+            os.unlink("ipasn.sqlite3")
 
-		if st.st_size < 10240:
-			logging.info("IP2asn databse may be corrupted.")
-			os.unlink("ipasn.sqlite3")
+        if st.st_size < 10240:
+            logging.info("IP2asn database may be corrupted.")
+            os.unlink("ipasn.sqlite3")
 
-	if os.path.exists("ipasn.sqlite3"):
-		logging.info("IP2ASN is updated one")
-		return True
-	logging.info("Updating IP2ASN Database")
-	conn = sqlite3.connect("ipasn.sqlite3")
+    if os.path.exists("ipasn.sqlite3"):
+        logging.info("IP2ASN is updated.")
+        return True
 
-	cur = conn.cursor()
-			
-	#download the tsv=
-	try:
-		r = requests.get(url)
-	except requests.exceptions.SSLError:
-		r = requests.get(url, verify = False)
-	if r.status_code != 200:
-		print("Unable to get the tsv", r.status_code)
-		logging.error(f"Unable to get the tsv : {r.status_code} ")
-		return False
-		
-	#Extract the TSV in memory
-	bio = BytesIO(r.content)
-	gzf = gzip.open(bio)
-	
-	#create the table
-	cur.execute(ctquery)
-	conn.commit()
-	
-	count = 0
-		
-	#for ln in open("ip2asn-v4.tsv", encoding="ISO-8859-1").readlines():
-	for ln in gzf.readlines():
-		(start, end, as_number, country_code, dont_want) = ln.decode().strip().split("\t")
-		if country_code == "None" or country_code == "Unknown":
-			country_code = "00"
-		query = "INSERT INTO `%s`(`start`, `end`, `as_number`, `country_name`) VALUES(%s, %s, %s, \"%s\")"%(table_date, start, end, as_number, country_code)
-		cur.execute(query)
-			
-		count = count + 1
-		if count > 10000:
-			conn.commit()
-			count = 0
-		
-	conn.commit()
-	gzf.close()
-	conn.close()
-	logging.info("IP2ASN Database update complete..")
-	return True
+    logging.info("Updating IP2ASN Database")
+    conn = sqlite3.connect("ipasn.sqlite3")
+    cur = conn.cursor()
+
+    retry_count = 0
+    max_retries = 3
+    while retry_count < max_retries:
+        try:
+            # Download the TSV file
+            r = requests.get(url)
+            if r.status_code == 200:
+                break
+            else:
+                logging.error(f"Unable to get the TSV: {r.status_code}")
+        except requests.exceptions.SSLError:
+            logging.warning("SSL error occurred. Retrying without SSL verification.")
+            r = requests.get(url, verify=False)
+            if r.status_code == 200:
+                break
+            else:
+                logging.error(f"Unable to get the TSV: {r.status_code}")
+
+        retry_count += 1
+        time.sleep(5)  # Wait for 5 seconds before retrying
+
+    if retry_count == max_retries:
+        logging.error("Failed to download the TSV file.")
+        return False
+
+    # Extract the TSV in memory
+    bio = BytesIO(r.content)
+    gzf = gzip.open(bio)
+
+    # Create the table
+    cur.execute(ctquery)
+    conn.commit()
+
+    count = 0
+
+    for ln in gzf.readlines():
+        (start, end, as_number, country_code, dont_want) = ln.decode().strip().split("\t")
+        if country_code == "None" or country_code == "Unknown":
+            country_code = "00"
+        query = "INSERT INTO `%s`(`start`, `end`, `as_number`, `country_name`) VALUES(%s, %s, %s, \"%s\")" % (
+        table_date, start, end, as_number, country_code)
+        cur.execute(query)
+
+        count = count + 1
+        if count > 10000:
+            conn.commit()
+            count = 0
+
+    conn.commit()
+    gzf.close()
+    conn.close()
+    logging.info("IP2ASN Database update complete..")
+    return True
+
 
 def intimate_completion(fjson, url_prefix):
 	retries = 3
