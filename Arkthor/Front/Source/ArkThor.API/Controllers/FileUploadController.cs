@@ -79,8 +79,8 @@ namespace ArkThor.API.Controllers
                         C2Countries = JsonConvert.SerializeObject(rules[0].c2_countries),
                         infected_countries = JsonConvert.SerializeObject(rules[0].infected_countries),
                         MITRE = JsonConvert.SerializeObject(rules[0].MITRE),
-                        C2Communication = JsonConvert.SerializeObject(rules[0].C2Communication),
-                        UploadedDate=  DateTime.Now
+                        C2Communication = JsonConvert.SerializeObject(rules[0].C2Communication)
+                       // UploadedDate=  DateTime.Now
 
                 };
                     using (var dataStream = new MemoryStream())

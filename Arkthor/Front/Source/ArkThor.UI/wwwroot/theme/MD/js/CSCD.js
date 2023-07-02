@@ -1226,3 +1226,34 @@ function refreshThreatFoxRule() {
         });
 
 };
+
+//Save  Core Config File
+// Save Core Config File
+function saveCoreConfig() {
+    // Get the textarea element
+    var textarea = document.getElementById("configTextArea");
+    // Get the content of the textarea
+    var configContent = textarea.value;
+    // Create a new FormData object
+    var formData = new FormData();
+    // Append the configContent to the formData object
+    formData.append("configContent", configContent);
+    // Send a POST request to the server
+    fetch("/Home/PostCoreConfig", {
+        method: "POST",
+        body: formData
+    })
+        .then(function (response) {
+            if (response.ok) {
+                // Successful response
+                alert("Config file saved successfully.");
+            } else {
+                // Error occurred
+                alert("Failed to save config file.");
+            }
+        })
+        .catch(function (error) {
+            // Error occurred
+            alert("An error occurred while saving config file: " + error);
+        });
+};

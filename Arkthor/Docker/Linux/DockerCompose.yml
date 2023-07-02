@@ -34,9 +34,7 @@ services:
       - arkthorapi
       - rabbitmq
     volumes:
-      - "AnalysesFiles:/app/UploadedFiles"
-      - "ArkThorRule:/app/ArkThorRule"
-      - "ArkthorCoreConfig:/app/arkthorcoreconfig"
+      - "AnalysesFiles:/app/UploadedFiles"      
     networks:
       - nwarkthor
  
@@ -50,9 +48,7 @@ services:
       - nwarkthor
 volumes:
   AnalysesFiles:
-  Database:
-  ArkThorRule:
-  ArkthorCoreConfig:
+  Database: 
 networks:
   nwarkthor:
     name: nwarkthor

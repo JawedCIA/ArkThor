@@ -42,14 +42,14 @@ namespace ArkThor.API.Controllers
             {
                 if (Util.IsInternetConnected())
                 {
+                    var msginfo = DateTime.Now.ToString("yyyyMMddHHmmss");
+                    //RabbitMQMessage msginfo = new()
+                    //{
+                    //    message = DateTime.Now.ToString("yyyyMMddHHmmss")
 
-                    RabbitMQMessage msginfo = new()
-                    {
-                        message = DateTime.Now.ToString("yyyyMMddHHmmss")
+                    //};
 
-                    };
-
-                    _rabbitMQService.SendMessage(msginfo, "ip2asn");
+                    _rabbitMQService.SendMessage(msginfo, null, "ip2asn_exchange");
                     return Ok("ip2asn action posted for auto update..");
                 }
                 else
@@ -73,14 +73,14 @@ namespace ArkThor.API.Controllers
             {
                 if (Util.IsInternetConnected())
                 {
+                    var msginfo = DateTime.Now.ToString("yyyyMMddHHmmss");
+                    //RabbitMQMessage msginfo = new()
+                    //{
+                    //    message = DateTime.Now.ToString("yyyyMMddHHmmss")
 
-                    RabbitMQMessage msginfo = new()
-                    {
-                        message = DateTime.Now.ToString("yyyyMMddHHmmss")
+                    //};
 
-                    };
-
-                    _rabbitMQService.SendMessage(msginfo, "ThreatFoxRule");
+                    _rabbitMQService.SendMessage(msginfo, null, "threatfoxRule_exchange");
                     return Ok("ThreatFox Rule action posted for auto update..");
                 }
                 else
@@ -96,6 +96,31 @@ namespace ArkThor.API.Controllers
             }
            
 
+        }
+
+        [HttpPost]
+        [Route("UpdateCoreConfig")]
+        public async Task<IActionResult> UpdateCoreConfig([FromBody] ConfigData configData)
+        {
+            try
+            {
+
+               var msginfo= configData.ConfigContent;
+                    _rabbitMQService.SendMessage(msginfo, null, "configchange_exchange");
+                    return Ok("configchange_exchange Rule action posted for auto update..");               
+
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex.Message);
+                return StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
+            }
+
+
+        }
+        public class ConfigData
+        {
+            public string ConfigContent { get; set; }
         }
 
     }

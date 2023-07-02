@@ -10,6 +10,8 @@ using static System.Runtime.InteropServices.JavaScript.JSType;
 using ArkThor.API.Utilities;
 using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
+using ArkThor.API.Controllers;
+using System.Data;
 
 public interface IFileRecordService
 {
@@ -50,7 +52,8 @@ public class FileRecordService : IFileRecordService
     private readonly string _addMultipleFileWithSameHashValue;
     private readonly string _pushMessageToRabitMQ;
     private IRabbitMQService _rabbitMQService;
-    public FileRecordService(
+    private readonly ILogger<FileRecordService> _logger;
+    public FileRecordService(ILogger<FileRecordService> logger,
         DataContext context,
         IMapper mapper, IConfiguration config,IRabbitMQService rabbitMQService)
     {
@@ -62,6 +65,7 @@ public class FileRecordService : IFileRecordService
         _addMultipleFileWithSameHashValue = config.GetValue<string>("addMultipleFileWithSameHashValue");
         _pushMessageToRabitMQ = config.GetValue<string>("pushMessageToRabitMQ");
         _rabbitMQService = rabbitMQService;
+        _logger = logger;
     }
 
     public IEnumerable<FileRecord> GetAll()
@@ -244,7 +248,7 @@ public class FileRecordService : IFileRecordService
              MITRE,
         infected_countries
         FROM FilesRecord
-        order by UploadedDate desc
+        order by UploadedDate asc
         LIMIT @numberOfRecordsToFetch
         """;
         return await connection.QueryAsync<FileRecord>(sql, new { numberOfRecordsToFetch });
@@ -287,15 +291,17 @@ public class FileRecordService : IFileRecordService
         using var connection = _context.CreateConnection();
 
         var updateSql = "UPDATE FilesRecord SET Status = @status WHERE HashValue = @hash256";
+        _logger.LogInformation("Status Update SQL: UPDATE FilesRecord SET Status = {0} WHERE HashValue = {1}", status, hash256);
         var rowsAffected = await connection.ExecuteAsync(updateSql, new { hash256, status });
 
         if (rowsAffected > 0)
         {
             var selectSql = "SELECT Status FROM FilesRecord WHERE HashValue = @hash256";
             var updatedStatus = await connection.ExecuteScalarAsync<string>(selectSql, new { hash256 });
+            _logger.LogInformation("Status Updated with new Status {0}", updatedStatus);
             return updatedStatus;
         }
-
+        _logger.LogInformation("Status Update No Row affected");
         return null;
     }
 
@@ -467,10 +473,11 @@ public class FileRecordService : IFileRecordService
     //Publish Message to RabbitMQ Queue
     public void SendMessageToQueue(string hash)
     {
-        RabbitMQMessage msginfo = new()
-        {
-            message = hash
-        };
+        var msginfo = hash;
+        //RabbitMQMessage msginfo = new()
+        //{
+        //    message = hash
+        //};
 
         _rabbitMQService.SendMessage(msginfo,"Analysis");
 
@@ -485,11 +492,11 @@ public class FileRecordService : IFileRecordService
         {
             if(record.UploadedDate ==null)
             {
-                existingMalware.UploadedDate = DateTime.Now;
+               // existingMalware.UploadedDate = DateTime.Now;
             }
             else
             {
-                existingMalware.UploadedDate = record.UploadedDate;
+               // existingMalware.UploadedDate = record.UploadedDate;
             }
             existingMalware.ThreatType = record.ThreatType;
             existingMalware.AnalyzedDate = record.AnalyzedDate;
@@ -503,6 +510,11 @@ public class FileRecordService : IFileRecordService
         }
         else
         {
+            if (record.UploadedDate == null)
+            {
+                 record.UploadedDate = DateTime.Now;
+            }
+           
             var file = _mapper.Map<FileRecord>(record);
             _context.FilesRecord.Add(record);
         }

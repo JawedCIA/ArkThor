@@ -19,6 +19,8 @@ using Newtonsoft.Json;
 using System.Net.Http;
 using ArkThor.Models;
 using ArkThor.UI.Utilities;
+using System.Net.Http.Json;
+using Newtonsoft.Json.Linq;
 
 namespace ArkThor.Dashboard.Controllers
 {
@@ -269,6 +271,15 @@ namespace ArkThor.Dashboard.Controllers
 
             return View();
         } //UnderDevelopment
+
+        public ActionResult CoreConfig()
+        {
+
+            string configFilePath = "config.json"; // Replace with the actual file path
+            string jsonContents = System.IO.File.ReadAllText(configFilePath);
+            dynamic configData = JsonConvert.DeserializeObject(jsonContents);
+            return View(configData);
+        } //CoreConfig
         public ActionResult CoreComponentRefresh()
         {
 
@@ -308,5 +319,62 @@ namespace ArkThor.Dashboard.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
+
+        [HttpPost]
+       //[Route("SaveConfig")]
+      
+        public async Task<IActionResult> PostCoreConfig()
+        {
+            try
+            {
+                // Get the content of the config file from the request
+                string configContent = Request.Form["configContent"];
+
+                // Call the external API with the configContent
+                using (HttpClient httpClient = new HttpClient())
+                {
+                    // Specify the URL of the external API
+                    string externalApiUrl = _webAPIBaseAddress+ "CoreAdmin/UpdateCoreConfig";
+
+                    // Create a JSON object with the configContent
+                    JObject requestData = new JObject();
+                    requestData["configContent"] = configContent;
+
+                    // Convert the JSON object to a string
+                    string jsonRequest = requestData.ToString();
+
+                    // Create a StringContent object with the JSON string
+                    StringContent content = new StringContent(jsonRequest, Encoding.UTF8, "application/json");
+
+                    // Send the POST request to the external API
+                    HttpResponseMessage response = await httpClient.PostAsync(externalApiUrl, content);
+
+                    // Check if the API call was successful
+                    if (!response.IsSuccessStatusCode)
+                    {
+                        // API call failed, handle the error
+                        string errorMessage = $"Failed to call the external API. StatusCode: {response.StatusCode}";
+                        return BadRequest(errorMessage);
+                    }
+                }
+
+                // Specify the path to the config.json file
+                string configFilePath = "config.json";
+
+                // Write the configContent to the file
+                await System.IO.File.WriteAllTextAsync(configFilePath, configContent);
+
+                // Optionally, you can perform any additional logic or validation here
+
+                return Ok(); // Return a success response
+            }
+            catch (Exception ex)
+            {
+                // Handle any exceptions that occurred during saving
+                return BadRequest(ex.Message); // Return an error response
+            }
+        }
+
+
     }
 }

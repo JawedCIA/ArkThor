@@ -9,6 +9,7 @@ using ArkThor.API.Helpers;
 using Microsoft.EntityFrameworkCore;
 using ArkThor.API.Models.Records;
 using ArkThor.API.Entities;
+using Microsoft.Extensions.Logging;
 
 [ApiController]
 [Route("api/[controller]")]
@@ -16,15 +17,16 @@ public class FileRecordController : ControllerBase
 {
     private IFileRecordService _fileService;
     private IMapper _mapper;
-
-
-    public FileRecordController(
+    private readonly ILogger<FileRecordController> _logger;
+    //_logger.LogInformation("File Submitted: {0} : {DT}", trustedFileNameForDisplay, DateTime.UtcNow.ToLongTimeString());
+      //  _logger.LogError("File Upload Failed: {0} {DT}", trustedFileNameForDisplay, DateTime.UtcNow.ToLongTimeString());
+    public FileRecordController(ILogger<FileRecordController> logger,
     IFileRecordService fileRecordService,
     IMapper mapper)
     {
         _fileService = fileRecordService;
         _mapper = mapper;
-       
+        _logger = logger;
     }
 
 
@@ -32,6 +34,7 @@ public class FileRecordController : ControllerBase
     [Route("UpdateThreatType")]
     public IActionResult UpdateThreatType(string hash256, string threatType)
     {
+
         var files = _fileService.UpdateThreatType(hash256.ToUpper(),threatType);
         return Ok(files);
     }
@@ -49,6 +52,7 @@ public class FileRecordController : ControllerBase
     [Route("UpdateStatus")]
     public IActionResult UpdateStatus(string hash256, string status)
     {
+        _logger.LogInformation("Status Update {0} Request for hash: {1}", status, hash256);
         var files = _fileService.UpdateStatus(hash256.ToUpper(), status);
         return Ok(files);
     }
@@ -175,7 +179,7 @@ public class FileRecordController : ControllerBase
     [Route("CreateFileRecord")]
     public IActionResult CreateFileRecord(CreateFileRecord model)
     {
-       
+        _logger.LogInformation("File Record Creation for file Name with hash  {0} ", model.FileName);
         //Save File on disk
         _fileService.SaveFileOnDisk(model);
         //Save Record in Database
