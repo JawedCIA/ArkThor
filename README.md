@@ -1,5 +1,9 @@
 [![ArkThor Front Engine](https://github.com/JawedCIA/KCST/actions/workflows/dotnet.yml/badge.svg)](https://github.com/JawedCIA/KCST/actions/workflows/dotnet.yml)  [![Docker ArkThor UI Image CI](https://github.com/JawedCIA/ArkThor/actions/workflows/docker-image-UI.yml/badge.svg)](https://github.com/JawedCIA/ArkThor/actions/workflows/docker-image-UI.yml) [![Docker ArkThor API Image](https://github.com/JawedCIA/ArkThor/actions/workflows/docker-image-API.yml/badge.svg)](https://github.com/JawedCIA/ArkThor/actions/workflows/docker-image-API.yml)[![Docker Image CORE](https://github.com/JawedCIA/ArkThor/actions/workflows/docker-image-CORE.yml/badge.svg)](https://github.com/JawedCIA/ArkThor/actions/workflows/docker-image-CORE.yml)
 
+## We have created a Wiki page with a wealth of information on ArkThor. Please take a moment to visit the Wiki page!!
+https://github.com/JawedCIA/ArkThor/wiki
+
+
 # ArkThor
 ## ![image](https://user-images.githubusercontent.com/16477789/231995799-ed466aa4-538b-4504-b738-38ea0e853488.png)
 
@@ -67,49 +71,6 @@ With common direct workflow path.
 ![image](https://user-images.githubusercontent.com/16477789/231138668-c87ffdcf-5ce0-40fa-8a57-a21555a05ea9.png)
 
 
-## Requirements
-In order to run this project, you'll need to have installed on your machine (Windows, Mac, Linux):
-* Docker Desktop (or Docker on Linux)
-
-## Docker Images Registry
-```
-https://hub.docker.com/r/arkthor/arkthor-ui
-https://hub.docker.com/r/arkthor/arkthor-api
-https://hub.docker.com/r/arkthor/arkthor-core
-```
-## Running ArkThor Public view (preloaded Database, CORE Engine is not included)
-```
-docker run -d -p 24297:80 --name arkthorpublic  arkthor/arkthor-ui:publicview
-```
-## Running ArkThor Engine
-* Download DockerCompose.yml file to your local drive
-* Run dockerCompose.yml using command
-```
-docker-compose -f .\DockerCompose.yml up -d
-```
-![image](https://user-images.githubusercontent.com/16477789/231140066-c3d12562-0647-48f4-80cc-e2c1e3e4cca2.png)
-
-> To Access ArkThor UI, In browser type
-http://localhost:24297
-
-> To Access ArkThor API, In browser type
-http://localhost:33900/swagger/index.html
-
-## Glimps of ArkThor 
-### UI Dashboard
-<img src="https://user-images.githubusercontent.com/16477789/230395965-953d3cbc-6f3e-497d-a8b8-2c45446008f0.png" width="80%" height="80%">
-
-### ArkThor Live Tracking Board
-<img src="https://user-images.githubusercontent.com/16477789/230397380-9ae7d208-97c2-4c03-ab2c-b18235f997b4.png" width="80%" height="80%">
-
-### Analyzed File Information
-![image](https://user-images.githubusercontent.com/16477789/231179140-03cc2b13-4915-401d-ba33-fd53a8afd8bf.png)
-
-### UI Statistics Page
-<img src="https://user-images.githubusercontent.com/16477789/230396638-df067312-9016-4ff6-b396-ca5fe0dc23fe.png" width="80%" height="80%">
-
-
-![image](https://user-images.githubusercontent.com/16477789/231142834-3c306ec1-53b5-4906-826e-fd8d3384bc5e.png)
 
 ## Refrences used in ArkThor
 ***[AdminLTE] https://github.com/ColorlibHQ/AdminLTE***</br>
