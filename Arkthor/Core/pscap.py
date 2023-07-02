@@ -1460,7 +1460,8 @@ def initilization_analysis():
         #cnfLoad=load_config()
         logging.info(f"START: Rule Folder Contents validation/Updation")
         #Check for Arkthor Rules folder for its contents
-        check_rulefolder_contents("ArkThorRule")
+        process_threatfox_to_arkthor()
+        #check_rulefolder_contents("ArkThorRule")
         #process_threatfox_to_arkthor()
         logging.info(f"DONE: Rule Folder Contents validation/Updation")
         #Added by Jawed for RabbitMQ Integration
