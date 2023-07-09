@@ -4,6 +4,12 @@
 https://github.com/JawedCIA/ArkThor/wiki
 
 
+# ArkThor is live
+
+The ArkThor Tool is now live, offering users full functionality to explore its features and capabilities.
+
+https://arkthor.com/
+
 # ArkThor
 ## ![image](https://user-images.githubusercontent.com/16477789/231995799-ed466aa4-538b-4504-b738-38ea0e853488.png)
 
