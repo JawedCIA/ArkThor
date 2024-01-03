@@ -16,6 +16,7 @@ using ArkThor.API.Utilities;
 using System.Security.Cryptography;
 using ArkThor.API.Models.Records;
 using System.Diagnostics.Eventing.Reader;
+using Microsoft.AspNetCore.Cors;
 
 namespace ArkThor.API.Controllers
 {
@@ -45,6 +46,7 @@ namespace ArkThor.API.Controllers
 
         [HttpPost]
         [Route("UploadFileOutPutJson")]
+        [EnableCors("AllowArkthorDomain")]
         public async Task<IActionResult> UploadFileOutPutJson(IFormFile file)
         {
             try
@@ -110,6 +112,7 @@ namespace ArkThor.API.Controllers
         [RequestFormLimits(MultipartBodyLengthLimit = 136314880)]
         [RequestSizeLimit(136314880)]
         [Route("UploadFileForAnalysis")]
+        [EnableCors("AllowArkthorDomain")]
         public async Task<IActionResult> UploadFileForAnalysis(IFormFile file)
         {
 
@@ -258,6 +261,7 @@ namespace ArkThor.API.Controllers
         [RequestFormLimits(MultipartBodyLengthLimit = 136314880)]
         [RequestSizeLimit(136314880)]
         [Route("UploadSupportingFile")]
+        [EnableCors("AllowArkthorDomain")]
         public async Task<IActionResult> UploadSupportingFile(string sha256, IFormFile file)
         {
 

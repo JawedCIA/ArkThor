@@ -12,6 +12,7 @@ using Microsoft.Extensions.Logging;
 using ArkThor.Dashboard.Models;
 using Microsoft.AspNetCore.Http.Features;
 using Microsoft.AspNetCore.Server.Kestrel.Core;
+using ArkThor.UI.Utilities;
 
 namespace ArkThor.Dashboard
 {
@@ -28,6 +29,7 @@ namespace ArkThor.Dashboard
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+            services.AddHttpContextAccessor();
             services.Configure<FormOptions>(options =>
             {
                 // Set the limit to 256 MB
@@ -47,9 +49,10 @@ namespace ArkThor.Dashboard
             });
             // services.AddDbContext<DatabaseContext>(options =>
             //options.UseSqlServer(Configuration.GetConnectionString("ArkThorDBConnectionStr")));
+            services.AddScoped<UploaderServiceName>();
 
         }
-    
+
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env, ILoggerFactory loggerFactory)

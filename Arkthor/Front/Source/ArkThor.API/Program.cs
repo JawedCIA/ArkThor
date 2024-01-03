@@ -11,7 +11,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+//builder.Services.AddSwaggerGen();
 
 // add services to DI container
 {
@@ -19,7 +19,19 @@ builder.Services.AddSwaggerGen();
     var env = builder.Environment;
 
     services.AddDbContext<DataContext>();
-    services.AddCors();
+    services.AddCors(options =>
+    {
+        options.AddPolicy("AllowArkthorDomain", builder =>
+        {
+            builder.WithOrigins(
+                     "http://arkthor.westeurope.cloudapp.azure.com",
+                     "https://arkthor.com",
+                     "http://arkthor.com"
+                 )
+                 .AllowAnyHeader()
+                 .AllowAnyMethod();
+        });
+    });
     services.AddControllers().AddJsonOptions(x =>
     {
         // serialize enums as strings in api responses (e.g. Role)
@@ -49,7 +61,7 @@ builder.Services.AddSwaggerGen();
     services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
     // configure DI for application services
-   
+
     services.AddScoped<IFileRecordService, FileRecordService>();
     services.AddScoped<ISupportFileService, SupportFileService>();
     services.AddScoped<IRabbitMQService, RabbitMQProducer>();
@@ -64,20 +76,12 @@ var app = builder.Build();
 }
 
 // Configure the HTTP request pipeline.
-//if (app.Environment.IsDevelopment())
-//{
-//    app.UseSwagger();
-//    app.UseSwaggerUI();
-//}
-app.UseSwagger();
-app.UseSwaggerUI();
+//app.UseSwagger();
+//app.UseSwaggerUI();
 // configure HTTP request pipeline
 {
     // global cors policy
-    app.UseCors(x => x
-        .AllowAnyOrigin()
-        .AllowAnyMethod()
-        .AllowAnyHeader());
+    app.UseCors("AllowArkthorDomain");
 
     // global error handler
     app.UseMiddleware<ErrorHandlerMiddleware>();

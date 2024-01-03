@@ -12,7 +12,7 @@ var CICDChart;
 async function ShowAllMeasurementGraph() {
 
     //fetch base API URL
-    const BaseAPIURL =await fetchBaseAPIUrl();
+  //  const BaseAPIURL =await fetchBaseAPIUrl();
 
 
     
@@ -39,10 +39,6 @@ async function ShowAllMeasurementGraph() {
         setValueOfElement("txtStatisticsdateTo", dropdownToDate);
     }
    // convertToDateWeekPairs(dropdownFromDate, dropdownToDate, BaseAPIURL);
-    
-   
-    
-
   document.getElementById("chartBody_StatusWiseDistributionChart").innerHTML = '&nbsp;';
     document.getElementById("chartBody_typeWiseDistributionChart").innerHTML = '&nbsp;';
     document.getElementById("chartBody_UploadedChart").innerHTML = '&nbsp;';
@@ -54,13 +50,13 @@ async function ShowAllMeasurementGraph() {
 
 
     document.getElementById("chartBody_UploadedChart").innerHTML = '<canvas id="canvasUploadedChart" style="height: 300px;"></canvas>';
-    const fileUploaddata = await fetchFileUploadedData(dropdownFromDate, dropdownToDate, BaseAPIURL);
+    const fileUploaddata = await fetchFileUploadedData(dropdownFromDate, dropdownToDate);
 
     DistributionBarChart(fileUploaddata, "canvasUploadedChart", "#Total File Uploaded (","rgb(54, 162, 235)");
 
     
     document.getElementById("chartBody_AnalysesChart").innerHTML = '<canvas id="canvasAnalysesChart" style="height: 300px;"></canvas>';
-    const fileAnalyzeddata = await fetchFileAnalyzedData(dropdownFromDate, dropdownToDate, BaseAPIURL);
+    const fileAnalyzeddata = await fetchFileAnalyzedData(dropdownFromDate, dropdownToDate);
 
     DistributionBarChart(fileAnalyzeddata, "canvasAnalysesChart", "#Total File Analyzed (", "rgb(0,128,0)");
 
@@ -70,17 +66,17 @@ async function ShowAllMeasurementGraph() {
 
     document.getElementById("chartBody_typeWiseDistributionChart").innerHTML = '<div id="donut-chart-Type" style="height: 350px;"></div>';
    // document.getElementById("chartBody_typeWiseDistributionChart").innerHTML = '<canvas id="donut-chart" style="height: 300px;"></canvas>';
-    DistributionTypeChart(dropdownFromDate, dropdownToDate, "donut-chart-Type", BaseAPIURL);
+    DistributionTypeChart(dropdownFromDate, dropdownToDate, "donut-chart-Type");
   
    //Get Value for Knob
     document.getElementById("chartBody_AnalyzedRate").innerHTML = '<input type="text" class="knob" value="0" data-width="250" data-height="250" data-fgColor="rgb(0,128,0)" id="inputTxtKnobRate" readonly><div class="knob-label">Analyzed Rate</div>';
     const getKnobData = await darwKnobRateForAnalyses(fileAnalyzeddata, fileUploaddata);
 
     document.getElementById("chartBody_CountriesWiseDistributionChart").innerHTML = '<canvas id="canvasCountriesWiseDistributionChart" style="height: 300px;"></canvas>';
-    const C2ContriesData = await fetchC2ContriesData(dropdownFromDate, dropdownToDate, BaseAPIURL);
+    const C2ContriesData = await fetchC2ContriesData(dropdownFromDate, dropdownToDate);
 
     document.getElementById("chartBody_InfCountriesWiseDistributionChart").innerHTML = '<canvas id="canvasInfCountriesWiseDistributionChart" style="height: 300px;"></canvas>';
-    const C2InfContriesData = await fetchC2InfecContriesData(dropdownFromDate, dropdownToDate, BaseAPIURL);
+    const C2InfContriesData = await fetchC2InfecContriesData(dropdownFromDate, dropdownToDate);
     
    // DistributionBarChart(fileUploaddata, "canvasCountriesWiseDistributionChart", "#Total File Uploaded (", "rgb(54, 162, 235)");
   //  DistributionC2ContriesChart(dropdownFromDate, dropdownToDate, "donut-chart-Status");
@@ -117,7 +113,7 @@ function DistributionBarChart(filedata, elementID,titleMessage,backgroundColor) 
 
 //Type Chart
 //GetReleaseRequestDistributionType
-function DistributionTypeChart(FromDate, ToDate, elementID,baseAPIURL) {
+function DistributionTypeChart(FromDate, ToDate, elementID) {
 
 
     const labels = [];
@@ -125,12 +121,13 @@ function DistributionTypeChart(FromDate, ToDate, elementID,baseAPIURL) {
     const backgroundColor = ["#5AD3D1", "#46BFBD", "#F7464A", "#FDB45C"];
     const hoverBackgroundColor = ["#A8B3C5", "#5AD3D1", "#FF5A5E", "#FFC870"];
 
-    let urlToGetData = baseAPIURL+"FileRecord/GetThreatDistributionBasedOnUploadedDate?FromUploadedDate=" + FromDate + "&ToUploadedDate=" + ToDate;
+    let urlToGetData = "ProxyToExternalEndpoint_GetThreatDistributionBasedOnUploadedDate?FromUploadedDate=" + FromDate + "&ToUploadedDate=" + ToDate;
     
 
     let req = new XMLHttpRequest();  
 
-            req.open("GET", urlToGetData);          
+    req.open("GET", urlToGetData);
+    req.setRequestHeader("Content-Type", "application/json");
             req.send();
             req.onload = function () {
                 if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
@@ -201,15 +198,12 @@ function DistributionStatusChart(FromDate, ToDate, elementID) {
     const backgroundColor = ["#5AD3D1", "#46BFBD", "#F7464A", "#FDB45C", "#00FF00"];
     const hoverBackgroundColor = ["#A8B3C5", "#5AD3D1", "#FF5A5E", "#FFC870"];
 
-    let urlToGetData = "FileRecord/GetStatusDistributionBasedOnUploadedDate?FromUploadedDate=" + FromDate + "&ToUploadedDate=" + ToDate;
+    let urlToGetData = "ProxyToExternalEndpoint_GetStatusDistributionBasedOnUploadedDate?FromUploadedDate=" + FromDate + "&ToUploadedDate=" + ToDate;
 
 
     let req = new XMLHttpRequest();
-
-    fetch("/GetBaseAPIUrl")
-        .then(response => response.text())
-        .then(apiUrl => {
-            req.open("GET", apiUrl + urlToGetData);
+    req.open("GET", urlToGetData);
+    req.setRequestHeader("Content-Type", "application/json");
             req.send();
             req.onload = function () {
                 if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
@@ -235,7 +229,7 @@ function DistributionStatusChart(FromDate, ToDate, elementID) {
                 }
             };
 
-        });
+       
 
 };
 //Draw Pie Chart
@@ -440,16 +434,16 @@ async function fetchBaseAPIUrl() {
 
 //Fetch File Uploaded Count Data
 // Fetch the date-value pairs dynamically
-async function fetchFileUploadedData(FromDate,ToDate,baseAPIURL) {
-    let urlToGetData = baseAPIURL + "FileRecord/GetFilesDistributionBasedOnUploadedDate?FromUploadedDate=" + FromDate + "&ToUploadedDate=" + ToDate;
+async function fetchFileUploadedData(FromDate,ToDate) {
+    let urlToGetData ="ProxyToExternalEndpoint_GetFilesDistributionBasedOnUploadedDate?FromUploadedDate=" + FromDate + "&ToUploadedDate=" + ToDate;
     const response = await fetch(urlToGetData);
     const data = await response.json();
    // console.log(data.result);
     return data.result;
 };
 
-async function fetchFileAnalyzedData(FromDate, ToDate, baseAPIURL) {
-    let urlToGetData = baseAPIURL + "FileRecord/GetFilesDistributionBasedOnAnalyzedDate?FromUploadedDate=" + FromDate + "&ToUploadedDate=" + ToDate;
+async function fetchFileAnalyzedData(FromDate, ToDate) {
+    let urlToGetData = "ProxyToExternalEndpoint_GetFilesDistributionBasedOnAnalyzedDate?FromUploadedDate=" + FromDate + "&ToUploadedDate=" + ToDate;
     const response = await fetch(urlToGetData);
     const data = await response.json();
    // console.log(data.result);
@@ -457,8 +451,8 @@ async function fetchFileAnalyzedData(FromDate, ToDate, baseAPIURL) {
 };
 
 
-async function fetchC2ContriesData(FromDate, ToDate, baseAPIURL) {
-    let urlToGetData = baseAPIURL + "FileRecord/GetC2CountriesDistributionBasedOnUploadedDate?FromUploadedDate=" + FromDate + "&ToUploadedDate=" + ToDate;
+async function fetchC2ContriesData(FromDate, ToDate) {
+    let urlToGetData ="ProxyToExternalEndpoint_GetC2CountriesDistributionBasedOnUploadedDate?FromUploadedDate=" + FromDate + "&ToUploadedDate=" + ToDate;
     const response = await fetch(urlToGetData);
     const data = await response.json();  
     const backgroundColor = [];// "#46BFBD";//, "#46BFBD", "#F7464A", "#FDB45C"];
@@ -513,7 +507,7 @@ async function fetchC2ContriesData(FromDate, ToDate, baseAPIURL) {
 };
 
 async function fetchC2InfecContriesData(FromDate, ToDate, baseAPIURL) {
-    let urlToGetData = baseAPIURL + "FileRecord/GetC2InfectedCountriesDistributionBasedOnUploadedDate?FromUploadedDate=" + FromDate + "&ToUploadedDate=" + ToDate;
+    let urlToGetData = "ProxyToExternalEndpoint_GetC2InfectedCountriesDistributionBasedOnUploadedDate?FromUploadedDate=" + FromDate + "&ToUploadedDate=" + ToDate;
     const response = await fetch(urlToGetData);
     const data = await response.json();
     const backgroundColor = [];// "#46BFBD";//, "#46BFBD", "#F7464A", "#FDB45C"];

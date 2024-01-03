@@ -8,94 +8,9 @@
 
 
 
-//Working with Dynamic API URL
-function dynamicAPIURL() {
-    
-    let req = new XMLHttpRequest();
-    fetch("/GetBaseAPIUrl")
-        .then(response => response.text())
-        .then(apiUrl => {
-            apiURExtL = apiUrl
-           // console.log("Return URL:" + apiUrl);
-            // Use the API URL in a POST request
-            //fetch(apiUrl + "FileRecord/GetTOPFileRecord?numberOfRecordsToFetch=10")
-            //    .then(response => response.json())
-            //    .then(data => {
-            //        console.log("Resturn Data:" + data.property);
-            //        data.forEach(item => {
-            //            console.log("Resturn Item:" + item);
-            //            console.log("Resturn ID:" + item.id);
-            //        });
-            //    });
-           
-            req.open("GET", apiUrl + "FileRecord/GetTOPFileRecord?numberOfRecordsToFetch=10");
-            req.send();
-            req.onload = function () {
-                if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
-
-                    var apiResponse = JSON.parse(this.response);
-
-                    if (apiResponse.result) {
-
-                        // var openAnalysis = getInQAnalysisStatus(apiResponse);               
-                        // setValue("h3InQAnalysis", openAnalysis);
-                        //Disable No Request Found Div
-                        document.getElementById("divNoAnalyizeFound").style.display = "none";//divNorecordTeamFoud
-
-                        for (var record of apiResponse.result) {
-                            displayFileRecords(record, "tblTbodyFileSummaryCurrent");
-                        }
-                        //Disable No record Found Text
-                        var element = document.getElementById("trCurrentNoRecordFound");//.style.display = 'none';
-                        element.setAttribute("hidden", "hidden");
-                    }
-                    else {
-                        //TODO
-                    }
-                }
-                else {
-                    // console.log("Status:" + this.status)          
 
 
-                }
-            };
 
-        });
-   // console.log("Ext URL:"+ apiURLExt);
-};
-
-//Get base URL pf API
-function GetAPIBaseURL() {
-    var GetApiURL = "/GetBaseAPIUrl";
-    let apiBaseURL = null;
-    let req = new XMLHttpRequest();
-    req.open("GET", GetApiURL, true);
-    req.send();
-    req.onreadystatechange = function () {
-        if (req.readyState == 4) {
-            // request finished
-            apiBaseURL = this.response;
-
-           // console.log("4:"+apiBaseURL);
-        }
-        //if (this.status === 200) {
-
-        //    apiBaseURL = this.response;
-
-        //    console.log(apiBaseURL);
-           
-        //}
-        //else {
-        //  console.log("Status to get Base API URL:" + this.status)          
-        //   // return apiBaseURL;
-        //   // console.log(apiResponse);
-        //}
-        return apiBaseURL;
-    };
-  
-   
-   // return apiBaseURL;
-}
 //Get Current Week Date
 function getCurrentWeekDates() {
     let curr = new Date
@@ -153,62 +68,70 @@ function getParamFromUrl(baseURl) {
     return params;
 };
 
-//Get File Record for Current
+//Testing ...............
 function getTopThreatOperation() {
-    
-    // var url = GetAPIBaseURL();
-  //  var apiURL = BASEAPIURL + "/FileRecord/GetTOPFileRecord";
-   // let weekDates = getCurrentWeekDates();
-    // console.log(weekDates);
-    //let currentWeekStartDate = weekDates[0];          
-    //let currentWeekEndDate = weekDates[6];
+
     let numberOfRecordsToFetch = 10;
-   // console.log(numberOfRecordsToFetch);
+    // console.log(numberOfRecordsToFetch);
     const recordsSummaryTableBody = document.getElementById("tblTbodyFileSummaryCurrent");
     while (recordsSummaryTableBody.hasChildNodes()) {
         recordsSummaryTableBody.removeChild(recordsSummaryTableBody.firstChild);
     }
-    var requestCurrentWeekURL ="FileRecord/GetTOPFileRecord?numberOfRecordsToFetch=" + numberOfRecordsToFetch;
 
-    let req = new XMLHttpRequest();
+    var requestTOPFileRecordURL = "ProxyToExternalEndpoint_GetTOPFileRecord?numberOfRecordsToFetch=" + numberOfRecordsToFetch;
 
-    fetch("/GetBaseAPIUrl")
-        .then(response => response.text())
-        .then(apiUrl => {
-            req.open("GET", apiUrl + requestCurrentWeekURL);
-            req.send();
-            req.onload = function () {
-                if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
+    // Get the current URL
+    var currentUrl = window.location.href;
 
-                    var apiResponse = JSON.parse(this.response);
+    // Get the root URL
+    var rootUrl = window.location.origin;
 
-                    if (apiResponse.result) {
+    // Check if the URL has "/Home" immediately after the root URL
+    var hasHomeAfterRoot = currentUrl.startsWith(rootUrl + "/Home");
 
-                        // var openAnalysis = getInQAnalysisStatus(apiResponse);               
-                        // setValue("h3InQAnalysis", openAnalysis);
-                        //Disable No Request Found Div
-                        document.getElementById("divNoAnalyizeFound").style.display = "none";//divNorecordTeamFoud
+    if (!hasHomeAfterRoot) {
+        requestTOPFileRecordURL = "Home/" + requestTOPFileRecordURL
+    } 
 
-                        for (var record of apiResponse.result) {
-                            displayFileRecords(record, "tblTbodyFileSummaryCurrent");
-                        }
-                        //Disable No record Found Text
-                        //var element = document.getElementById("trCurrentNoRecordFound");//.style.display = 'none';
-                        //element.setAttribute("hidden", "hidden");
-                    }
-                    else {
-                        //TODO
-                    }
+    let xhr = new XMLHttpRequest();
+    xhr.open("GET", requestTOPFileRecordURL); // Use the proxy controller's endpoint
+    xhr.setRequestHeader("Content-Type", "application/json");
+    xhr.send();
+
+    xhr.onload = function () {
+        if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
+
+            var apiResponse = JSON.parse(this.response);
+
+            if (apiResponse.result) {
+
+                // var openAnalysis = getInQAnalysisStatus(apiResponse);               
+                // setValue("h3InQAnalysis", openAnalysis);
+                //Disable No Request Found Div
+                document.getElementById("divNoAnalyizeFound").style.display = "none";//divNorecordTeamFoud
+
+                for (var record of apiResponse.result) {
+                    displayFileRecords(record, "tblTbodyFileSummaryCurrent");
                 }
-                else {
-                    // console.log("Status:" + this.status)          
+                //Disable No record Found Text
+                //var element = document.getElementById("trCurrentNoRecordFound");//.style.display = 'none';
+                //element.setAttribute("hidden", "hidden");
+            }
+            else {
+                //TODO
+            }
+        }
+        else {
+            // console.log("Status:" + this.status)          
 
 
-                }
-            };
+        }
+    };
 
-        });
+   
+    
 };
+
 
 //Get Current Week Record Count (New/Closed)
 function getInQAnalysisStatus(response) {
@@ -316,7 +239,7 @@ function displayFileRecords(response, tblBodyID) {
 
 
             threatType = getHighestConfidenceLevelThreatType(threatType);
-            console.log("Highest Threat Type: " + threatType);
+            //console.log("Highest Threat Type: " + threatType);
             //  console.log(highestConfidenceVariable); // Output: COBALT STRIKE BOTNET C2 SERVER (CONFIDENCE LEVEL: 100%)
 
         }
@@ -460,7 +383,7 @@ function generatePDF(elementID, fileName) {
 
 //Get File Record Details
 function GetFileRecordDetails() {
-    var apiURL = "FileRecord/GetByHash";
+    const apiURL = "ProxyToExternalEndpoint_GetByHash";
     var clickedBaseURl = window.location.href;
     
     var getParams = getParamFromUrl(clickedBaseURl);
@@ -470,11 +393,10 @@ function GetFileRecordDetails() {
 
         var fileRecordAPIURL = apiURL + "?hash256=" + hashOfFile;
         let req = new XMLHttpRequest();
-        fetch("/GetBaseAPIUrl")
-            .then(response => response.text())
-            .then(apiUrl => {
-                req.open("GET", apiUrl + fileRecordAPIURL);
-                req.send();
+    req.open("GET", fileRecordAPIURL); // Use the proxy controller's endpoint
+    req.setRequestHeader("Content-Type", "application/json");
+    req.send();
+          
                 req.onload = function () {
                     if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
 
@@ -489,7 +411,7 @@ function GetFileRecordDetails() {
                                 
                                 displayFileRecordInformation(response.result[0]);
                                
-                                GetSupportFileRecords(apiUrl,hashOfFile);
+                                GetSupportFileRecords(hashOfFile);
                             }
                             else {
                                 //   console.log("Status:" + this.status)
@@ -515,25 +437,22 @@ function GetFileRecordDetails() {
                         // document.getElementById("divCardTools").style.display = "none";
 
                     }
-                };
-
-            });
-      
+                };         
        
 
 
 };
 //Get Supprt Files
-function GetSupportFileRecords(baseApiUrl, hashOfFile) {
+function GetSupportFileRecords(hashOfFile) {
 
     const ui_supportFiles = document.getElementById("ulSupportFiles");
     let req = new XMLHttpRequest();
-    let apiUrlToGetSupportFiles = baseApiUrl + "FileUpload/GetSupportFiles?sha256=" + hashOfFile;
+    let apiUrlToGetSupportFiles = "ProxyToExternalEndpoint_GetSupportFiles?sha256=" + hashOfFile;
     if (!(hashOfFile == undefined || hashOfFile == null || hashOfFile == "")) {
         
         req.open("GET", apiUrlToGetSupportFiles);
+        req.setRequestHeader("Content-Type", "application/json");
         req.send();
-
         req.onload = function () {
             if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
                 // var options = '';
@@ -760,7 +679,7 @@ function displayFileRecordInformation(resultResponse) {
 //Show Analysis Records
 //Release Request Summary
 function GetAnalysisRecordsForChoosenDate() {
-    var BaseUrl =  "FileRecord/GetFileRecordByUploadedDate"; 
+   
 
     var todayDateInDateTime4From = new Date();//.toISOString().slice(0, 10);
     var todayDateInDateTime4To = new Date();//new Date().toISOString().slice(0, 10);
@@ -793,31 +712,27 @@ function GetAnalysisRecordsForChoosenDate() {
     }
 
     if (dropdownRecordSummaryToDate >= dropdownRecordSummaryFromDate) {
-        var getRecordRequestURL = BaseUrl + "?FromUploadedDate=" + dropdownRecordSummaryFromDate + "&ToUploadedDate=" + dropdownRecordSummaryToDate;
+        var getRecordRequestURL = "ProxyToExternalEndpoint_GetFileRecordByUploadedDate?FromUploadedDate=" + dropdownRecordSummaryFromDate + "&ToUploadedDate=" + dropdownRecordSummaryToDate;
        // console.log(getRecordRequestURL);
         let req = new XMLHttpRequest();
-        fetch("/GetBaseAPIUrl")
-            .then(response => response.text())
-            .then(apiUrl => {
-                req.open("GET", apiUrl + getRecordRequestURL);
-                req.send();
-                req.onreadystatechange = function () {
+        req.open("GET", getRecordRequestURL); // Use the proxy controller's endpoint
+        req.setRequestHeader("Content-Type", "application/json");
+        req.send();
+
+        req.onreadystatechange = function () {
                     if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
                         var relResponse = JSON.parse(this.response);
                         // console.log(relResponse.result);
-                        for (var resp of relResponse.result) {
-                            // getReleaseRequest(release, 0);
-                            displayFileRecords(resp, "tblTbodyRecordSummary");
+                        if (!(relResponse == undefined || relResponse == null || relResponse == "")) {
+                            for (var resp of relResponse.result) {
+                                // getReleaseRequest(release, 0);
+                                displayFileRecords(resp, "tblTbodyRecordSummary");
+                            }
+                            DataTableInitialize("tblRecordSummary");
                         }
-                        DataTableInitialize("tblRecordSummary");
 
                     }
                 };
-
-
-            });
-       
-       
     }
     else {
         alert("Please correct Date Range to fetch Analysis Records");
@@ -847,8 +762,6 @@ function fetchRecords() {
 //Show Analysis Records
 //Release Request Summary
 function GetSimilarThreats() {
-    var BaseUrl = "FileRecord/GetSimilarThreatRecords";
-
    
     var clickedBaseURl = window.location.href;
    // var getParams = getParamFromUrl(clickedBaseURl);
@@ -858,40 +771,41 @@ function GetSimilarThreats() {
 
     //console.log(encodedParam);
     setValue("h2ThreatTraceTitle", encodedParam);
-    var fileRecordAPIURL = BaseUrl + "?threatType=" + encodedParam;
+    var fileRecordAPIURL ="ProxyToExternalEndpoint_GetSimilarThreatRecords?threatType=" + encodedParam;
     let req = new XMLHttpRequest();
-    fetch("/GetBaseAPIUrl")
-        .then(response => response.text())
-        .then(apiUrl => {
-            req.open("GET", apiUrl + fileRecordAPIURL);
-           
+
+            req.open("GET", fileRecordAPIURL);
+            req.setRequestHeader("Content-Type", "application/json");
             req.send();
-            req.onload = function () {
+
+    req.onload = function () {
                 if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
 
                     var responses = JSON.parse(this.response);
                     //console.log(responses.result);
-                    try {
-                        // console.log(responses.result.length);
-                        if (responses.result.length > 0) {
-                            for (var response of responses.result) {
-                                // console.log(response);
-                                displayFileRecords(response, "tblTbodyThreatSummary");
+                    if (!(responses == undefined || responses == null || responses == "")) {
+                        try {
+                            // console.log(responses.result.length);
+                            if (responses.result.length > 0) {
+                                for (var response of responses.result) {
+                                    // console.log(response);
+                                    displayFileRecords(response, "tblTbodyThreatSummary");
+                                }
+                                var element = document.getElementById("trCurrentNoRecordFound");//.style.display = 'none';
+                                element.setAttribute("hidden", "hidden");
+                                DataTableInitialize("tblThreatSummary");
                             }
-                            var element = document.getElementById("trCurrentNoRecordFound");//.style.display = 'none';
-                            element.setAttribute("hidden", "hidden");
-                            DataTableInitialize("tblThreatSummary");
-                        }
-                        else {
-                            //   console.log("Status:" + this.status)
-                            setValue("title", "No Record Found!");
-                            document.getElementById("divCardBody").style.display = "none"; //hrefReleaseNote
-                            document.getElementById("divCardTools").style.display = "none";
+                            else {
+                                //   console.log("Status:" + this.status)
+                                setValue("title", "No Record Found!");
+                                document.getElementById("divCardBody").style.display = "none"; //hrefReleaseNote
+                                document.getElementById("divCardTools").style.display = "none";
 
+                            }
                         }
-                    }
-                    catch (err) {
-                        console.log("Error found while displaying File Information: " + err.message);
+                        catch (err) {
+                            console.log("Error found while displaying File Information: " + err.message);
+                        }
                     }
 
                 }
@@ -903,9 +817,7 @@ function GetSimilarThreats() {
 
 
                 }
-            };
-
-        });
+            };      
        
     
 
@@ -914,14 +826,23 @@ function GetSimilarThreats() {
 //Get dashboard Count Values
 function getDashboardCountValues() {
   //  console.log("getDashboardCountValues");
+    let apiurl = "ProxyToExternalEndpoint_GetDashboardCount";
+    // Get the current URL
+    var currentUrl = window.location.href;
 
-    var fileRecordAPIURL = "FileRecord/GetDashboardCount";
+    // Get the root URL
+    var rootUrl = window.location.origin;
 
+    // Check if the URL has "/Home" immediately after the root URL
+    var hasHomeAfterRoot = currentUrl.startsWith(rootUrl + "/Home");
+
+    if (!hasHomeAfterRoot) {
+        apiurl = "Home/" + apiurl
+    } 
     let req = new XMLHttpRequest();
-    fetch("/GetBaseAPIUrl")
-        .then(response => response.text())
-        .then(apiUrl => {
-            req.open("GET", apiUrl + fileRecordAPIURL);
+
+    req.open("GET", apiurl);
+    req.setRequestHeader("Content-Type", "application/json");
             req.send();
             req.onload = function () {
                 if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
@@ -953,9 +874,6 @@ function getDashboardCountValues() {
 
                 }
             };
-
-        });
-  
    
 
 };
@@ -967,27 +885,26 @@ function getLiveTrackingInfo() {
     htitleLivetRacking.innerHTML = "<i class='nav-icon fas fa-rocket'></i>  ArkThor Board - File Analyses Live Tracking - Date:  [ " + TodaysDate.toISOString().split('T')[0]+" ]"; 
    
     let numberOfRecordsToFetch = 16;
-    var requestCurrentWeekURL = "FileRecord/GetTOPFileRecord?numberOfRecordsToFetch=" + numberOfRecordsToFetch;
+    var requestTOPFileRecordURL = "ProxyToExternalEndpoint_GetTOPFileRecord?numberOfRecordsToFetch=" + numberOfRecordsToFetch;
 
     let req = new XMLHttpRequest();
 
-    fetch("/GetBaseAPIUrl")
-        .then(response => response.text())
-        .then(apiUrl => {
-            req.open("GET", apiUrl + requestCurrentWeekURL);
-            req.send();
+    req.open("GET", requestTOPFileRecordURL); // Use the proxy controller's endpoint
+    req.setRequestHeader("Content-Type", "application/json");
+    req.send();
             req.onload = function () {
                 if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
 
                     var apiResponse = JSON.parse(this.response);
+                    if (!(apiResponse == undefined || apiResponse == null || apiResponse == "")) {
+                        if (apiResponse.result) {
+                            // console.log(apiResponse.result);
+                            document.getElementById("divNoRequestFound").style.display = "none";
+                            for (var record of apiResponse.result) {
+                                displayLiveTrackingOnBoard(record);
+                            }
 
-                    if (apiResponse.result) {
-                       // console.log(apiResponse.result);
-                        document.getElementById("divNoRequestFound").style.display = "none";
-                        for (var record of apiResponse.result) {
-                            displayLiveTrackingOnBoard(record);
                         }
-                      
                     }
                     else {
                         //TODO
@@ -999,8 +916,6 @@ function getLiveTrackingInfo() {
 
                 }
             };
-
-        });
 
 };
 //Release Single Screen View 360
@@ -1069,8 +984,8 @@ function displayLiveTrackingOnBoard(response) {
    // console.log("parentWidth: " + parentWidth);
 
     // Get the screen width
-    let screenWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
-    console.log("parentWidth: " + parentWidth);
+   // let screenWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+    //console.log("parentWidth: " + parentWidth);
     // Set the maxWidth of the span based on the screen width
    //(parentWidth * 0.7) + "px"; // Adjust the factor (0.8) as needed
 
@@ -1179,17 +1094,11 @@ function displayLiveTrackingOnBoard(response) {
 function refreship2asn() {
 
     let req = new XMLHttpRequest();
-    fetch("/GetBaseAPIUrl")
-        .then(response => response.text())
-        .then(apiUrl => {
-            apiURExtL = apiUrl
-            req.open("POST", apiUrl + "CoreAdmin/Updateip2asn");
+        req.open("POST", "ProxyToExternalEndpoint_Updateip2asn");
+        req.setRequestHeader("Content-Type", "application/json");
             req.send();
             req.onload = function () {
                 if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
-
-                    //var apiResponse = JSON.parse(this.response);
-                    // console.log(this.response);
                     alert(this.response);
                 }
                 else {
@@ -1198,7 +1107,7 @@ function refreship2asn() {
                 
             };
 
-        });
+  
     // console.log("Ext URL:"+ apiURLExt);
 };
 
@@ -1206,54 +1115,18 @@ function refreship2asn() {
 function refreshThreatFoxRule() {
 
     let req = new XMLHttpRequest();
-    fetch("/GetBaseAPIUrl")
-        .then(response => response.text())
-        .then(apiUrl => {
-            apiURExtL = apiUrl
-            req.open("POST", apiUrl + "CoreAdmin/UpdateThreatFoxRule");
-            req.send();
-            req.onload = function () {
-                if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
+    req.open("POST", "ProxyToExternalEndpoint_refreshThreatFoxRule");
+    req.setRequestHeader("Content-Type", "application/json");
+    req.send();
+    req.onload = function () {
+        if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
+            var apiResponse = JSON.parse(this.response);
+            alert(this.response);
+        }
+        else {
+            alert(this.response);
+        }
 
-                    alert(this.response);
-                }
-                else {
-                    alert(this.response);
-                }
-
-            };
-
-        });
-
+    };
 };
 
-//Save  Core Config File
-// Save Core Config File
-function saveCoreConfig() {
-    // Get the textarea element
-    var textarea = document.getElementById("configTextArea");
-    // Get the content of the textarea
-    var configContent = textarea.value;
-    // Create a new FormData object
-    var formData = new FormData();
-    // Append the configContent to the formData object
-    formData.append("configContent", configContent);
-    // Send a POST request to the server
-    fetch("/Home/PostCoreConfig", {
-        method: "POST",
-        body: formData
-    })
-        .then(function (response) {
-            if (response.ok) {
-                // Successful response
-                alert("Config file saved successfully.");
-            } else {
-                // Error occurred
-                alert("Failed to save config file.");
-            }
-        })
-        .catch(function (error) {
-            // Error occurred
-            alert("An error occurred while saving config file: " + error);
-        });
-};

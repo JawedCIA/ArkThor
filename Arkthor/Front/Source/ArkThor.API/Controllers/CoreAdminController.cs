@@ -16,6 +16,7 @@ using ArkThor.API.Utilities;
 using System.Security.Cryptography;
 using ArkThor.API.Models.Records;
 using System.Diagnostics.Eventing.Reader;
+using Microsoft.AspNetCore.Cors;
 
 namespace ArkThor.API.Controllers
 {
@@ -36,6 +37,7 @@ namespace ArkThor.API.Controllers
 
         [HttpPost]
         [Route("Updateip2asn")]
+        [EnableCors("AllowArkthorDomain")]
         public async Task<IActionResult> Updateip2asn()
         {
             try
@@ -67,6 +69,7 @@ namespace ArkThor.API.Controllers
 
         [HttpPost] 
         [Route("UpdateThreatFoxRule")]
+        [EnableCors("AllowArkthorDomain")]
         public async Task<IActionResult> UpdateThreatFoxRule()
         {
             try
@@ -100,6 +103,7 @@ namespace ArkThor.API.Controllers
 
         [HttpPost]
         [Route("UpdateCoreConfig")]
+        [EnableCors("AllowArkthorDomain")]
         public async Task<IActionResult> UpdateCoreConfig([FromBody] ConfigData configData)
         {
             try

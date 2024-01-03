@@ -10,9 +10,11 @@ using Microsoft.EntityFrameworkCore;
 using ArkThor.API.Models.Records;
 using ArkThor.API.Entities;
 using Microsoft.Extensions.Logging;
+using Microsoft.AspNetCore.Cors;
 
 [ApiController]
 [Route("api/[controller]")]
+
 public class FileRecordController : ControllerBase
 {
     private IFileRecordService _fileService;
@@ -32,6 +34,7 @@ public class FileRecordController : ControllerBase
 
     [HttpPut]
     [Route("UpdateThreatType")]
+    [EnableCors("AllowArkthorDomain")]
     public IActionResult UpdateThreatType(string hash256, string threatType)
     {
 
@@ -42,6 +45,7 @@ public class FileRecordController : ControllerBase
 
     [HttpPut]
     [Route("UpdateCurrentStage")]
+    [EnableCors("AllowArkthorDomain")]
     public IActionResult UpdateCurrentStage(string hash256, string stage)
     {
         var files = _fileService.UpdateCurrentStage(hash256.ToUpper(), stage);
@@ -50,6 +54,7 @@ public class FileRecordController : ControllerBase
 
     [HttpPut]
     [Route("UpdateStatus")]
+    [EnableCors("AllowArkthorDomain")]
     public IActionResult UpdateStatus(string hash256, string status)
     {
         _logger.LogInformation("Status Update {0} Request for hash: {1}", status, hash256);
@@ -60,6 +65,7 @@ public class FileRecordController : ControllerBase
    
     [HttpPut]
     [Route("UpdateAnalyzedDate")]
+    [EnableCors("AllowArkthorDomain")]
     public IActionResult UpdateAnalyzedDate(string hash256, DateTime AnalyzedDate)
     {
         var files = _fileService.UpdateAnalyzedDate(hash256.ToUpper(), AnalyzedDate);
@@ -68,6 +74,7 @@ public class FileRecordController : ControllerBase
 
     [HttpPut]
     [Route("UpdateSeverity")]
+    [EnableCors("AllowArkthorDomain")]
     public IActionResult UpdateSeverity(string hash256, string severity)
     {
         var files = _fileService.UpdateSeverity(hash256.ToUpper(), severity);
@@ -76,6 +83,7 @@ public class FileRecordController : ControllerBase
 
     [HttpGet]
     [Route("GetAllFileRecord")]
+    
     public IActionResult GetAllFileRecord()
     {
         var files = _fileService.GetAll();
@@ -177,6 +185,7 @@ public class FileRecordController : ControllerBase
 
     [HttpPost]
     [Route("CreateFileRecord")]
+    [EnableCors("AllowArkthorDomain")]
     public IActionResult CreateFileRecord(CreateFileRecord model)
     {
         _logger.LogInformation("File Record Creation for file Name with hash  {0} ", model.FileName);
