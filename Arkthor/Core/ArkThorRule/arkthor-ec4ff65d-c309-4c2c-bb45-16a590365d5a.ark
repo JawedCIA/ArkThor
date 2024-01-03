@@ -1,0 +1,3230 @@
+[
+    {
+        "rule_name": "Mirai payload delivery URL",
+        "authored_timestamp": 1688286842,
+        "rule": [
+            "url == \"http://2.58.149.206/star\"",
+            "path == \"/star\"",
+            "domain == \"2.58.149.206\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Bashlite botnet C2 server",
+        "authored_timestamp": 1688286842,
+        "rule": [
+            "ip == \"46.249.32.109\"",
+            "ip == \"46.249.32.109\" and port == \"1337\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "75"
+    },
+    {
+        "rule_name": "Mirai botnet C2 server",
+        "authored_timestamp": 1688286842,
+        "rule": [
+            "ip == \"134.122.110.45\"",
+            "ip == \"134.122.110.45\" and port == \"8985\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "75"
+    },
+    {
+        "rule_name": "Mirai botnet C2 server",
+        "authored_timestamp": 1688286842,
+        "rule": [
+            "ip == \"185.244.39.243\"",
+            "ip == \"185.244.39.243\" and port == \"11025\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "75"
+    },
+    {
+        "rule_name": "Remcos botnet C2 domain",
+        "authored_timestamp": 1688286842,
+        "rule": [
+            "domain == \"dynasty1.ddns.net.\""
+        ],
+        "scope": "DNS",
+        "severity": "100",
+        "automated": "true",
+        "MITRE": [
+            "T1071.001",
+            "T1132.001",
+            "T1568",
+            "T1102.003"
+        ]
+    },
+    {
+        "rule_name": "Remcos botnet C2 domain",
+        "authored_timestamp": 1688286842,
+        "rule": [
+            "domain == \"dynasty2.ddns.net.\""
+        ],
+        "scope": "DNS",
+        "severity": "100",
+        "automated": "true",
+        "MITRE": [
+            "T1071.001",
+            "T1132.001",
+            "T1568",
+            "T1102.003"
+        ]
+    },
+    {
+        "rule_name": "Remcos botnet C2 domain",
+        "authored_timestamp": 1688286842,
+        "rule": [
+            "domain == \"dynasty3.ddns.net.\""
+        ],
+        "scope": "DNS",
+        "severity": "100",
+        "automated": "true",
+        "MITRE": [
+            "T1071.001",
+            "T1132.001",
+            "T1568",
+            "T1102.003"
+        ]
+    },
+    {
+        "rule_name": "Remcos botnet C2 server",
+        "authored_timestamp": 1688286842,
+        "rule": [
+            "ip == \"20.106.94.110\"",
+            "ip == \"20.106.94.110\" and port == \"2404\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Remcos botnet C2 server",
+        "authored_timestamp": 1688286842,
+        "rule": [
+            "ip == \"20.124.111.166\"",
+            "ip == \"20.124.111.166\" and port == \"2404\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Mirai botnet C2 server",
+        "authored_timestamp": 1688286842,
+        "rule": [
+            "ip == \"23.94.37.59\"",
+            "ip == \"23.94.37.59\" and port == \"63645\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "75"
+    },
+    {
+        "rule_name": "Mirai botnet C2 server",
+        "authored_timestamp": 1688286842,
+        "rule": [
+            "ip == \"35.197.127.250\"",
+            "ip == \"35.197.127.250\" and port == \"6379\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "75"
+    },
+    {
+        "rule_name": "Mirai botnet C2 server",
+        "authored_timestamp": 1688286842,
+        "rule": [
+            "ip == \"212.192.216.55\"",
+            "ip == \"212.192.216.55\" and port == \"8985\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "75"
+    },
+    {
+        "rule_name": "RedLine Stealer botnet C2 server",
+        "authored_timestamp": 1688286842,
+        "rule": [
+            "ip == \"45.142.215.180\"",
+            "ip == \"45.142.215.180\" and port == \"56456\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "NjRAT botnet C2 server",
+        "authored_timestamp": 1688286842,
+        "rule": [
+            "ip == \"91.109.180.4\"",
+            "ip == \"91.109.180.4\" and port == \"5050\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2",
+        "authored_timestamp": 1688286842,
+        "rule": [
+            "url == \"http://183.101.0.245:60000/dpixel\"",
+            "path == \"/dpixel\"",
+            "domain == \"183.101.0.245\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2 server",
+        "authored_timestamp": 1688286842,
+        "rule": [
+            "ip == \"183.101.0.245\"",
+            "ip == \"183.101.0.245\" and port == \"60000\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "CryptBot botnet C2 domain",
+        "authored_timestamp": 1688286842,
+        "rule": [
+            "domain == \"gomdsx15.top.\""
+        ],
+        "scope": "DNS",
+        "severity": "100",
+        "automated": "true",
+        "MITRE": [
+            "T1071.001",
+            "T1132.001",
+            "T1568",
+            "T1102.003"
+        ]
+    },
+    {
+        "rule_name": "CryptBot botnet C2 domain",
+        "authored_timestamp": 1688286842,
+        "rule": [
+            "domain == \"peufga06.top.\""
+        ],
+        "scope": "DNS",
+        "severity": "100",
+        "automated": "true",
+        "MITRE": [
+            "T1071.001",
+            "T1132.001",
+            "T1568",
+            "T1102.003"
+        ]
+    },
+    {
+        "rule_name": "CryptBot botnet C2 domain",
+        "authored_timestamp": 1688286842,
+        "rule": [
+            "domain == \"gombno33.top.\""
+        ],
+        "scope": "DNS",
+        "severity": "100",
+        "automated": "true",
+        "MITRE": [
+            "T1071.001",
+            "T1132.001",
+            "T1568",
+            "T1102.003"
+        ]
+    },
+    {
+        "rule_name": "CryptBot botnet C2 domain",
+        "authored_timestamp": 1688286842,
+        "rule": [
+            "domain == \"peuxuq08.top.\""
+        ],
+        "scope": "DNS",
+        "severity": "100",
+        "automated": "true",
+        "MITRE": [
+            "T1071.001",
+            "T1132.001",
+            "T1568",
+            "T1102.003"
+        ]
+    },
+    {
+        "rule_name": "CryptBot botnet C2 domain",
+        "authored_timestamp": 1688286842,
+        "rule": [
+            "domain == \"gomcpn38.top.\""
+        ],
+        "scope": "DNS",
+        "severity": "100",
+        "automated": "true",
+        "MITRE": [
+            "T1071.001",
+            "T1132.001",
+            "T1568",
+            "T1102.003"
+        ]
+    },
+    {
+        "rule_name": "CryptBot botnet C2 domain",
+        "authored_timestamp": 1688286842,
+        "rule": [
+            "domain == \"gomkud25.top.\""
+        ],
+        "scope": "DNS",
+        "severity": "100",
+        "automated": "true",
+        "MITRE": [
+            "T1071.001",
+            "T1132.001",
+            "T1568",
+            "T1102.003"
+        ]
+    },
+    {
+        "rule_name": "CryptBot botnet C2 domain",
+        "authored_timestamp": 1688286842,
+        "rule": [
+            "domain == \"gomveh73.top.\""
+        ],
+        "scope": "DNS",
+        "severity": "100",
+        "automated": "true",
+        "MITRE": [
+            "T1071.001",
+            "T1132.001",
+            "T1568",
+            "T1102.003"
+        ]
+    },
+    {
+        "rule_name": "CryptBot botnet C2 domain",
+        "authored_timestamp": 1688286842,
+        "rule": [
+            "domain == \"gomwuo74.top.\""
+        ],
+        "scope": "DNS",
+        "severity": "100",
+        "automated": "true",
+        "MITRE": [
+            "T1071.001",
+            "T1132.001",
+            "T1568",
+            "T1102.003"
+        ]
+    },
+    {
+        "rule_name": "CryptBot botnet C2 domain",
+        "authored_timestamp": 1688286842,
+        "rule": [
+            "domain == \"gomdym64.top.\""
+        ],
+        "scope": "DNS",
+        "severity": "100",
+        "automated": "true",
+        "MITRE": [
+            "T1071.001",
+            "T1132.001",
+            "T1568",
+            "T1102.003"
+        ]
+    },
+    {
+        "rule_name": "CryptBot botnet C2 domain",
+        "authored_timestamp": 1688286842,
+        "rule": [
+            "domain == \"gomdkv48.top.\""
+        ],
+        "scope": "DNS",
+        "severity": "100",
+        "automated": "true",
+        "MITRE": [
+            "T1071.001",
+            "T1132.001",
+            "T1568",
+            "T1102.003"
+        ]
+    },
+    {
+        "rule_name": "CryptBot botnet C2 domain",
+        "authored_timestamp": 1688286842,
+        "rule": [
+            "domain == \"gomkcq55.top.\""
+        ],
+        "scope": "DNS",
+        "severity": "100",
+        "automated": "true",
+        "MITRE": [
+            "T1071.001",
+            "T1132.001",
+            "T1568",
+            "T1102.003"
+        ]
+    },
+    {
+        "rule_name": "CryptBot botnet C2 domain",
+        "authored_timestamp": 1688286842,
+        "rule": [
+            "domain == \"gombpy23.top.\""
+        ],
+        "scope": "DNS",
+        "severity": "100",
+        "automated": "true",
+        "MITRE": [
+            "T1071.001",
+            "T1132.001",
+            "T1568",
+            "T1102.003"
+        ]
+    },
+    {
+        "rule_name": "CryptBot botnet C2 domain",
+        "authored_timestamp": 1688286842,
+        "rule": [
+            "domain == \"peulnm16.top.\""
+        ],
+        "scope": "DNS",
+        "severity": "100",
+        "automated": "true",
+        "MITRE": [
+            "T1071.001",
+            "T1132.001",
+            "T1568",
+            "T1102.003"
+        ]
+    },
+    {
+        "rule_name": "CryptBot botnet C2 domain",
+        "authored_timestamp": 1688286842,
+        "rule": [
+            "domain == \"morpyi04.top.\""
+        ],
+        "scope": "DNS",
+        "severity": "100",
+        "automated": "true",
+        "MITRE": [
+            "T1071.001",
+            "T1132.001",
+            "T1568",
+            "T1102.003"
+        ]
+    },
+    {
+        "rule_name": "CryptBot botnet C2 domain",
+        "authored_timestamp": 1688286842,
+        "rule": [
+            "domain == \"ekudiw09.top.\""
+        ],
+        "scope": "DNS",
+        "severity": "100",
+        "automated": "true",
+        "MITRE": [
+            "T1071.001",
+            "T1132.001",
+            "T1568",
+            "T1102.003"
+        ]
+    },
+    {
+        "rule_name": "CryptBot botnet C2 domain",
+        "authored_timestamp": 1688286842,
+        "rule": [
+            "domain == \"morswd03.top.\""
+        ],
+        "scope": "DNS",
+        "severity": "100",
+        "automated": "true",
+        "MITRE": [
+            "T1071.001",
+            "T1132.001",
+            "T1568",
+            "T1102.003"
+        ]
+    },
+    {
+        "rule_name": "CryptBot botnet C2 domain",
+        "authored_timestamp": 1688286842,
+        "rule": [
+            "domain == \"sezofi64.top.\""
+        ],
+        "scope": "DNS",
+        "severity": "100",
+        "automated": "true",
+        "MITRE": [
+            "T1071.001",
+            "T1132.001",
+            "T1568",
+            "T1102.003"
+        ]
+    },
+    {
+        "rule_name": "CryptBot botnet C2 domain",
+        "authored_timestamp": 1688286842,
+        "rule": [
+            "domain == \"sezexr48.top.\""
+        ],
+        "scope": "DNS",
+        "severity": "100",
+        "automated": "true",
+        "MITRE": [
+            "T1071.001",
+            "T1132.001",
+            "T1568",
+            "T1102.003"
+        ]
+    },
+    {
+        "rule_name": "CryptBot botnet C2 domain",
+        "authored_timestamp": 1688286842,
+        "rule": [
+            "domain == \"sezgxh38.top.\""
+        ],
+        "scope": "DNS",
+        "severity": "100",
+        "automated": "true",
+        "MITRE": [
+            "T1071.001",
+            "T1132.001",
+            "T1568",
+            "T1102.003"
+        ]
+    },
+    {
+        "rule_name": "CryptBot botnet C2 domain",
+        "authored_timestamp": 1688286842,
+        "rule": [
+            "domain == \"sezjgh14.top.\""
+        ],
+        "scope": "DNS",
+        "severity": "100",
+        "automated": "true",
+        "MITRE": [
+            "T1071.001",
+            "T1132.001",
+            "T1568",
+            "T1102.003"
+        ]
+    },
+    {
+        "rule_name": "CryptBot botnet C2 domain",
+        "authored_timestamp": 1688286842,
+        "rule": [
+            "domain == \"sezsay45.top.\""
+        ],
+        "scope": "DNS",
+        "severity": "100",
+        "automated": "true",
+        "MITRE": [
+            "T1071.001",
+            "T1132.001",
+            "T1568",
+            "T1102.003"
+        ]
+    },
+    {
+        "rule_name": "CryptBot botnet C2 domain",
+        "authored_timestamp": 1688286842,
+        "rule": [
+            "domain == \"sezvqe15.top.\""
+        ],
+        "scope": "DNS",
+        "severity": "100",
+        "automated": "true",
+        "MITRE": [
+            "T1071.001",
+            "T1132.001",
+            "T1568",
+            "T1102.003"
+        ]
+    },
+    {
+        "rule_name": "CryptBot botnet C2 domain",
+        "authored_timestamp": 1688286842,
+        "rule": [
+            "domain == \"sezyst58.top.\""
+        ],
+        "scope": "DNS",
+        "severity": "100",
+        "automated": "true",
+        "MITRE": [
+            "T1071.001",
+            "T1132.001",
+            "T1568",
+            "T1102.003"
+        ]
+    },
+    {
+        "rule_name": "CryptBot botnet C2 domain",
+        "authored_timestamp": 1688286842,
+        "rule": [
+            "domain == \"artfavart.top.\""
+        ],
+        "scope": "DNS",
+        "severity": "100",
+        "automated": "true",
+        "MITRE": [
+            "T1071.001",
+            "T1132.001",
+            "T1568",
+            "T1102.003"
+        ]
+    },
+    {
+        "rule_name": "CryptBot botnet C2 domain",
+        "authored_timestamp": 1688286842,
+        "rule": [
+            "domain == \"daibmu78.top.\""
+        ],
+        "scope": "DNS",
+        "severity": "100",
+        "automated": "true",
+        "MITRE": [
+            "T1071.001",
+            "T1132.001",
+            "T1568",
+            "T1102.003"
+        ]
+    },
+    {
+        "rule_name": "CryptBot botnet C2 domain",
+        "authored_timestamp": 1688286842,
+        "rule": [
+            "domain == \"morboh07.top.\""
+        ],
+        "scope": "DNS",
+        "severity": "100",
+        "automated": "true",
+        "MITRE": [
+            "T1071.001",
+            "T1132.001",
+            "T1568",
+            "T1102.003"
+        ]
+    },
+    {
+        "rule_name": "CryptBot botnet C2 domain",
+        "authored_timestamp": 1688286842,
+        "rule": [
+            "domain == \"daiewt53.top.\""
+        ],
+        "scope": "DNS",
+        "severity": "100",
+        "automated": "true",
+        "MITRE": [
+            "T1071.001",
+            "T1132.001",
+            "T1568",
+            "T1102.003"
+        ]
+    },
+    {
+        "rule_name": "CryptBot botnet C2 domain",
+        "authored_timestamp": 1688286842,
+        "rule": [
+            "domain == \"daigtx74.top.\""
+        ],
+        "scope": "DNS",
+        "severity": "100",
+        "automated": "true",
+        "MITRE": [
+            "T1071.001",
+            "T1132.001",
+            "T1568",
+            "T1102.003"
+        ]
+    },
+    {
+        "rule_name": "CryptBot botnet C2 domain",
+        "authored_timestamp": 1688286842,
+        "rule": [
+            "domain == \"daihpb75.top.\""
+        ],
+        "scope": "DNS",
+        "severity": "100",
+        "automated": "true",
+        "MITRE": [
+            "T1071.001",
+            "T1132.001",
+            "T1568",
+            "T1102.003"
+        ]
+    },
+    {
+        "rule_name": "CryptBot botnet C2 domain",
+        "authored_timestamp": 1688286842,
+        "rule": [
+            "domain == \"daiirq63.top.\""
+        ],
+        "scope": "DNS",
+        "severity": "100",
+        "automated": "true",
+        "MITRE": [
+            "T1071.001",
+            "T1132.001",
+            "T1568",
+            "T1102.003"
+        ]
+    },
+    {
+        "rule_name": "CryptBot botnet C2 domain",
+        "authored_timestamp": 1688286842,
+        "rule": [
+            "domain == \"dainwz56.top.\""
+        ],
+        "scope": "DNS",
+        "severity": "100",
+        "automated": "true",
+        "MITRE": [
+            "T1071.001",
+            "T1132.001",
+            "T1568",
+            "T1102.003"
+        ]
+    },
+    {
+        "rule_name": "CryptBot botnet C2 domain",
+        "authored_timestamp": 1688286842,
+        "rule": [
+            "domain == \"daisht76.top.\""
+        ],
+        "scope": "DNS",
+        "severity": "100",
+        "automated": "true",
+        "MITRE": [
+            "T1071.001",
+            "T1132.001",
+            "T1568",
+            "T1102.003"
+        ]
+    },
+    {
+        "rule_name": "CryptBot botnet C2 domain",
+        "authored_timestamp": 1688286842,
+        "rule": [
+            "domain == \"daitnf55.top.\""
+        ],
+        "scope": "DNS",
+        "severity": "100",
+        "automated": "true",
+        "MITRE": [
+            "T1071.001",
+            "T1132.001",
+            "T1568",
+            "T1102.003"
+        ]
+    },
+    {
+        "rule_name": "CryptBot botnet C2 domain",
+        "authored_timestamp": 1688286842,
+        "rule": [
+            "domain == \"daixbh54.top.\""
+        ],
+        "scope": "DNS",
+        "severity": "100",
+        "automated": "true",
+        "MITRE": [
+            "T1071.001",
+            "T1132.001",
+            "T1568",
+            "T1102.003"
+        ]
+    },
+    {
+        "rule_name": "CryptBot botnet C2 domain",
+        "authored_timestamp": 1688286842,
+        "rule": [
+            "domain == \"daizrm64.top.\""
+        ],
+        "scope": "DNS",
+        "severity": "100",
+        "automated": "true",
+        "MITRE": [
+            "T1071.001",
+            "T1132.001",
+            "T1568",
+            "T1102.003"
+        ]
+    },
+    {
+        "rule_name": "CryptBot botnet C2 domain",
+        "authored_timestamp": 1688286842,
+        "rule": [
+            "domain == \"yapakq11.top.\""
+        ],
+        "scope": "DNS",
+        "severity": "100",
+        "automated": "true",
+        "MITRE": [
+            "T1071.001",
+            "T1132.001",
+            "T1568",
+            "T1102.003"
+        ]
+    },
+    {
+        "rule_name": "CryptBot botnet C2 domain",
+        "authored_timestamp": 1688286842,
+        "rule": [
+            "domain == \"zyokao27.top.\""
+        ],
+        "scope": "DNS",
+        "severity": "100",
+        "automated": "true",
+        "MITRE": [
+            "T1071.001",
+            "T1132.001",
+            "T1568",
+            "T1102.003"
+        ]
+    },
+    {
+        "rule_name": "CryptBot botnet C2 domain",
+        "authored_timestamp": 1688286842,
+        "rule": [
+            "domain == \"zyonou41.top.\""
+        ],
+        "scope": "DNS",
+        "severity": "100",
+        "automated": "true",
+        "MITRE": [
+            "T1071.001",
+            "T1132.001",
+            "T1568",
+            "T1102.003"
+        ]
+    },
+    {
+        "rule_name": "CryptBot botnet C2 domain",
+        "authored_timestamp": 1688286842,
+        "rule": [
+            "domain == \"zyoskv38.top.\""
+        ],
+        "scope": "DNS",
+        "severity": "100",
+        "automated": "true",
+        "MITRE": [
+            "T1071.001",
+            "T1132.001",
+            "T1568",
+            "T1102.003"
+        ]
+    },
+    {
+        "rule_name": "CryptBot botnet C2 domain",
+        "authored_timestamp": 1688286842,
+        "rule": [
+            "domain == \"zyoyol62.top.\""
+        ],
+        "scope": "DNS",
+        "severity": "100",
+        "automated": "true",
+        "MITRE": [
+            "T1071.001",
+            "T1132.001",
+            "T1568",
+            "T1102.003"
+        ]
+    },
+    {
+        "rule_name": "CryptBot botnet C2 domain",
+        "authored_timestamp": 1688286842,
+        "rule": [
+            "domain == \"moridn05.top.\""
+        ],
+        "scope": "DNS",
+        "severity": "100",
+        "automated": "true",
+        "MITRE": [
+            "T1071.001",
+            "T1132.001",
+            "T1568",
+            "T1102.003"
+        ]
+    },
+    {
+        "rule_name": "CryptBot botnet C2 domain",
+        "authored_timestamp": 1688286842,
+        "rule": [
+            "domain == \"hevaza63.top.\""
+        ],
+        "scope": "DNS",
+        "severity": "100",
+        "automated": "true",
+        "MITRE": [
+            "T1071.001",
+            "T1132.001",
+            "T1568",
+            "T1102.003"
+        ]
+    },
+    {
+        "rule_name": "CryptBot botnet C2 domain",
+        "authored_timestamp": 1688286842,
+        "rule": [
+            "domain == \"hevzaq36.top.\""
+        ],
+        "scope": "DNS",
+        "severity": "100",
+        "automated": "true",
+        "MITRE": [
+            "T1071.001",
+            "T1132.001",
+            "T1568",
+            "T1102.003"
+        ]
+    },
+    {
+        "rule_name": "CryptBot botnet C2 domain",
+        "authored_timestamp": 1688286842,
+        "rule": [
+            "domain == \"hevnsy68.top.\""
+        ],
+        "scope": "DNS",
+        "severity": "100",
+        "automated": "true",
+        "MITRE": [
+            "T1071.001",
+            "T1132.001",
+            "T1568",
+            "T1102.003"
+        ]
+    },
+    {
+        "rule_name": "CryptBot botnet C2 domain",
+        "authored_timestamp": 1688286842,
+        "rule": [
+            "domain == \"hevxuo66.top.\""
+        ],
+        "scope": "DNS",
+        "severity": "100",
+        "automated": "true",
+        "MITRE": [
+            "T1071.001",
+            "T1132.001",
+            "T1568",
+            "T1102.003"
+        ]
+    },
+    {
+        "rule_name": "CryptBot botnet C2 domain",
+        "authored_timestamp": 1688286842,
+        "rule": [
+            "domain == \"hevdiz78.top.\""
+        ],
+        "scope": "DNS",
+        "severity": "100",
+        "automated": "true",
+        "MITRE": [
+            "T1071.001",
+            "T1132.001",
+            "T1568",
+            "T1102.003"
+        ]
+    },
+    {
+        "rule_name": "CryptBot botnet C2 domain",
+        "authored_timestamp": 1688286842,
+        "rule": [
+            "domain == \"morhmu07.top.\""
+        ],
+        "scope": "DNS",
+        "severity": "100",
+        "automated": "true",
+        "MITRE": [
+            "T1071.001",
+            "T1132.001",
+            "T1568",
+            "T1102.003"
+        ]
+    },
+    {
+        "rule_name": "CryptBot botnet C2 domain",
+        "authored_timestamp": 1688286842,
+        "rule": [
+            "domain == \"hevqob73.top.\""
+        ],
+        "scope": "DNS",
+        "severity": "100",
+        "automated": "true",
+        "MITRE": [
+            "T1071.001",
+            "T1132.001",
+            "T1568",
+            "T1102.003"
+        ]
+    },
+    {
+        "rule_name": "CryptBot botnet C2 domain",
+        "authored_timestamp": 1688286842,
+        "rule": [
+            "domain == \"hevqyw76.top.\""
+        ],
+        "scope": "DNS",
+        "severity": "100",
+        "automated": "true",
+        "MITRE": [
+            "T1071.001",
+            "T1132.001",
+            "T1568",
+            "T1102.003"
+        ]
+    },
+    {
+        "rule_name": "CryptBot botnet C2 domain",
+        "authored_timestamp": 1688286842,
+        "rule": [
+            "domain == \"hevuto75.top.\""
+        ],
+        "scope": "DNS",
+        "severity": "100",
+        "automated": "true",
+        "MITRE": [
+            "T1071.001",
+            "T1132.001",
+            "T1568",
+            "T1102.003"
+        ]
+    },
+    {
+        "rule_name": "RedLine Stealer botnet C2 server",
+        "authored_timestamp": 1688286842,
+        "rule": [
+            "ip == \"20.127.111.151\"",
+            "ip == \"20.127.111.151\" and port == \"35361\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2 server",
+        "authored_timestamp": 1688286842,
+        "rule": [
+            "ip == \"116.206.92.26\"",
+            "ip == \"116.206.92.26\" and port == \"*\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2",
+        "authored_timestamp": 1688286842,
+        "rule": [
+            "url == \"http://47.98.110.121:8082/updates.rss\"",
+            "path == \"/updates.rss\"",
+            "domain == \"47.98.110.121\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2 server",
+        "authored_timestamp": 1688286842,
+        "rule": [
+            "ip == \"47.98.110.121\"",
+            "ip == \"47.98.110.121\" and port == \"8082\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2",
+        "authored_timestamp": 1688286842,
+        "rule": [
+            "url == \"http://1.116.96.150/ca\"",
+            "path == \"/ca\"",
+            "domain == \"1.116.96.150\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2 server",
+        "authored_timestamp": 1688286842,
+        "rule": [
+            "ip == \"110.42.204.253\"",
+            "ip == \"110.42.204.253\" and port == \"80\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2",
+        "authored_timestamp": 1688286842,
+        "rule": [
+            "url == \"http://141.95.160.22/cm\"",
+            "path == \"/cm\"",
+            "domain == \"141.95.160.22\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2 server",
+        "authored_timestamp": 1688286842,
+        "rule": [
+            "ip == \"141.95.160.22\"",
+            "ip == \"141.95.160.22\" and port == \"80\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2",
+        "authored_timestamp": 1688286842,
+        "rule": [
+            "url == \"http://212.86.114.58:6666/en_us/all.js\"",
+            "path == \"/en_us/all.js\"",
+            "domain == \"212.86.114.58\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2 server",
+        "authored_timestamp": 1688286842,
+        "rule": [
+            "ip == \"212.86.114.58\"",
+            "ip == \"212.86.114.58\" and port == \"6666\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "IcedID Downloader botnet C2 domain",
+        "authored_timestamp": 1688286842,
+        "rule": [
+            "domain == \"carpricegoods.com.\""
+        ],
+        "scope": "DNS",
+        "severity": "75",
+        "automated": "true",
+        "MITRE": [
+            "T1071.001",
+            "T1132.001",
+            "T1568",
+            "T1102.003"
+        ]
+    },
+    {
+        "rule_name": "RedLine Stealer botnet C2 server",
+        "authored_timestamp": 1688286842,
+        "rule": [
+            "ip == \"95.143.177.66\"",
+            "ip == \"95.143.177.66\" and port == \"9006\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "RedLine Stealer botnet C2 server",
+        "authored_timestamp": 1688286842,
+        "rule": [
+            "ip == \"78.24.222.162\"",
+            "ip == \"78.24.222.162\" and port == \"37819\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Unknown malware botnet C2",
+        "authored_timestamp": 1688286842,
+        "rule": [
+            "url == \"http://193.56.146.34/a.php\"",
+            "path == \"/a.php\"",
+            "domain == \"193.56.146.34\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Unknown malware botnet C2",
+        "authored_timestamp": 1688286842,
+        "rule": [
+            "url == \"http://193.56.146.34/p.php\"",
+            "path == \"/p.php\"",
+            "domain == \"193.56.146.34\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "DCRat botnet C2",
+        "authored_timestamp": 1688286842,
+        "rule": [
+            "url == \"http://62.109.17.4/system/recordlimitgame/prefsearcherdata/script/bintracemessageserver/python/processapiservercdn.php\"",
+            "path == \"/system/recordlimitgame/prefsearcherdata/script/bintracemessageserver/python/processapiservercdn.php\"",
+            "domain == \"62.109.17.4\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Arkei Stealer botnet C2",
+        "authored_timestamp": 1688286842,
+        "rule": [
+            "url == \"http://116.202.186.120/\"",
+            "path == \"/\"",
+            "domain == \"116.202.186.120\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "IcedID Downloader botnet C2 domain",
+        "authored_timestamp": 1688286842,
+        "rule": [
+            "domain == \"nermorell.com.\""
+        ],
+        "scope": "DNS",
+        "severity": "75",
+        "automated": "true",
+        "MITRE": [
+            "T1071.001",
+            "T1132.001",
+            "T1568",
+            "T1102.003"
+        ]
+    },
+    {
+        "rule_name": "RedLine Stealer botnet C2 server",
+        "authored_timestamp": 1688286842,
+        "rule": [
+            "ip == \"104.168.44.52\"",
+            "ip == \"104.168.44.52\" and port == \"80\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "RedLine Stealer botnet C2 server",
+        "authored_timestamp": 1688286842,
+        "rule": [
+            "ip == \"23.82.140.202\"",
+            "ip == \"23.82.140.202\" and port == \"25452\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2",
+        "authored_timestamp": 1688286842,
+        "rule": [
+            "url == \"https://storage.ondriev.tk:8080/preload\"",
+            "path == \"/preload\"",
+            "domain == \"storage.ondriev.tk\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2 server",
+        "authored_timestamp": 1688286842,
+        "rule": [
+            "ip == \"116.206.92.26\"",
+            "ip == \"116.206.92.26\" and port == \"8080\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2",
+        "authored_timestamp": 1688286842,
+        "rule": [
+            "url == \"http://service-pw83b4d1-1308834646.kr.apigw.tencentcs.com/api/x\"",
+            "path == \"/api/x\"",
+            "domain == \"service-pw83b4d1-1308834646.kr.apigw.tencentcs.com\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Nanocore RAT botnet C2 server",
+        "authored_timestamp": 1688286842,
+        "rule": [
+            "ip == \"2.56.59.46\"",
+            "ip == \"2.56.59.46\" and port == \"7712\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2",
+        "authored_timestamp": 1688286842,
+        "rule": [
+            "url == \"http://42.51.55.214/ca\"",
+            "path == \"/ca\"",
+            "domain == \"42.51.55.214\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2 server",
+        "authored_timestamp": 1688286842,
+        "rule": [
+            "ip == \"42.51.55.214\"",
+            "ip == \"42.51.55.214\" and port == \"80\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Remcos botnet C2 server",
+        "authored_timestamp": 1688286842,
+        "rule": [
+            "ip == \"184.164.77.132\"",
+            "ip == \"184.164.77.132\" and port == \"54155\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "CryptBot botnet C2 domain",
+        "authored_timestamp": 1688286842,
+        "rule": [
+            "domain == \"bunarf14.top.\""
+        ],
+        "scope": "DNS",
+        "severity": "100",
+        "automated": "true",
+        "MITRE": [
+            "T1071.001",
+            "T1132.001",
+            "T1568",
+            "T1102.003"
+        ]
+    },
+    {
+        "rule_name": "CryptBot botnet C2 domain",
+        "authored_timestamp": 1688286842,
+        "rule": [
+            "domain == \"bunavg31.top.\""
+        ],
+        "scope": "DNS",
+        "severity": "100",
+        "automated": "true",
+        "MITRE": [
+            "T1071.001",
+            "T1132.001",
+            "T1568",
+            "T1102.003"
+        ]
+    },
+    {
+        "rule_name": "CryptBot botnet C2 domain",
+        "authored_timestamp": 1688286842,
+        "rule": [
+            "domain == \"bunawj52.top.\""
+        ],
+        "scope": "DNS",
+        "severity": "100",
+        "automated": "true",
+        "MITRE": [
+            "T1071.001",
+            "T1132.001",
+            "T1568",
+            "T1102.003"
+        ]
+    },
+    {
+        "rule_name": "CryptBot botnet C2 domain",
+        "authored_timestamp": 1688286842,
+        "rule": [
+            "domain == \"bunbeq17.top.\""
+        ],
+        "scope": "DNS",
+        "severity": "100",
+        "automated": "true",
+        "MITRE": [
+            "T1071.001",
+            "T1132.001",
+            "T1568",
+            "T1102.003"
+        ]
+    },
+    {
+        "rule_name": "CryptBot botnet C2 domain",
+        "authored_timestamp": 1688286842,
+        "rule": [
+            "domain == \"bundky32.top.\""
+        ],
+        "scope": "DNS",
+        "severity": "100",
+        "automated": "true",
+        "MITRE": [
+            "T1071.001",
+            "T1132.001",
+            "T1568",
+            "T1102.003"
+        ]
+    },
+    {
+        "rule_name": "CryptBot botnet C2 domain",
+        "authored_timestamp": 1688286842,
+        "rule": [
+            "domain == \"buneaf62.top.\""
+        ],
+        "scope": "DNS",
+        "severity": "100",
+        "automated": "true",
+        "MITRE": [
+            "T1071.001",
+            "T1132.001",
+            "T1568",
+            "T1102.003"
+        ]
+    },
+    {
+        "rule_name": "CryptBot botnet C2 domain",
+        "authored_timestamp": 1688286842,
+        "rule": [
+            "domain == \"bunemp41.top.\""
+        ],
+        "scope": "DNS",
+        "severity": "100",
+        "automated": "true",
+        "MITRE": [
+            "T1071.001",
+            "T1132.001",
+            "T1568",
+            "T1102.003"
+        ]
+    },
+    {
+        "rule_name": "CryptBot botnet C2 domain",
+        "authored_timestamp": 1688286842,
+        "rule": [
+            "domain == \"bunewx22.top.\""
+        ],
+        "scope": "DNS",
+        "severity": "100",
+        "automated": "true",
+        "MITRE": [
+            "T1071.001",
+            "T1132.001",
+            "T1568",
+            "T1102.003"
+        ]
+    },
+    {
+        "rule_name": "CryptBot botnet C2 domain",
+        "authored_timestamp": 1688286842,
+        "rule": [
+            "domain == \"bungfi44.top.\""
+        ],
+        "scope": "DNS",
+        "severity": "100",
+        "automated": "true",
+        "MITRE": [
+            "T1071.001",
+            "T1132.001",
+            "T1568",
+            "T1102.003"
+        ]
+    },
+    {
+        "rule_name": "CryptBot botnet C2 domain",
+        "authored_timestamp": 1688286842,
+        "rule": [
+            "domain == \"bunhfy51.top.\""
+        ],
+        "scope": "DNS",
+        "severity": "100",
+        "automated": "true",
+        "MITRE": [
+            "T1071.001",
+            "T1132.001",
+            "T1568",
+            "T1102.003"
+        ]
+    },
+    {
+        "rule_name": "CryptBot botnet C2 domain",
+        "authored_timestamp": 1688286842,
+        "rule": [
+            "domain == \"bunhip25.top.\""
+        ],
+        "scope": "DNS",
+        "severity": "100",
+        "automated": "true",
+        "MITRE": [
+            "T1071.001",
+            "T1132.001",
+            "T1568",
+            "T1102.003"
+        ]
+    },
+    {
+        "rule_name": "CryptBot botnet C2 domain",
+        "authored_timestamp": 1688286842,
+        "rule": [
+            "domain == \"bunhiv18.top.\""
+        ],
+        "scope": "DNS",
+        "severity": "100",
+        "automated": "true",
+        "MITRE": [
+            "T1071.001",
+            "T1132.001",
+            "T1568",
+            "T1102.003"
+        ]
+    },
+    {
+        "rule_name": "CryptBot botnet C2 domain",
+        "authored_timestamp": 1688286842,
+        "rule": [
+            "domain == \"buniaw75.top.\""
+        ],
+        "scope": "DNS",
+        "severity": "100",
+        "automated": "true",
+        "MITRE": [
+            "T1071.001",
+            "T1132.001",
+            "T1568",
+            "T1102.003"
+        ]
+    },
+    {
+        "rule_name": "CryptBot botnet C2 domain",
+        "authored_timestamp": 1688286842,
+        "rule": [
+            "domain == \"bunkui71.top.\""
+        ],
+        "scope": "DNS",
+        "severity": "100",
+        "automated": "true",
+        "MITRE": [
+            "T1071.001",
+            "T1132.001",
+            "T1568",
+            "T1102.003"
+        ]
+    },
+    {
+        "rule_name": "CryptBot botnet C2 domain",
+        "authored_timestamp": 1688286842,
+        "rule": [
+            "domain == \"bunloa64.top.\""
+        ],
+        "scope": "DNS",
+        "severity": "100",
+        "automated": "true",
+        "MITRE": [
+            "T1071.001",
+            "T1132.001",
+            "T1568",
+            "T1102.003"
+        ]
+    },
+    {
+        "rule_name": "CryptBot botnet C2 domain",
+        "authored_timestamp": 1688286842,
+        "rule": [
+            "domain == \"bunlym61.top.\""
+        ],
+        "scope": "DNS",
+        "severity": "100",
+        "automated": "true",
+        "MITRE": [
+            "T1071.001",
+            "T1132.001",
+            "T1568",
+            "T1102.003"
+        ]
+    },
+    {
+        "rule_name": "CryptBot botnet C2 domain",
+        "authored_timestamp": 1688286842,
+        "rule": [
+            "domain == \"bunmge34.top.\""
+        ],
+        "scope": "DNS",
+        "severity": "100",
+        "automated": "true",
+        "MITRE": [
+            "T1071.001",
+            "T1132.001",
+            "T1568",
+            "T1102.003"
+        ]
+    },
+    {
+        "rule_name": "CryptBot botnet C2 domain",
+        "authored_timestamp": 1688286842,
+        "rule": [
+            "domain == \"bunmih64.top.\""
+        ],
+        "scope": "DNS",
+        "severity": "100",
+        "automated": "true",
+        "MITRE": [
+            "T1071.001",
+            "T1132.001",
+            "T1568",
+            "T1102.003"
+        ]
+    },
+    {
+        "rule_name": "CryptBot botnet C2 domain",
+        "authored_timestamp": 1688286842,
+        "rule": [
+            "domain == \"bunmub54.top.\""
+        ],
+        "scope": "DNS",
+        "severity": "100",
+        "automated": "true",
+        "MITRE": [
+            "T1071.001",
+            "T1132.001",
+            "T1568",
+            "T1102.003"
+        ]
+    },
+    {
+        "rule_name": "CryptBot botnet C2 domain",
+        "authored_timestamp": 1688286842,
+        "rule": [
+            "domain == \"bunmud42.top.\""
+        ],
+        "scope": "DNS",
+        "severity": "100",
+        "automated": "true",
+        "MITRE": [
+            "T1071.001",
+            "T1132.001",
+            "T1568",
+            "T1102.003"
+        ]
+    },
+    {
+        "rule_name": "CryptBot botnet C2 domain",
+        "authored_timestamp": 1688286842,
+        "rule": [
+            "domain == \"bunmyj72.top.\""
+        ],
+        "scope": "DNS",
+        "severity": "100",
+        "automated": "true",
+        "MITRE": [
+            "T1071.001",
+            "T1132.001",
+            "T1568",
+            "T1102.003"
+        ]
+    },
+    {
+        "rule_name": "CryptBot botnet C2 domain",
+        "authored_timestamp": 1688286842,
+        "rule": [
+            "domain == \"bunole21.top.\""
+        ],
+        "scope": "DNS",
+        "severity": "100",
+        "automated": "true",
+        "MITRE": [
+            "T1071.001",
+            "T1132.001",
+            "T1568",
+            "T1102.003"
+        ]
+    },
+    {
+        "rule_name": "CryptBot botnet C2 domain",
+        "authored_timestamp": 1688286842,
+        "rule": [
+            "domain == \"bunopq12.top.\""
+        ],
+        "scope": "DNS",
+        "severity": "100",
+        "automated": "true",
+        "MITRE": [
+            "T1071.001",
+            "T1132.001",
+            "T1568",
+            "T1102.003"
+        ]
+    },
+    {
+        "rule_name": "CryptBot botnet C2 domain",
+        "authored_timestamp": 1688286842,
+        "rule": [
+            "domain == \"bunowu74.top.\""
+        ],
+        "scope": "DNS",
+        "severity": "100",
+        "automated": "true",
+        "MITRE": [
+            "T1071.001",
+            "T1132.001",
+            "T1568",
+            "T1102.003"
+        ]
+    },
+    {
+        "rule_name": "CryptBot botnet C2 domain",
+        "authored_timestamp": 1688286842,
+        "rule": [
+            "domain == \"bunozs71.top.\""
+        ],
+        "scope": "DNS",
+        "severity": "100",
+        "automated": "true",
+        "MITRE": [
+            "T1071.001",
+            "T1132.001",
+            "T1568",
+            "T1102.003"
+        ]
+    },
+    {
+        "rule_name": "CryptBot botnet C2 domain",
+        "authored_timestamp": 1688286842,
+        "rule": [
+            "domain == \"bunpil34.top.\""
+        ],
+        "scope": "DNS",
+        "severity": "100",
+        "automated": "true",
+        "MITRE": [
+            "T1071.001",
+            "T1132.001",
+            "T1568",
+            "T1102.003"
+        ]
+    },
+    {
+        "rule_name": "CryptBot botnet C2 domain",
+        "authored_timestamp": 1688286842,
+        "rule": [
+            "domain == \"bunpkw65.top.\""
+        ],
+        "scope": "DNS",
+        "severity": "100",
+        "automated": "true",
+        "MITRE": [
+            "T1071.001",
+            "T1132.001",
+            "T1568",
+            "T1102.003"
+        ]
+    },
+    {
+        "rule_name": "CryptBot botnet C2 domain",
+        "authored_timestamp": 1688286842,
+        "rule": [
+            "domain == \"bunqet77.top.\""
+        ],
+        "scope": "DNS",
+        "severity": "100",
+        "automated": "true",
+        "MITRE": [
+            "T1071.001",
+            "T1132.001",
+            "T1568",
+            "T1102.003"
+        ]
+    },
+    {
+        "rule_name": "CryptBot botnet C2 domain",
+        "authored_timestamp": 1688286842,
+        "rule": [
+            "domain == \"bunsix54.top.\""
+        ],
+        "scope": "DNS",
+        "severity": "100",
+        "automated": "true",
+        "MITRE": [
+            "T1071.001",
+            "T1132.001",
+            "T1568",
+            "T1102.003"
+        ]
+    },
+    {
+        "rule_name": "CryptBot botnet C2 domain",
+        "authored_timestamp": 1688286842,
+        "rule": [
+            "domain == \"buntem74.top.\""
+        ],
+        "scope": "DNS",
+        "severity": "100",
+        "automated": "true",
+        "MITRE": [
+            "T1071.001",
+            "T1132.001",
+            "T1568",
+            "T1102.003"
+        ]
+    },
+    {
+        "rule_name": "CryptBot botnet C2 domain",
+        "authored_timestamp": 1688286842,
+        "rule": [
+            "domain == \"bunups41.top.\""
+        ],
+        "scope": "DNS",
+        "severity": "100",
+        "automated": "true",
+        "MITRE": [
+            "T1071.001",
+            "T1132.001",
+            "T1568",
+            "T1102.003"
+        ]
+    },
+    {
+        "rule_name": "CryptBot botnet C2 domain",
+        "authored_timestamp": 1688286842,
+        "rule": [
+            "domain == \"bunvaw31.top.\""
+        ],
+        "scope": "DNS",
+        "severity": "100",
+        "automated": "true",
+        "MITRE": [
+            "T1071.001",
+            "T1132.001",
+            "T1568",
+            "T1102.003"
+        ]
+    },
+    {
+        "rule_name": "CryptBot botnet C2 domain",
+        "authored_timestamp": 1688286842,
+        "rule": [
+            "domain == \"bunwak27.top.\""
+        ],
+        "scope": "DNS",
+        "severity": "100",
+        "automated": "true",
+        "MITRE": [
+            "T1071.001",
+            "T1132.001",
+            "T1568",
+            "T1102.003"
+        ]
+    },
+    {
+        "rule_name": "CryptBot botnet C2 domain",
+        "authored_timestamp": 1688286842,
+        "rule": [
+            "domain == \"bunwes24.top.\""
+        ],
+        "scope": "DNS",
+        "severity": "100",
+        "automated": "true",
+        "MITRE": [
+            "T1071.001",
+            "T1132.001",
+            "T1568",
+            "T1102.003"
+        ]
+    },
+    {
+        "rule_name": "CryptBot botnet C2 domain",
+        "authored_timestamp": 1688286842,
+        "rule": [
+            "domain == \"bunxaj28.top.\""
+        ],
+        "scope": "DNS",
+        "severity": "100",
+        "automated": "true",
+        "MITRE": [
+            "T1071.001",
+            "T1132.001",
+            "T1568",
+            "T1102.003"
+        ]
+    },
+    {
+        "rule_name": "CryptBot botnet C2 domain",
+        "authored_timestamp": 1688286842,
+        "rule": [
+            "domain == \"bunyia51.top.\""
+        ],
+        "scope": "DNS",
+        "severity": "100",
+        "automated": "true",
+        "MITRE": [
+            "T1071.001",
+            "T1132.001",
+            "T1568",
+            "T1102.003"
+        ]
+    },
+    {
+        "rule_name": "CryptBot botnet C2 domain",
+        "authored_timestamp": 1688286842,
+        "rule": [
+            "domain == \"bunzoh16.top.\""
+        ],
+        "scope": "DNS",
+        "severity": "100",
+        "automated": "true",
+        "MITRE": [
+            "T1071.001",
+            "T1132.001",
+            "T1568",
+            "T1102.003"
+        ]
+    },
+    {
+        "rule_name": "CryptBot botnet C2 domain",
+        "authored_timestamp": 1688286842,
+        "rule": [
+            "domain == \"fokauw17.top.\""
+        ],
+        "scope": "DNS",
+        "severity": "100",
+        "automated": "true",
+        "MITRE": [
+            "T1071.001",
+            "T1132.001",
+            "T1568",
+            "T1102.003"
+        ]
+    },
+    {
+        "rule_name": "CryptBot botnet C2 domain",
+        "authored_timestamp": 1688286842,
+        "rule": [
+            "domain == \"fokczu12.top.\""
+        ],
+        "scope": "DNS",
+        "severity": "100",
+        "automated": "true",
+        "MITRE": [
+            "T1071.001",
+            "T1132.001",
+            "T1568",
+            "T1102.003"
+        ]
+    },
+    {
+        "rule_name": "CryptBot botnet C2 domain",
+        "authored_timestamp": 1688286842,
+        "rule": [
+            "domain == \"fokdam61.top.\""
+        ],
+        "scope": "DNS",
+        "severity": "100",
+        "automated": "true",
+        "MITRE": [
+            "T1071.001",
+            "T1132.001",
+            "T1568",
+            "T1102.003"
+        ]
+    },
+    {
+        "rule_name": "CryptBot botnet C2 domain",
+        "authored_timestamp": 1688286842,
+        "rule": [
+            "domain == \"fokdqu22.top.\""
+        ],
+        "scope": "DNS",
+        "severity": "100",
+        "automated": "true",
+        "MITRE": [
+            "T1071.001",
+            "T1132.001",
+            "T1568",
+            "T1102.003"
+        ]
+    },
+    {
+        "rule_name": "CryptBot botnet C2 domain",
+        "authored_timestamp": 1688286842,
+        "rule": [
+            "domain == \"fokfdz25.top.\""
+        ],
+        "scope": "DNS",
+        "severity": "100",
+        "automated": "true",
+        "MITRE": [
+            "T1071.001",
+            "T1132.001",
+            "T1568",
+            "T1102.003"
+        ]
+    },
+    {
+        "rule_name": "CryptBot botnet C2 domain",
+        "authored_timestamp": 1688286842,
+        "rule": [
+            "domain == \"fokfme11.top.\""
+        ],
+        "scope": "DNS",
+        "severity": "100",
+        "automated": "true",
+        "MITRE": [
+            "T1071.001",
+            "T1132.001",
+            "T1568",
+            "T1102.003"
+        ]
+    },
+    {
+        "rule_name": "CryptBot botnet C2 domain",
+        "authored_timestamp": 1688286842,
+        "rule": [
+            "domain == \"fokhvw75.top.\""
+        ],
+        "scope": "DNS",
+        "severity": "100",
+        "automated": "true",
+        "MITRE": [
+            "T1071.001",
+            "T1132.001",
+            "T1568",
+            "T1102.003"
+        ]
+    },
+    {
+        "rule_name": "CryptBot botnet C2 domain",
+        "authored_timestamp": 1688286842,
+        "rule": [
+            "domain == \"fokjdb62.top.\""
+        ],
+        "scope": "DNS",
+        "severity": "100",
+        "automated": "true",
+        "MITRE": [
+            "T1071.001",
+            "T1132.001",
+            "T1568",
+            "T1102.003"
+        ]
+    },
+    {
+        "rule_name": "CryptBot botnet C2 domain",
+        "authored_timestamp": 1688286842,
+        "rule": [
+            "domain == \"fokjmu66.top.\""
+        ],
+        "scope": "DNS",
+        "severity": "100",
+        "automated": "true",
+        "MITRE": [
+            "T1071.001",
+            "T1132.001",
+            "T1568",
+            "T1102.003"
+        ]
+    },
+    {
+        "rule_name": "CryptBot botnet C2 domain",
+        "authored_timestamp": 1688286842,
+        "rule": [
+            "domain == \"fokjzu65.top.\""
+        ],
+        "scope": "DNS",
+        "severity": "100",
+        "automated": "true",
+        "MITRE": [
+            "T1071.001",
+            "T1132.001",
+            "T1568",
+            "T1102.003"
+        ]
+    },
+    {
+        "rule_name": "CryptBot botnet C2 domain",
+        "authored_timestamp": 1688286842,
+        "rule": [
+            "domain == \"fokkai11.top.\""
+        ],
+        "scope": "DNS",
+        "severity": "100",
+        "automated": "true",
+        "MITRE": [
+            "T1071.001",
+            "T1132.001",
+            "T1568",
+            "T1102.003"
+        ]
+    },
+    {
+        "rule_name": "CryptBot botnet C2 domain",
+        "authored_timestamp": 1688286842,
+        "rule": [
+            "domain == \"fokmpz32.top.\""
+        ],
+        "scope": "DNS",
+        "severity": "100",
+        "automated": "true",
+        "MITRE": [
+            "T1071.001",
+            "T1132.001",
+            "T1568",
+            "T1102.003"
+        ]
+    },
+    {
+        "rule_name": "CryptBot botnet C2 domain",
+        "authored_timestamp": 1688286842,
+        "rule": [
+            "domain == \"fokovq72.top.\""
+        ],
+        "scope": "DNS",
+        "severity": "100",
+        "automated": "true",
+        "MITRE": [
+            "T1071.001",
+            "T1132.001",
+            "T1568",
+            "T1102.003"
+        ]
+    },
+    {
+        "rule_name": "CryptBot botnet C2 domain",
+        "authored_timestamp": 1688286842,
+        "rule": [
+            "domain == \"fokovx21.top.\""
+        ],
+        "scope": "DNS",
+        "severity": "100",
+        "automated": "true",
+        "MITRE": [
+            "T1071.001",
+            "T1132.001",
+            "T1568",
+            "T1102.003"
+        ]
+    },
+    {
+        "rule_name": "CryptBot botnet C2 domain",
+        "authored_timestamp": 1688286842,
+        "rule": [
+            "domain == \"fokpga51.top.\""
+        ],
+        "scope": "DNS",
+        "severity": "100",
+        "automated": "true",
+        "MITRE": [
+            "T1071.001",
+            "T1132.001",
+            "T1568",
+            "T1102.003"
+        ]
+    },
+    {
+        "rule_name": "CryptBot botnet C2 domain",
+        "authored_timestamp": 1688286842,
+        "rule": [
+            "domain == \"fokqgb55.top.\""
+        ],
+        "scope": "DNS",
+        "severity": "100",
+        "automated": "true",
+        "MITRE": [
+            "T1071.001",
+            "T1132.001",
+            "T1568",
+            "T1102.003"
+        ]
+    },
+    {
+        "rule_name": "CryptBot botnet C2 domain",
+        "authored_timestamp": 1688286842,
+        "rule": [
+            "domain == \"fokqsh27.top.\""
+        ],
+        "scope": "DNS",
+        "severity": "100",
+        "automated": "true",
+        "MITRE": [
+            "T1071.001",
+            "T1132.001",
+            "T1568",
+            "T1102.003"
+        ]
+    },
+    {
+        "rule_name": "CryptBot botnet C2 domain",
+        "authored_timestamp": 1688286842,
+        "rule": [
+            "domain == \"foktca76.top.\""
+        ],
+        "scope": "DNS",
+        "severity": "100",
+        "automated": "true",
+        "MITRE": [
+            "T1071.001",
+            "T1132.001",
+            "T1568",
+            "T1102.003"
+        ]
+    },
+    {
+        "rule_name": "CryptBot botnet C2 domain",
+        "authored_timestamp": 1688286842,
+        "rule": [
+            "domain == \"fokujb52.top.\""
+        ],
+        "scope": "DNS",
+        "severity": "100",
+        "automated": "true",
+        "MITRE": [
+            "T1071.001",
+            "T1132.001",
+            "T1568",
+            "T1102.003"
+        ]
+    },
+    {
+        "rule_name": "CryptBot botnet C2 domain",
+        "authored_timestamp": 1688286842,
+        "rule": [
+            "domain == \"fokuoq73.top.\""
+        ],
+        "scope": "DNS",
+        "severity": "100",
+        "automated": "true",
+        "MITRE": [
+            "T1071.001",
+            "T1132.001",
+            "T1568",
+            "T1102.003"
+        ]
+    },
+    {
+        "rule_name": "CryptBot botnet C2 domain",
+        "authored_timestamp": 1688286842,
+        "rule": [
+            "domain == \"fokvap14.top.\""
+        ],
+        "scope": "DNS",
+        "severity": "100",
+        "automated": "true",
+        "MITRE": [
+            "T1071.001",
+            "T1132.001",
+            "T1568",
+            "T1102.003"
+        ]
+    },
+    {
+        "rule_name": "CryptBot botnet C2 domain",
+        "authored_timestamp": 1688286842,
+        "rule": [
+            "domain == \"fokvof63.top.\""
+        ],
+        "scope": "DNS",
+        "severity": "100",
+        "automated": "true",
+        "MITRE": [
+            "T1071.001",
+            "T1132.001",
+            "T1568",
+            "T1102.003"
+        ]
+    },
+    {
+        "rule_name": "CryptBot botnet C2 domain",
+        "authored_timestamp": 1688286842,
+        "rule": [
+            "domain == \"fokwit54.top.\""
+        ],
+        "scope": "DNS",
+        "severity": "100",
+        "automated": "true",
+        "MITRE": [
+            "T1071.001",
+            "T1132.001",
+            "T1568",
+            "T1102.003"
+        ]
+    },
+    {
+        "rule_name": "CryptBot botnet C2 domain",
+        "authored_timestamp": 1688286842,
+        "rule": [
+            "domain == \"fokwoa56.top.\""
+        ],
+        "scope": "DNS",
+        "severity": "100",
+        "automated": "true",
+        "MITRE": [
+            "T1071.001",
+            "T1132.001",
+            "T1568",
+            "T1102.003"
+        ]
+    },
+    {
+        "rule_name": "CryptBot botnet C2 domain",
+        "authored_timestamp": 1688286842,
+        "rule": [
+            "domain == \"fokwsf42.top.\""
+        ],
+        "scope": "DNS",
+        "severity": "100",
+        "automated": "true",
+        "MITRE": [
+            "T1071.001",
+            "T1132.001",
+            "T1568",
+            "T1102.003"
+        ]
+    },
+    {
+        "rule_name": "CryptBot botnet C2 domain",
+        "authored_timestamp": 1688286842,
+        "rule": [
+            "domain == \"fokwxr74.top.\""
+        ],
+        "scope": "DNS",
+        "severity": "100",
+        "automated": "true",
+        "MITRE": [
+            "T1071.001",
+            "T1132.001",
+            "T1568",
+            "T1102.003"
+        ]
+    },
+    {
+        "rule_name": "CryptBot botnet C2 domain",
+        "authored_timestamp": 1688286842,
+        "rule": [
+            "domain == \"fokxew37.top.\""
+        ],
+        "scope": "DNS",
+        "severity": "100",
+        "automated": "true",
+        "MITRE": [
+            "T1071.001",
+            "T1132.001",
+            "T1568",
+            "T1102.003"
+        ]
+    },
+    {
+        "rule_name": "CryptBot botnet C2 domain",
+        "authored_timestamp": 1688286842,
+        "rule": [
+            "domain == \"fokxfr71.top.\""
+        ],
+        "scope": "DNS",
+        "severity": "100",
+        "automated": "true",
+        "MITRE": [
+            "T1071.001",
+            "T1132.001",
+            "T1568",
+            "T1102.003"
+        ]
+    },
+    {
+        "rule_name": "CryptBot botnet C2 domain",
+        "authored_timestamp": 1688286842,
+        "rule": [
+            "domain == \"fokxln64.top.\""
+        ],
+        "scope": "DNS",
+        "severity": "100",
+        "automated": "true",
+        "MITRE": [
+            "T1071.001",
+            "T1132.001",
+            "T1568",
+            "T1102.003"
+        ]
+    },
+    {
+        "rule_name": "CryptBot botnet C2 domain",
+        "authored_timestamp": 1688286842,
+        "rule": [
+            "domain == \"fokycx48.top.\""
+        ],
+        "scope": "DNS",
+        "severity": "100",
+        "automated": "true",
+        "MITRE": [
+            "T1071.001",
+            "T1132.001",
+            "T1568",
+            "T1102.003"
+        ]
+    },
+    {
+        "rule_name": "CryptBot botnet C2 domain",
+        "authored_timestamp": 1688286842,
+        "rule": [
+            "domain == \"fokyft24.top.\""
+        ],
+        "scope": "DNS",
+        "severity": "100",
+        "automated": "true",
+        "MITRE": [
+            "T1071.001",
+            "T1132.001",
+            "T1568",
+            "T1102.003"
+        ]
+    },
+    {
+        "rule_name": "CryptBot botnet C2 domain",
+        "authored_timestamp": 1688286842,
+        "rule": [
+            "domain == \"knuabw56.top.\""
+        ],
+        "scope": "DNS",
+        "severity": "100",
+        "automated": "true",
+        "MITRE": [
+            "T1071.001",
+            "T1132.001",
+            "T1568",
+            "T1102.003"
+        ]
+    },
+    {
+        "rule_name": "CryptBot botnet C2 domain",
+        "authored_timestamp": 1688286842,
+        "rule": [
+            "domain == \"knubrz54.top.\""
+        ],
+        "scope": "DNS",
+        "severity": "100",
+        "automated": "true",
+        "MITRE": [
+            "T1071.001",
+            "T1132.001",
+            "T1568",
+            "T1102.003"
+        ]
+    },
+    {
+        "rule_name": "CryptBot botnet C2 domain",
+        "authored_timestamp": 1688286842,
+        "rule": [
+            "domain == \"knubsk47.top.\""
+        ],
+        "scope": "DNS",
+        "severity": "100",
+        "automated": "true",
+        "MITRE": [
+            "T1071.001",
+            "T1132.001",
+            "T1568",
+            "T1102.003"
+        ]
+    },
+    {
+        "rule_name": "CryptBot botnet C2 domain",
+        "authored_timestamp": 1688286842,
+        "rule": [
+            "domain == \"knucsj38.top.\""
+        ],
+        "scope": "DNS",
+        "severity": "100",
+        "automated": "true",
+        "MITRE": [
+            "T1071.001",
+            "T1132.001",
+            "T1568",
+            "T1102.003"
+        ]
+    },
+    {
+        "rule_name": "CryptBot botnet C2 domain",
+        "authored_timestamp": 1688286842,
+        "rule": [
+            "domain == \"knucxf51.top.\""
+        ],
+        "scope": "DNS",
+        "severity": "100",
+        "automated": "true",
+        "MITRE": [
+            "T1071.001",
+            "T1132.001",
+            "T1568",
+            "T1102.003"
+        ]
+    },
+    {
+        "rule_name": "CryptBot botnet C2 domain",
+        "authored_timestamp": 1688286842,
+        "rule": [
+            "domain == \"knufnp41.top.\""
+        ],
+        "scope": "DNS",
+        "severity": "100",
+        "automated": "true",
+        "MITRE": [
+            "T1071.001",
+            "T1132.001",
+            "T1568",
+            "T1102.003"
+        ]
+    },
+    {
+        "rule_name": "CryptBot botnet C2 domain",
+        "authored_timestamp": 1688286842,
+        "rule": [
+            "domain == \"knufnz55.top.\""
+        ],
+        "scope": "DNS",
+        "severity": "100",
+        "automated": "true",
+        "MITRE": [
+            "T1071.001",
+            "T1132.001",
+            "T1568",
+            "T1102.003"
+        ]
+    },
+    {
+        "rule_name": "CryptBot botnet C2 domain",
+        "authored_timestamp": 1688286842,
+        "rule": [
+            "domain == \"knuhld48.top.\""
+        ],
+        "scope": "DNS",
+        "severity": "100",
+        "automated": "true",
+        "MITRE": [
+            "T1071.001",
+            "T1132.001",
+            "T1568",
+            "T1102.003"
+        ]
+    },
+    {
+        "rule_name": "CryptBot botnet C2 domain",
+        "authored_timestamp": 1688286842,
+        "rule": [
+            "domain == \"knuirb35.top.\""
+        ],
+        "scope": "DNS",
+        "severity": "100",
+        "automated": "true",
+        "MITRE": [
+            "T1071.001",
+            "T1132.001",
+            "T1568",
+            "T1102.003"
+        ]
+    },
+    {
+        "rule_name": "CryptBot botnet C2 domain",
+        "authored_timestamp": 1688286842,
+        "rule": [
+            "domain == \"knuiud57.top.\""
+        ],
+        "scope": "DNS",
+        "severity": "100",
+        "automated": "true",
+        "MITRE": [
+            "T1071.001",
+            "T1132.001",
+            "T1568",
+            "T1102.003"
+        ]
+    },
+    {
+        "rule_name": "CryptBot botnet C2 domain",
+        "authored_timestamp": 1688286842,
+        "rule": [
+            "domain == \"knujed45.top.\""
+        ],
+        "scope": "DNS",
+        "severity": "100",
+        "automated": "true",
+        "MITRE": [
+            "T1071.001",
+            "T1132.001",
+            "T1568",
+            "T1102.003"
+        ]
+    },
+    {
+        "rule_name": "CryptBot botnet C2 domain",
+        "authored_timestamp": 1688286842,
+        "rule": [
+            "domain == \"knumau46.top.\""
+        ],
+        "scope": "DNS",
+        "severity": "100",
+        "automated": "true",
+        "MITRE": [
+            "T1071.001",
+            "T1132.001",
+            "T1568",
+            "T1102.003"
+        ]
+    },
+    {
+        "rule_name": "CryptBot botnet C2 domain",
+        "authored_timestamp": 1688286842,
+        "rule": [
+            "domain == \"knumfh44.top.\""
+        ],
+        "scope": "DNS",
+        "severity": "100",
+        "automated": "true",
+        "MITRE": [
+            "T1071.001",
+            "T1132.001",
+            "T1568",
+            "T1102.003"
+        ]
+    },
+    {
+        "rule_name": "CryptBot botnet C2 domain",
+        "authored_timestamp": 1688286842,
+        "rule": [
+            "domain == \"knusxq31.top.\""
+        ],
+        "scope": "DNS",
+        "severity": "100",
+        "automated": "true",
+        "MITRE": [
+            "T1071.001",
+            "T1132.001",
+            "T1568",
+            "T1102.003"
+        ]
+    },
+    {
+        "rule_name": "CryptBot botnet C2 domain",
+        "authored_timestamp": 1688286842,
+        "rule": [
+            "domain == \"knuxiq42.top.\""
+        ],
+        "scope": "DNS",
+        "severity": "100",
+        "automated": "true",
+        "MITRE": [
+            "T1071.001",
+            "T1132.001",
+            "T1568",
+            "T1102.003"
+        ]
+    },
+    {
+        "rule_name": "CryptBot botnet C2 domain",
+        "authored_timestamp": 1688286842,
+        "rule": [
+            "domain == \"knuxua32.top.\""
+        ],
+        "scope": "DNS",
+        "severity": "100",
+        "automated": "true",
+        "MITRE": [
+            "T1071.001",
+            "T1132.001",
+            "T1568",
+            "T1102.003"
+        ]
+    },
+    {
+        "rule_name": "CryptBot botnet C2 domain",
+        "authored_timestamp": 1688286842,
+        "rule": [
+            "domain == \"knuzev74.top.\""
+        ],
+        "scope": "DNS",
+        "severity": "100",
+        "automated": "true",
+        "MITRE": [
+            "T1071.001",
+            "T1132.001",
+            "T1568",
+            "T1102.003"
+        ]
+    },
+    {
+        "rule_name": "CryptBot botnet C2 domain",
+        "authored_timestamp": 1688286842,
+        "rule": [
+            "domain == \"moreid02.top.\""
+        ],
+        "scope": "DNS",
+        "severity": "100",
+        "automated": "true",
+        "MITRE": [
+            "T1071.001",
+            "T1132.001",
+            "T1568",
+            "T1102.003"
+        ]
+    },
+    {
+        "rule_name": "CryptBot botnet C2 domain",
+        "authored_timestamp": 1688286842,
+        "rule": [
+            "domain == \"morkix01.top.\""
+        ],
+        "scope": "DNS",
+        "severity": "100",
+        "automated": "true",
+        "MITRE": [
+            "T1071.001",
+            "T1132.001",
+            "T1568",
+            "T1102.003"
+        ]
+    },
+    {
+        "rule_name": "CryptBot botnet C2 domain",
+        "authored_timestamp": 1688286842,
+        "rule": [
+            "domain == \"sarwak01.top.\""
+        ],
+        "scope": "DNS",
+        "severity": "100",
+        "automated": "true",
+        "MITRE": [
+            "T1071.001",
+            "T1132.001",
+            "T1568",
+            "T1102.003"
+        ]
+    },
+    {
+        "rule_name": "CryptBot botnet C2 domain",
+        "authored_timestamp": 1688286842,
+        "rule": [
+            "domain == \"tobday02.top.\""
+        ],
+        "scope": "DNS",
+        "severity": "100",
+        "automated": "true",
+        "MITRE": [
+            "T1071.001",
+            "T1132.001",
+            "T1568",
+            "T1102.003"
+        ]
+    },
+    {
+        "rule_name": "CryptBot botnet C2 domain",
+        "authored_timestamp": 1688286842,
+        "rule": [
+            "domain == \"tobdol01.top.\""
+        ],
+        "scope": "DNS",
+        "severity": "100",
+        "automated": "true",
+        "MITRE": [
+            "T1071.001",
+            "T1132.001",
+            "T1568",
+            "T1102.003"
+        ]
+    },
+    {
+        "rule_name": "CryptBot botnet C2 domain",
+        "authored_timestamp": 1688286842,
+        "rule": [
+            "domain == \"tobepw05.top.\""
+        ],
+        "scope": "DNS",
+        "severity": "100",
+        "automated": "true",
+        "MITRE": [
+            "T1071.001",
+            "T1132.001",
+            "T1568",
+            "T1102.003"
+        ]
+    },
+    {
+        "rule_name": "CryptBot botnet C2 domain",
+        "authored_timestamp": 1688286842,
+        "rule": [
+            "domain == \"tobexa03.top.\""
+        ],
+        "scope": "DNS",
+        "severity": "100",
+        "automated": "true",
+        "MITRE": [
+            "T1071.001",
+            "T1132.001",
+            "T1568",
+            "T1102.003"
+        ]
+    },
+    {
+        "rule_name": "CryptBot botnet C2 domain",
+        "authored_timestamp": 1688286842,
+        "rule": [
+            "domain == \"tobhay04.top.\""
+        ],
+        "scope": "DNS",
+        "severity": "100",
+        "automated": "true",
+        "MITRE": [
+            "T1071.001",
+            "T1132.001",
+            "T1568",
+            "T1102.003"
+        ]
+    },
+    {
+        "rule_name": "CryptBot botnet C2 domain",
+        "authored_timestamp": 1688286842,
+        "rule": [
+            "domain == \"tobsge06.top.\""
+        ],
+        "scope": "DNS",
+        "severity": "100",
+        "automated": "true",
+        "MITRE": [
+            "T1071.001",
+            "T1132.001",
+            "T1568",
+            "T1102.003"
+        ]
+    },
+    {
+        "rule_name": "Mirai botnet C2 server",
+        "authored_timestamp": 1688286842,
+        "rule": [
+            "ip == \"198.144.190.132\"",
+            "ip == \"198.144.190.132\" and port == \"81\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "75"
+    },
+    {
+        "rule_name": "Mirai botnet C2 server",
+        "authored_timestamp": 1688286842,
+        "rule": [
+            "ip == \"172.245.158.140\"",
+            "ip == \"172.245.158.140\" and port == \"60420\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "75"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2",
+        "authored_timestamp": 1688286842,
+        "rule": [
+            "url == \"http://209.141.40.204/dot.gif\"",
+            "path == \"/dot.gif\"",
+            "domain == \"209.141.40.204\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2 server",
+        "authored_timestamp": 1688286842,
+        "rule": [
+            "ip == \"209.141.40.204\"",
+            "ip == \"209.141.40.204\" and port == \"80\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2",
+        "authored_timestamp": 1688286842,
+        "rule": [
+            "url == \"http://www.agoegations.com/push\"",
+            "path == \"/push\"",
+            "domain == \"www.agoegations.com\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2 server",
+        "authored_timestamp": 1688286842,
+        "rule": [
+            "ip == \"45.79.253.197\"",
+            "ip == \"45.79.253.197\" and port == \"80\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2",
+        "authored_timestamp": 1688286842,
+        "rule": [
+            "url == \"https://cs.g08.pw:4433/ga.js\"",
+            "path == \"/ga.js\"",
+            "domain == \"cs.g08.pw\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2 server",
+        "authored_timestamp": 1688286842,
+        "rule": [
+            "ip == \"108.61.184.177\"",
+            "ip == \"108.61.184.177\" and port == \"4433\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2",
+        "authored_timestamp": 1688286842,
+        "rule": [
+            "url == \"https://83.220.170.85:8888/ga.js\"",
+            "path == \"/ga.js\"",
+            "domain == \"83.220.170.85\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2 server",
+        "authored_timestamp": 1688286842,
+        "rule": [
+            "ip == \"83.220.170.85\"",
+            "ip == \"83.220.170.85\" and port == \"8888\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2",
+        "authored_timestamp": 1688286842,
+        "rule": [
+            "url == \"https://www.agoegations.com/pixel\"",
+            "path == \"/pixel\"",
+            "domain == \"www.agoegations.com\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2 server",
+        "authored_timestamp": 1688286842,
+        "rule": [
+            "ip == \"45.79.253.197\"",
+            "ip == \"45.79.253.197\" and port == \"443\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2",
+        "authored_timestamp": 1688286842,
+        "rule": [
+            "url == \"http://5.180.97.29:10010/pixel\"",
+            "path == \"/pixel\"",
+            "domain == \"5.180.97.29\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2 server",
+        "authored_timestamp": 1688286842,
+        "rule": [
+            "ip == \"5.180.97.29\"",
+            "ip == \"5.180.97.29\" and port == \"10010\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2",
+        "authored_timestamp": 1688286842,
+        "rule": [
+            "url == \"http://149.248.61.97:8000/__utm.gif\"",
+            "path == \"/__utm.gif\"",
+            "domain == \"149.248.61.97\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2 server",
+        "authored_timestamp": 1688286842,
+        "rule": [
+            "ip == \"149.248.61.97\"",
+            "ip == \"149.248.61.97\" and port == \"8000\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2",
+        "authored_timestamp": 1688286842,
+        "rule": [
+            "url == \"http://45.136.245.84:8811/dpixel\"",
+            "path == \"/dpixel\"",
+            "domain == \"45.136.245.84\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2 server",
+        "authored_timestamp": 1688286842,
+        "rule": [
+            "ip == \"45.136.245.84\"",
+            "ip == \"45.136.245.84\" and port == \"8811\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2",
+        "authored_timestamp": 1688286842,
+        "rule": [
+            "url == \"https://198.13.54.77:4433/ptj\"",
+            "path == \"/ptj\"",
+            "domain == \"198.13.54.77\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2 server",
+        "authored_timestamp": 1688286842,
+        "rule": [
+            "ip == \"198.13.54.77\"",
+            "ip == \"198.13.54.77\" and port == \"4433\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2",
+        "authored_timestamp": 1688286842,
+        "rule": [
+            "url == \"http://159.89.101.228:3389/ga.js\"",
+            "path == \"/ga.js\"",
+            "domain == \"159.89.101.228\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2 server",
+        "authored_timestamp": 1688286842,
+        "rule": [
+            "ip == \"159.89.101.228\"",
+            "ip == \"159.89.101.228\" and port == \"3389\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2",
+        "authored_timestamp": 1688286842,
+        "rule": [
+            "url == \"http://45.156.24.151:81/dnasjdndasd/dasiudnasind/\"",
+            "path == \"/dnasjdndasd/dasiudnasind/\"",
+            "domain == \"45.156.24.151\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2 server",
+        "authored_timestamp": 1688286842,
+        "rule": [
+            "ip == \"45.156.24.151\"",
+            "ip == \"45.156.24.151\" and port == \"81\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2",
+        "authored_timestamp": 1688286842,
+        "rule": [
+            "url == \"http://spacegreyshop.com/lv\"",
+            "path == \"/lv\"",
+            "domain == \"spacegreyshop.com\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2 server",
+        "authored_timestamp": 1688286842,
+        "rule": [
+            "ip == \"91.218.114.26\"",
+            "ip == \"91.218.114.26\" and port == \"80\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2",
+        "authored_timestamp": 1688286842,
+        "rule": [
+            "url == \"https://43.134.163.22/j.ad\"",
+            "path == \"/j.ad\"",
+            "domain == \"43.134.163.22\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2 server",
+        "authored_timestamp": 1688286842,
+        "rule": [
+            "ip == \"43.134.163.22\"",
+            "ip == \"43.134.163.22\" and port == \"443\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2",
+        "authored_timestamp": 1688286842,
+        "rule": [
+            "url == \"https://172.104.169.147/dot.gif\"",
+            "path == \"/dot.gif\"",
+            "domain == \"172.104.169.147\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2 server",
+        "authored_timestamp": 1688286842,
+        "rule": [
+            "ip == \"172.104.169.147\"",
+            "ip == \"172.104.169.147\" and port == \"443\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2",
+        "authored_timestamp": 1688286842,
+        "rule": [
+            "url == \"http://semei.vip/api/3\"",
+            "path == \"/api/3\"",
+            "domain == \"semei.vip\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2 server",
+        "authored_timestamp": 1688286842,
+        "rule": [
+            "ip == \"27.124.46.192\"",
+            "ip == \"27.124.46.192\" and port == \"80\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2 server",
+        "authored_timestamp": 1688286842,
+        "rule": [
+            "ip == \"27.124.46.191\"",
+            "ip == \"27.124.46.191\" and port == \"80\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2",
+        "authored_timestamp": 1688286842,
+        "rule": [
+            "url == \"https://85.208.184.59/restore/v3.53/hf4g36mwgb9g\"",
+            "path == \"/restore/v3.53/hf4g36mwgb9g\"",
+            "domain == \"85.208.184.59\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2",
+        "authored_timestamp": 1688286842,
+        "rule": [
+            "url == \"https://121.4.63.248/kill/v6.90/9wk8n8nr51z\"",
+            "path == \"/kill/v6.90/9wk8n8nr51z\"",
+            "domain == \"121.4.63.248\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2 server",
+        "authored_timestamp": 1688286842,
+        "rule": [
+            "ip == \"121.4.63.248\"",
+            "ip == \"121.4.63.248\" and port == \"443\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "100"
+    }
+]

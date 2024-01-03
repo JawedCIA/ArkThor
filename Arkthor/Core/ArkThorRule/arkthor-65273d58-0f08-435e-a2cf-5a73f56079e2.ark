@@ -1,0 +1,5515 @@
+[
+    {
+        "rule_name": "Cobalt Strike botnet C2",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"http://dandtholdings.com/s/ref=nb_sb_noss_1/167-3294888-0262949/field-keywords=books\"",
+            "path == \"/s/ref=nb_sb_noss_1/167-3294888-0262949/field-keywords=books\"",
+            "domain == \"dandtholdings.com\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2 domain",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "domain == \"dandtholdings.com.\""
+        ],
+        "scope": "DNS",
+        "severity": "100",
+        "automated": "true",
+        "MITRE": [
+            "T1071.001",
+            "T1132.001",
+            "T1568",
+            "T1102.003"
+        ]
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2 server",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "ip == \"206.217.136.53\"",
+            "ip == \"206.217.136.53\" and port == \"443\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Bashlite botnet C2 server",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "ip == \"195.58.39.200\"",
+            "ip == \"195.58.39.200\" and port == \"23\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "75"
+    },
+    {
+        "rule_name": "RedLine Stealer botnet C2 server",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "ip == \"135.181.241.192\"",
+            "ip == \"135.181.241.192\" and port == \"4328\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Loki Password Stealer (PWS) botnet C2",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"http://185.246.220.60/petercody/five/fre.php\"",
+            "path == \"/petercody/five/fre.php\"",
+            "domain == \"185.246.220.60\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Remcos botnet C2 server",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "ip == \"172.93.187.111\"",
+            "ip == \"172.93.187.111\" and port == \"2404\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "75"
+    },
+    {
+        "rule_name": "RedLine Stealer botnet C2 server",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "ip == \"65.109.11.50\"",
+            "ip == \"65.109.11.50\" and port == \"9220\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Bashlite botnet C2 server",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "ip == \"38.48.123.55\"",
+            "ip == \"38.48.123.55\" and port == \"1749\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Deimos botnet C2 server",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "ip == \"3.209.12.178\"",
+            "ip == \"3.209.12.178\" and port == \"3060\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "50"
+    },
+    {
+        "rule_name": "Deimos botnet C2 server",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "ip == \"8.218.26.114\"",
+            "ip == \"8.218.26.114\" and port == \"443\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "50"
+    },
+    {
+        "rule_name": "Deimos botnet C2 server",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "ip == \"18.162.155.202\"",
+            "ip == \"18.162.155.202\" and port == \"443\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "50"
+    },
+    {
+        "rule_name": "Deimos botnet C2 server",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "ip == \"18.162.193.120\"",
+            "ip == \"18.162.193.120\" and port == \"443\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "50"
+    },
+    {
+        "rule_name": "Deimos botnet C2 server",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "ip == \"36.95.131.171\"",
+            "ip == \"36.95.131.171\" and port == \"9091\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "50"
+    },
+    {
+        "rule_name": "Deimos botnet C2 server",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "ip == \"39.106.36.96\"",
+            "ip == \"39.106.36.96\" and port == \"443\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "50"
+    },
+    {
+        "rule_name": "Deimos botnet C2 server",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "ip == \"43.198.73.212\"",
+            "ip == \"43.198.73.212\" and port == \"443\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "50"
+    },
+    {
+        "rule_name": "Deimos botnet C2 server",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "ip == \"44.230.201.248\"",
+            "ip == \"44.230.201.248\" and port == \"443\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "50"
+    },
+    {
+        "rule_name": "Deimos botnet C2 server",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "ip == \"54.151.143.251\"",
+            "ip == \"54.151.143.251\" and port == \"443\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "50"
+    },
+    {
+        "rule_name": "Deimos botnet C2 server",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "ip == \"185.142.98.14\"",
+            "ip == \"185.142.98.14\" and port == \"9090\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "50"
+    },
+    {
+        "rule_name": "Deimos botnet C2 server",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "ip == \"202.98.224.214\"",
+            "ip == \"202.98.224.214\" and port == \"28090\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "50"
+    },
+    {
+        "rule_name": "Vidar botnet C2 server",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "ip == \"116.202.1.171\"",
+            "ip == \"116.202.1.171\" and port == \"1010\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Vidar botnet C2 server",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "ip == \"94.130.190.118\"",
+            "ip == \"94.130.190.118\" and port == \"80\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Vidar botnet C2",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"http://94.130.190.118/\"",
+            "path == \"/\"",
+            "domain == \"94.130.190.118\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Vidar botnet C2",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"http://116.202.1.171:1010/\"",
+            "path == \"/\"",
+            "domain == \"116.202.1.171\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Vidar botnet C2",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"http://94.130.190.118/drivers.zip\"",
+            "path == \"/drivers.zip\"",
+            "domain == \"94.130.190.118\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Vidar botnet C2",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"http://116.202.1.171:1010/drivers.zip\"",
+            "path == \"/drivers.zip\"",
+            "domain == \"116.202.1.171\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Bashlite botnet C2 server",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "ip == \"84.54.50.8\"",
+            "ip == \"84.54.50.8\" and port == \"65535\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "75"
+    },
+    {
+        "rule_name": "Mirai botnet C2 server",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "ip == \"195.58.39.227\"",
+            "ip == \"195.58.39.227\" and port == \"3778\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Mirai botnet C2 server",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "ip == \"45.61.186.98\"",
+            "ip == \"45.61.186.98\" and port == \"56999\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "75"
+    },
+    {
+        "rule_name": "Mirai botnet C2 server",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "ip == \"95.214.53.112\"",
+            "ip == \"95.214.53.112\" and port == \"179\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "75"
+    },
+    {
+        "rule_name": "Mirai botnet C2 server",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "ip == \"107.210.122.226\"",
+            "ip == \"107.210.122.226\" and port == \"9506\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "75"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"http://31.44.184.232/activity\"",
+            "path == \"/activity\"",
+            "domain == \"31.44.184.232\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"http://31.44.184.73/ga.js\"",
+            "path == \"/ga.js\"",
+            "domain == \"31.44.184.73\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"http://31.44.184.181/load\"",
+            "path == \"/load\"",
+            "domain == \"31.44.184.181\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"http://31.44.184.181/j.ad\"",
+            "path == \"/j.ad\"",
+            "domain == \"31.44.184.181\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2 server",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "ip == \"31.44.184.181\"",
+            "ip == \"31.44.184.181\" and port == \"80\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"http://31.44.184.232/visit.js\"",
+            "path == \"/visit.js\"",
+            "domain == \"31.44.184.232\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://192.252.181.106/fwlink\"",
+            "path == \"/fwlink\"",
+            "domain == \"192.252.181.106\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://47.100.249.61/g.pixel\"",
+            "path == \"/g.pixel\"",
+            "domain == \"47.100.249.61\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"http://mypcs.myvnc.com/activity\"",
+            "path == \"/activity\"",
+            "domain == \"mypcs.myvnc.com\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"http://92.63.196.48:92/ie9compatviewlist.xml\"",
+            "path == \"/ie9compatviewlist.xml\"",
+            "domain == \"92.63.196.48\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"http://192.252.181.106/dpixel\"",
+            "path == \"/dpixel\"",
+            "domain == \"192.252.181.106\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "RedLine Stealer botnet C2 server",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "ip == \"103.173.229.190\"",
+            "ip == \"103.173.229.190\" and port == \"45353\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://23.94.202.169/pixel.gif\"",
+            "path == \"/pixel.gif\"",
+            "domain == \"23.94.202.169\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"http://134.17.5.117:81/match\"",
+            "path == \"/match\"",
+            "domain == \"134.17.5.117\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"http://124.223.80.198:666/j.ad\"",
+            "path == \"/j.ad\"",
+            "domain == \"124.223.80.198\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"http://175.178.90.153:8000/ptj\"",
+            "path == \"/ptj\"",
+            "domain == \"175.178.90.153\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"http://23.94.202.169/j.ad\"",
+            "path == \"/j.ad\"",
+            "domain == \"23.94.202.169\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"http://176.119.150.175/pixel.gif\"",
+            "path == \"/pixel.gif\"",
+            "domain == \"176.119.150.175\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "RedLine Stealer botnet C2 server",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "ip == \"81.161.229.110\"",
+            "ip == \"81.161.229.110\" and port == \"12767\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://43.142.18.173:5005/visit.js\"",
+            "path == \"/visit.js\"",
+            "domain == \"43.142.18.173\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"http://39.108.189.188:1111/ga.js\"",
+            "path == \"/ga.js\"",
+            "domain == \"39.108.189.188\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://46.101.121.62/en/home/search\"",
+            "path == \"/en/home/search\"",
+            "domain == \"46.101.121.62\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://www.strategigears.com/en/home/search\"",
+            "path == \"/en/home/search\"",
+            "domain == \"www.strategigears.com\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2 domain",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "domain == \"www.strategigears.com.\""
+        ],
+        "scope": "DNS",
+        "severity": "100",
+        "automated": "true",
+        "MITRE": [
+            "T1071.001",
+            "T1132.001",
+            "T1568",
+            "T1102.003"
+        ]
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2 server",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "ip == \"46.101.121.62\"",
+            "ip == \"46.101.121.62\" and port == \"443\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Mirai botnet C2 server",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "ip == \"205.185.123.50\"",
+            "ip == \"205.185.123.50\" and port == \"6285\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "75"
+    },
+    {
+        "rule_name": "Bashlite botnet C2 server",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "ip == \"194.55.224.126\"",
+            "ip == \"194.55.224.126\" and port == \"1738\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "75"
+    },
+    {
+        "rule_name": "RedLine Stealer botnet C2 server",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "ip == \"77.91.124.111\"",
+            "ip == \"77.91.124.111\" and port == \"19069\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "AsyncRAT botnet C2 server",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "ip == \"194.87.151.134\"",
+            "ip == \"194.87.151.134\" and port == \"7878\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "AsyncRAT botnet C2 server",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "ip == \"45.80.158.114\"",
+            "ip == \"45.80.158.114\" and port == \"6606\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"http://182.160.11.134/ca\"",
+            "path == \"/ca\"",
+            "domain == \"182.160.11.134\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2 server",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "ip == \"182.160.11.134\"",
+            "ip == \"182.160.11.134\" and port == \"80\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://185.225.74.198:4443/dot.gif\"",
+            "path == \"/dot.gif\"",
+            "domain == \"185.225.74.198\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://175.178.213.59:7086/ga.js\"",
+            "path == \"/ga.js\"",
+            "domain == \"175.178.213.59\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Azorult botnet C2",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"http://gkonekt.shop/pl341/index.php\"",
+            "path == \"/pl341/index.php\"",
+            "domain == \"gkonekt.shop\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "75"
+    },
+    {
+        "rule_name": "Nanocore RAT botnet C2 server",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "ip == \"107.182.128.9\"",
+            "ip == \"107.182.128.9\" and port == \"6636\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot botnet C2 server",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "ip == \"116.74.164.214\"",
+            "ip == \"116.74.164.214\" and port == \"443\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot botnet C2 server",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "ip == \"123.3.240.16\"",
+            "ip == \"123.3.240.16\" and port == \"6881\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot botnet C2 server",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "ip == \"151.55.186.41\"",
+            "ip == \"151.55.186.41\" and port == \"443\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot botnet C2 server",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "ip == \"190.199.131.69\"",
+            "ip == \"190.199.131.69\" and port == \"2222\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot botnet C2 server",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "ip == \"197.2.126.19\"",
+            "ip == \"197.2.126.19\" and port == \"443\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot botnet C2 server",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "ip == \"220.240.15.200\"",
+            "ip == \"220.240.15.200\" and port == \"443\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot botnet C2 server",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "ip == \"94.59.122.53\"",
+            "ip == \"94.59.122.53\" and port == \"2222\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot botnet C2 server",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "ip == \"98.176.5.56\"",
+            "ip == \"98.176.5.56\" and port == \"443\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot botnet C2 server",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "ip == \"98.19.224.125\"",
+            "ip == \"98.19.224.125\" and port == \"995\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"http://azconsultants.co.in/gnome2/rentfree.zip\"",
+            "path == \"/gnome2/rentfree.zip\"",
+            "domain == \"azconsultants.co.in\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"http://jufestlocacoes.com.br/gnome2/rentfree.zip\"",
+            "path == \"/gnome2/rentfree.zip\"",
+            "domain == \"jufestlocacoes.com.br\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"http://mhypecom.com/gnome2/rentfree.zip\"",
+            "path == \"/gnome2/rentfree.zip\"",
+            "domain == \"mhypecom.com\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"http://moj-planet.si/gnome2/rentfree.zip\"",
+            "path == \"/gnome2/rentfree.zip\"",
+            "domain == \"moj-planet.si\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"http://serenityexperience.ro/gnome2/rentfree.zip\"",
+            "path == \"/gnome2/rentfree.zip\"",
+            "domain == \"serenityexperience.ro\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"http://thephenterminepro.com/gnome2/rentfree.zip\"",
+            "path == \"/gnome2/rentfree.zip\"",
+            "domain == \"thephenterminepro.com\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"http://vesselwear.com.br/gnome2/rentfree.zip\"",
+            "path == \"/gnome2/rentfree.zip\"",
+            "domain == \"vesselwear.com.br\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://alaferia.com.mx/gnome2/rentfree.zip\"",
+            "path == \"/gnome2/rentfree.zip\"",
+            "domain == \"alaferia.com.mx\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://cipani.in/gnome2/rentfree.zip\"",
+            "path == \"/gnome2/rentfree.zip\"",
+            "domain == \"cipani.in\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://ibremp.org.br/gnome2/rentfree.zip\"",
+            "path == \"/gnome2/rentfree.zip\"",
+            "domain == \"ibremp.org.br\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://prodimar.mx/gnome2/rentfree.zip\"",
+            "path == \"/gnome2/rentfree.zip\"",
+            "domain == \"prodimar.mx\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://rambar.com.uy/gnome2/rentfree.zip\"",
+            "path == \"/gnome2/rentfree.zip\"",
+            "domain == \"rambar.com.uy\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://sevenstarmerchant.co.uk/gnome2/rentfree.zip\"",
+            "path == \"/gnome2/rentfree.zip\"",
+            "domain == \"sevenstarmerchant.co.uk\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://sistekdes.id/gnome2/rentfree.zip\"",
+            "path == \"/gnome2/rentfree.zip\"",
+            "domain == \"sistekdes.id\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Mirai botnet C2 server",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "ip == \"163.123.142.194\"",
+            "ip == \"163.123.142.194\" and port == \"59666\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "75"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"http://104.234.10.67/0ge7ng/qbotbb26.dll\"",
+            "path == \"/0ge7ng/qbotbb26.dll\"",
+            "domain == \"104.234.10.67\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://123ifound.com/anps/\"",
+            "path == \"/anps/\"",
+            "domain == \"123ifound.com\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"http://104.234.118.153/ehttr3/qbotbb26.dll\"",
+            "path == \"/ehttr3/qbotbb26.dll\"",
+            "domain == \"104.234.118.153\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://247associates.net/our/\"",
+            "path == \"/our/\"",
+            "domain == \"247associates.net\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"http://104.234.119.79/uxy/qbotbb26.dll\"",
+            "path == \"/uxy/qbotbb26.dll\"",
+            "domain == \"104.234.119.79\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://abmdatasub.com.ng/lm/\"",
+            "path == \"/lm/\"",
+            "domain == \"abmdatasub.com.ng\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"http://162.252.175.148/7llu/qbotbb26.dll\"",
+            "path == \"/7llu/qbotbb26.dll\"",
+            "domain == \"162.252.175.148\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://acoesentreamigos.com/rdna/\"",
+            "path == \"/rdna/\"",
+            "domain == \"acoesentreamigos.com\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"http://162.252.175.189/cfvszs5/qbotbb26.dll\"",
+            "path == \"/cfvszs5/qbotbb26.dll\"",
+            "domain == \"162.252.175.189\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://advising-experts.com/er/\"",
+            "path == \"/er/\"",
+            "domain == \"advising-experts.com\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"http://172.86.123.103/5mgyv/qbotbb26.dll\"",
+            "path == \"/5mgyv/qbotbb26.dll\"",
+            "domain == \"172.86.123.103\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://aeternalingua.com.br/acca/\"",
+            "path == \"/acca/\"",
+            "domain == \"aeternalingua.com.br\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://africanmusicfestival.com.au/mnio/\"",
+            "path == \"/mnio/\"",
+            "domain == \"africanmusicfestival.com.au\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://aghazpakistanirestaurant.com/eone/\"",
+            "path == \"/eone/\"",
+            "domain == \"aghazpakistanirestaurant.com\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://alamolaguna.com/ata/\"",
+            "path == \"/ata/\"",
+            "domain == \"alamolaguna.com\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://algorithm-consult.com/pd/\"",
+            "path == \"/pd/\"",
+            "domain == \"algorithm-consult.com\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://alichproperties.com/ruu/\"",
+            "path == \"/ruu/\"",
+            "domain == \"alichproperties.com\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://alldora.net/rs/\"",
+            "path == \"/rs/\"",
+            "domain == \"alldora.net\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://allsyedcommunity.com/dd/\"",
+            "path == \"/dd/\"",
+            "domain == \"allsyedcommunity.com\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://alphalearningoficial.com/aom/\"",
+            "path == \"/aom/\"",
+            "domain == \"alphalearningoficial.com\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://alturaproperties.com/maal/\"",
+            "path == \"/maal/\"",
+            "domain == \"alturaproperties.com\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://amareweddings-jp.com/nda/\"",
+            "path == \"/nda/\"",
+            "domain == \"amareweddings-jp.com\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://anjosdaalegria.com.br/ietn/\"",
+            "path == \"/ietn/\"",
+            "domain == \"anjosdaalegria.com.br\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://aooiraq.org/auei/\"",
+            "path == \"/auei/\"",
+            "domain == \"aooiraq.org\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://apkhert.com/elsr/\"",
+            "path == \"/elsr/\"",
+            "domain == \"apkhert.com\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://arabfact.com/utos/\"",
+            "path == \"/utos/\"",
+            "domain == \"arabfact.com\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://archbrella.com/utt/\"",
+            "path == \"/utt/\"",
+            "domain == \"archbrella.com\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://astrologika.com.br/ems/\"",
+            "path == \"/ems/\"",
+            "domain == \"astrologika.com.br\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://atalayajewelry.com/dt/\"",
+            "path == \"/dt/\"",
+            "domain == \"atalayajewelry.com\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://ativatelecom.net.br/te/\"",
+            "path == \"/te/\"",
+            "domain == \"ativatelecom.net.br\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://atlantafurnishedrentals.com/sc/\"",
+            "path == \"/sc/\"",
+            "domain == \"atlantafurnishedrentals.com\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://awamia.com/on/\"",
+            "path == \"/on/\"",
+            "domain == \"awamia.com\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://awb.com.ar/tuv/\"",
+            "path == \"/tuv/\"",
+            "domain == \"awb.com.ar\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://awfaronline.com/oemn/\"",
+            "path == \"/oemn/\"",
+            "domain == \"awfaronline.com\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://baltimorecarstarterrepair.com/oie/\"",
+            "path == \"/oie/\"",
+            "domain == \"baltimorecarstarterrepair.com\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://bankhar.com.sa/rlmt/\"",
+            "path == \"/rlmt/\"",
+            "domain == \"bankhar.com.sa\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://barnochata.com/lev/\"",
+            "path == \"/lev/\"",
+            "domain == \"barnochata.com\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://bdmxincoming.com/ol/\"",
+            "path == \"/ol/\"",
+            "domain == \"bdmxincoming.com\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://bdprimenews.com/uta/\"",
+            "path == \"/uta/\"",
+            "domain == \"bdprimenews.com\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://be-giraffe.com/tou/\"",
+            "path == \"/tou/\"",
+            "domain == \"be-giraffe.com\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://benshardata.com.ng/icu/\"",
+            "path == \"/icu/\"",
+            "domain == \"benshardata.com.ng\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://bernicehassancpa.com/il/\"",
+            "path == \"/il/\"",
+            "domain == \"bernicehassancpa.com\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://blackatana.com/iuon/\"",
+            "path == \"/iuon/\"",
+            "domain == \"blackatana.com\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://bloomysense.com/meei/\"",
+            "path == \"/meei/\"",
+            "domain == \"bloomysense.com\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://bluesantamexicangrill.com/puai/\"",
+            "path == \"/puai/\"",
+            "domain == \"bluesantamexicangrill.com\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://bosushopee.com.br/nmns/\"",
+            "path == \"/nmns/\"",
+            "domain == \"bosushopee.com.br\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://bsdsub.com.ng/acrl/\"",
+            "path == \"/acrl/\"",
+            "domain == \"bsdsub.com.ng\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://buyfreedomrazor.com/tiu/\"",
+            "path == \"/tiu/\"",
+            "domain == \"buyfreedomrazor.com\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://cablixcom.net/aett/\"",
+            "path == \"/aett/\"",
+            "domain == \"cablixcom.net\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://cafehmusic.com/ne/\"",
+            "path == \"/ne/\"",
+            "domain == \"cafehmusic.com\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://cajaacajutla.com.sv/cts/\"",
+            "path == \"/cts/\"",
+            "domain == \"cajaacajutla.com.sv\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://cbeesports.com.br/ti/\"",
+            "path == \"/ti/\"",
+            "domain == \"cbeesports.com.br\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://celebsbrasize.com/io/\"",
+            "path == \"/io/\"",
+            "domain == \"celebsbrasize.com\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://cemendez.com/tli/\"",
+            "path == \"/tli/\"",
+            "domain == \"cemendez.com\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://centerecd.org/ts/\"",
+            "path == \"/ts/\"",
+            "domain == \"centerecd.org\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://centralehoreca.fr/eto/\"",
+            "path == \"/eto/\"",
+            "domain == \"centralehoreca.fr\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://cepemrj.com.br/lp/\"",
+            "path == \"/lp/\"",
+            "domain == \"cepemrj.com.br\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://cerameco.net/rs/\"",
+            "path == \"/rs/\"",
+            "domain == \"cerameco.net\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://checkbytools.com/ui/\"",
+            "path == \"/ui/\"",
+            "domain == \"checkbytools.com\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://clickrightagency.com/loo/\"",
+            "path == \"/loo/\"",
+            "domain == \"clickrightagency.com\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://clippingearth.com/iuts/\"",
+            "path == \"/iuts/\"",
+            "domain == \"clippingearth.com\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://colonoscopy-losangeles.com/np/\"",
+            "path == \"/np/\"",
+            "domain == \"colonoscopy-losangeles.com\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://conexaopb.com.br/qmcm/\"",
+            "path == \"/qmcm/\"",
+            "domain == \"conexaopb.com.br\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://conferentesantos.com.br/ce/\"",
+            "path == \"/ce/\"",
+            "domain == \"conferentesantos.com.br\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://construtic.com.br/eiml/\"",
+            "path == \"/eiml/\"",
+            "domain == \"construtic.com.br\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://containercribs.com/abu/\"",
+            "path == \"/abu/\"",
+            "domain == \"containercribs.com\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://cosmomultiservices.com/tere/\"",
+            "path == \"/tere/\"",
+            "domain == \"cosmomultiservices.com\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://costavidalaviation.com/tuui/\"",
+            "path == \"/tuui/\"",
+            "domain == \"costavidalaviation.com\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://couchepubli.com/sp/\"",
+            "path == \"/sp/\"",
+            "domain == \"couchepubli.com\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://cpraedcertified.com/diao/\"",
+            "path == \"/diao/\"",
+            "domain == \"cpraedcertified.com\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://crispycosmos.com/taue/\"",
+            "path == \"/taue/\"",
+            "domain == \"crispycosmos.com\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://daniellesiruffo.com/pe/\"",
+            "path == \"/pe/\"",
+            "domain == \"daniellesiruffo.com\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://darwinrhodes.com/aqni/\"",
+            "path == \"/aqni/\"",
+            "domain == \"darwinrhodes.com\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://databackgroundcheck.com/ore/\"",
+            "path == \"/ore/\"",
+            "domain == \"databackgroundcheck.com\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://delgadoalba.com/teq/\"",
+            "path == \"/teq/\"",
+            "domain == \"delgadoalba.com\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://depandrefigueiredo.com/ises/\"",
+            "path == \"/ises/\"",
+            "domain == \"depandrefigueiredo.com\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://difalt.com.mx/noim/\"",
+            "path == \"/noim/\"",
+            "domain == \"difalt.com.mx\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://digitalfortress.com.br/unae/\"",
+            "path == \"/unae/\"",
+            "domain == \"digitalfortress.com.br\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://dltravelsandtours.com/rtpi/\"",
+            "path == \"/rtpi/\"",
+            "domain == \"dltravelsandtours.com\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://dosfuentesrestaurant.com/rge/\"",
+            "path == \"/rge/\"",
+            "domain == \"dosfuentesrestaurant.com\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://dotndash.com/etad/\"",
+            "path == \"/etad/\"",
+            "domain == \"dotndash.com\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://dreamsignals3.com/unt/\"",
+            "path == \"/unt/\"",
+            "domain == \"dreamsignals3.com\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://dreamstoprojects.com/rpem/\"",
+            "path == \"/rpem/\"",
+            "domain == \"dreamstoprojects.com\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://drschooly.com/avsn/\"",
+            "path == \"/avsn/\"",
+            "domain == \"drschooly.com\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://ecoarcoadores.com.br/iuet/\"",
+            "path == \"/iuet/\"",
+            "domain == \"ecoarcoadores.com.br\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://editwork.com.br/ao/\"",
+            "path == \"/ao/\"",
+            "domain == \"editwork.com.br\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://elfady-hoses.com/use/\"",
+            "path == \"/use/\"",
+            "domain == \"elfady-hoses.com\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://eliteco.com.tr/hmtr/\"",
+            "path == \"/hmtr/\"",
+            "domain == \"eliteco.com.tr\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://elmenawytrans.com/rtmd/\"",
+            "path == \"/rtmd/\"",
+            "domain == \"elmenawytrans.com\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://elmundodelidiomamam.com/cd/\"",
+            "path == \"/cd/\"",
+            "domain == \"elmundodelidiomamam.com\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://elranchowestchester.com/iq/\"",
+            "path == \"/iq/\"",
+            "domain == \"elranchowestchester.com\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://eltiburongrupero.com.mx/mlut/\"",
+            "path == \"/mlut/\"",
+            "domain == \"eltiburongrupero.com.mx\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://emcegy.net/ia/\"",
+            "path == \"/ia/\"",
+            "domain == \"emcegy.net\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://emcyucatan.com.mx/sa/\"",
+            "path == \"/sa/\"",
+            "domain == \"emcyucatan.com.mx\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://empresasvesta.com/eono/\"",
+            "path == \"/eono/\"",
+            "domain == \"empresasvesta.com\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://energyshire.co.uk/arht/\"",
+            "path == \"/arht/\"",
+            "domain == \"energyshire.co.uk\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://engenhariamds.com.br/oo/\"",
+            "path == \"/oo/\"",
+            "domain == \"engenhariamds.com.br\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://ensahni.com/msa/\"",
+            "path == \"/msa/\"",
+            "domain == \"ensahni.com\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://eprinterexpert.com/euq/\"",
+            "path == \"/euq/\"",
+            "domain == \"eprinterexpert.com\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://equestrianland.net.au/ual/\"",
+            "path == \"/ual/\"",
+            "domain == \"equestrianland.net.au\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://esicolegiobelem.com.br/ee/\"",
+            "path == \"/ee/\"",
+            "domain == \"esicolegiobelem.com.br\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://essenseworld.com/istq/\"",
+            "path == \"/istq/\"",
+            "domain == \"essenseworld.com\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://evirtualstaff.com/hnsi/\"",
+            "path == \"/hnsi/\"",
+            "domain == \"evirtualstaff.com\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://faizanhayat.com/oo/\"",
+            "path == \"/oo/\"",
+            "domain == \"faizanhayat.com\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://fcst.com.br/cn/\"",
+            "path == \"/cn/\"",
+            "domain == \"fcst.com.br\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://felcom-importaciones.com/st/\"",
+            "path == \"/st/\"",
+            "domain == \"felcom-importaciones.com\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://flach-pyramide.com/amg/\"",
+            "path == \"/amg/\"",
+            "domain == \"flach-pyramide.com\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://fogoncitofoodtruck.com/nmu/\"",
+            "path == \"/nmu/\"",
+            "domain == \"fogoncitofoodtruck.com\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://fpglobal.net/olo/\"",
+            "path == \"/olo/\"",
+            "domain == \"fpglobal.net\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://funverks.com/mte/\"",
+            "path == \"/mte/\"",
+            "domain == \"funverks.com\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://g-easypro.com/ot/\"",
+            "path == \"/ot/\"",
+            "domain == \"g-easypro.com\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://ganeaconstruccion.com.mx/at/\"",
+            "path == \"/at/\"",
+            "domain == \"ganeaconstruccion.com.mx\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://gangainternationalschool.com/ce/\"",
+            "path == \"/ce/\"",
+            "domain == \"gangainternationalschool.com\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://ganlo.com/uimn/\"",
+            "path == \"/uimn/\"",
+            "domain == \"ganlo.com\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://ggarco.com/cla/\"",
+            "path == \"/cla/\"",
+            "domain == \"ggarco.com\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://gissllc.com/dese/\"",
+            "path == \"/dese/\"",
+            "domain == \"gissllc.com\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://graziasport.it/ie/\"",
+            "path == \"/ie/\"",
+            "domain == \"graziasport.it\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://grupogg.net/ev/\"",
+            "path == \"/ev/\"",
+            "domain == \"grupogg.net\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://guiadownloads.com.br/ler/\"",
+            "path == \"/ler/\"",
+            "domain == \"guiadownloads.com.br\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://gyngojuice.com.br/uuu/\"",
+            "path == \"/uuu/\"",
+            "domain == \"gyngojuice.com.br\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://habanerosgrandview.com/te/\"",
+            "path == \"/te/\"",
+            "domain == \"habanerosgrandview.com\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://halaldatasub.com.ng/oeqq/\"",
+            "path == \"/oeqq/\"",
+            "domain == \"halaldatasub.com.ng\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://hamza-alsagherji.com/emn/\"",
+            "path == \"/emn/\"",
+            "domain == \"hamza-alsagherji.com\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://hazail.com/bq/\"",
+            "path == \"/bq/\"",
+            "domain == \"hazail.com\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://herba-heal.com/stcr/\"",
+            "path == \"/stcr/\"",
+            "domain == \"herba-heal.com\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://hiepvr.com/idro/\"",
+            "path == \"/idro/\"",
+            "domain == \"hiepvr.com\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://hijaznaqvi.com/ll/\"",
+            "path == \"/ll/\"",
+            "domain == \"hijaznaqvi.com\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://hksmartrenovationusa.com/egt/\"",
+            "path == \"/egt/\"",
+            "domain == \"hksmartrenovationusa.com\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://hogchurchinternational.org/ri/\"",
+            "path == \"/ri/\"",
+            "domain == \"hogchurchinternational.org\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://htmexico.com.mx/npl/\"",
+            "path == \"/npl/\"",
+            "domain == \"htmexico.com.mx\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://i-lan.net/ip/\"",
+            "path == \"/ip/\"",
+            "domain == \"i-lan.net\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://ibmst.com/cs/\"",
+            "path == \"/cs/\"",
+            "domain == \"ibmst.com\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://ideiasoltec.com.br/tuaf/\"",
+            "path == \"/tuaf/\"",
+            "domain == \"ideiasoltec.com.br\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://ihopu.com.br/fq/\"",
+            "path == \"/fq/\"",
+            "domain == \"ihopu.com.br\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://infinaro.com/qeiu/\"",
+            "path == \"/qeiu/\"",
+            "domain == \"infinaro.com\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://informatiz.com.br/ma/\"",
+            "path == \"/ma/\"",
+            "domain == \"informatiz.com.br\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://institutomechama.com.br/lu/\"",
+            "path == \"/lu/\"",
+            "domain == \"institutomechama.com.br\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://iptvici.com/iav/\"",
+            "path == \"/iav/\"",
+            "domain == \"iptvici.com\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://jkbgem.com/xe/\"",
+            "path == \"/xe/\"",
+            "domain == \"jkbgem.com\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://jyotishshastra.net/vait/\"",
+            "path == \"/vait/\"",
+            "domain == \"jyotishshastra.net\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://kairukipharmaceuticals.org/ctuc/\"",
+            "path == \"/ctuc/\"",
+            "domain == \"kairukipharmaceuticals.org\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://kamaleonperu.com/rcu/\"",
+            "path == \"/rcu/\"",
+            "domain == \"kamaleonperu.com\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://kanzproperties.com/moo/\"",
+            "path == \"/moo/\"",
+            "domain == \"kanzproperties.com\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://kharimantara.com/ot/\"",
+            "path == \"/ot/\"",
+            "domain == \"kharimantara.com\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://kingfurnitureco.com/equ/\"",
+            "path == \"/equ/\"",
+            "domain == \"kingfurnitureco.com\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://kingofadvertising.com/el/\"",
+            "path == \"/el/\"",
+            "domain == \"kingofadvertising.com\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://kiranrealtygroup.com/sal/\"",
+            "path == \"/sal/\"",
+            "domain == \"kiranrealtygroup.com\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://kmlcapitalguru.com/ie/\"",
+            "path == \"/ie/\"",
+            "domain == \"kmlcapitalguru.com\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://konarkauto.com/stp/\"",
+            "path == \"/stp/\"",
+            "domain == \"konarkauto.com\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://l2serv.com.br/iinn/\"",
+            "path == \"/iinn/\"",
+            "domain == \"l2serv.com.br\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://lacavios.com/redo/\"",
+            "path == \"/redo/\"",
+            "domain == \"lacavios.com\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://lacoweb.com.br/cil/\"",
+            "path == \"/cil/\"",
+            "domain == \"lacoweb.com.br\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://leeowenreescontractors.co.uk/eein/\"",
+            "path == \"/eein/\"",
+            "domain == \"leeowenreescontractors.co.uk\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://letco.org/mae/\"",
+            "path == \"/mae/\"",
+            "domain == \"letco.org\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://licaodigital.com/osuq/\"",
+            "path == \"/osuq/\"",
+            "domain == \"licaodigital.com\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://lifeofmatt.net/aua/\"",
+            "path == \"/aua/\"",
+            "domain == \"lifeofmatt.net\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://lifexen.com/onnm/\"",
+            "path == \"/onnm/\"",
+            "domain == \"lifexen.com\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://lsparafusos.com.br/ttes/\"",
+            "path == \"/ttes/\"",
+            "domain == \"lsparafusos.com.br\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://madamchef.com/lssi/\"",
+            "path == \"/lssi/\"",
+            "domain == \"madamchef.com\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://mascarasapolo.com.br/ut/\"",
+            "path == \"/ut/\"",
+            "domain == \"mascarasapolo.com.br\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://matriarca.com.ar/nrv/\"",
+            "path == \"/nrv/\"",
+            "domain == \"matriarca.com.ar\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://mbmobiledata.com.ng/ta/\"",
+            "path == \"/ta/\"",
+            "domain == \"mbmobiledata.com.ng\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://meamoveissobmedida.com/el/\"",
+            "path == \"/el/\"",
+            "domain == \"meamoveissobmedida.com\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://medwaybilling.com/eds/\"",
+            "path == \"/eds/\"",
+            "domain == \"medwaybilling.com\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://menzzgrow.com/di/\"",
+            "path == \"/di/\"",
+            "domain == \"menzzgrow.com\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://mgmengenharia.com.br/ia/\"",
+            "path == \"/ia/\"",
+            "domain == \"mgmengenharia.com.br\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://migmar.com.mx/tniu/\"",
+            "path == \"/tniu/\"",
+            "domain == \"migmar.com.mx\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://milevanamala.com/aaa/\"",
+            "path == \"/aaa/\"",
+            "domain == \"milevanamala.com\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://millermail.com/umme/\"",
+            "path == \"/umme/\"",
+            "domain == \"millermail.com\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://mkjourneystravel.com/ooi/\"",
+            "path == \"/ooi/\"",
+            "domain == \"mkjourneystravel.com\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://mmmcapitalguru.com/tutu/\"",
+            "path == \"/tutu/\"",
+            "domain == \"mmmcapitalguru.com\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://moaaz-alhabbal.com/ai/\"",
+            "path == \"/ai/\"",
+            "domain == \"moaaz-alhabbal.com\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://moroccotourstravels.com/eive/\"",
+            "path == \"/eive/\"",
+            "domain == \"moroccotourstravels.com\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://mtkmlh.com/urf/\"",
+            "path == \"/urf/\"",
+            "domain == \"mtkmlh.com\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://mtslindia.com/pue/\"",
+            "path == \"/pue/\"",
+            "domain == \"mtslindia.com\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://musadata.com.ng/lou/\"",
+            "path == \"/lou/\"",
+            "domain == \"musadata.com.ng\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://mvs-marketing.com/eru/\"",
+            "path == \"/eru/\"",
+            "domain == \"mvs-marketing.com\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://mybestemails.com/txb/\"",
+            "path == \"/txb/\"",
+            "domain == \"mybestemails.com\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://mycircleofexcellence.com/ssc/\"",
+            "path == \"/ssc/\"",
+            "domain == \"mycircleofexcellence.com\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://najmussayadade.com/eed/\"",
+            "path == \"/eed/\"",
+            "domain == \"najmussayadade.com\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://nasaradatatech.com.ng/iq/\"",
+            "path == \"/iq/\"",
+            "domain == \"nasaradatatech.com.ng\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://networkdunya.com/mcgd/\"",
+            "path == \"/mcgd/\"",
+            "domain == \"networkdunya.com\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://newrack.com.br/ueld/\"",
+            "path == \"/ueld/\"",
+            "domain == \"newrack.com.br\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://nickolejuliana.com.br/iq/\"",
+            "path == \"/iq/\"",
+            "domain == \"nickolejuliana.com.br\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://nilofamatrimony.com/epe/\"",
+            "path == \"/epe/\"",
+            "domain == \"nilofamatrimony.com\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://nossacalhaetelhas.com.br/aedb/\"",
+            "path == \"/aedb/\"",
+            "domain == \"nossacalhaetelhas.com.br\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://nuevaalianzapuebla.org.mx/pee/\"",
+            "path == \"/pee/\"",
+            "domain == \"nuevaalianzapuebla.org.mx\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://odontosader.com.br/uat/\"",
+            "path == \"/uat/\"",
+            "domain == \"odontosader.com.br\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://offerswagon.com/tur/\"",
+            "path == \"/tur/\"",
+            "domain == \"offerswagon.com\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://olymposgame.com/muaa/\"",
+            "path == \"/muaa/\"",
+            "domain == \"olymposgame.com\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://oneempreendimentos.com.br/ueos/\"",
+            "path == \"/ueos/\"",
+            "domain == \"oneempreendimentos.com.br\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://openviewansweringservice.com/up/\"",
+            "path == \"/up/\"",
+            "domain == \"openviewansweringservice.com\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://oscaroets.com/eel/\"",
+            "path == \"/eel/\"",
+            "domain == \"oscaroets.com\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://painelzap.com.br/tbm/\"",
+            "path == \"/tbm/\"",
+            "domain == \"painelzap.com.br\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://paracaidismonuevoleon.com/scnu/\"",
+            "path == \"/scnu/\"",
+            "domain == \"paracaidismonuevoleon.com\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://pasteleriashadday.com/tvpo/\"",
+            "path == \"/tvpo/\"",
+            "domain == \"pasteleriashadday.com\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://pastquestionsportal.com/eao/\"",
+            "path == \"/eao/\"",
+            "domain == \"pastquestionsportal.com\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://paulolocacao.com.br/nm/\"",
+            "path == \"/nm/\"",
+            "domain == \"paulolocacao.com.br\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://petertio.com/as/\"",
+            "path == \"/as/\"",
+            "domain == \"petertio.com\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://phd-ce.com.br/ais/\"",
+            "path == \"/ais/\"",
+            "domain == \"phd-ce.com.br\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://picmphiladelphia.com/tl/\"",
+            "path == \"/tl/\"",
+            "domain == \"picmphiladelphia.com\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://pierrot-or.net/teut/\"",
+            "path == \"/teut/\"",
+            "domain == \"pierrot-or.net\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://plontberg.com/nem/\"",
+            "path == \"/nem/\"",
+            "domain == \"plontberg.com\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://pokharavalleyschool.com/cabu/\"",
+            "path == \"/cabu/\"",
+            "domain == \"pokharavalleyschool.com\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://portalcoremas.com.br/oes/\"",
+            "path == \"/oes/\"",
+            "domain == \"portalcoremas.com.br\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://practix-usa.com/avp/\"",
+            "path == \"/avp/\"",
+            "domain == \"practix-usa.com\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://premiumhomescare.com/maui/\"",
+            "path == \"/maui/\"",
+            "domain == \"premiumhomescare.com\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://prestaservices.com.br/uuqs/\"",
+            "path == \"/uuqs/\"",
+            "domain == \"prestaservices.com.br\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://prestigetrustng.com/ers/\"",
+            "path == \"/ers/\"",
+            "domain == \"prestigetrustng.com\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://proferreterias.com.mx/aus/\"",
+            "path == \"/aus/\"",
+            "domain == \"proferreterias.com.mx\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://proley.com.py/qpmr/\"",
+            "path == \"/qpmr/\"",
+            "domain == \"proley.com.py\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://protectmeplus.com/outr/\"",
+            "path == \"/outr/\"",
+            "domain == \"protectmeplus.com\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://qakas.com/rro/\"",
+            "path == \"/rro/\"",
+            "domain == \"qakas.com\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://quadronetwork.it/ud/\"",
+            "path == \"/ud/\"",
+            "domain == \"quadronetwork.it\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://radhvac-bd.com/ettu/\"",
+            "path == \"/ettu/\"",
+            "domain == \"radhvac-bd.com\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://ramjayglobalconsults.com/iora/\"",
+            "path == \"/iora/\"",
+            "domain == \"ramjayglobalconsults.com\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://rapidroofingrepairs.com/rp/\"",
+            "path == \"/rp/\"",
+            "domain == \"rapidroofingrepairs.com\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://ratteb.com/sblp/\"",
+            "path == \"/sblp/\"",
+            "domain == \"ratteb.com\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://readywriterscollective.com/aae/\"",
+            "path == \"/aae/\"",
+            "domain == \"readywriterscollective.com\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://recentpages.com/pit/\"",
+            "path == \"/pit/\"",
+            "domain == \"recentpages.com\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://redecosmeticosonline.com.br/es/\"",
+            "path == \"/es/\"",
+            "domain == \"redecosmeticosonline.com.br\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://rehabilitegame.com/an/\"",
+            "path == \"/an/\"",
+            "domain == \"rehabilitegame.com\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://researchanalyticsdata.com/ca/\"",
+            "path == \"/ca/\"",
+            "domain == \"researchanalyticsdata.com\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://restapiproject.com/art/\"",
+            "path == \"/art/\"",
+            "domain == \"restapiproject.com\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://rianferreira.com.br/sq/\"",
+            "path == \"/sq/\"",
+            "domain == \"rianferreira.com.br\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://rmrautopecas.com.br/ssa/\"",
+            "path == \"/ssa/\"",
+            "domain == \"rmrautopecas.com.br\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://rms.dna.com.sa/oucc/\"",
+            "path == \"/oucc/\"",
+            "domain == \"rms.dna.com.sa\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://rocketagarbatti.com/daus/\"",
+            "path == \"/daus/\"",
+            "domain == \"rocketagarbatti.com\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://rominaeva.com/rpsi/\"",
+            "path == \"/rpsi/\"",
+            "domain == \"rominaeva.com\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://rsvehicleimports.com.au/eaa/\"",
+            "path == \"/eaa/\"",
+            "domain == \"rsvehicleimports.com.au\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://safrat-alriyadh.com/tsu/\"",
+            "path == \"/tsu/\"",
+            "domain == \"safrat-alriyadh.com\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://sangitkalamandir.org/vie/\"",
+            "path == \"/vie/\"",
+            "domain == \"sangitkalamandir.org\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://saratagliabuepsicologa.it/caa/\"",
+            "path == \"/caa/\"",
+            "domain == \"saratagliabuepsicologa.it\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://saudiunicom.com/qit/\"",
+            "path == \"/qit/\"",
+            "domain == \"saudiunicom.com\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://scarterproductionfilms.com/ooi/\"",
+            "path == \"/ooi/\"",
+            "domain == \"scarterproductionfilms.com\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://scpsakhoconsulting.com/ase/\"",
+            "path == \"/ase/\"",
+            "domain == \"scpsakhoconsulting.com\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://seawaycenter.com.br/doe/\"",
+            "path == \"/doe/\"",
+            "domain == \"seawaycenter.com.br\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://segiseri.com/mi/\"",
+            "path == \"/mi/\"",
+            "domain == \"segiseri.com\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://sem-yard.com/tlpe/\"",
+            "path == \"/tlpe/\"",
+            "domain == \"sem-yard.com\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://semfobia.com.br/rue/\"",
+            "path == \"/rue/\"",
+            "domain == \"semfobia.com.br\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://servicioslogisticosdyc.com/iuip/\"",
+            "path == \"/iuip/\"",
+            "domain == \"servicioslogisticosdyc.com\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://sfcleancar.com/ir/\"",
+            "path == \"/ir/\"",
+            "domain == \"sfcleancar.com\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://shafielectronics.com/loe/\"",
+            "path == \"/loe/\"",
+            "domain == \"shafielectronics.com\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://shoutworks.com/ps/\"",
+            "path == \"/ps/\"",
+            "domain == \"shoutworks.com\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://silvereagle-uae.com/rodm/\"",
+            "path == \"/rodm/\"",
+            "domain == \"silvereagle-uae.com\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://skpateya.com/snse/\"",
+            "path == \"/snse/\"",
+            "domain == \"skpateya.com\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://smansara.com/ut/\"",
+            "path == \"/ut/\"",
+            "domain == \"smansara.com\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://smartfundingteam.com/nut/\"",
+            "path == \"/nut/\"",
+            "domain == \"smartfundingteam.com\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://smicade.com/oird/\"",
+            "path == \"/oird/\"",
+            "domain == \"smicade.com\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://smigotraders.co.uk/ail/\"",
+            "path == \"/ail/\"",
+            "domain == \"smigotraders.co.uk\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://smile-tech.net/neeu/\"",
+            "path == \"/neeu/\"",
+            "domain == \"smile-tech.net\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://social-gram.com/dr/\"",
+            "path == \"/dr/\"",
+            "domain == \"social-gram.com\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://societycryptocurrency.com.br/ptra/\"",
+            "path == \"/ptra/\"",
+            "domain == \"societycryptocurrency.com.br\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://solazone.com.au/rd/\"",
+            "path == \"/rd/\"",
+            "domain == \"solazone.com.au\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://southsuburbanclinic.net/rene/\"",
+            "path == \"/rene/\"",
+            "domain == \"southsuburbanclinic.net\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://springsbest.net/iae/\"",
+            "path == \"/iae/\"",
+            "domain == \"springsbest.net\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://squalogistics.com/soe/\"",
+            "path == \"/soe/\"",
+            "domain == \"squalogistics.com\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://steadfastsolar.com.au/nfia/\"",
+            "path == \"/nfia/\"",
+            "domain == \"steadfastsolar.com.au\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://stmaryelgolf.com/eaii/\"",
+            "path == \"/eaii/\"",
+            "domain == \"stmaryelgolf.com\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://supercolor.com.co/du/\"",
+            "path == \"/du/\"",
+            "domain == \"supercolor.com.co\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://tacosnmargaritas.com/is/\"",
+            "path == \"/is/\"",
+            "domain == \"tacosnmargaritas.com\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://tarotdesamanda.com/teer/\"",
+            "path == \"/teer/\"",
+            "domain == \"tarotdesamanda.com\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://tcigfx.com/esra/\"",
+            "path == \"/esra/\"",
+            "domain == \"tcigfx.com\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://tcmty.com.mx/irr/\"",
+            "path == \"/irr/\"",
+            "domain == \"tcmty.com.mx\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://tdbsv.com/set/\"",
+            "path == \"/set/\"",
+            "domain == \"tdbsv.com\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://tecnoelectrica-sa.com/iqnr/\"",
+            "path == \"/iqnr/\"",
+            "domain == \"tecnoelectrica-sa.com\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://tecnogalaxy.com.ec/ep/\"",
+            "path == \"/ep/\"",
+            "domain == \"tecnogalaxy.com.ec\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://tenanthomefinders.com/blcx/\"",
+            "path == \"/blcx/\"",
+            "domain == \"tenanthomefinders.com\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://thebraziliancode.com.br/qois/\"",
+            "path == \"/qois/\"",
+            "domain == \"thebraziliancode.com.br\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://thecradio.com/cai/\"",
+            "path == \"/cai/\"",
+            "domain == \"thecradio.com\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://thehumanpharma.com/se/\"",
+            "path == \"/se/\"",
+            "domain == \"thehumanpharma.com\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://thepowerguido.com/et/\"",
+            "path == \"/et/\"",
+            "domain == \"thepowerguido.com\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://thequickvisa.com/eli/\"",
+            "path == \"/eli/\"",
+            "domain == \"thequickvisa.com\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://theroadjournal.com/te/\"",
+            "path == \"/te/\"",
+            "domain == \"theroadjournal.com\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://timsplanes.com/vi/\"",
+            "path == \"/vi/\"",
+            "domain == \"timsplanes.com\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://titosbbqstation.com/mo/\"",
+            "path == \"/mo/\"",
+            "domain == \"titosbbqstation.com\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://tjscaresolutions.com/at/\"",
+            "path == \"/at/\"",
+            "domain == \"tjscaresolutions.com\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://tolipelfairouz.com/rr/\"",
+            "path == \"/rr/\"",
+            "domain == \"tolipelfairouz.com\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://topinternetgames.com/qauo/\"",
+            "path == \"/qauo/\"",
+            "domain == \"topinternetgames.com\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://tramitesnotarialesyregistrales.com/eu/\"",
+            "path == \"/eu/\"",
+            "domain == \"tramitesnotarialesyregistrales.com\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://troupedigital.com/oer/\"",
+            "path == \"/oer/\"",
+            "domain == \"troupedigital.com\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://tudien.org.vn/dt/\"",
+            "path == \"/dt/\"",
+            "domain == \"tudien.org.vn\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://tudinseu.com.br/nls/\"",
+            "path == \"/nls/\"",
+            "domain == \"tudinseu.com.br\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://umairameen.com/sqdu/\"",
+            "path == \"/sqdu/\"",
+            "domain == \"umairameen.com\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://unafrilibrary.com/quq/\"",
+            "path == \"/quq/\"",
+            "domain == \"unafrilibrary.com\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://upn142.net/son/\"",
+            "path == \"/son/\"",
+            "domain == \"upn142.net\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://utopia-designs.com/etni/\"",
+            "path == \"/etni/\"",
+            "domain == \"utopia-designs.com\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://vdiec.com/tnie/\"",
+            "path == \"/tnie/\"",
+            "domain == \"vdiec.com\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://vitrinegrafica.com.br/ruod/\"",
+            "path == \"/ruod/\"",
+            "domain == \"vitrinegrafica.com.br\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://vseven.com.br/asnm/\"",
+            "path == \"/asnm/\"",
+            "domain == \"vseven.com.br\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://waterproofinginbasement.com/ua/\"",
+            "path == \"/ua/\"",
+            "domain == \"waterproofinginbasement.com\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://wctvapp.com/sie/\"",
+            "path == \"/sie/\"",
+            "domain == \"wctvapp.com\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://webdynamicsindia.com/eu/\"",
+            "path == \"/eu/\"",
+            "domain == \"webdynamicsindia.com\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://webmezing.com/tetn/\"",
+            "path == \"/tetn/\"",
+            "domain == \"webmezing.com\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://welfarelife.net/rum/\"",
+            "path == \"/rum/\"",
+            "domain == \"welfarelife.net\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "QakBot payload delivery URL",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://ymmlyrecipes.com/tu/\"",
+            "path == \"/tu/\"",
+            "domain == \"ymmlyrecipes.com\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "RedLine Stealer botnet C2 server",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "ip == \"80.66.64.170\"",
+            "ip == \"80.66.64.170\" and port == \"81\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://artztech.dyndns.info/dot.gif\"",
+            "path == \"/dot.gif\"",
+            "domain == \"artztech.dyndns.info\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://118.100.230.147/activity\"",
+            "path == \"/activity\"",
+            "domain == \"118.100.230.147\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2 server",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "ip == \"118.100.230.147\"",
+            "ip == \"118.100.230.147\" and port == \"443\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"http://31.172.79.211/push\"",
+            "path == \"/push\"",
+            "domain == \"31.172.79.211\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2 server",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "ip == \"31.172.79.211\"",
+            "ip == \"31.172.79.211\" and port == \"80\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://34.96.240.180:50443/ptj\"",
+            "path == \"/ptj\"",
+            "domain == \"34.96.240.180\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2 server",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "ip == \"34.92.244.84\"",
+            "ip == \"34.92.244.84\" and port == \"50443\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://175.178.73.161/jquery-3.3.1.min.js\"",
+            "path == \"/jquery-3.3.1.min.js\"",
+            "domain == \"175.178.73.161\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2 server",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "ip == \"175.178.73.161\"",
+            "ip == \"175.178.73.161\" and port == \"443\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"http://116.204.25.105:8880/ga.js\"",
+            "path == \"/ga.js\"",
+            "domain == \"116.204.25.105\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Nanocore RAT botnet C2 server",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "ip == \"91.193.75.131\"",
+            "ip == \"91.193.75.131\" and port == \"1116\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"http://47.100.249.61:4443/dpixel\"",
+            "path == \"/dpixel\"",
+            "domain == \"47.100.249.61\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2 server",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "ip == \"43.138.150.136\"",
+            "ip == \"43.138.150.136\" and port == \"80\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://5.188.86.206/cx\"",
+            "path == \"/cx\"",
+            "domain == \"5.188.86.206\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2 server",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "ip == \"5.188.86.206\"",
+            "ip == \"5.188.86.206\" and port == \"443\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"http://134.209.34.2:8088/c/msdownload/update/others/2020/10/29136388_\"",
+            "path == \"/c/msdownload/update/others/2020/10/29136388_\"",
+            "domain == \"134.209.34.2\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"http://192.168.2.116:8089/updates.rss\"",
+            "path == \"/updates.rss\"",
+            "domain == \"192.168.2.116\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"http://93.192.199.99:8089/visit.js\"",
+            "path == \"/visit.js\"",
+            "domain == \"93.192.199.99\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://109.234.37.152/updates.rss\"",
+            "path == \"/updates.rss\"",
+            "domain == \"109.234.37.152\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2 server",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "ip == \"109.234.37.152\"",
+            "ip == \"109.234.37.152\" and port == \"443\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://195.178.120.47/visit.js\"",
+            "path == \"/visit.js\"",
+            "domain == \"195.178.120.47\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2 server",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "ip == \"195.178.120.47\"",
+            "ip == \"195.178.120.47\" and port == \"443\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"http://101.35.198.25:8078/j.ad\"",
+            "path == \"/j.ad\"",
+            "domain == \"101.35.198.25\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"http://43.138.150.136:888/match\"",
+            "path == \"/match\"",
+            "domain == \"43.138.150.136\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"http://124.222.88.246/ga.js\"",
+            "path == \"/ga.js\"",
+            "domain == \"124.222.88.246\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2 server",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "ip == \"124.222.88.246\"",
+            "ip == \"124.222.88.246\" and port == \"80\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Sliver botnet C2 server",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "ip == \"111.68.7.123\"",
+            "ip == \"111.68.7.123\" and port == \"8888\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "50"
+    },
+    {
+        "rule_name": "Sliver botnet C2 server",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "ip == \"111.68.7.123\"",
+            "ip == \"111.68.7.123\" and port == \"31337\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "50"
+    },
+    {
+        "rule_name": "Sliver botnet C2 server",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "ip == \"139.224.50.7\"",
+            "ip == \"139.224.50.7\" and port == \"443\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "50"
+    },
+    {
+        "rule_name": "Sliver botnet C2 server",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "ip == \"139.224.50.7\"",
+            "ip == \"139.224.50.7\" and port == \"8443\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "50"
+    },
+    {
+        "rule_name": "Sliver botnet C2 server",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "ip == \"139.224.50.7\"",
+            "ip == \"139.224.50.7\" and port == \"31337\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "50"
+    },
+    {
+        "rule_name": "Sliver botnet C2 server",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "ip == \"141.164.50.44\"",
+            "ip == \"141.164.50.44\" and port == \"8888\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "50"
+    },
+    {
+        "rule_name": "Sliver botnet C2 server",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "ip == \"141.164.50.44\"",
+            "ip == \"141.164.50.44\" and port == \"31337\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "50"
+    },
+    {
+        "rule_name": "Sliver botnet C2 server",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "ip == \"185.77.96.155\"",
+            "ip == \"185.77.96.155\" and port == \"8888\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "50"
+    },
+    {
+        "rule_name": "Sliver botnet C2 server",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "ip == \"185.77.96.155\"",
+            "ip == \"185.77.96.155\" and port == \"31337\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "50"
+    },
+    {
+        "rule_name": "Unknown malware botnet C2 server",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "ip == \"34.89.112.244\"",
+            "ip == \"34.89.112.244\" and port == \"7443\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "50"
+    },
+    {
+        "rule_name": "Unknown malware botnet C2 server",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "ip == \"3.145.90.243\"",
+            "ip == \"3.145.90.243\" and port == \"80\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "50"
+    },
+    {
+        "rule_name": "Unknown malware botnet C2 server",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "ip == \"85.10.132.13\"",
+            "ip == \"85.10.132.13\" and port == \"443\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "50"
+    },
+    {
+        "rule_name": "Unknown malware botnet C2 server",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "ip == \"158.160.68.213\"",
+            "ip == \"158.160.68.213\" and port == \"80\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "50"
+    },
+    {
+        "rule_name": "Unknown malware botnet C2 server",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "ip == \"173.53.60.45\"",
+            "ip == \"173.53.60.45\" and port == \"8433\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "50"
+    },
+    {
+        "rule_name": "Unknown malware botnet C2 server",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "ip == \"206.81.6.121\"",
+            "ip == \"206.81.6.121\" and port == \"80\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "50"
+    },
+    {
+        "rule_name": "BianLian botnet C2 server",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "ip == \"34.219.121.232\"",
+            "ip == \"34.219.121.232\" and port == \"443\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "50"
+    },
+    {
+        "rule_name": "BianLian botnet C2 server",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "ip == \"34.219.121.232\"",
+            "ip == \"34.219.121.232\" and port == \"8000\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "50"
+    },
+    {
+        "rule_name": "BianLian botnet C2 server",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "ip == \"34.219.121.232\"",
+            "ip == \"34.219.121.232\" and port == \"8080\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "50"
+    },
+    {
+        "rule_name": "BianLian botnet C2 server",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "ip == \"104.238.35.112\"",
+            "ip == \"104.238.35.112\" and port == \"80\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "50"
+    },
+    {
+        "rule_name": "BianLian botnet C2 server",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "ip == \"104.238.35.112\"",
+            "ip == \"104.238.35.112\" and port == \"8080\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "50"
+    },
+    {
+        "rule_name": "BianLian botnet C2 server",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "ip == \"161.35.138.42\"",
+            "ip == \"161.35.138.42\" and port == \"443\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "50"
+    },
+    {
+        "rule_name": "BianLian botnet C2 server",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "ip == \"192.161.48.17\"",
+            "ip == \"192.161.48.17\" and port == \"8080\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "50"
+    },
+    {
+        "rule_name": "BianLian botnet C2 server",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "ip == \"192.161.48.17\"",
+            "ip == \"192.161.48.17\" and port == \"8443\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "50"
+    },
+    {
+        "rule_name": "BianLian botnet C2 server",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "ip == \"193.36.117.117\"",
+            "ip == \"193.36.117.117\" and port == \"443\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "50"
+    },
+    {
+        "rule_name": "Havoc botnet C2 server",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "ip == \"174.138.28.5\"",
+            "ip == \"174.138.28.5\" and port == \"11443\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "50"
+    },
+    {
+        "rule_name": "Responder botnet C2 server",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "ip == \"20.225.61.98\"",
+            "ip == \"20.225.61.98\" and port == \"80\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "50"
+    },
+    {
+        "rule_name": "Responder botnet C2 server",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "ip == \"20.225.61.98\"",
+            "ip == \"20.225.61.98\" and port == \"443\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "50"
+    },
+    {
+        "rule_name": "Responder botnet C2 server",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "ip == \"35.180.123.217\"",
+            "ip == \"35.180.123.217\" and port == \"80\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "50"
+    },
+    {
+        "rule_name": "Responder botnet C2 server",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "ip == \"35.180.123.217\"",
+            "ip == \"35.180.123.217\" and port == \"443\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "50"
+    },
+    {
+        "rule_name": "Responder botnet C2 server",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "ip == \"54.205.140.17\"",
+            "ip == \"54.205.140.17\" and port == \"5985\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "50"
+    },
+    {
+        "rule_name": "Responder botnet C2 server",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "ip == \"120.138.18.160\"",
+            "ip == \"120.138.18.160\" and port == \"80\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "50"
+    },
+    {
+        "rule_name": "Responder botnet C2 server",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "ip == \"147.182.152.233\"",
+            "ip == \"147.182.152.233\" and port == \"445\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "50"
+    },
+    {
+        "rule_name": "Ave Maria botnet C2 server",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "ip == \"84.38.130.235\"",
+            "ip == \"84.38.130.235\" and port == \"5200\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "NjRAT botnet C2 server",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "ip == \"3.126.224.214\"",
+            "ip == \"3.126.224.214\" and port == \"19812\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "NjRAT botnet C2 server",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "ip == \"35.157.111.131\"",
+            "ip == \"35.157.111.131\" and port == \"19812\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "NjRAT botnet C2 server",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "ip == \"3.125.188.168\"",
+            "ip == \"3.125.188.168\" and port == \"19812\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "NjRAT botnet C2 server",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "ip == \"3.126.224.214\"",
+            "ip == \"3.126.224.214\" and port == \"18851\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "IcedID botnet C2 server",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "ip == \"38.180.8.107\"",
+            "ip == \"38.180.8.107\" and port == \"443\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "75"
+    },
+    {
+        "rule_name": "IcedID botnet C2 server",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "ip == \"66.63.188.18\"",
+            "ip == \"66.63.188.18\" and port == \"443\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "75"
+    },
+    {
+        "rule_name": "IcedID botnet C2 server",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "ip == \"87.251.67.56\"",
+            "ip == \"87.251.67.56\" and port == \"443\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "75"
+    },
+    {
+        "rule_name": "IcedID botnet C2 server",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "ip == \"91.235.234.217\"",
+            "ip == \"91.235.234.217\" and port == \"443\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "75"
+    },
+    {
+        "rule_name": "IcedID botnet C2 server",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "ip == \"94.140.114.48\"",
+            "ip == \"94.140.114.48\" and port == \"443\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "75"
+    },
+    {
+        "rule_name": "IcedID botnet C2 server",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "ip == \"104.168.70.14\"",
+            "ip == \"104.168.70.14\" and port == \"443\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "75"
+    },
+    {
+        "rule_name": "IcedID botnet C2 server",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "ip == \"168.100.11.100\"",
+            "ip == \"168.100.11.100\" and port == \"443\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "75"
+    },
+    {
+        "rule_name": "IcedID botnet C2 server",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "ip == \"192.119.68.151\"",
+            "ip == \"192.119.68.151\" and port == \"443\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "75"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://124.70.72.55:8080/jquery-3.3.1.min.js\"",
+            "path == \"/jquery-3.3.1.min.js\"",
+            "domain == \"124.70.72.55\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"http://139.224.207.208:54458/cx\"",
+            "path == \"/cx\"",
+            "domain == \"139.224.207.208\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "RedLine Stealer botnet C2 server",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "ip == \"77.91.124.251\"",
+            "ip == \"77.91.124.251\" and port == \"19069\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"http://kingoflake.com:443/wp-content/chunky/\"",
+            "path == \"/wp-content/chunky/\"",
+            "domain == \"kingoflake.com\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "75"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://zekoyofugu.network/undo/wp-content/5d6j9zdoy\"",
+            "path == \"/undo/wp-content/5d6j9zdoy\"",
+            "domain == \"zekoyofugu.network\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2 domain",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "domain == \"zekoyofugu.network.\""
+        ],
+        "scope": "DNS",
+        "severity": "100",
+        "automated": "true",
+        "MITRE": [
+            "T1071.001",
+            "T1132.001",
+            "T1568",
+            "T1102.003"
+        ]
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "url == \"https://23.19.58.237/undo/wp-content/5d6j9zdoy\"",
+            "path == \"/undo/wp-content/5d6j9zdoy\"",
+            "domain == \"23.19.58.237\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2 server",
+        "authored_timestamp": 1688286807,
+        "rule": [
+            "ip == \"23.19.58.237\"",
+            "ip == \"23.19.58.237\" and port == \"443\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "100"
+    }
+]

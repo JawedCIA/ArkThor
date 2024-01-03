@@ -1,0 +1,2255 @@
+[
+    {
+        "rule_name": "Unknown malware payload delivery URL",
+        "authored_timestamp": 1688286795,
+        "rule": [
+            "url == \"http://transfer.sh/get/w2uu24/hwhtvy.png\"",
+            "path == \"/get/w2uu24/hwhtvy.png\"",
+            "domain == \"transfer.sh\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Unknown malware payload delivery URL",
+        "authored_timestamp": 1688286795,
+        "rule": [
+            "url == \"https://cdn.discordapp.com/attachments/936786287145410703/939176805263368362/microsoftapi.exe\"",
+            "path == \"/attachments/936786287145410703/939176805263368362/microsoftapi.exe\"",
+            "domain == \"cdn.discordapp.com\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Mirai botnet C2 server",
+        "authored_timestamp": 1688286795,
+        "rule": [
+            "ip == \"192.210.175.223\"",
+            "ip == \"192.210.175.223\" and port == \"666\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "75"
+    },
+    {
+        "rule_name": "SystemBC botnet C2 server",
+        "authored_timestamp": 1688286795,
+        "rule": [
+            "ip == \"194.33.45.6\"",
+            "ip == \"194.33.45.6\" and port == \"4001\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "75"
+    },
+    {
+        "rule_name": "AsyncRAT botnet C2 domain",
+        "authored_timestamp": 1688286795,
+        "rule": [
+            "domain == \"sgrmbroker.com.\""
+        ],
+        "scope": "DNS",
+        "severity": "100",
+        "automated": "true",
+        "MITRE": [
+            "T1071.001",
+            "T1132.001",
+            "T1568",
+            "T1102.003"
+        ]
+    },
+    {
+        "rule_name": "AsyncRAT botnet C2 server",
+        "authored_timestamp": 1688286795,
+        "rule": [
+            "ip == \"20.69.124.187\"",
+            "ip == \"20.69.124.187\" and port == \"6606\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "75"
+    },
+    {
+        "rule_name": "AsyncRAT botnet C2 server",
+        "authored_timestamp": 1688286795,
+        "rule": [
+            "ip == \"20.69.124.187\"",
+            "ip == \"20.69.124.187\" and port == \"7707\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "75"
+    },
+    {
+        "rule_name": "AsyncRAT botnet C2 server",
+        "authored_timestamp": 1688286795,
+        "rule": [
+            "ip == \"20.69.124.187\"",
+            "ip == \"20.69.124.187\" and port == \"8808\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "75"
+    },
+    {
+        "rule_name": "Orcus RAT botnet C2 server",
+        "authored_timestamp": 1688286795,
+        "rule": [
+            "ip == \"94.103.87.238\"",
+            "ip == \"94.103.87.238\" and port == \"10135\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "RedLine Stealer botnet C2 server",
+        "authored_timestamp": 1688286795,
+        "rule": [
+            "ip == \"44.195.19.18\"",
+            "ip == \"44.195.19.18\" and port == \"35534\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "RedLine Stealer botnet C2",
+        "authored_timestamp": 1688286795,
+        "rule": [
+            "url == \"http://94.103.95.7/iremotepanel\"",
+            "path == \"/iremotepanel\"",
+            "domain == \"94.103.95.7\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "RedLine Stealer botnet C2 server",
+        "authored_timestamp": 1688286795,
+        "rule": [
+            "ip == \"94.103.95.7\"",
+            "ip == \"94.103.95.7\" and port == \"80\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "NetWire RC botnet C2 server",
+        "authored_timestamp": 1688286795,
+        "rule": [
+            "ip == \"192.236.147.202\"",
+            "ip == \"192.236.147.202\" and port == \"3362\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "RedLine Stealer botnet C2 server",
+        "authored_timestamp": 1688286795,
+        "rule": [
+            "ip == \"47.88.2.246\"",
+            "ip == \"47.88.2.246\" and port == \"80\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "AsyncRAT botnet C2 server",
+        "authored_timestamp": 1688286795,
+        "rule": [
+            "ip == \"146.70.51.37\"",
+            "ip == \"146.70.51.37\" and port == \"4404\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Nanocore RAT botnet C2 server",
+        "authored_timestamp": 1688286795,
+        "rule": [
+            "ip == \"136.243.111.71\"",
+            "ip == \"136.243.111.71\" and port == \"54984\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "DCRat botnet C2",
+        "authored_timestamp": 1688286795,
+        "rule": [
+            "url == \"http://92.63.97.168/provider_cpulinux.php\"",
+            "path == \"/provider_cpulinux.php\"",
+            "domain == \"92.63.97.168\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "RedLine Stealer botnet C2 server",
+        "authored_timestamp": 1688286795,
+        "rule": [
+            "ip == \"185.215.113.122\"",
+            "ip == \"185.215.113.122\" and port == \"15386\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "NjRAT botnet C2 server",
+        "authored_timestamp": 1688286795,
+        "rule": [
+            "ip == \"37.23.233.32\"",
+            "ip == \"37.23.233.32\" and port == \"6522\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "TeamBot botnet C2",
+        "authored_timestamp": 1688286795,
+        "rule": [
+            "url == \"http://fuyt.org/fhsgtsspen6/get.php\"",
+            "path == \"/fhsgtsspen6/get.php\"",
+            "domain == \"fuyt.org\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Loki Password Stealer (PWS) botnet C2",
+        "authored_timestamp": 1688286795,
+        "rule": [
+            "url == \"http://creeksfoako.sytes.net/uohokgjhgp/panel/five/fre.php\"",
+            "path == \"/uohokgjhgp/panel/five/fre.php\"",
+            "domain == \"creeksfoako.sytes.net\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Loki Password Stealer (PWS) botnet C2",
+        "authored_timestamp": 1688286795,
+        "rule": [
+            "url == \"http://copictory.cf/fashion/fre.php\"",
+            "path == \"/fashion/fre.php\"",
+            "domain == \"copictory.cf\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "75"
+    },
+    {
+        "rule_name": "RedLine Stealer botnet C2 server",
+        "authored_timestamp": 1688286795,
+        "rule": [
+            "ip == \"141.95.227.187\"",
+            "ip == \"141.95.227.187\" and port == \"6238\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "RedLine Stealer botnet C2 server",
+        "authored_timestamp": 1688286795,
+        "rule": [
+            "ip == \"91.243.32.39\"",
+            "ip == \"91.243.32.39\" and port == \"5087\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "RedLine Stealer botnet C2 server",
+        "authored_timestamp": 1688286795,
+        "rule": [
+            "ip == \"5.253.63.156\"",
+            "ip == \"5.253.63.156\" and port == \"80\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "TeamBot botnet C2",
+        "authored_timestamp": 1688286795,
+        "rule": [
+            "url == \"http://fuyt.org/test1/get.php\"",
+            "path == \"/test1/get.php\"",
+            "domain == \"fuyt.org\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2",
+        "authored_timestamp": 1688286795,
+        "rule": [
+            "url == \"https://114.132.197.186/cm\"",
+            "path == \"/cm\"",
+            "domain == \"114.132.197.186\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2 server",
+        "authored_timestamp": 1688286795,
+        "rule": [
+            "ip == \"114.132.197.186\"",
+            "ip == \"114.132.197.186\" and port == \"443\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2",
+        "authored_timestamp": 1688286795,
+        "rule": [
+            "url == \"http://1.117.225.19/c/msdownload/update/others/2018/12/29136388_\"",
+            "path == \"/c/msdownload/update/others/2018/12/29136388_\"",
+            "domain == \"1.117.225.19\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2 server",
+        "authored_timestamp": 1688286795,
+        "rule": [
+            "ip == \"1.117.225.19\"",
+            "ip == \"1.117.225.19\" and port == \"80\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2",
+        "authored_timestamp": 1688286795,
+        "rule": [
+            "url == \"https://1.117.225.19/c/msdownload/update/others/2018/12/29136388_\"",
+            "path == \"/c/msdownload/update/others/2018/12/29136388_\"",
+            "domain == \"1.117.225.19\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2 server",
+        "authored_timestamp": 1688286795,
+        "rule": [
+            "ip == \"1.117.225.19\"",
+            "ip == \"1.117.225.19\" and port == \"443\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "RedLine Stealer botnet C2 server",
+        "authored_timestamp": 1688286795,
+        "rule": [
+            "ip == \"194.87.185.36\"",
+            "ip == \"194.87.185.36\" and port == \"80\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2",
+        "authored_timestamp": 1688286795,
+        "rule": [
+            "url == \"http://test.instacrt.cc:8080/gindex.html\"",
+            "path == \"/gindex.html\"",
+            "domain == \"test.instacrt.cc\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2 server",
+        "authored_timestamp": 1688286795,
+        "rule": [
+            "ip == \"123.58.211.78\"",
+            "ip == \"123.58.211.78\" and port == \"8080\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2",
+        "authored_timestamp": 1688286795,
+        "rule": [
+            "url == \"https://137.184.206.223/gp/cerberus/gv\"",
+            "path == \"/gp/cerberus/gv\"",
+            "domain == \"137.184.206.223\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2 server",
+        "authored_timestamp": 1688286795,
+        "rule": [
+            "ip == \"137.184.206.223\"",
+            "ip == \"137.184.206.223\" and port == \"443\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2",
+        "authored_timestamp": 1688286795,
+        "rule": [
+            "url == \"http://216.244.71.154/dz\"",
+            "path == \"/dz\"",
+            "domain == \"216.244.71.154\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2 server",
+        "authored_timestamp": 1688286795,
+        "rule": [
+            "ip == \"216.244.71.154\"",
+            "ip == \"216.244.71.154\" and port == \"80\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2 server",
+        "authored_timestamp": 1688286795,
+        "rule": [
+            "ip == \"23.224.70.228\"",
+            "ip == \"23.224.70.228\" and port == \"443\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2",
+        "authored_timestamp": 1688286795,
+        "rule": [
+            "url == \"http://185.150.119.157/ml.css\"",
+            "path == \"/ml.css\"",
+            "domain == \"185.150.119.157\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2 server",
+        "authored_timestamp": 1688286795,
+        "rule": [
+            "ip == \"185.150.119.157\"",
+            "ip == \"185.150.119.157\" and port == \"80\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2",
+        "authored_timestamp": 1688286795,
+        "rule": [
+            "url == \"https://us-central1-mpr21-679.cloudfunctions.net/statusupdate/en-us/p/book-2/8mcpzjjcc98c\"",
+            "path == \"/statusupdate/en-us/p/book-2/8mcpzjjcc98c\"",
+            "domain == \"us-central1-mpr21-679.cloudfunctions.net\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2 server",
+        "authored_timestamp": 1688286795,
+        "rule": [
+            "ip == \"143.110.151.91\"",
+            "ip == \"143.110.151.91\" and port == \"443\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2",
+        "authored_timestamp": 1688286795,
+        "rule": [
+            "url == \"http://drop.creativepictureclouds.com/jquery-3.3.1.min.js\"",
+            "path == \"/jquery-3.3.1.min.js\"",
+            "domain == \"drop.creativepictureclouds.com\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2",
+        "authored_timestamp": 1688286795,
+        "rule": [
+            "url == \"http://paint.creativepictureclouds.com/jquery-3.3.1.min.js\"",
+            "path == \"/jquery-3.3.1.min.js\"",
+            "domain == \"paint.creativepictureclouds.com\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2",
+        "authored_timestamp": 1688286795,
+        "rule": [
+            "url == \"http://design.creativepictureclouds.com/jquery-3.3.1.min.js\"",
+            "path == \"/jquery-3.3.1.min.js\"",
+            "domain == \"design.creativepictureclouds.com\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2 server",
+        "authored_timestamp": 1688286795,
+        "rule": [
+            "ip == \"193.109.69.17\"",
+            "ip == \"193.109.69.17\" and port == \"80\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2",
+        "authored_timestamp": 1688286795,
+        "rule": [
+            "url == \"http://karbary.com/jquery-3.3.1.min.js\"",
+            "path == \"/jquery-3.3.1.min.js\"",
+            "domain == \"karbary.com\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2 server",
+        "authored_timestamp": 1688286795,
+        "rule": [
+            "ip == \"5.39.221.61\"",
+            "ip == \"5.39.221.61\" and port == \"80\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2",
+        "authored_timestamp": 1688286795,
+        "rule": [
+            "url == \"http://varnart.com/jquery-3.3.1.min.js\"",
+            "path == \"/jquery-3.3.1.min.js\"",
+            "domain == \"varnart.com\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2 server",
+        "authored_timestamp": 1688286795,
+        "rule": [
+            "ip == \"5.39.223.131\"",
+            "ip == \"5.39.223.131\" and port == \"80\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2",
+        "authored_timestamp": 1688286795,
+        "rule": [
+            "url == \"http://nartybarma.com/jquery-3.3.1.min.js\"",
+            "path == \"/jquery-3.3.1.min.js\"",
+            "domain == \"nartybarma.com\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2 server",
+        "authored_timestamp": 1688286795,
+        "rule": [
+            "ip == \"5.39.222.252\"",
+            "ip == \"5.39.222.252\" and port == \"80\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2",
+        "authored_timestamp": 1688286795,
+        "rule": [
+            "url == \"http://194.87.106.249/jquery-3.3.1.min.js\"",
+            "path == \"/jquery-3.3.1.min.js\"",
+            "domain == \"194.87.106.249\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2 server",
+        "authored_timestamp": 1688286795,
+        "rule": [
+            "ip == \"194.87.106.249\"",
+            "ip == \"194.87.106.249\" and port == \"80\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2",
+        "authored_timestamp": 1688286795,
+        "rule": [
+            "url == \"https://javascript-cdn.azureedge.net/jquery-3.3.1.min.js\"",
+            "path == \"/jquery-3.3.1.min.js\"",
+            "domain == \"javascript-cdn.azureedge.net\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2 server",
+        "authored_timestamp": 1688286795,
+        "rule": [
+            "ip == \"52.151.84.59\"",
+            "ip == \"52.151.84.59\" and port == \"443\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2",
+        "authored_timestamp": 1688286795,
+        "rule": [
+            "url == \"https://43.133.3.36/jquery-3.3.1.min.js\"",
+            "path == \"/jquery-3.3.1.min.js\"",
+            "domain == \"43.133.3.36\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2 server",
+        "authored_timestamp": 1688286795,
+        "rule": [
+            "ip == \"43.133.3.36\"",
+            "ip == \"43.133.3.36\" and port == \"443\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2",
+        "authored_timestamp": 1688286795,
+        "rule": [
+            "url == \"https://italbara.com/jquery-3.3.1.min.js\"",
+            "path == \"/jquery-3.3.1.min.js\"",
+            "domain == \"italbara.com\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2 server",
+        "authored_timestamp": 1688286795,
+        "rule": [
+            "ip == \"185.70.184.59\"",
+            "ip == \"185.70.184.59\" and port == \"443\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2",
+        "authored_timestamp": 1688286795,
+        "rule": [
+            "url == \"https://citrixseruritys.com/ml.css\"",
+            "path == \"/ml.css\"",
+            "domain == \"citrixseruritys.com\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2 server",
+        "authored_timestamp": 1688286795,
+        "rule": [
+            "ip == \"185.150.119.157\"",
+            "ip == \"185.150.119.157\" and port == \"443\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2 server",
+        "authored_timestamp": 1688286795,
+        "rule": [
+            "ip == \"23.224.152.142\"",
+            "ip == \"23.224.152.142\" and port == \"443\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2",
+        "authored_timestamp": 1688286795,
+        "rule": [
+            "url == \"https://wsdurty.com/jquery-3.3.1.min.js\"",
+            "path == \"/jquery-3.3.1.min.js\"",
+            "domain == \"wsdurty.com\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2 server",
+        "authored_timestamp": 1688286795,
+        "rule": [
+            "ip == \"185.70.184.92\"",
+            "ip == \"185.70.184.92\" and port == \"443\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2",
+        "authored_timestamp": 1688286795,
+        "rule": [
+            "url == \"http://69.49.245.200/mqew\"",
+            "path == \"/mqew\"",
+            "domain == \"69.49.245.200\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2 server",
+        "authored_timestamp": 1688286795,
+        "rule": [
+            "ip == \"69.49.245.200\"",
+            "ip == \"69.49.245.200\" and port == \"80\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2",
+        "authored_timestamp": 1688286795,
+        "rule": [
+            "url == \"https://vartibat.com/jquery-3.3.1.min.js\"",
+            "path == \"/jquery-3.3.1.min.js\"",
+            "domain == \"vartibat.com\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2",
+        "authored_timestamp": 1688286795,
+        "rule": [
+            "url == \"http://43.228.90.9/jquery-3.3.1.min.js\"",
+            "path == \"/jquery-3.3.1.min.js\"",
+            "domain == \"43.228.90.9\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2 server",
+        "authored_timestamp": 1688286795,
+        "rule": [
+            "ip == \"43.228.90.9\"",
+            "ip == \"43.228.90.9\" and port == \"80\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2",
+        "authored_timestamp": 1688286795,
+        "rule": [
+            "url == \"https://69.49.245.200:8443/mqew\"",
+            "path == \"/mqew\"",
+            "domain == \"69.49.245.200\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2",
+        "authored_timestamp": 1688286795,
+        "rule": [
+            "url == \"https://69.49.229.88:8443/mqew\"",
+            "path == \"/mqew\"",
+            "domain == \"69.49.229.88\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2 server",
+        "authored_timestamp": 1688286795,
+        "rule": [
+            "ip == \"69.49.245.200\"",
+            "ip == \"69.49.245.200\" and port == \"8443\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2",
+        "authored_timestamp": 1688286795,
+        "rule": [
+            "url == \"https://5.39.217.87:8443/jquery-3.3.1.min.js\"",
+            "path == \"/jquery-3.3.1.min.js\"",
+            "domain == \"5.39.217.87\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2 server",
+        "authored_timestamp": 1688286795,
+        "rule": [
+            "ip == \"5.39.217.87\"",
+            "ip == \"5.39.217.87\" and port == \"8443\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2",
+        "authored_timestamp": 1688286795,
+        "rule": [
+            "url == \"https://13.213.57.96/avatars.js\"",
+            "path == \"/avatars.js\"",
+            "domain == \"13.213.57.96\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2 server",
+        "authored_timestamp": 1688286795,
+        "rule": [
+            "ip == \"13.213.57.96\"",
+            "ip == \"13.213.57.96\" and port == \"443\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2",
+        "authored_timestamp": 1688286795,
+        "rule": [
+            "url == \"https://www.microupdate.net/owa/auth/logon.aspx\"",
+            "path == \"/owa/auth/logon.aspx\"",
+            "domain == \"www.microupdate.net\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2 server",
+        "authored_timestamp": 1688286795,
+        "rule": [
+            "ip == \"193.36.117.31\"",
+            "ip == \"193.36.117.31\" and port == \"443\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2",
+        "authored_timestamp": 1688286795,
+        "rule": [
+            "url == \"http://nartybarty.com/jquery-3.3.1.min.js\"",
+            "path == \"/jquery-3.3.1.min.js\"",
+            "domain == \"nartybarty.com\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2 server",
+        "authored_timestamp": 1688286795,
+        "rule": [
+            "ip == \"5.39.218.180\"",
+            "ip == \"5.39.218.180\" and port == \"80\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2",
+        "authored_timestamp": 1688286795,
+        "rule": [
+            "url == \"http://italbara.com/jquery-3.3.1.min.js\"",
+            "path == \"/jquery-3.3.1.min.js\"",
+            "domain == \"italbara.com\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2 server",
+        "authored_timestamp": 1688286795,
+        "rule": [
+            "ip == \"185.70.184.59\"",
+            "ip == \"185.70.184.59\" and port == \"80\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2",
+        "authored_timestamp": 1688286795,
+        "rule": [
+            "url == \"https://ctldl.azureedge.net/v1/docs/wsdl\"",
+            "path == \"/v1/docs/wsdl\"",
+            "domain == \"ctldl.azureedge.net\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2 server",
+        "authored_timestamp": 1688286795,
+        "rule": [
+            "ip == \"104.248.99.92\"",
+            "ip == \"104.248.99.92\" and port == \"443\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2",
+        "authored_timestamp": 1688286795,
+        "rule": [
+            "url == \"http://114.55.36.76/images/logo.png\"",
+            "path == \"/images/logo.png\"",
+            "domain == \"114.55.36.76\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2 server",
+        "authored_timestamp": 1688286795,
+        "rule": [
+            "ip == \"114.55.36.76\"",
+            "ip == \"114.55.36.76\" and port == \"80\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2",
+        "authored_timestamp": 1688286795,
+        "rule": [
+            "url == \"https://45.128.149.48:8443/mqew\"",
+            "path == \"/mqew\"",
+            "domain == \"45.128.149.48\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2 server",
+        "authored_timestamp": 1688286795,
+        "rule": [
+            "ip == \"45.128.149.48\"",
+            "ip == \"45.128.149.48\" and port == \"8443\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2",
+        "authored_timestamp": 1688286795,
+        "rule": [
+            "url == \"http://159.223.179.146/ads/google\"",
+            "path == \"/ads/google\"",
+            "domain == \"159.223.179.146\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2 server",
+        "authored_timestamp": 1688286795,
+        "rule": [
+            "ip == \"159.223.179.146\"",
+            "ip == \"159.223.179.146\" and port == \"80\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2",
+        "authored_timestamp": 1688286795,
+        "rule": [
+            "url == \"http://wsdurty.com/jquery-3.3.1.min.js\"",
+            "path == \"/jquery-3.3.1.min.js\"",
+            "domain == \"wsdurty.com\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2 server",
+        "authored_timestamp": 1688286795,
+        "rule": [
+            "ip == \"185.70.184.92\"",
+            "ip == \"185.70.184.92\" and port == \"80\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2",
+        "authored_timestamp": 1688286795,
+        "rule": [
+            "url == \"https://nartybarty.com/jquery-3.3.1.min.js\"",
+            "path == \"/jquery-3.3.1.min.js\"",
+            "domain == \"nartybarty.com\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2 server",
+        "authored_timestamp": 1688286795,
+        "rule": [
+            "ip == \"5.39.218.180\"",
+            "ip == \"5.39.218.180\" and port == \"443\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2",
+        "authored_timestamp": 1688286795,
+        "rule": [
+            "url == \"http://123.58.211.78:8888/gindex.html\"",
+            "path == \"/gindex.html\"",
+            "domain == \"123.58.211.78\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2 server",
+        "authored_timestamp": 1688286795,
+        "rule": [
+            "ip == \"123.58.211.78\"",
+            "ip == \"123.58.211.78\" and port == \"8888\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2",
+        "authored_timestamp": 1688286795,
+        "rule": [
+            "url == \"http://116.204.211.147/jquery-3.3.1.min.js\"",
+            "path == \"/jquery-3.3.1.min.js\"",
+            "domain == \"116.204.211.147\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2 server",
+        "authored_timestamp": 1688286795,
+        "rule": [
+            "ip == \"116.204.211.147\"",
+            "ip == \"116.204.211.147\" and port == \"80\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2",
+        "authored_timestamp": 1688286795,
+        "rule": [
+            "url == \"http://vartibat.com/jquery-3.3.1.min.js\"",
+            "path == \"/jquery-3.3.1.min.js\"",
+            "domain == \"vartibat.com\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2 server",
+        "authored_timestamp": 1688286795,
+        "rule": [
+            "ip == \"5.39.222.193\"",
+            "ip == \"5.39.222.193\" and port == \"80\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2",
+        "authored_timestamp": 1688286795,
+        "rule": [
+            "url == \"http://13.213.57.96/avatars.js\"",
+            "path == \"/avatars.js\"",
+            "domain == \"13.213.57.96\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2 server",
+        "authored_timestamp": 1688286795,
+        "rule": [
+            "ip == \"13.213.57.96\"",
+            "ip == \"13.213.57.96\" and port == \"80\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2",
+        "authored_timestamp": 1688286795,
+        "rule": [
+            "url == \"http://118.194.233.133:6666/visit.js\"",
+            "path == \"/visit.js\"",
+            "domain == \"118.194.233.133\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2 server",
+        "authored_timestamp": 1688286795,
+        "rule": [
+            "ip == \"118.194.233.133\"",
+            "ip == \"118.194.233.133\" and port == \"6666\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2",
+        "authored_timestamp": 1688286795,
+        "rule": [
+            "url == \"https://karbary.com/jquery-3.3.1.min.js\"",
+            "path == \"/jquery-3.3.1.min.js\"",
+            "domain == \"karbary.com\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2 server",
+        "authored_timestamp": 1688286795,
+        "rule": [
+            "ip == \"5.39.221.61\"",
+            "ip == \"5.39.221.61\" and port == \"443\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2",
+        "authored_timestamp": 1688286795,
+        "rule": [
+            "url == \"https://69.49.245.200/mqew\"",
+            "path == \"/mqew\"",
+            "domain == \"69.49.245.200\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2 server",
+        "authored_timestamp": 1688286795,
+        "rule": [
+            "ip == \"69.49.245.200\"",
+            "ip == \"69.49.245.200\" and port == \"443\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2 server",
+        "authored_timestamp": 1688286795,
+        "rule": [
+            "ip == \"206.189.152.153\"",
+            "ip == \"206.189.152.153\" and port == \"443\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2",
+        "authored_timestamp": 1688286795,
+        "rule": [
+            "url == \"https://aws-test-01rw00092817172.impresapwn.it/jquery-3.3.3.min.js\"",
+            "path == \"/jquery-3.3.3.min.js\"",
+            "domain == \"aws-test-01rw00092817172.impresapwn.it\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2 server",
+        "authored_timestamp": 1688286795,
+        "rule": [
+            "ip == \"188.166.121.186\"",
+            "ip == \"188.166.121.186\" and port == \"443\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2 server",
+        "authored_timestamp": 1688286795,
+        "rule": [
+            "ip == \"193.109.69.17\"",
+            "ip == \"193.109.69.17\" and port == \"443\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2",
+        "authored_timestamp": 1688286795,
+        "rule": [
+            "url == \"http://193.36.117.31/owa/auth/logon.aspx\"",
+            "path == \"/owa/auth/logon.aspx\"",
+            "domain == \"193.36.117.31\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2 server",
+        "authored_timestamp": 1688286795,
+        "rule": [
+            "ip == \"193.36.117.31\"",
+            "ip == \"193.36.117.31\" and port == \"80\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2",
+        "authored_timestamp": 1688286795,
+        "rule": [
+            "url == \"http://147.182.207.143/api2/json/access/ticket\"",
+            "path == \"/api2/json/access/ticket\"",
+            "domain == \"147.182.207.143\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2 server",
+        "authored_timestamp": 1688286795,
+        "rule": [
+            "ip == \"147.182.207.143\"",
+            "ip == \"147.182.207.143\" and port == \"80\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2",
+        "authored_timestamp": 1688286795,
+        "rule": [
+            "url == \"https://116.204.211.147/jquery-3.3.1.min.js\"",
+            "path == \"/jquery-3.3.1.min.js\"",
+            "domain == \"116.204.211.147\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2 server",
+        "authored_timestamp": 1688286795,
+        "rule": [
+            "ip == \"116.204.211.147\"",
+            "ip == \"116.204.211.147\" and port == \"443\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2",
+        "authored_timestamp": 1688286795,
+        "rule": [
+            "url == \"https://varnart.com/jquery-3.3.1.min.js\"",
+            "path == \"/jquery-3.3.1.min.js\"",
+            "domain == \"varnart.com\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2",
+        "authored_timestamp": 1688286795,
+        "rule": [
+            "url == \"http://104.168.9.195:1080/jquery-3.3.1.min.js\"",
+            "path == \"/jquery-3.3.1.min.js\"",
+            "domain == \"104.168.9.195\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2 server",
+        "authored_timestamp": 1688286795,
+        "rule": [
+            "ip == \"104.168.9.195\"",
+            "ip == \"104.168.9.195\" and port == \"1080\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2",
+        "authored_timestamp": 1688286795,
+        "rule": [
+            "url == \"https://nartybarma.com/jquery-3.3.1.min.js\"",
+            "path == \"/jquery-3.3.1.min.js\"",
+            "domain == \"nartybarma.com\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2 server",
+        "authored_timestamp": 1688286795,
+        "rule": [
+            "ip == \"5.39.222.252\"",
+            "ip == \"5.39.222.252\" and port == \"443\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2",
+        "authored_timestamp": 1688286795,
+        "rule": [
+            "url == \"http://23.227.197.227/nv\"",
+            "path == \"/nv\"",
+            "domain == \"23.227.197.227\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2 server",
+        "authored_timestamp": 1688286795,
+        "rule": [
+            "ip == \"23.227.197.227\"",
+            "ip == \"23.227.197.227\" and port == \"80\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2",
+        "authored_timestamp": 1688286795,
+        "rule": [
+            "url == \"http://104.168.9.195:8081/jquery-3.3.1.min.js\"",
+            "path == \"/jquery-3.3.1.min.js\"",
+            "domain == \"104.168.9.195\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2 server",
+        "authored_timestamp": 1688286795,
+        "rule": [
+            "ip == \"104.168.9.195\"",
+            "ip == \"104.168.9.195\" and port == \"8081\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2",
+        "authored_timestamp": 1688286795,
+        "rule": [
+            "url == \"http://23.227.193.33/an.html\"",
+            "path == \"/an.html\"",
+            "domain == \"23.227.193.33\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2 server",
+        "authored_timestamp": 1688286795,
+        "rule": [
+            "ip == \"23.227.193.33\"",
+            "ip == \"23.227.193.33\" and port == \"80\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Coinminer payload delivery URL",
+        "authored_timestamp": 1688286795,
+        "rule": [
+            "url == \"https://transfer.sh/get/f28wxc/ds1.exe\"",
+            "path == \"/get/f28wxc/ds1.exe\"",
+            "domain == \"transfer.sh\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "NjRAT botnet C2 server",
+        "authored_timestamp": 1688286795,
+        "rule": [
+            "ip == \"52.14.18.129\"",
+            "ip == \"52.14.18.129\" and port == \"19709\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "NjRAT botnet C2 server",
+        "authored_timestamp": 1688286795,
+        "rule": [
+            "ip == \"3.22.53.161\"",
+            "ip == \"3.22.53.161\" and port == \"19709\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "NjRAT botnet C2 server",
+        "authored_timestamp": 1688286795,
+        "rule": [
+            "ip == \"3.138.45.170\"",
+            "ip == \"3.138.45.170\" and port == \"19709\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "NjRAT botnet C2 server",
+        "authored_timestamp": 1688286795,
+        "rule": [
+            "ip == \"13.59.15.185\"",
+            "ip == \"13.59.15.185\" and port == \"19709\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Alien botnet C2",
+        "authored_timestamp": 1688286795,
+        "rule": [
+            "url == \"http://baklavakaldam.co.vu\"",
+            "path == \"\"",
+            "domain == \"baklavakaldam.co.vu\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "80"
+    },
+    {
+        "rule_name": "Alien botnet C2",
+        "authored_timestamp": 1688286795,
+        "rule": [
+            "url == \"http://saglamsiparislerburada.shop\"",
+            "path == \"\"",
+            "domain == \"saglamsiparislerburada.shop\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "80"
+    },
+    {
+        "rule_name": "Alien botnet C2",
+        "authored_timestamp": 1688286795,
+        "rule": [
+            "url == \"http://krallaronline.co.vu\"",
+            "path == \"\"",
+            "domain == \"krallaronline.co.vu\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "80"
+    },
+    {
+        "rule_name": "Alien botnet C2",
+        "authored_timestamp": 1688286795,
+        "rule": [
+            "url == \"http://karabatakmeto.co.vu\"",
+            "path == \"\"",
+            "domain == \"karabatakmeto.co.vu\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "80"
+    },
+    {
+        "rule_name": "Alien botnet C2",
+        "authored_timestamp": 1688286795,
+        "rule": [
+            "url == \"http://heryerdebaklava.co.vu\"",
+            "path == \"\"",
+            "domain == \"heryerdebaklava.co.vu\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "80"
+    },
+    {
+        "rule_name": "Alien botnet C2",
+        "authored_timestamp": 1688286795,
+        "rule": [
+            "url == \"http://siparisdagitimmerkezleri.shop\"",
+            "path == \"\"",
+            "domain == \"siparisdagitimmerkezleri.shop\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "80"
+    },
+    {
+        "rule_name": "Alien botnet C2",
+        "authored_timestamp": 1688286795,
+        "rule": [
+            "url == \"http://kendilerishoplar.co.vu\"",
+            "path == \"\"",
+            "domain == \"kendilerishoplar.co.vu\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "80"
+    },
+    {
+        "rule_name": "Alien botnet C2",
+        "authored_timestamp": 1688286795,
+        "rule": [
+            "url == \"http://siparislerimsaglamyerde.shop\"",
+            "path == \"\"",
+            "domain == \"siparislerimsaglamyerde.shop\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "80"
+    },
+    {
+        "rule_name": "Ave Maria botnet C2 server",
+        "authored_timestamp": 1688286795,
+        "rule": [
+            "ip == \"122.180.86.185\"",
+            "ip == \"122.180.86.185\" and port == \"5552\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "NjRAT botnet C2 server",
+        "authored_timestamp": 1688286795,
+        "rule": [
+            "ip == \"86.201.32.41\"",
+            "ip == \"86.201.32.41\" and port == \"4883\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "NjRAT botnet C2 server",
+        "authored_timestamp": 1688286795,
+        "rule": [
+            "ip == \"90.114.17.10\"",
+            "ip == \"90.114.17.10\" and port == \"1982\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "NjRAT botnet C2 server",
+        "authored_timestamp": 1688286795,
+        "rule": [
+            "ip == \"176.151.58.244\"",
+            "ip == \"176.151.58.244\" and port == \"1982\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Ghost RAT botnet C2 server",
+        "authored_timestamp": 1688286795,
+        "rule": [
+            "ip == \"202.163.158.147\"",
+            "ip == \"202.163.158.147\" and port == \"9735\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "NjRAT botnet C2 server",
+        "authored_timestamp": 1688286795,
+        "rule": [
+            "ip == \"141.255.146.100\"",
+            "ip == \"141.255.146.100\" and port == \"19866\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Raccoon botnet C2",
+        "authored_timestamp": 1688286795,
+        "rule": [
+            "url == \"http://178.79.161.18/\"",
+            "path == \"/\"",
+            "domain == \"178.79.161.18\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "RedLine Stealer botnet C2 server",
+        "authored_timestamp": 1688286795,
+        "rule": [
+            "ip == \"94.140.113.110\"",
+            "ip == \"94.140.113.110\" and port == \"80\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "DCRat botnet C2",
+        "authored_timestamp": 1688286795,
+        "rule": [
+            "url == \"http://62.109.1.226/lowtemporaryproviderdatalife/9vm/4/testapi/1game/temporaryuploads88/apigeoprivate/poll7linux/6dumpprocesspipe/videodatalife.php\"",
+            "path == \"/lowtemporaryproviderdatalife/9vm/4/testapi/1game/temporaryuploads88/apigeoprivate/poll7linux/6dumpprocesspipe/videodatalife.php\"",
+            "domain == \"62.109.1.226\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "BitRAT botnet C2 server",
+        "authored_timestamp": 1688286795,
+        "rule": [
+            "ip == \"158.69.152.26\"",
+            "ip == \"158.69.152.26\" and port == \"54329\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Mirai botnet C2 server",
+        "authored_timestamp": 1688286795,
+        "rule": [
+            "ip == \"2.56.59.134\"",
+            "ip == \"2.56.59.134\" and port == \"34241\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "75"
+    },
+    {
+        "rule_name": "Parallax RAT botnet C2 server",
+        "authored_timestamp": 1688286795,
+        "rule": [
+            "ip == \"5.2.68.94\"",
+            "ip == \"5.2.68.94\" and port == \"6080\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Amadey botnet C2",
+        "authored_timestamp": 1688286795,
+        "rule": [
+            "url == \"http://eu.xml-post.xyz/d2vxjasuws/index.php\"",
+            "path == \"/d2vxjasuws/index.php\"",
+            "domain == \"eu.xml-post.xyz\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Amadey botnet C2",
+        "authored_timestamp": 1688286795,
+        "rule": [
+            "url == \"http://eu.eredirected.xyz/d2vxjasuws/index.php\"",
+            "path == \"/d2vxjasuws/index.php\"",
+            "domain == \"eu.eredirected.xyz\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "RedLine Stealer botnet C2 server",
+        "authored_timestamp": 1688286795,
+        "rule": [
+            "ip == \"2.58.149.186\"",
+            "ip == \"2.58.149.186\" and port == \"3099\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "NjRAT botnet C2 server",
+        "authored_timestamp": 1688286795,
+        "rule": [
+            "ip == \"185.130.53.166\"",
+            "ip == \"185.130.53.166\" and port == \"5552\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2",
+        "authored_timestamp": 1688286795,
+        "rule": [
+            "url == \"https://angrybeards.asia/fashion/forms/3trics53x\"",
+            "path == \"/fashion/forms/3trics53x\"",
+            "domain == \"angrybeards.asia\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2 server",
+        "authored_timestamp": 1688286795,
+        "rule": [
+            "ip == \"3.25.141.253\"",
+            "ip == \"3.25.141.253\" and port == \"443\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2",
+        "authored_timestamp": 1688286795,
+        "rule": [
+            "url == \"http://188.93.233.171:80/ga.js\"",
+            "path == \"/ga.js\"",
+            "domain == \"188.93.233.171\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2",
+        "authored_timestamp": 1688286795,
+        "rule": [
+            "url == \"http://188.93.233.171/dot.gif\"",
+            "path == \"/dot.gif\"",
+            "domain == \"188.93.233.171\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2 server",
+        "authored_timestamp": 1688286795,
+        "rule": [
+            "ip == \"188.93.233.171\"",
+            "ip == \"188.93.233.171\" and port == \"80\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2",
+        "authored_timestamp": 1688286795,
+        "rule": [
+            "url == \"http://104.225.237.196:8081/__utm.gif\"",
+            "path == \"/__utm.gif\"",
+            "domain == \"104.225.237.196\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2 server",
+        "authored_timestamp": 1688286795,
+        "rule": [
+            "ip == \"104.225.237.196\"",
+            "ip == \"104.225.237.196\" and port == \"8081\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2",
+        "authored_timestamp": 1688286795,
+        "rule": [
+            "url == \"https://89.238.185.13/ga.js\"",
+            "path == \"/ga.js\"",
+            "domain == \"89.238.185.13\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2 server",
+        "authored_timestamp": 1688286795,
+        "rule": [
+            "ip == \"89.238.185.13\"",
+            "ip == \"89.238.185.13\" and port == \"443\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2",
+        "authored_timestamp": 1688286795,
+        "rule": [
+            "url == \"http://35.159.52.161/_/scs/mail-static/_/js/\"",
+            "path == \"/_/scs/mail-static/_/js/\"",
+            "domain == \"35.159.52.161\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2",
+        "authored_timestamp": 1688286795,
+        "rule": [
+            "url == \"http://18.185.139.184/_/scs/mail-static/_/js/\"",
+            "path == \"/_/scs/mail-static/_/js/\"",
+            "domain == \"18.185.139.184\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2 server",
+        "authored_timestamp": 1688286795,
+        "rule": [
+            "ip == \"35.159.52.161\"",
+            "ip == \"35.159.52.161\" and port == \"80\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2",
+        "authored_timestamp": 1688286795,
+        "rule": [
+            "url == \"http://92.255.85.93:18092/visit.js\"",
+            "path == \"/visit.js\"",
+            "domain == \"92.255.85.93\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2 server",
+        "authored_timestamp": 1688286795,
+        "rule": [
+            "ip == \"92.255.85.93\"",
+            "ip == \"92.255.85.93\" and port == \"18092\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2",
+        "authored_timestamp": 1688286795,
+        "rule": [
+            "url == \"http://139.180.201.98:5556/activity\"",
+            "path == \"/activity\"",
+            "domain == \"139.180.201.98\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2 server",
+        "authored_timestamp": 1688286795,
+        "rule": [
+            "ip == \"139.180.201.98\"",
+            "ip == \"139.180.201.98\" and port == \"5556\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2",
+        "authored_timestamp": 1688286795,
+        "rule": [
+            "url == \"http://43.228.90.34:8088/jquery-3.3.1.min.js\"",
+            "path == \"/jquery-3.3.1.min.js\"",
+            "domain == \"43.228.90.34\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2 server",
+        "authored_timestamp": 1688286795,
+        "rule": [
+            "ip == \"43.228.90.34\"",
+            "ip == \"43.228.90.34\" and port == \"8088\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2",
+        "authored_timestamp": 1688286795,
+        "rule": [
+            "url == \"http://20.203.162.228/__utm.gif\"",
+            "path == \"/__utm.gif\"",
+            "domain == \"20.203.162.228\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2 server",
+        "authored_timestamp": 1688286795,
+        "rule": [
+            "ip == \"20.203.162.228\"",
+            "ip == \"20.203.162.228\" and port == \"80\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2",
+        "authored_timestamp": 1688286795,
+        "rule": [
+            "url == \"http://37.1.209.48/match\"",
+            "path == \"/match\"",
+            "domain == \"37.1.209.48\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2 server",
+        "authored_timestamp": 1688286795,
+        "rule": [
+            "ip == \"37.1.209.48\"",
+            "ip == \"37.1.209.48\" and port == \"80\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2",
+        "authored_timestamp": 1688286795,
+        "rule": [
+            "url == \"https://world.healthamericacu.com/myprovider.html\"",
+            "path == \"/myprovider.html\"",
+            "domain == \"world.healthamericacu.com\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2 server",
+        "authored_timestamp": 1688286795,
+        "rule": [
+            "ip == \"18.217.3.166\"",
+            "ip == \"18.217.3.166\" and port == \"443\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2 server",
+        "authored_timestamp": 1688286795,
+        "rule": [
+            "ip == \"18.166.66.111\"",
+            "ip == \"18.166.66.111\" and port == \"4444\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2",
+        "authored_timestamp": 1688286795,
+        "rule": [
+            "url == \"http://88.99.175.195/dpixel\"",
+            "path == \"/dpixel\"",
+            "domain == \"88.99.175.195\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2 server",
+        "authored_timestamp": 1688286795,
+        "rule": [
+            "ip == \"88.99.175.195\"",
+            "ip == \"88.99.175.195\" and port == \"80\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2",
+        "authored_timestamp": 1688286795,
+        "rule": [
+            "url == \"http://43.228.90.34:8080/jquery-3.3.1.min.js\"",
+            "path == \"/jquery-3.3.1.min.js\"",
+            "domain == \"43.228.90.34\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2 server",
+        "authored_timestamp": 1688286795,
+        "rule": [
+            "ip == \"43.228.90.34\"",
+            "ip == \"43.228.90.34\" and port == \"8080\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2",
+        "authored_timestamp": 1688286795,
+        "rule": [
+            "url == \"https://194.40.243.55/design/v1.38/3vy7px5bdrr\"",
+            "path == \"/design/v1.38/3vy7px5bdrr\"",
+            "domain == \"194.40.243.55\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2 server",
+        "authored_timestamp": 1688286795,
+        "rule": [
+            "ip == \"194.40.243.55\"",
+            "ip == \"194.40.243.55\" and port == \"443\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2",
+        "authored_timestamp": 1688286795,
+        "rule": [
+            "url == \"http://207.246.98.49:8088/ptj\"",
+            "path == \"/ptj\"",
+            "domain == \"207.246.98.49\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2 server",
+        "authored_timestamp": 1688286795,
+        "rule": [
+            "ip == \"207.246.98.49\"",
+            "ip == \"207.246.98.49\" and port == \"8088\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2",
+        "authored_timestamp": 1688286795,
+        "rule": [
+            "url == \"https://34.71.54.11/pixel.gif\"",
+            "path == \"/pixel.gif\"",
+            "domain == \"34.71.54.11\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2 server",
+        "authored_timestamp": 1688286795,
+        "rule": [
+            "ip == \"34.71.54.11\"",
+            "ip == \"34.71.54.11\" and port == \"443\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "100"
+    }
+]

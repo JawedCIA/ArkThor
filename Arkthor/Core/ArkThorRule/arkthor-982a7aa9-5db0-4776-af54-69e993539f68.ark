@@ -1,0 +1,3116 @@
+[
+    {
+        "rule_name": "Mozi payload delivery URL",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "url == \"http://61.52.36.108:52634/mozi.m\"",
+            "path == \"/mozi.m\"",
+            "domain == \"61.52.36.108\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "50"
+    },
+    {
+        "rule_name": "DCRat botnet C2",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "url == \"http://310246.clmonth.nyashteam.top/nyashsupport.php\"",
+            "path == \"/nyashsupport.php\"",
+            "domain == \"310246.clmonth.nyashteam.top\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "NjRAT botnet C2 server",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "ip == \"43.254.134.157\"",
+            "ip == \"43.254.134.157\" and port == \"4415\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Amadey botnet C2",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "url == \"http://sertvs.com/8vcwxwwx3/index.php\"",
+            "path == \"/8vcwxwwx3/index.php\"",
+            "domain == \"sertvs.com\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Amadey botnet C2 server",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "ip == \"88.218.60.230\"",
+            "ip == \"88.218.60.230\" and port == \"80\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "50"
+    },
+    {
+        "rule_name": "Amadey botnet C2 domain",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "domain == \"sertvs.com.\""
+        ],
+        "scope": "DNS",
+        "severity": "50",
+        "automated": "true",
+        "MITRE": [
+            "T1071.001",
+            "T1132.001",
+            "T1568",
+            "T1102.003"
+        ]
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "url == \"https://xojecabike.com/recite/v9.82/00kk8jp5y7\"",
+            "path == \"/recite/v9.82/00kk8jp5y7\"",
+            "domain == \"xojecabike.com\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2 domain",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "domain == \"xojecabike.com.\""
+        ],
+        "scope": "DNS",
+        "severity": "100",
+        "automated": "true",
+        "MITRE": [
+            "T1071.001",
+            "T1132.001",
+            "T1568",
+            "T1102.003"
+        ]
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "url == \"https://videoconscepts.com/design/query/9x5m3soe0f\"",
+            "path == \"/design/query/9x5m3soe0f\"",
+            "domain == \"videoconscepts.com\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2 server",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "ip == \"5.199.161.23\"",
+            "ip == \"5.199.161.23\" and port == \"443\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "url == \"http://85.209.135.29/en_us/all.js\"",
+            "path == \"/en_us/all.js\"",
+            "domain == \"85.209.135.29\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2 server",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "ip == \"153.92.214.60\"",
+            "ip == \"153.92.214.60\" and port == \"80\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "url == \"http://45.192.182.192:4444/cx\"",
+            "path == \"/cx\"",
+            "domain == \"45.192.182.192\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "url == \"http://194.5.79.162:53443/read/v6.96/32jiinwvh4v\"",
+            "path == \"/read/v6.96/32jiinwvh4v\"",
+            "domain == \"194.5.79.162\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "url == \"https://s3amzn.com/jquery-3.3.1.min.js\"",
+            "path == \"/jquery-3.3.1.min.js\"",
+            "domain == \"s3amzn.com\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2 domain",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "domain == \"s3amzn.com.\""
+        ],
+        "scope": "DNS",
+        "severity": "100",
+        "automated": "true",
+        "MITRE": [
+            "T1071.001",
+            "T1132.001",
+            "T1568",
+            "T1102.003"
+        ]
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2 server",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "ip == \"20.121.87.20\"",
+            "ip == \"20.121.87.20\" and port == \"443\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Aurora Stealer botnet C2 server",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "ip == \"94.142.138.29\"",
+            "ip == \"94.142.138.29\" and port == \"456\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Nanocore RAT botnet C2 server",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "ip == \"3.145.201.105\"",
+            "ip == \"3.145.201.105\" and port == \"3637\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "url == \"http://34.65.77.169:8080/pixel\"",
+            "path == \"/pixel\"",
+            "domain == \"34.65.77.169\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "url == \"http://34.65.77.169:8080/submit.php\"",
+            "path == \"/submit.php\"",
+            "domain == \"34.65.77.169\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2 server",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "ip == \"34.65.77.169\"",
+            "ip == \"34.65.77.169\" and port == \"8080\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "url == \"http://voiceinfosys.net/es\"",
+            "path == \"/es\"",
+            "domain == \"voiceinfosys.net\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "url == \"http://voiceinfosys.net/af\"",
+            "path == \"/af\"",
+            "domain == \"voiceinfosys.net\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "url == \"http://103.179.243.198:9980/match\"",
+            "path == \"/match\"",
+            "domain == \"103.179.243.198\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "url == \"http://103.179.243.198:9980/submit.php\"",
+            "path == \"/submit.php\"",
+            "domain == \"103.179.243.198\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2 server",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "ip == \"103.179.243.198\"",
+            "ip == \"103.179.243.198\" and port == \"9980\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "url == \"http://103.179.243.198:9980/visit.js\"",
+            "path == \"/visit.js\"",
+            "domain == \"103.179.243.198\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "DCRat botnet C2",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "url == \"http://f0571616.xsph.ru/toprocessorauthwindows.php\"",
+            "path == \"/toprocessorauthwindows.php\"",
+            "domain == \"f0571616.xsph.ru\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "RedLine Stealer botnet C2 server",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "ip == \"185.244.181.112\"",
+            "ip == \"185.244.181.112\" and port == \"48240\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "RedLine Stealer botnet C2 server",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "ip == \"45.15.156.16\"",
+            "ip == \"45.15.156.16\" and port == \"26932\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Stealc botnet C2",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "url == \"http://91.107.196.27/75e7ead3c17835de.php\"",
+            "path == \"/75e7ead3c17835de.php\"",
+            "domain == \"91.107.196.27\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "CryptBot botnet C2",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "url == \"http://nekphd62.top/gate.php\"",
+            "path == \"/gate.php\"",
+            "domain == \"nekphd62.top\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Amadey botnet C2",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "url == \"http://78.46.242.112/so57nst/index.php\"",
+            "path == \"/so57nst/index.php\"",
+            "domain == \"78.46.242.112\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "NjRAT botnet C2 server",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "ip == \"3.125.102.39\"",
+            "ip == \"3.125.102.39\" and port == \"14888\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2 server",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "ip == \"20.102.107.234\"",
+            "ip == \"20.102.107.234\" and port == \"443\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "SharkBot botnet C2 server",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "ip == \"45.11.180.20\"",
+            "ip == \"45.11.180.20\" and port == \"80\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "75"
+    },
+    {
+        "rule_name": "Amadey botnet C2 server",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "ip == \"78.46.242.112\"",
+            "ip == \"78.46.242.112\" and port == \"80\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "50"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "url == \"http://nocomp.freeboxos.fr/pixel.gif\"",
+            "path == \"/pixel.gif\"",
+            "domain == \"nocomp.freeboxos.fr\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2 domain",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "domain == \"nocomp.freeboxos.fr.\""
+        ],
+        "scope": "DNS",
+        "severity": "100",
+        "automated": "true",
+        "MITRE": [
+            "T1071.001",
+            "T1132.001",
+            "T1568",
+            "T1102.003"
+        ]
+    },
+    {
+        "rule_name": "Azorult botnet C2",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "url == \"http://f0355889.xsph.ru/panel/index.php\"",
+            "path == \"/panel/index.php\"",
+            "domain == \"f0355889.xsph.ru\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "url == \"http://91.215.85.183:8080/_/scs/mail-static/_/js/\"",
+            "path == \"/_/scs/mail-static/_/js/\"",
+            "domain == \"91.215.85.183\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "url == \"https://194.87.45.87/ga.js\"",
+            "path == \"/ga.js\"",
+            "domain == \"194.87.45.87\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2 server",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "ip == \"194.87.45.87\"",
+            "ip == \"194.87.45.87\" and port == \"443\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "AsyncRAT botnet C2 server",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "ip == \"146.70.128.174\"",
+            "ip == \"146.70.128.174\" and port == \"55178\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "75"
+    },
+    {
+        "rule_name": "Sliver botnet C2 server",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "ip == \"3.8.115.155\"",
+            "ip == \"3.8.115.155\" and port == \"31337\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "75"
+    },
+    {
+        "rule_name": "Sliver botnet C2 server",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "ip == \"3.128.135.199\"",
+            "ip == \"3.128.135.199\" and port == \"31337\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "75"
+    },
+    {
+        "rule_name": "Sliver botnet C2 server",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "ip == \"3.130.73.232\"",
+            "ip == \"3.130.73.232\" and port == \"31337\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "75"
+    },
+    {
+        "rule_name": "Sliver botnet C2 server",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "ip == \"3.142.79.130\"",
+            "ip == \"3.142.79.130\" and port == \"31337\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "75"
+    },
+    {
+        "rule_name": "Sliver botnet C2 server",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "ip == \"5.178.2.76\"",
+            "ip == \"5.178.2.76\" and port == \"31337\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "75"
+    },
+    {
+        "rule_name": "Sliver botnet C2 server",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "ip == \"5.199.168.209\"",
+            "ip == \"5.199.168.209\" and port == \"31337\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "75"
+    },
+    {
+        "rule_name": "Sliver botnet C2 server",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "ip == \"5.199.173.106\"",
+            "ip == \"5.199.173.106\" and port == \"31337\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "75"
+    },
+    {
+        "rule_name": "Sliver botnet C2 server",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "ip == \"5.199.174.230\"",
+            "ip == \"5.199.174.230\" and port == \"31337\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "75"
+    },
+    {
+        "rule_name": "Sliver botnet C2 server",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "ip == \"8.219.200.180\"",
+            "ip == \"8.219.200.180\" and port == \"31337\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "75"
+    },
+    {
+        "rule_name": "Sliver botnet C2 server",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "ip == \"13.236.149.120\"",
+            "ip == \"13.236.149.120\" and port == \"31337\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "75"
+    },
+    {
+        "rule_name": "Sliver botnet C2 server",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "ip == \"18.140.228.104\"",
+            "ip == \"18.140.228.104\" and port == \"31337\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "75"
+    },
+    {
+        "rule_name": "Sliver botnet C2 server",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "ip == \"18.159.62.29\"",
+            "ip == \"18.159.62.29\" and port == \"31337\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "75"
+    },
+    {
+        "rule_name": "Sliver botnet C2 server",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "ip == \"18.234.7.23\"",
+            "ip == \"18.234.7.23\" and port == \"31337\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "75"
+    },
+    {
+        "rule_name": "Sliver botnet C2 server",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "ip == \"23.83.127.233\"",
+            "ip == \"23.83.127.233\" and port == \"31337\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "75"
+    },
+    {
+        "rule_name": "Sliver botnet C2 server",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "ip == \"23.94.131.51\"",
+            "ip == \"23.94.131.51\" and port == \"31337\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "75"
+    },
+    {
+        "rule_name": "Sliver botnet C2 server",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "ip == \"23.94.200.202\"",
+            "ip == \"23.94.200.202\" and port == \"31337\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "75"
+    },
+    {
+        "rule_name": "Sliver botnet C2 server",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "ip == \"23.105.193.194\"",
+            "ip == \"23.105.193.194\" and port == \"31337\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "75"
+    },
+    {
+        "rule_name": "Sliver botnet C2 server",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "ip == \"23.234.199.141\"",
+            "ip == \"23.234.199.141\" and port == \"31337\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "75"
+    },
+    {
+        "rule_name": "Sliver botnet C2 server",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "ip == \"34.176.0.227\"",
+            "ip == \"34.176.0.227\" and port == \"31337\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "75"
+    },
+    {
+        "rule_name": "Sliver botnet C2 server",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "ip == \"35.180.135.137\"",
+            "ip == \"35.180.135.137\" and port == \"31337\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "75"
+    },
+    {
+        "rule_name": "Sliver botnet C2 server",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "ip == \"35.225.60.206\"",
+            "ip == \"35.225.60.206\" and port == \"31337\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "75"
+    },
+    {
+        "rule_name": "Sliver botnet C2 server",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "ip == \"35.236.117.76\"",
+            "ip == \"35.236.117.76\" and port == \"31337\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "75"
+    },
+    {
+        "rule_name": "Sliver botnet C2 server",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "ip == \"35.240.171.140\"",
+            "ip == \"35.240.171.140\" and port == \"31337\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "75"
+    },
+    {
+        "rule_name": "Sliver botnet C2 server",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "ip == \"37.48.120.35\"",
+            "ip == \"37.48.120.35\" and port == \"31337\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "75"
+    },
+    {
+        "rule_name": "Sliver botnet C2 server",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "ip == \"38.55.24.35\"",
+            "ip == \"38.55.24.35\" and port == \"31337\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "75"
+    },
+    {
+        "rule_name": "Sliver botnet C2 server",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "ip == \"39.98.48.67\"",
+            "ip == \"39.98.48.67\" and port == \"31337\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "75"
+    },
+    {
+        "rule_name": "Sliver botnet C2 server",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "ip == \"44.202.249.7\"",
+            "ip == \"44.202.249.7\" and port == \"31337\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "75"
+    },
+    {
+        "rule_name": "Sliver botnet C2 server",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "ip == \"45.8.157.45\"",
+            "ip == \"45.8.157.45\" and port == \"31337\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "75"
+    },
+    {
+        "rule_name": "Sliver botnet C2 server",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "ip == \"45.9.148.252\"",
+            "ip == \"45.9.148.252\" and port == \"31337\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "75"
+    },
+    {
+        "rule_name": "Sliver botnet C2 server",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "ip == \"45.9.150.109\"",
+            "ip == \"45.9.150.109\" and port == \"31337\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "75"
+    },
+    {
+        "rule_name": "Sliver botnet C2 server",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "ip == \"45.14.224.102\"",
+            "ip == \"45.14.224.102\" and port == \"31337\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "75"
+    },
+    {
+        "rule_name": "Sliver botnet C2 server",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "ip == \"45.56.114.203\"",
+            "ip == \"45.56.114.203\" and port == \"31337\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "75"
+    },
+    {
+        "rule_name": "Sliver botnet C2 server",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "ip == \"45.61.137.59\"",
+            "ip == \"45.61.137.59\" and port == \"31337\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "75"
+    },
+    {
+        "rule_name": "Sliver botnet C2 server",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "ip == \"45.77.41.35\"",
+            "ip == \"45.77.41.35\" and port == \"31337\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "75"
+    },
+    {
+        "rule_name": "Sliver botnet C2 server",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "ip == \"45.79.125.241\"",
+            "ip == \"45.79.125.241\" and port == \"31337\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "75"
+    },
+    {
+        "rule_name": "Sliver botnet C2 server",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "ip == \"45.153.231.136\"",
+            "ip == \"45.153.231.136\" and port == \"31337\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "75"
+    },
+    {
+        "rule_name": "Sliver botnet C2 server",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "ip == \"45.227.255.217\"",
+            "ip == \"45.227.255.217\" and port == \"31337\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "75"
+    },
+    {
+        "rule_name": "Sliver botnet C2 server",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "ip == \"45.227.255.223\"",
+            "ip == \"45.227.255.223\" and port == \"31337\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "75"
+    },
+    {
+        "rule_name": "Sliver botnet C2 server",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "ip == \"46.29.160.10\"",
+            "ip == \"46.29.160.10\" and port == \"31337\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "75"
+    },
+    {
+        "rule_name": "Sliver botnet C2 server",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "ip == \"46.148.26.88\"",
+            "ip == \"46.148.26.88\" and port == \"31337\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "75"
+    },
+    {
+        "rule_name": "Sliver botnet C2 server",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "ip == \"46.246.93.104\"",
+            "ip == \"46.246.93.104\" and port == \"31337\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "75"
+    },
+    {
+        "rule_name": "Sliver botnet C2 server",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "ip == \"47.57.0.78\"",
+            "ip == \"47.57.0.78\" and port == \"31337\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "75"
+    },
+    {
+        "rule_name": "Sliver botnet C2 server",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "ip == \"49.12.3.231\"",
+            "ip == \"49.12.3.231\" and port == \"31337\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "75"
+    },
+    {
+        "rule_name": "Sliver botnet C2 server",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "ip == \"54.65.51.181\"",
+            "ip == \"54.65.51.181\" and port == \"31337\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "75"
+    },
+    {
+        "rule_name": "Sliver botnet C2 server",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "ip == \"54.91.1.255\"",
+            "ip == \"54.91.1.255\" and port == \"31337\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "75"
+    },
+    {
+        "rule_name": "Sliver botnet C2 server",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "ip == \"57.128.11.250\"",
+            "ip == \"57.128.11.250\" and port == \"31337\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "75"
+    },
+    {
+        "rule_name": "Sliver botnet C2 server",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "ip == \"62.3.58.81\"",
+            "ip == \"62.3.58.81\" and port == \"31337\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "75"
+    },
+    {
+        "rule_name": "Sliver botnet C2 server",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "ip == \"63.250.54.32\"",
+            "ip == \"63.250.54.32\" and port == \"31337\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "75"
+    },
+    {
+        "rule_name": "Sliver botnet C2 server",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "ip == \"64.227.18.206\"",
+            "ip == \"64.227.18.206\" and port == \"31337\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "75"
+    },
+    {
+        "rule_name": "Sliver botnet C2 server",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "ip == \"65.109.134.211\"",
+            "ip == \"65.109.134.211\" and port == \"31337\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "75"
+    },
+    {
+        "rule_name": "Sliver botnet C2 server",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "ip == \"67.205.184.220\"",
+            "ip == \"67.205.184.220\" and port == \"31337\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "75"
+    },
+    {
+        "rule_name": "Sliver botnet C2 server",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "ip == \"68.183.42.154\"",
+            "ip == \"68.183.42.154\" and port == \"31337\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "75"
+    },
+    {
+        "rule_name": "Sliver botnet C2 server",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "ip == \"76.74.127.144\"",
+            "ip == \"76.74.127.144\" and port == \"31337\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "75"
+    },
+    {
+        "rule_name": "Sliver botnet C2 server",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "ip == \"76.74.127.145\"",
+            "ip == \"76.74.127.145\" and port == \"31337\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "75"
+    },
+    {
+        "rule_name": "Sliver botnet C2 server",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "ip == \"79.136.1.87\"",
+            "ip == \"79.136.1.87\" and port == \"31337\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "75"
+    },
+    {
+        "rule_name": "Sliver botnet C2 server",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "ip == \"81.200.149.183\"",
+            "ip == \"81.200.149.183\" and port == \"31337\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "75"
+    },
+    {
+        "rule_name": "Sliver botnet C2 server",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "ip == \"85.217.144.191\"",
+            "ip == \"85.217.144.191\" and port == \"31337\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "75"
+    },
+    {
+        "rule_name": "Sliver botnet C2 server",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "ip == \"85.239.54.16\"",
+            "ip == \"85.239.54.16\" and port == \"31337\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "75"
+    },
+    {
+        "rule_name": "Sliver botnet C2 server",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "ip == \"88.99.46.167\"",
+            "ip == \"88.99.46.167\" and port == \"31337\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "75"
+    },
+    {
+        "rule_name": "Sliver botnet C2 server",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "ip == \"89.44.9.148\"",
+            "ip == \"89.44.9.148\" and port == \"31337\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "75"
+    },
+    {
+        "rule_name": "Sliver botnet C2 server",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "ip == \"89.116.234.48\"",
+            "ip == \"89.116.234.48\" and port == \"31337\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "75"
+    },
+    {
+        "rule_name": "Sliver botnet C2 server",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "ip == \"91.234.199.4\"",
+            "ip == \"91.234.199.4\" and port == \"31337\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "75"
+    },
+    {
+        "rule_name": "Sliver botnet C2 server",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "ip == \"92.205.29.124\"",
+            "ip == \"92.205.29.124\" and port == \"31337\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "75"
+    },
+    {
+        "rule_name": "Sliver botnet C2 server",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "ip == \"101.33.248.33\"",
+            "ip == \"101.33.248.33\" and port == \"31337\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "75"
+    },
+    {
+        "rule_name": "Sliver botnet C2 server",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "ip == \"103.15.105.29\"",
+            "ip == \"103.15.105.29\" and port == \"31337\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "75"
+    },
+    {
+        "rule_name": "Sliver botnet C2 server",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "ip == \"103.35.151.195\"",
+            "ip == \"103.35.151.195\" and port == \"31337\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "75"
+    },
+    {
+        "rule_name": "Sliver botnet C2 server",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "ip == \"103.35.151.222\"",
+            "ip == \"103.35.151.222\" and port == \"31337\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "75"
+    },
+    {
+        "rule_name": "Sliver botnet C2 server",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "ip == \"103.56.19.196\"",
+            "ip == \"103.56.19.196\" and port == \"31337\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "75"
+    },
+    {
+        "rule_name": "Sliver botnet C2 server",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "ip == \"103.85.110.13\"",
+            "ip == \"103.85.110.13\" and port == \"31337\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "75"
+    },
+    {
+        "rule_name": "Sliver botnet C2 server",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "ip == \"103.140.187.122\"",
+            "ip == \"103.140.187.122\" and port == \"31337\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "75"
+    },
+    {
+        "rule_name": "Sliver botnet C2 server",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "ip == \"103.234.72.156\"",
+            "ip == \"103.234.72.156\" and port == \"31337\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "75"
+    },
+    {
+        "rule_name": "Sliver botnet C2 server",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "ip == \"104.168.142.135\"",
+            "ip == \"104.168.142.135\" and port == \"31337\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "75"
+    },
+    {
+        "rule_name": "Sliver botnet C2 server",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "ip == \"104.198.153.240\"",
+            "ip == \"104.198.153.240\" and port == \"31337\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "75"
+    },
+    {
+        "rule_name": "Sliver botnet C2 server",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "ip == \"104.236.186.248\"",
+            "ip == \"104.236.186.248\" and port == \"31337\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "75"
+    },
+    {
+        "rule_name": "Sliver botnet C2 server",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "ip == \"104.243.20.216\"",
+            "ip == \"104.243.20.216\" and port == \"31337\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "75"
+    },
+    {
+        "rule_name": "Sliver botnet C2 server",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "ip == \"106.15.170.198\"",
+            "ip == \"106.15.170.198\" and port == \"31337\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "75"
+    },
+    {
+        "rule_name": "Sliver botnet C2 server",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "ip == \"107.150.119.144\"",
+            "ip == \"107.150.119.144\" and port == \"31337\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "75"
+    },
+    {
+        "rule_name": "Sliver botnet C2 server",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "ip == \"108.61.127.105\"",
+            "ip == \"108.61.127.105\" and port == \"31337\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "75"
+    },
+    {
+        "rule_name": "Sliver botnet C2 server",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "ip == \"109.248.6.249\"",
+            "ip == \"109.248.6.249\" and port == \"31337\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "75"
+    },
+    {
+        "rule_name": "Sliver botnet C2 server",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "ip == \"114.55.58.137\"",
+            "ip == \"114.55.58.137\" and port == \"31337\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "75"
+    },
+    {
+        "rule_name": "Sliver botnet C2 server",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "ip == \"117.50.177.140\"",
+            "ip == \"117.50.177.140\" and port == \"31337\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "75"
+    },
+    {
+        "rule_name": "Sliver botnet C2 server",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "ip == \"121.5.112.42\"",
+            "ip == \"121.5.112.42\" and port == \"31337\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "75"
+    },
+    {
+        "rule_name": "Sliver botnet C2 server",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "ip == \"121.199.166.58\"",
+            "ip == \"121.199.166.58\" and port == \"31337\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "75"
+    },
+    {
+        "rule_name": "Sliver botnet C2 server",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "ip == \"122.147.252.103\"",
+            "ip == \"122.147.252.103\" and port == \"31337\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "75"
+    },
+    {
+        "rule_name": "Sliver botnet C2 server",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "ip == \"128.199.227.227\"",
+            "ip == \"128.199.227.227\" and port == \"31337\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "75"
+    },
+    {
+        "rule_name": "Sliver botnet C2 server",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "ip == \"132.145.153.214\"",
+            "ip == \"132.145.153.214\" and port == \"31337\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "75"
+    },
+    {
+        "rule_name": "Sliver botnet C2 server",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "ip == \"134.209.204.95\"",
+            "ip == \"134.209.204.95\" and port == \"31337\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "75"
+    },
+    {
+        "rule_name": "Sliver botnet C2 server",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "ip == \"135.125.236.177\"",
+            "ip == \"135.125.236.177\" and port == \"31337\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "75"
+    },
+    {
+        "rule_name": "Sliver botnet C2 server",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "ip == \"137.184.57.89\"",
+            "ip == \"137.184.57.89\" and port == \"31337\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "75"
+    },
+    {
+        "rule_name": "Sliver botnet C2 server",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "ip == \"137.184.86.247\"",
+            "ip == \"137.184.86.247\" and port == \"31337\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "75"
+    },
+    {
+        "rule_name": "Sliver botnet C2 server",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "ip == \"138.68.99.223\"",
+            "ip == \"138.68.99.223\" and port == \"31337\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "75"
+    },
+    {
+        "rule_name": "Sliver botnet C2 server",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "ip == \"138.68.123.125\"",
+            "ip == \"138.68.123.125\" and port == \"31337\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "75"
+    },
+    {
+        "rule_name": "Sliver botnet C2 server",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "ip == \"138.197.186.34\"",
+            "ip == \"138.197.186.34\" and port == \"31337\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "75"
+    },
+    {
+        "rule_name": "Sliver botnet C2 server",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "ip == \"138.197.224.55\"",
+            "ip == \"138.197.224.55\" and port == \"31337\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "75"
+    },
+    {
+        "rule_name": "Sliver botnet C2 server",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "ip == \"139.99.122.227\"",
+            "ip == \"139.99.122.227\" and port == \"31337\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "75"
+    },
+    {
+        "rule_name": "Sliver botnet C2 server",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "ip == \"139.144.19.169\"",
+            "ip == \"139.144.19.169\" and port == \"31337\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "75"
+    },
+    {
+        "rule_name": "Sliver botnet C2 server",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "ip == \"139.144.46.164\"",
+            "ip == \"139.144.46.164\" and port == \"31337\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "75"
+    },
+    {
+        "rule_name": "Sliver botnet C2 server",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "ip == \"139.162.155.164\"",
+            "ip == \"139.162.155.164\" and port == \"31337\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "75"
+    },
+    {
+        "rule_name": "Sliver botnet C2 server",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "ip == \"139.177.146.102\"",
+            "ip == \"139.177.146.102\" and port == \"31337\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "75"
+    },
+    {
+        "rule_name": "Sliver botnet C2 server",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "ip == \"140.238.221.59\"",
+            "ip == \"140.238.221.59\" and port == \"31337\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "75"
+    },
+    {
+        "rule_name": "Sliver botnet C2 server",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "ip == \"144.34.250.208\"",
+            "ip == \"144.34.250.208\" and port == \"31337\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "75"
+    },
+    {
+        "rule_name": "Sliver botnet C2 server",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "ip == \"144.126.249.150\"",
+            "ip == \"144.126.249.150\" and port == \"31337\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "75"
+    },
+    {
+        "rule_name": "Sliver botnet C2 server",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "ip == \"145.239.197.144\"",
+            "ip == \"145.239.197.144\" and port == \"31337\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "75"
+    },
+    {
+        "rule_name": "Sliver botnet C2 server",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "ip == \"146.19.80.25\"",
+            "ip == \"146.19.80.25\" and port == \"31337\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "75"
+    },
+    {
+        "rule_name": "Sliver botnet C2 server",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "ip == \"146.59.237.220\"",
+            "ip == \"146.59.237.220\" and port == \"31337\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "75"
+    },
+    {
+        "rule_name": "Sliver botnet C2 server",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "ip == \"146.190.128.88\"",
+            "ip == \"146.190.128.88\" and port == \"31337\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "75"
+    },
+    {
+        "rule_name": "Sliver botnet C2 server",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "ip == \"146.190.160.18\"",
+            "ip == \"146.190.160.18\" and port == \"31337\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "75"
+    },
+    {
+        "rule_name": "Sliver botnet C2 server",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "ip == \"147.182.170.15\"",
+            "ip == \"147.182.170.15\" and port == \"31337\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "75"
+    },
+    {
+        "rule_name": "Sliver botnet C2 server",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "ip == \"148.66.57.50\"",
+            "ip == \"148.66.57.50\" and port == \"31337\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "75"
+    },
+    {
+        "rule_name": "Sliver botnet C2 server",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "ip == \"148.66.57.51\"",
+            "ip == \"148.66.57.51\" and port == \"31337\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "75"
+    },
+    {
+        "rule_name": "Sliver botnet C2 server",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "ip == \"149.81.74.205\"",
+            "ip == \"149.81.74.205\" and port == \"31337\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "75"
+    },
+    {
+        "rule_name": "Sliver botnet C2 server",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "ip == \"149.81.74.206\"",
+            "ip == \"149.81.74.206\" and port == \"31337\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "75"
+    },
+    {
+        "rule_name": "Sliver botnet C2 server",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "ip == \"149.81.74.207\"",
+            "ip == \"149.81.74.207\" and port == \"31337\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "75"
+    },
+    {
+        "rule_name": "Sliver botnet C2 server",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "ip == \"149.81.87.18\"",
+            "ip == \"149.81.87.18\" and port == \"31337\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "75"
+    },
+    {
+        "rule_name": "Sliver botnet C2 server",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "ip == \"151.80.106.50\"",
+            "ip == \"151.80.106.50\" and port == \"31337\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "75"
+    },
+    {
+        "rule_name": "Sliver botnet C2 server",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "ip == \"152.89.218.235\"",
+            "ip == \"152.89.218.235\" and port == \"31337\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "75"
+    },
+    {
+        "rule_name": "Sliver botnet C2 server",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "ip == \"154.202.59.96\"",
+            "ip == \"154.202.59.96\" and port == \"31337\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "75"
+    },
+    {
+        "rule_name": "Sliver botnet C2 server",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "ip == \"155.138.229.198\"",
+            "ip == \"155.138.229.198\" and port == \"31337\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "75"
+    },
+    {
+        "rule_name": "Sliver botnet C2 server",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "ip == \"158.247.213.192\"",
+            "ip == \"158.247.213.192\" and port == \"31337\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "75"
+    },
+    {
+        "rule_name": "Sliver botnet C2 server",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "ip == \"159.65.202.74\"",
+            "ip == \"159.65.202.74\" and port == \"31337\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "75"
+    },
+    {
+        "rule_name": "Sliver botnet C2 server",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "ip == \"159.89.106.178\"",
+            "ip == \"159.89.106.178\" and port == \"31337\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "75"
+    },
+    {
+        "rule_name": "Sliver botnet C2 server",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "ip == \"159.203.99.10\"",
+            "ip == \"159.203.99.10\" and port == \"31337\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "75"
+    },
+    {
+        "rule_name": "Sliver botnet C2 server",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "ip == \"164.90.132.211\"",
+            "ip == \"164.90.132.211\" and port == \"31337\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "75"
+    },
+    {
+        "rule_name": "Sliver botnet C2 server",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "ip == \"164.92.101.3\"",
+            "ip == \"164.92.101.3\" and port == \"31337\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "75"
+    },
+    {
+        "rule_name": "Sliver botnet C2 server",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "ip == \"165.227.99.110\"",
+            "ip == \"165.227.99.110\" and port == \"31337\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "75"
+    },
+    {
+        "rule_name": "Sliver botnet C2 server",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "ip == \"165.227.176.139\"",
+            "ip == \"165.227.176.139\" and port == \"31337\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "75"
+    },
+    {
+        "rule_name": "Sliver botnet C2 server",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "ip == \"167.71.2.28\"",
+            "ip == \"167.71.2.28\" and port == \"31337\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "75"
+    },
+    {
+        "rule_name": "Sliver botnet C2 server",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "ip == \"167.99.17.196\"",
+            "ip == \"167.99.17.196\" and port == \"31337\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "75"
+    },
+    {
+        "rule_name": "Sliver botnet C2 server",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "ip == \"167.172.83.4\"",
+            "ip == \"167.172.83.4\" and port == \"31337\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "75"
+    },
+    {
+        "rule_name": "Sliver botnet C2 server",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "ip == \"168.63.40.231\"",
+            "ip == \"168.63.40.231\" and port == \"31337\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "75"
+    },
+    {
+        "rule_name": "Sliver botnet C2 server",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "ip == \"168.138.93.130\"",
+            "ip == \"168.138.93.130\" and port == \"31337\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "75"
+    },
+    {
+        "rule_name": "Sliver botnet C2 server",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "ip == \"170.64.177.221\"",
+            "ip == \"170.64.177.221\" and port == \"31337\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "75"
+    },
+    {
+        "rule_name": "Sliver botnet C2 server",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "ip == \"170.130.55.160\"",
+            "ip == \"170.130.55.160\" and port == \"31337\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "75"
+    },
+    {
+        "rule_name": "Sliver botnet C2 server",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "ip == \"170.187.207.103\"",
+            "ip == \"170.187.207.103\" and port == \"31337\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "75"
+    },
+    {
+        "rule_name": "Sliver botnet C2 server",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "ip == \"171.22.30.222\"",
+            "ip == \"171.22.30.222\" and port == \"31337\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "75"
+    },
+    {
+        "rule_name": "Sliver botnet C2 server",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "ip == \"172.86.120.245\"",
+            "ip == \"172.86.120.245\" and port == \"31337\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "75"
+    },
+    {
+        "rule_name": "Sliver botnet C2 server",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "ip == \"172.86.121.214\"",
+            "ip == \"172.86.121.214\" and port == \"31337\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "75"
+    },
+    {
+        "rule_name": "Sliver botnet C2 server",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "ip == \"172.96.192.52\"",
+            "ip == \"172.96.192.52\" and port == \"31337\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "75"
+    },
+    {
+        "rule_name": "Sliver botnet C2 server",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "ip == \"173.199.71.71\"",
+            "ip == \"173.199.71.71\" and port == \"31337\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "75"
+    },
+    {
+        "rule_name": "Sliver botnet C2 server",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "ip == \"174.138.7.112\"",
+            "ip == \"174.138.7.112\" and port == \"31337\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "75"
+    },
+    {
+        "rule_name": "Sliver botnet C2 server",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "ip == \"178.128.144.124\"",
+            "ip == \"178.128.144.124\" and port == \"31337\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "75"
+    },
+    {
+        "rule_name": "Sliver botnet C2 server",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "ip == \"178.128.229.91\"",
+            "ip == \"178.128.229.91\" and port == \"31337\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "75"
+    },
+    {
+        "rule_name": "Sliver botnet C2 server",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "ip == \"179.43.154.251\"",
+            "ip == \"179.43.154.251\" and port == \"31337\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "75"
+    },
+    {
+        "rule_name": "Sliver botnet C2 server",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "ip == \"179.60.150.147\"",
+            "ip == \"179.60.150.147\" and port == \"31337\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "75"
+    },
+    {
+        "rule_name": "Sliver botnet C2 server",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "ip == \"182.61.145.9\"",
+            "ip == \"182.61.145.9\" and port == \"31337\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "75"
+    },
+    {
+        "rule_name": "Sliver botnet C2 server",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "ip == \"185.73.124.16\"",
+            "ip == \"185.73.124.16\" and port == \"31337\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "75"
+    },
+    {
+        "rule_name": "Sliver botnet C2 server",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "ip == \"185.81.68.180\"",
+            "ip == \"185.81.68.180\" and port == \"31337\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "75"
+    },
+    {
+        "rule_name": "Sliver botnet C2 server",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "ip == \"185.82.218.214\"",
+            "ip == \"185.82.218.214\" and port == \"31337\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "75"
+    },
+    {
+        "rule_name": "Sliver botnet C2 server",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "ip == \"185.128.106.245\"",
+            "ip == \"185.128.106.245\" and port == \"31337\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "75"
+    },
+    {
+        "rule_name": "Sliver botnet C2 server",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "ip == \"185.130.45.94\"",
+            "ip == \"185.130.45.94\" and port == \"31337\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "75"
+    },
+    {
+        "rule_name": "Sliver botnet C2 server",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "ip == \"185.203.119.47\"",
+            "ip == \"185.203.119.47\" and port == \"31337\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "75"
+    },
+    {
+        "rule_name": "Sliver botnet C2 server",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "ip == \"185.254.198.147\"",
+            "ip == \"185.254.198.147\" and port == \"31337\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "75"
+    },
+    {
+        "rule_name": "Sliver botnet C2 server",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "ip == \"188.127.237.167\"",
+            "ip == \"188.127.237.167\" and port == \"31337\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "75"
+    },
+    {
+        "rule_name": "Sliver botnet C2 server",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "ip == \"188.166.161.123\"",
+            "ip == \"188.166.161.123\" and port == \"31337\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "75"
+    },
+    {
+        "rule_name": "Sliver botnet C2 server",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "ip == \"192.3.128.185\"",
+            "ip == \"192.3.128.185\" and port == \"31337\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "75"
+    },
+    {
+        "rule_name": "Sliver botnet C2 server",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "ip == \"192.241.128.7\"",
+            "ip == \"192.241.128.7\" and port == \"31337\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "75"
+    },
+    {
+        "rule_name": "Sliver botnet C2 server",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "ip == \"193.29.13.203\"",
+            "ip == \"193.29.13.203\" and port == \"31337\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "75"
+    },
+    {
+        "rule_name": "Sliver botnet C2 server",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "ip == \"194.163.133.23\"",
+            "ip == \"194.163.133.23\" and port == \"31337\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "75"
+    },
+    {
+        "rule_name": "Sliver botnet C2 server",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "ip == \"195.123.225.18\"",
+            "ip == \"195.123.225.18\" and port == \"31337\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "75"
+    },
+    {
+        "rule_name": "Sliver botnet C2 server",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "ip == \"198.27.76.162\"",
+            "ip == \"198.27.76.162\" and port == \"31337\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "75"
+    },
+    {
+        "rule_name": "Sliver botnet C2 server",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "ip == \"198.46.215.53\"",
+            "ip == \"198.46.215.53\" and port == \"31337\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "75"
+    },
+    {
+        "rule_name": "Sliver botnet C2 server",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "ip == \"198.211.48.141\"",
+            "ip == \"198.211.48.141\" and port == \"31337\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "75"
+    },
+    {
+        "rule_name": "Sliver botnet C2 server",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "ip == \"206.189.192.120\"",
+            "ip == \"206.189.192.120\" and port == \"31337\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "75"
+    },
+    {
+        "rule_name": "Sliver botnet C2 server",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "ip == \"206.189.252.100\"",
+            "ip == \"206.189.252.100\" and port == \"31337\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "75"
+    },
+    {
+        "rule_name": "Sliver botnet C2 server",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "ip == \"212.53.167.167\"",
+            "ip == \"212.53.167.167\" and port == \"31337\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "75"
+    },
+    {
+        "rule_name": "Sliver botnet C2 server",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "ip == \"213.52.128.52\"",
+            "ip == \"213.52.128.52\" and port == \"31337\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "75"
+    },
+    {
+        "rule_name": "Sliver botnet C2 server",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "ip == \"213.189.201.88\"",
+            "ip == \"213.189.201.88\" and port == \"31337\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "75"
+    },
+    {
+        "rule_name": "NjRAT botnet C2 server",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "ip == \"18.139.9.214\"",
+            "ip == \"18.139.9.214\" and port == \"10881\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Sliver botnet C2 server",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "ip == \"124.71.84.65\"",
+            "ip == \"124.71.84.65\" and port == \"8889\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "75"
+    },
+    {
+        "rule_name": "Sliver botnet C2 server",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "ip == \"43.207.147.229\"",
+            "ip == \"43.207.147.229\" and port == \"3306\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "75"
+    },
+    {
+        "rule_name": "Sliver botnet C2 server",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "ip == \"162.33.177.38\"",
+            "ip == \"162.33.177.38\" and port == \"54712\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "75"
+    },
+    {
+        "rule_name": "Sliver botnet C2 server",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "ip == \"47.242.23.161\"",
+            "ip == \"47.242.23.161\" and port == \"43831\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "75"
+    },
+    {
+        "rule_name": "Sliver botnet C2 server",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "ip == \"84.32.248.95\"",
+            "ip == \"84.32.248.95\" and port == \"32883\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "75"
+    },
+    {
+        "rule_name": "Sliver botnet C2 server",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "ip == \"89.38.128.51\"",
+            "ip == \"89.38.128.51\" and port == \"42448\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "75"
+    },
+    {
+        "rule_name": "Sliver botnet C2 server",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "ip == \"146.70.104.167\"",
+            "ip == \"146.70.104.167\" and port == \"8080\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "75"
+    },
+    {
+        "rule_name": "Remcos botnet C2 server",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "ip == \"10.15.0.18\"",
+            "ip == \"10.15.0.18\" and port == \"55898\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "75"
+    },
+    {
+        "rule_name": "Remcos botnet C2 server",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "ip == \"180.214.238.18\"",
+            "ip == \"180.214.238.18\" and port == \"55898\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "75"
+    },
+    {
+        "rule_name": "Remcos botnet C2 server",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "ip == \"185.65.134.167\"",
+            "ip == \"185.65.134.167\" and port == \"55898\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "75"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "url == \"https://yoyiwevigo.com/sub/settings/50efsnowymf\"",
+            "path == \"/sub/settings/50efsnowymf\"",
+            "domain == \"yoyiwevigo.com\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2 domain",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "domain == \"yoyiwevigo.com.\""
+        ],
+        "scope": "DNS",
+        "severity": "100",
+        "automated": "true",
+        "MITRE": [
+            "T1071.001",
+            "T1132.001",
+            "T1568",
+            "T1102.003"
+        ]
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "url == \"https://108.62.118.248/sub/settings/50efsnowymf\"",
+            "path == \"/sub/settings/50efsnowymf\"",
+            "domain == \"108.62.118.248\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2 server",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "ip == \"108.62.118.248\"",
+            "ip == \"108.62.118.248\" and port == \"443\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Loki Password Stealer (PWS) botnet C2",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "url == \"http://185.246.220.60/eworld/five/fre.php\"",
+            "path == \"/eworld/five/fre.php\"",
+            "domain == \"185.246.220.60\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "url == \"http://sts.tencentcloudapp.tk:2086/load\"",
+            "path == \"/load\"",
+            "domain == \"sts.tencentcloudapp.tk\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "url == \"http://5.199.161.23/design/query/9x5m3soe0f\"",
+            "path == \"/design/query/9x5m3soe0f\"",
+            "domain == \"5.199.161.23\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "url == \"https://sts.tencentcloudapp.tk:8443/load\"",
+            "path == \"/load\"",
+            "domain == \"sts.tencentcloudapp.tk\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "url == \"http://23.147.227.150:4443/ca\"",
+            "path == \"/ca\"",
+            "domain == \"23.147.227.150\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "url == \"http://143.42.5.28:7878/g.pixel\"",
+            "path == \"/g.pixel\"",
+            "domain == \"143.42.5.28\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "url == \"https://service-now.support/commonlogin/login/anyconnect.png\"",
+            "path == \"/commonlogin/login/anyconnect.png\"",
+            "domain == \"service-now.support\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2 domain",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "domain == \"service-now.support.\""
+        ],
+        "scope": "DNS",
+        "severity": "100",
+        "automated": "true",
+        "MITRE": [
+            "T1071.001",
+            "T1132.001",
+            "T1568",
+            "T1102.003"
+        ]
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2 server",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "ip == \"3.210.247.209\"",
+            "ip == \"3.210.247.209\" and port == \"443\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Mirai botnet C2 server",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "ip == \"45.81.243.34\"",
+            "ip == \"45.81.243.34\" and port == \"59666\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "75"
+    },
+    {
+        "rule_name": "BumbleBee botnet C2 server",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "ip == \"2.56.10.16\"",
+            "ip == \"2.56.10.16\" and port == \"443\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "75"
+    },
+    {
+        "rule_name": "Mirai botnet C2 server",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "ip == \"37.221.92.200\"",
+            "ip == \"37.221.92.200\" and port == \"61002\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "75"
+    },
+    {
+        "rule_name": "NetSupportManager RAT botnet C2 server",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "ip == \"162.33.177.5\"",
+            "ip == \"162.33.177.5\" and port == \"3961\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "ISFB payload delivery server",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "ip == \"46.8.210.12\"",
+            "ip == \"46.8.210.12\" and port == \"445\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "75"
+    },
+    {
+        "rule_name": "ISFB payload delivery server",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "ip == \"46.8.210.91\"",
+            "ip == \"46.8.210.91\" and port == \"445\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "75"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "url == \"https://internetmediatech.net/cr\"",
+            "path == \"/cr\"",
+            "domain == \"internetmediatech.net\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2 domain",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "domain == \"internetmediatech.net.\""
+        ],
+        "scope": "DNS",
+        "severity": "100",
+        "automated": "true",
+        "MITRE": [
+            "T1071.001",
+            "T1132.001",
+            "T1568",
+            "T1102.003"
+        ]
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2 server",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "ip == \"77.91.85.56\"",
+            "ip == \"77.91.85.56\" and port == \"443\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "url == \"https://185.143.223.128:445/dpixel\"",
+            "path == \"/dpixel\"",
+            "domain == \"185.143.223.128\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Sliver botnet C2 server",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "ip == \"45.227.255.223\"",
+            "ip == \"45.227.255.223\" and port == \"8888\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "50"
+    },
+    {
+        "rule_name": "Sliver botnet C2 server",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "ip == \"89.116.234.48\"",
+            "ip == \"89.116.234.48\" and port == \"8888\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "50"
+    },
+    {
+        "rule_name": "Unknown malware botnet C2 server",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "ip == \"138.197.159.167\"",
+            "ip == \"138.197.159.167\" and port == \"8443\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "50"
+    },
+    {
+        "rule_name": "Unknown malware botnet C2 server",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "ip == \"194.163.148.158\"",
+            "ip == \"194.163.148.158\" and port == \"7443\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "50"
+    },
+    {
+        "rule_name": "Brute Ratel C4 botnet C2 server",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "ip == \"15.206.79.179\"",
+            "ip == \"15.206.79.179\" and port == \"443\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "50"
+    },
+    {
+        "rule_name": "Brute Ratel C4 botnet C2 server",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "ip == \"15.206.79.179\"",
+            "ip == \"15.206.79.179\" and port == \"8443\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "50"
+    },
+    {
+        "rule_name": "Unknown malware botnet C2 server",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "ip == \"195.97.212.20\"",
+            "ip == \"195.97.212.20\" and port == \"7443\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "50"
+    },
+    {
+        "rule_name": "BianLian botnet C2 server",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "ip == \"5.183.95.54\"",
+            "ip == \"5.183.95.54\" and port == \"8443\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "50"
+    },
+    {
+        "rule_name": "BianLian botnet C2 server",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "ip == \"43.139.241.58\"",
+            "ip == \"43.139.241.58\" and port == \"5600\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "50"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "url == \"https://1.117.169.18:10443/g.pixel\"",
+            "path == \"/g.pixel\"",
+            "domain == \"1.117.169.18\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "url == \"http://1.12.62.177:35465/match\"",
+            "path == \"/match\"",
+            "domain == \"1.12.62.177\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "url == \"http://service-98cbalut-1302394400.sh.apigw.tencentcs.com/pixel\"",
+            "path == \"/pixel\"",
+            "domain == \"service-98cbalut-1302394400.sh.apigw.tencentcs.com\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2 domain",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "domain == \"service-98cbalut-1302394400.sh.apigw.tencentcs.com.\""
+        ],
+        "scope": "DNS",
+        "severity": "100",
+        "automated": "true",
+        "MITRE": [
+            "T1071.001",
+            "T1132.001",
+            "T1568",
+            "T1102.003"
+        ]
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "url == \"https://103.43.12.110/register/space/fkv1sw8e42\"",
+            "path == \"/register/space/fkv1sw8e42\"",
+            "domain == \"103.43.12.110\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "url == \"http://43.138.111.120:7788/cm\"",
+            "path == \"/cm\"",
+            "domain == \"43.138.111.120\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2 server",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "ip == \"74.235.186.196\"",
+            "ip == \"74.235.186.196\" and port == \"443\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "url == \"https://62.84.99.51/pixel\"",
+            "path == \"/pixel\"",
+            "domain == \"62.84.99.51\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2 server",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "ip == \"62.84.99.51\"",
+            "ip == \"62.84.99.51\" and port == \"443\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "IcedID botnet C2 server",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "ip == \"64.94.214.200\"",
+            "ip == \"64.94.214.200\" and port == \"443\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "75"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "url == \"http://185.143.223.128:3389/g.pixel\"",
+            "path == \"/g.pixel\"",
+            "domain == \"185.143.223.128\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Bashlite botnet C2 server",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "ip == \"185.244.129.29\"",
+            "ip == \"185.244.129.29\" and port == \"6689\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "75"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "url == \"http://185.166.163.115/dpixel\"",
+            "path == \"/dpixel\"",
+            "domain == \"185.166.163.115\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "url == \"https://luo.dchu2u.com/g.pixel\"",
+            "path == \"/g.pixel\"",
+            "domain == \"luo.dchu2u.com\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "RecordBreaker botnet C2",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "url == \"http://94.142.138.227/\"",
+            "path == \"/\"",
+            "domain == \"94.142.138.227\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "url == \"http://193.42.33.249/cm\"",
+            "path == \"/cm\"",
+            "domain == \"193.42.33.249\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "url == \"http://40.88.43.171/dpixel\"",
+            "path == \"/dpixel\"",
+            "domain == \"40.88.43.171\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "url == \"http://internetmediatech.net/ky.css\"",
+            "path == \"/ky.css\"",
+            "domain == \"internetmediatech.net\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2 server",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "ip == \"77.91.85.56\"",
+            "ip == \"77.91.85.56\" and port == \"80\""
+        ],
+        "scope": "IPPORT",
+        "automated": "true",
+        "severity": "100"
+    },
+    {
+        "rule_name": "Cobalt Strike botnet C2",
+        "authored_timestamp": 1688286790,
+        "rule": [
+            "url == \"http://8.217.30.202:50555/cx\"",
+            "path == \"/cx\"",
+            "domain == \"8.217.30.202\""
+        ],
+        "scope": "URL",
+        "automated": "true",
+        "severity": "100"
+    }
+]
