@@ -47,7 +47,7 @@ The rules also involve fingerprinting the TLS certificates used in the communica
 * [Mentor] Nitesh Kumar, IIT-K
 
 ### A Sample ArkThor site is available for public view 
-https://arkthor.azurewebsites.net/
+[https://arkthor.azurewebsites.net/](http://arkthor.westeurope.cloudapp.azure.com/)
 
 ## Project Core Architect Idea
 The entire project is comprised of three distinct layers: a platform-independent layer that is scalable and built using microservices. It is also designed to be easy to deploy and relies entirely on an opensource technology stack,
