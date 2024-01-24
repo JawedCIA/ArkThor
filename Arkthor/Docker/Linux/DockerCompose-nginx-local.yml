@@ -26,13 +26,11 @@ services:
     restart: "always"
     depends_on:
       - arkthorapi
-    environment:
-      - WebAPIBaseAddressForJS=http://arkthorapi/
     networks:
       - nwarkthor
   
   arkthorapi:
-    image: arkthor/arkthor-api:latest
+    image: arkthor/arkthor-api:WithoutDB
     container_name: arkthorapi
     restart: "always"
     depends_on:
@@ -46,12 +44,15 @@ services:
     image: arkthor/arkthor-core:latest
     restart: "always"
     deploy:
-      replicas: 3 
+      replicas: 1 
     depends_on:
       - arkthorapi
-      - rabbitmq
+      - rabbitmq      
+    environment:
+      - threatfox_rule_update_from_Date=2023-06-06
     volumes:
-      - "AnalysesFiles:/app/UploadedFiles"      
+      - "AnalysesFiles:/app/UploadedFiles"
+      - ./ArkThorCoreconfig.json:/app/arkthorcoreconfig/config.json 
     networks:
       - nwarkthor
       
