@@ -47,9 +47,7 @@ services:
       replicas: 1 
     depends_on:
       - arkthorapi
-      - rabbitmq      
-    environment:
-      - threatfox_rule_update_from_Date=2023-06-06
+      - rabbitmq
     volumes:
       - "AnalysesFiles:/app/UploadedFiles"
       - ./ArkThorCoreconfig.json:/app/arkthorcoreconfig/config.json 
