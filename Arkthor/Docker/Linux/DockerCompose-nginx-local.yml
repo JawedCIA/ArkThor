@@ -1,0 +1,71 @@
+version: '3.8'
+services:
+  nginx:
+    image: nginx:latest
+    container_name: nginx
+    restart: unless-stopped
+    ports:
+      - 80:80
+    volumes:
+      - ./nginx-local.conf:/etc/nginx/nginx.conf
+    depends_on:
+      - arkthorui
+      - arkthorapi
+      - rabbitmq
+      - arkthorcore
+    networks:
+      - nwarkthor
+    logging:
+        options:
+            max-size: "10m"
+            max-file: "3"
+
+  arkthorui:
+    image: arkthor/arkthor-ui:latest
+    container_name: arkthorui
+    restart: "always"
+    depends_on:
+      - arkthorapi
+    environment:
+      - WebAPIBaseAddressForJS=http://arkthorapi/
+    networks:
+      - nwarkthor
+  
+  arkthorapi:
+    image: arkthor/arkthor-api:latest
+    container_name: arkthorapi
+    restart: "always"
+    depends_on:
+      - rabbitmq
+    volumes:
+      - "AnalysesFiles:/app/UploadedFiles"
+    networks:
+      - nwarkthor
+  
+  arkthorcore:
+    image: arkthor/arkthor-core:latest
+    restart: "always"
+    deploy:
+      replicas: 3 
+    depends_on:
+      - arkthorapi
+      - rabbitmq
+    volumes:
+      - "AnalysesFiles:/app/UploadedFiles"      
+    networks:
+      - nwarkthor
+      
+  rabbitmq:
+    image: rabbitmq:3.12-management
+    restart: "always"
+    container_name: rabbitmq
+    expose:
+      - "15672"
+    networks:
+      - nwarkthor
+volumes:
+  AnalysesFiles:
+  Database: 
+networks:
+  nwarkthor:
+    name: nwarkthor
