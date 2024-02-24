@@ -1,5 +1,8 @@
 [![ArkThor Front Engine](https://github.com/JawedCIA/KCST/actions/workflows/dotnet.yml/badge.svg)](https://github.com/JawedCIA/KCST/actions/workflows/dotnet.yml)  [![Docker ArkThor UI Image CI](https://github.com/JawedCIA/ArkThor/actions/workflows/docker-image-UI.yml/badge.svg)](https://github.com/JawedCIA/ArkThor/actions/workflows/docker-image-UI.yml) [![Docker ArkThor API Image](https://github.com/JawedCIA/ArkThor/actions/workflows/docker-image-API.yml/badge.svg)](https://github.com/JawedCIA/ArkThor/actions/workflows/docker-image-API.yml)[![Docker Image CORE](https://github.com/JawedCIA/ArkThor/actions/workflows/docker-image-CORE.yml/badge.svg)](https://github.com/JawedCIA/ArkThor/actions/workflows/docker-image-CORE.yml)
 
+### I am pleased to share that our paper, titled "ArkThor – Threat Categorization Based on Malware’s C2 Communication," has been accepted for presentation at the upcoming "10th International Conference on Information Systems Security and Privacy (ICISSP 2024)," scheduled to take place in Rome, Italy in February 2024.
+![Author-HomePage](https://github.com/JawedCIA/ArkThor/assets/16477789/780fe95c-feed-4cb6-be12-cf2b78cb917a)
+
 ## We have created a Wiki page with a wealth of information on ArkThor. Please take a moment to visit the Wiki page!!
 https://github.com/JawedCIA/ArkThor/wiki
 
@@ -41,15 +44,23 @@ The rules also involve fingerprinting the TLS certificates used in the communica
  <strong>"Thor"</strong> is associated with strength or power
 
 ### Team
-* [Contributor] Mohammed Jawed
+* [Contributor] Mohammed Jawed, IIT-K 
 * [Contributor] SriRam P
 * [Mentor] Prof. Anand handa, IIT-K
 * [Mentor] Nitesh Kumar, IIT-K
 
-### A Sample ArkThor site is available for public view 
-http://arkthor.westeurope.cloudapp.azure.com/
+# Uncovering the Birth of ArkThor
+***
 
-[[[https://arkthor.azurewebsites.net](http://arkthor.westeurope.cloudapp.azure.com/)]
+The ArkThor product had a unique origin story, diverging from the conventional garage or basement narratives often associated with product development. Instead, its inception took place during the CSCD (Advanced Certification Program in Cyber Security and Cyber Defense) program, a capstone project organized by IIT-Kanpur in collaboration with Talent Sprint between 2022 and 2023.
+
+At the project's outset, I (**Mohammed, Jawed**) and **Sriram P** generated some initial ideas. However, it was through the invaluable guidance and feedback of our exceptional mentors, namely **Prof. Anand Handa** and **Nitish Kumar**, that we were able to continuously refine and augment our product. Additionally, **Prof. Sandeep Shukla's** timely suggestions proved instrumental in shaping the direction of ArkThor, as we incorporated additional features and functionalities, gradually transforming our nascent concepts into a comprehensive and fully-fledged product.
+
+The name "**ArkThor**" was meticulously chosen to capture the essence of the product. "**Ark" symbolizes safety and protection, while "Thor" evokes associations with strength and power.** By combining these elements, we sought to convey the robust security measures and formidable capabilities that the ArkThor product embodies.
+
+Although we initially focused on simplicity, as the product evolved, we embraced the opportunity to introduce new features and enhancements to ArkThor. We remain open to receiving suggestions and feedback, and encourage you to reach out to us via email at [arkthor.help@gmail.com](mailto:**arkthor.help@gmail.com**). Your input is highly valued as we strive to continually improve the ArkThor experience.
+
+**_- Mohammed Jawed (MD)_**
 
 ## Project Core Architect Idea
 The entire project is comprised of three distinct layers: a platform-independent layer that is scalable and built using microservices. It is also designed to be easy to deploy and relies entirely on an opensource technology stack,
