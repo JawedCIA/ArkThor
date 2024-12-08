@@ -1,6 +1,6 @@
 ##############################################################
 # Author: Sriram                                                                                         #
-# Contact: star.sriram [att] gmail [dot] com                             #
+# Contact: star.sriram [att] gmail [dot] com ,  jawed.iitk [att] gmail [dot] com                        #
 # License: GPLV2                                                                                         #
 # Reason: Capstone Project April 2023 - IIT Kanpur                       #
 ##############################################################
